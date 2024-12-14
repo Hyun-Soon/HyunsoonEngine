@@ -147,27 +147,40 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam,
 			PAINTSTRUCT ps;
 			HDC			hdc = BeginPaint(hWnd, &ps);
 			// TODO: Add any drawing code that uses hdc here...
+
+			for (int i = 0; i < 5; i++)
+			{
+				HBRUSH newBrush = CreateSolidBrush(RGB(255 - i * 50, i * 20, i * 30));
+
+				HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
+				int	   now = i * 100;
+				Rectangle(hdc, now, now, now + 100, now + 100);
+
+				SelectObject(hdc, oldBrush);
+				DeleteObject(newBrush);
+			}
+
 			EndPaint(hWnd, &ps);
 		}
 		break;
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			break;
-		case WM_MOVE:
-			MessageBoxW(hWnd, L"hihi", nullptr, 0);
-			break;
-		case WM_CREATE:
-			MessageBoxW(hWnd, L"window created", nullptr, 0);
-			break;
-		case WM_SIZE:
-			MessageBoxW(hWnd, L"window resized", nullptr, 0);
-			break;
-		// case WM_ACTIVATE:
+		// case WM_MOVE:
+		//	MessageBoxW(hWnd, L"hihi", nullptr, 0);
+		//	break;
+		// case WM_CREATE:
+		//	MessageBoxW(hWnd, L"window created", nullptr, 0);
+		//	break;
+		// case WM_SIZE:
+		//	MessageBoxW(hWnd, L"window resized", nullptr, 0);
+		//	break;
+		//  case WM_ACTIVATE:
 		//	MessageBoxW(hWnd, L"window activated", nullptr, 0);
 		//	break;
-		case WM_CLOSE:
-			MessageBoxW(hWnd, L"window closed", nullptr, 0);
-			break;
+		// case WM_CLOSE:
+		//	MessageBoxW(hWnd, L"window closed", nullptr, 0);
+		//	break;
 		// case WM_ENABLE:
 		//	MessageBoxW(hWnd, L"window enable", nullptr, 0);
 		//	break;
