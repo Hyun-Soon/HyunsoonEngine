@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HyunsoonEngine", "HyunsoonEngine.vcxproj", "{F9F51FA1-B4E9-4016-BC15-19C55F5ABE6B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HyunsoonEngine_CommonSources", "..\HyunsoonEngine_CommonSources\HyunsoonEngine_CommonSources.vcxitems", "{E6AE6178-6CB2-4661-AB6F-CF79FCFF463C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HyunsoonEngine_Window", "..\HyunsoonEngine_Window\HyunsoonEngine_Window.vcxproj", "{0F977F29-2624-4CFD-885A-88052B9C4768}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +25,20 @@ Global
 		{F9F51FA1-B4E9-4016-BC15-19C55F5ABE6B}.Release|x64.Build.0 = Release|x64
 		{F9F51FA1-B4E9-4016-BC15-19C55F5ABE6B}.Release|x86.ActiveCfg = Release|Win32
 		{F9F51FA1-B4E9-4016-BC15-19C55F5ABE6B}.Release|x86.Build.0 = Release|Win32
+		{0F977F29-2624-4CFD-885A-88052B9C4768}.Debug|x64.ActiveCfg = Debug|x64
+		{0F977F29-2624-4CFD-885A-88052B9C4768}.Debug|x64.Build.0 = Debug|x64
+		{0F977F29-2624-4CFD-885A-88052B9C4768}.Debug|x86.ActiveCfg = Debug|Win32
+		{0F977F29-2624-4CFD-885A-88052B9C4768}.Debug|x86.Build.0 = Debug|Win32
+		{0F977F29-2624-4CFD-885A-88052B9C4768}.Release|x64.ActiveCfg = Release|x64
+		{0F977F29-2624-4CFD-885A-88052B9C4768}.Release|x64.Build.0 = Release|x64
+		{0F977F29-2624-4CFD-885A-88052B9C4768}.Release|x86.ActiveCfg = Release|Win32
+		{0F977F29-2624-4CFD-885A-88052B9C4768}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\HyunsoonEngine_CommonSources\HyunsoonEngine_CommonSources.vcxitems*{0f977f29-2624-4cfd-885a-88052b9c4768}*SharedItemsImports = 4
+		..\HyunsoonEngine_CommonSources\HyunsoonEngine_CommonSources.vcxitems*{e6ae6178-6cb2-4661-ab6f-cf79fcff463c}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal

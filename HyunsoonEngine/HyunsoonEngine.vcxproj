@@ -145,6 +145,11 @@
   <ItemGroup>
     <None Include=".clang-format" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HyunsoonEngine_Window\HyunsoonEngine_Window.vcxproj">
+      <Project>{0f977f29-2624-4cfd-885a-88052b9c4768}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
