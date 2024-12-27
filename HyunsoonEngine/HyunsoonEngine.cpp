@@ -118,16 +118,19 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
 	hInst = hInstance; // Store instance handle in our global variable
 
-	HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+	const UINT width = 1600;
+	const UINT height = 900;
+
+	HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
 	if (!hWnd)
 	{
 		return FALSE;
 	}
-	app.Initialize(hWnd);
+	app.Initialize(hWnd, width, height);
 
-	ShowWindow(hWnd, nCmdShow);
-	UpdateWindow(hWnd);
+	// ShowWindow(hWnd, nCmdShow);
+	// UpdateWindow(hWnd);
 
 	return TRUE;
 }

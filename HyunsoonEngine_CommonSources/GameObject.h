@@ -22,5 +22,6 @@ namespace hs
 	private:
 		float mX;
 		float mY;
+		float mSpeed;
 	};
 }

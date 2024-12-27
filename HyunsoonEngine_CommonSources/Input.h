@@ -2,7 +2,8 @@
 
 #include <algorithm>
 #include <vector>
-#include <Windows.h>
+
+#include "Time.h"
 
 namespace hs
 {
