@@ -40,7 +40,7 @@ namespace hs
 
 	void GameObject::Render(HDC& hdc)
 	{
-		auto color = RGB(int(mX * 3) % 256, int(mX * 6) % 256, int(mX * 9) % 256);
+		int color = RGB(int(mX * 3) % 256, int(mX * 6) % 256, int(mY * 9) % 256);
 		HBRUSH newBrush = CreateSolidBrush(color);
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
 
