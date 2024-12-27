@@ -1,6 +1,7 @@
 #pragma once
 
-#include <Windows.h>
+#include "GameObject.h"
+#include "Input.h"
 
 namespace hs
 {
@@ -22,8 +23,6 @@ namespace hs
 		HWND mHwnd;
 		HDC mHdc;
 
-		float mSpeed;
-		float mX;
-		float mY;
+		GameObject mSquare;
 	};
 }
