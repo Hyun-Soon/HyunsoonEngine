@@ -8,6 +8,7 @@ namespace hs
 	{
 
 	}
+
 	Application::~Application()
 	{
 
@@ -20,23 +21,27 @@ namespace hs
 
 		Input::Initialize();
 	}
+
 	void Application::Run()
 	{
-		Update();
-		LateUpdate();
-		Render();
+		update();
+		lateUpdate();
+		render();
 	}
-	void Application::Update()
+
+	void Application::update()
 	{
 		Input::Update();
 		mSquare.Update();
 
 	}
-	void Application::LateUpdate()
+
+	void Application::lateUpdate()
 	{
 
 	}
-	void Application::Render()
+
+	void Application::render()
 	{
 		mSquare.Render(mHdc);
 	}

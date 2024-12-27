@@ -14,12 +14,11 @@ namespace hs
 		void Initialize(HWND hwnd);
 		void Run();
 
-		void Update();
-		void LateUpdate();
-		void Render();
-
-
 	private:
+		void update();
+		void lateUpdate();
+		void render();
+
 		HWND mHwnd;
 		HDC mHdc;
 
