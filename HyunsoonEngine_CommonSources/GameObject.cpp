@@ -3,7 +3,7 @@
 namespace hs
 {
 	GameObject::GameObject()
-		: mX(0.0f), mY(0.0f), mSpeed(100.0f)
+		: mPos(0.0f, 0.0f), mSpeed(100.0f)
 	{
 	}
 
@@ -15,22 +15,22 @@ namespace hs
 	{
 		if (Input::GetKey(eKeyCode::A))
 		{
-			mX -= mSpeed * Time::GetDeltaTime();
+			mPos.x -= mSpeed * Time::GetDeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::D))
 		{
-			mX += mSpeed * Time::GetDeltaTime();
+			mPos.x += mSpeed * Time::GetDeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::W))
 		{
-			mY -= mSpeed * Time::GetDeltaTime();
+			mPos.y -= mSpeed * Time::GetDeltaTime();
 		}
 
 		if (Input::GetKey(eKeyCode::S))
 		{
-			mY += mSpeed * Time::GetDeltaTime();
+			mPos.y += mSpeed * Time::GetDeltaTime();
 		}
 	}
 
@@ -40,14 +40,14 @@ namespace hs
 
 	void GameObject::Render(HDC& hdc)
 	{
-		int color = RGB(int(mX * 3) % 256, int(mX * 6) % 256, int(mY * 9) % 256);
+		int color = RGB(int(mPos.x * 3) % 256, int(mPos.x * 6) % 256, int(mPos.y * 9) % 256);
 		HBRUSH newBrush = CreateSolidBrush(color);
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
 
 		HPEN newPen = CreatePen(PS_SOLID, 2, color);
 		HPEN oldPen = (HPEN)SelectObject(hdc, newPen);
 
-		Rectangle(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+		Rectangle(hdc, 100 + mPos.x, 100 + mPos.y, 200 + mPos.x, 200 + mPos.y);
 
 		SelectObject(hdc, oldBrush);
 		SelectObject(hdc, oldPen);
@@ -57,20 +57,20 @@ namespace hs
 
 	void GameObject::SetPosition(float x, float y)
 	{
-		mX = x;
-		mY = y;
+		mPos.x = x;
+		mPos.y = y;
 
 		return;
 	}
 
 	const float GameObject::GetPositionX() const
 	{
-		return mX;
+		return mPos.x;
 	}
 
 	const float GameObject::GetPositionY() const
 	{
-		return mY;
+		return mPos.y;
 	}
 }
 

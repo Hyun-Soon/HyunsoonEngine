@@ -4,9 +4,19 @@
 
 namespace hs
 {
+
+
 	class GameObject
 	{
 	public:
+		struct Position
+		{
+			float x;
+			float y;
+
+			Position(float x, float y) : x(x), y(y) {}
+		};
+
 		GameObject();
 		~GameObject();
 
@@ -20,8 +30,7 @@ namespace hs
 		const float GetPositionY() const;
 
 	private:
-		float mX;
-		float mY;
+		Position mPos;
 		float mSpeed;
 	};
 }

@@ -20,5 +20,6 @@ namespace hs
 
 	private:
 		std::vector<GameObject*> mGameObjects;
+		//Image backgroundImage;
 	};
 }
