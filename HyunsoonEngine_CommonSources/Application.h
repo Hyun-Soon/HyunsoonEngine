@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GameObject.h"
+#include "SceneManager.h"
 #include "Input.h"
 
 namespace hs
@@ -18,6 +18,9 @@ namespace hs
 		void update();
 		void lateUpdate();
 		void render();
+		void createBuffer(UINT width, UINT height);
+		void clearRenderTarget();
+		void present(HDC dst, HDC src);
 
 		HWND mHwnd;
 		HDC mHdc;
@@ -27,7 +30,5 @@ namespace hs
 
 		UINT mWidth;
 		UINT mHeight;
-
-		GameObject mSquare;
 	};
 }

@@ -33,17 +33,10 @@ namespace hs
 		ShowWindow(mHwnd, true);
 		UpdateWindow(mHwnd);
 
-		//윈도우 해상도에 맞는 백버퍼(도화지)생성
-		mBackBitmap = CreateCompatibleBitmap(mHdc, width, height);
-
-		//백버퍼 DC생성
-		mBackHdc = CreateCompatibleDC(mHdc);
-
-		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
-		DeleteObject(oldBitmap);
-
+		createBuffer(mWidth, mHeight);
 		Input::Initialize();
 		Time::Initialize();
+		SceneManager::Initialize();
 	}
 
 	void Application::Run()
@@ -57,9 +50,7 @@ namespace hs
 	{
 		Input::Update();
 		Time::Update();
-
-		mSquare.Update();
-
+		SceneManager::Update();
 	}
 
 	void Application::lateUpdate()
@@ -69,12 +60,34 @@ namespace hs
 
 	void Application::render()
 	{
-		Rectangle(mBackHdc, 0, 0, 1600, 900);
+		clearRenderTarget();
 
 		Time::Render(mBackHdc);
-		mSquare.Render(mBackHdc);
+		SceneManager::Render(mBackHdc);
 
-		// BackBuffer에 있는걸 원본 Buffer에 복사(그려준다)
-		BitBlt(mHdc, 0, 0, mWidth, mHeight, mBackHdc, 0, 0, SRCCOPY);
+		present(mHdc, mBackHdc);
+	}
+
+	void Application::createBuffer(UINT width, UINT height)
+	{
+		//윈도우 해상도에 맞는 백버퍼(도화지)생성
+		mBackBitmap = CreateCompatibleBitmap(mHdc, width, height);
+
+		//백버퍼를 가르킬 DC생성
+		mBackHdc = CreateCompatibleDC(mHdc);
+
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
+		DeleteObject(oldBitmap);
+	}
+
+	void Application::clearRenderTarget()
+	{
+		Rectangle(mBackHdc, 0, 0, 1600, 900);
+	}
+
+	void Application::present(HDC dst, HDC src)
+	{
+		BitBlt(dst, 0, 0, mWidth, mHeight, src, 0, 0, SRCCOPY);
 	}
 }
+

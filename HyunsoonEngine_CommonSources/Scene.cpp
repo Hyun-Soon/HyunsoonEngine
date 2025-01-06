@@ -30,7 +30,7 @@ namespace hs
 		}
 	}
 
-	void Scene::Render(HDC hdc)
+	void Scene::Render(HDC& hdc)
 	{
 		for (GameObject* gameObj : mGameObjects)
 		{

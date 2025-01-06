@@ -9,34 +9,8 @@ namespace hs
 	class SceneManager
 	{
 	public:
-		static Scene* CreateScene(const std::wstring& name)
-		{
-			Scene* scene = nullptr;
-
-			if (mScenes.find(name) == mScenes.end())
-			{
-				scene = new Scene();
-
-				scene->SetName(name);
-				scene->Initialize();
-
-				mScenes[name] = scene;
-			}
-
-			return scene;
-		}
-
-		static Scene* LoadScene(const std::wstring& name)
-		{
-			std::unordered_map<std::wstring, Scene*>::iterator iter = mScenes.find(name);
-
-			if (iter == mScenes.end())
-				return nullptr;
-
-			mActiveScene = iter->second;
-
-			return iter->second;
-		}
+		static Scene* CreateScene(const std::wstring& name);
+		static Scene* LoadScene(const std::wstring& name);
 
 		static void Initialize();
 		static void Update();
