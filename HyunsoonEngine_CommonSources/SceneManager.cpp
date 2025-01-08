@@ -62,6 +62,18 @@ namespace hs
 
 	void SceneManager::Update()
 	{
+		if (Input::GetKeyDown(eKeyCode::Space))
+		{
+			auto it = mScenes.find(mActiveScene->GetName());
+			if (it != mScenes.end())
+			{
+				++it;
+				if (it == mScenes.end())
+					mActiveScene = (mScenes.begin())->second;
+				else
+					mActiveScene = it->second;
+			}
+		}
 		mActiveScene->Update();
 	}
 
