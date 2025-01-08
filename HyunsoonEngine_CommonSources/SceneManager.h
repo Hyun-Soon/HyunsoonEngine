@@ -10,12 +10,12 @@ namespace hs
 	class SceneManager
 	{
 	public:
-		enum class eSceneId
+		enum class eSceneType
 		{
 			Login, Village, Hunting,
 		};
 
-		static Scene* CreateScene(const std::wstring& name);
+		static Scene* CreateScene(const std::wstring& name, const eSceneType type);
 		static Scene* LoadScene(const std::wstring& name);
 
 		static void Initialize();

@@ -5,13 +5,28 @@ namespace hs
 	std::unordered_map<std::wstring, Scene*> SceneManager::mScenes = {};
 	Scene* SceneManager::mActiveScene = nullptr;
 
-	Scene* SceneManager::CreateScene(const std::wstring& name)
+	Scene* SceneManager::CreateScene(const std::wstring& name, const eSceneType type)
 	{
 		Scene* scene = nullptr;
 
 		if (mScenes.find(name) == mScenes.end())
 		{
-			scene = new Scene();
+			int sceneType = static_cast<int>(type);
+
+			switch (sceneType)
+			{
+				//case 0:
+				//	scene = new LoginScene();
+				//	break;
+			case 1:
+				scene = new VillageScene();
+				break;
+			case 2:
+				scene = new HuntingScene(1, 0, {});
+				break;
+			default:
+				break;
+			}
 
 			scene->SetName(name);
 			scene->Initialize();
@@ -38,7 +53,10 @@ namespace hs
 	{
 		//test
 		//mActiveScene = new HuntingScene(1, 0, {});
-		mActiveScene = new VillageScene();
+		//mActiveScene = new VillageScene();
+		CreateScene(L"Henesys", SceneManager::eSceneType::Village);
+		CreateScene(L"Mushrooms", SceneManager::eSceneType::Hunting);
+		LoadScene(L"Henesys");
 		mActiveScene->Initialize();
 	}
 
