@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Entity.h"
-#include "GameObject.h"
+#include "Monster.h"
 
 namespace hs
 {

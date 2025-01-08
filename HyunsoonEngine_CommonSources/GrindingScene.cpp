@@ -15,10 +15,16 @@ namespace hs
 
 	void GrindingScene::Initialize()
 	{
+		//temp
+		mMonsters.emplace_back(0, 0, 100);
+		mMonsters.emplace_back(0, 0, 100);
+		mMonsters[1].SetPosition(500, 500);
 	}
 
 	void GrindingScene::Update()
 	{
+		for (Monster& monster : mMonsters)
+			monster.Update();
 	}
 
 	void GrindingScene::LateUpdate()
@@ -27,5 +33,7 @@ namespace hs
 
 	void GrindingScene::Render(HDC& hdc)
 	{
+		for (Monster& monster : mMonsters)
+			monster.Render(hdc);
 	}
 }

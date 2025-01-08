@@ -2,6 +2,7 @@
 
 #include "Scene.h"
 
+
 namespace hs
 {
 	class GrindingScene : public Scene

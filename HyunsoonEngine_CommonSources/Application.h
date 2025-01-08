@@ -30,5 +30,6 @@ namespace hs
 
 		UINT mWidth;
 		UINT mHeight;
+
 	};
 }

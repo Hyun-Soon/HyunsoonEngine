@@ -4,8 +4,6 @@
 
 namespace hs
 {
-
-
 	class GameObject
 	{
 	public:
@@ -20,16 +18,16 @@ namespace hs
 		GameObject();
 		~GameObject();
 
-		void Update();
-		void LateUpdate();
-		void Render(HDC& hdc);
+		virtual void Update();
+		virtual void LateUpdate();
+		virtual void Render(HDC& hdc);
 
 		void SetPosition(float x, float y);
 
 		const float GetPositionX() const;
 		const float GetPositionY() const;
 
-	private:
+	protected:
 		Position mPos;
 		float mSpeed;
 	};

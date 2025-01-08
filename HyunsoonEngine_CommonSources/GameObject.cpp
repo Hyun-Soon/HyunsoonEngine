@@ -40,19 +40,7 @@ namespace hs
 
 	void GameObject::Render(HDC& hdc)
 	{
-		int color = RGB(int(mPos.x * 3) % 256, int(mPos.x * 6) % 256, int(mPos.y * 9) % 256);
-		HBRUSH newBrush = CreateSolidBrush(color);
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
 
-		HPEN newPen = CreatePen(PS_SOLID, 2, color);
-		HPEN oldPen = (HPEN)SelectObject(hdc, newPen);
-
-		Rectangle(hdc, 100 + mPos.x, 100 + mPos.y, 200 + mPos.x, 200 + mPos.y);
-
-		SelectObject(hdc, oldBrush);
-		SelectObject(hdc, oldPen);
-		DeleteObject(newBrush);
-		DeleteObject(newPen);
 	}
 
 	void GameObject::SetPosition(float x, float y)

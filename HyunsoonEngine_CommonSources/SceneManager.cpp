@@ -37,8 +37,8 @@ namespace hs
 	void SceneManager::Initialize()
 	{
 		//test
-		mActiveScene = new Scene;
-		mActiveScene->AddGameObject(new GameObject());
+		mActiveScene = new GrindingScene(1, 0, {});
+		mActiveScene->Initialize();
 	}
 
 	void SceneManager::Update()

@@ -3,7 +3,6 @@
 namespace hs
 {
 	Player::Player()
-		: GameObject()
 	{
 	}
 
@@ -11,19 +10,19 @@ namespace hs
 	{
 	}
 
-	void Player::UseSkill(UINT skillId)
-	{
-		assert(skillId < mSkills.size());
+	//void Player::UseSkill(size_t skillId)
+	//{
+	//	assert(skillId < mSkills.size());
 
-		mSkills[skillId].Use();
-	}
+	//	mSkills[skillId].Use();
+	//}
 
-	void Player::UseItem(UINT slotId)
-	{
-		assert(slotId < mInventory.size());
+	//void Player::UseItem(size_t slotId)
+	//{
+	//	assert(slotId < mInventory.size());
 
-		mInventory[slotId].Use();
-	}
+	//	mInventory[slotId].Use();
+	//}
 
 	/*void Player::PickUpItem()
 	{
