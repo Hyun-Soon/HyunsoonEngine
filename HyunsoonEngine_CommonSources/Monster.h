@@ -26,8 +26,6 @@ namespace hs
 		void Attack();
 
 	private:
-
-
 		bool isPlayerNearby();
 
 		bool bDirection;

@@ -3,6 +3,7 @@
 #include <unordered_map>
 
 #include "GrindingScene.h"
+#include "VillageScene.h"
 
 namespace hs
 {

@@ -15,7 +15,7 @@ namespace hs
 
 	void GrindingScene::Initialize()
 	{
-		//temp
+		//test
 		mMonsters.emplace_back(0, 0, 100);
 		mMonsters.emplace_back(0, 0, 100);
 		mMonsters[1].SetPosition(500, 500);

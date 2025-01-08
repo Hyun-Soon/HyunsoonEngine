@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Scene.h"
+#include "Npc.h"
 
 namespace hs
 {
@@ -10,15 +11,13 @@ namespace hs
 		VillageScene();
 		~VillageScene();
 
+		virtual void Initialize() override;
+		virtual void Update() override;
+		virtual void LateUpdate() override;
+		virtual void Render(HDC& hdc) override;
+
 	private:
-
+		std::vector<Npc> mNpcs;
+		//background image
 	};
-
-	VillageScene::VillageScene()
-	{
-	}
-
-	VillageScene::~VillageScene()
-	{
-	}
 }
