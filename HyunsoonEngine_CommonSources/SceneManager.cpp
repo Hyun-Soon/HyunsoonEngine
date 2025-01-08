@@ -37,7 +37,7 @@ namespace hs
 	void SceneManager::Initialize()
 	{
 		//test
-		//mActiveScene = new GrindingScene(1, 0, {});
+		//mActiveScene = new HuntingScene(1, 0, {});
 		mActiveScene = new VillageScene();
 		mActiveScene->Initialize();
 	}

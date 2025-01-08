@@ -1,19 +1,19 @@
-#include "GrindingScene.h"
+#include "HuntingScene.h"
 
 namespace hs
 {
-	GrindingScene::GrindingScene(uint8_t monsterCnt, uint8_t monsterGenPeriod, std::vector<Monster> monsters)
+	HuntingScene::HuntingScene(uint8_t monsterCnt, uint8_t monsterGenPeriod, std::vector<Monster> monsters)
 		: mMonsterCount(monsterCnt)
 		, mMonsterGenPeriod(monsterGenPeriod)
 		, mMonsters(monsters)
 	{
 	}
 
-	GrindingScene::~GrindingScene()
+	HuntingScene::~HuntingScene()
 	{
 	}
 
-	void GrindingScene::Initialize()
+	void HuntingScene::Initialize()
 	{
 		//test
 		mMonsters.emplace_back(0, 0, 100);
@@ -21,17 +21,17 @@ namespace hs
 		mMonsters[1].SetPosition(500, 500);
 	}
 
-	void GrindingScene::Update()
+	void HuntingScene::Update()
 	{
 		for (Monster& monster : mMonsters)
 			monster.Update();
 	}
 
-	void GrindingScene::LateUpdate()
+	void HuntingScene::LateUpdate()
 	{
 	}
 
-	void GrindingScene::Render(HDC& hdc)
+	void HuntingScene::Render(HDC& hdc)
 	{
 		for (Monster& monster : mMonsters)
 			monster.Render(hdc);

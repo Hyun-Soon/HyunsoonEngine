@@ -2,7 +2,7 @@
 
 #include <unordered_map>
 
-#include "GrindingScene.h"
+#include "HuntingScene.h"
 #include "VillageScene.h"
 
 namespace hs
@@ -10,6 +10,11 @@ namespace hs
 	class SceneManager
 	{
 	public:
+		enum class eSceneId
+		{
+			Login, Village, Hunting,
+		};
+
 		static Scene* CreateScene(const std::wstring& name);
 		static Scene* LoadScene(const std::wstring& name);
 

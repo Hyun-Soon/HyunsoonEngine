@@ -5,11 +5,11 @@
 
 namespace hs
 {
-	class GrindingScene : public Scene
+	class HuntingScene : public Scene
 	{
 	public:
-		GrindingScene(uint8_t monsterCnt, uint8_t monsterGenPeriod, std::vector<Monster> monsters);
-		~GrindingScene();
+		HuntingScene(uint8_t monsterCnt, uint8_t monsterGenPeriod, std::vector<Monster> monsters);
+		~HuntingScene();
 
 		virtual void Initialize() override;
 		virtual void Update() override;

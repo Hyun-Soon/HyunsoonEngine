@@ -17,7 +17,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Entity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GrindingScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)HuntingScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Input.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Monster.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Npc.h" />
@@ -31,7 +31,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Entity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GrindingScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)HuntingScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Monster.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Npc.cpp" />
