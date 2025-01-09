@@ -1,4 +1,4 @@
-#include "GameObject.h"
+#include "Application.h"
 
 namespace hs
 {
@@ -13,25 +13,7 @@ namespace hs
 
 	void GameObject::Update()
 	{
-		if (Input::GetKey(eKeyCode::A))
-		{
-			mPos.x -= mSpeed * Time::GetDeltaTime();
-		}
-
-		if (Input::GetKey(eKeyCode::D))
-		{
-			mPos.x += mSpeed * Time::GetDeltaTime();
-		}
-
-		if (Input::GetKey(eKeyCode::W))
-		{
-			mPos.y -= mSpeed * Time::GetDeltaTime();
-		}
-
-		if (Input::GetKey(eKeyCode::S))
-		{
-			mPos.y += mSpeed * Time::GetDeltaTime();
-		}
+		repositionWithinBounds();
 	}
 
 	void GameObject::LateUpdate()
@@ -59,6 +41,21 @@ namespace hs
 	const float GameObject::GetPositionY() const
 	{
 		return mPos.y;
+	}
+
+	void GameObject::repositionWithinBounds()
+	{
+		Resolution res = Application::GetResolution();
+
+		if (mPos.x < 0.0f)
+			mPos.x = 0.0f;
+		else if (mPos.x > res.width)
+			mPos.x = res.width;
+
+		if (mPos.y < 0.0f)
+			mPos.y = 0.0f;
+		else if (mPos.y > res.height)
+			mPos.y = res.height;
 	}
 }
 

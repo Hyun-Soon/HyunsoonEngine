@@ -15,25 +15,9 @@ namespace hs
 
 	void Monster::Update()
 	{
-		if (Input::GetKey(eKeyCode::A))
-		{
-			mPos.x -= mSpeed * Time::GetDeltaTime();
-		}
+		//random logic
 
-		if (Input::GetKey(eKeyCode::D))
-		{
-			mPos.x += mSpeed * Time::GetDeltaTime();
-		}
-
-		if (Input::GetKey(eKeyCode::W))
-		{
-			mPos.y -= mSpeed * Time::GetDeltaTime();
-		}
-
-		if (Input::GetKey(eKeyCode::S))
-		{
-			mPos.y += mSpeed * Time::GetDeltaTime();
-		}
+		GameObject::Update();
 	}
 
 	void Monster::LateUpdate()

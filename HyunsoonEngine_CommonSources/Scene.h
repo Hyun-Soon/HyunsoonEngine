@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Entity.h"
+#include "Player.h"
 #include "Monster.h"
 
 namespace hs
@@ -19,6 +20,7 @@ namespace hs
 		void AddGameObject(GameObject* gameObject);
 
 	private:
+
 		std::vector<GameObject*> mGameObjects;
 		//Image backgroundImage;
 	};

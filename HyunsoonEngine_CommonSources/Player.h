@@ -11,6 +11,10 @@ namespace hs
 		Player();
 		~Player();
 
+		virtual void Update() override;
+		virtual void LateUpdate() override;
+		virtual void Render(HDC& hdc) override;
+
 		//void UseSkill(size_t skillId);
 		//void UseItem(size_t slotId);
 		//void PickUpItem();

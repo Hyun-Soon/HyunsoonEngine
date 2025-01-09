@@ -28,6 +28,8 @@ namespace hs
 		const float GetPositionY() const;
 
 	protected:
+		void repositionWithinBounds();
+
 		Position mPos;
 		float mSpeed;
 	};
