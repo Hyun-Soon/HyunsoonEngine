@@ -25,6 +25,9 @@ namespace hs
 			Idle, Move, Jump, DoubleJump,
 			UsingSkill, HangOn, Dead,
 		};
+
+		void applyGravity();
+
 		ePlayerState mState;
 		uint16_t mHP;
 		uint16_t mMP;

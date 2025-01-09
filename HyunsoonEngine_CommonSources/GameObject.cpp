@@ -54,8 +54,8 @@ namespace hs
 
 		if (mPos.y < 0.0f)
 			mPos.y = 0.0f;
-		else if (mPos.y > res.height)
-			mPos.y = res.height;
+		else if (mPos.y > 600.0f) //temp //question : how to determine
+			mPos.y = 600.0f;
 	}
 }
 

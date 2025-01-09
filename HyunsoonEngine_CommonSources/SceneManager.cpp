@@ -62,7 +62,7 @@ namespace hs
 
 	void SceneManager::Update()
 	{
-		if (Input::GetKeyDown(eKeyCode::Space))
+		if (Input::GetKeyDown(eKeyCode::Tab))
 		{
 			auto it = mScenes.find(mActiveScene->GetName());
 			if (it != mScenes.end())

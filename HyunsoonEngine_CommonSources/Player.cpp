@@ -32,6 +32,9 @@ namespace hs
 			mPos.y += mSpeed * Time::GetDeltaTime();
 		}
 
+		applyGravity();
+
+
 		GameObject::Update();
 	}
 
@@ -54,6 +57,11 @@ namespace hs
 		SelectObject(hdc, oldPen);
 		DeleteObject(newBrush);
 		DeleteObject(newPen);
+	}
+
+	void Player::applyGravity()
+	{
+		mPos.y += 0.5f;
 	}
 
 	//void Player::UseSkill(size_t skillId)
