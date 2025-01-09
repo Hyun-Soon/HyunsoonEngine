@@ -21,6 +21,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Input.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Monster.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Npc.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)PhysicsTypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Player.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h" />

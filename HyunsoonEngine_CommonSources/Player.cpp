@@ -3,6 +3,13 @@
 namespace hs
 {
 	Player::Player()
+		: GameObject()
+		, mVel(0.0f, 0.0f)
+		, mAcc(0.0f, 0.0f)
+		, mDirection(1)
+		, mState(ePlayerState::Idle)
+		, mHP(100)
+		, mMP(100)
 	{
 	}
 
@@ -12,30 +19,52 @@ namespace hs
 
 	void Player::Update()
 	{
-		if (Input::GetKey(eKeyCode::A))
+		if (mState == Player::ePlayerState::Idle
+			&& Input::GetKeyDown(eKeyCode::A))
 		{
-			mPos.x -= mSpeed * Time::GetDeltaTime();
+			mVel.x = -200.0f;
+			mDirection = -1;
+		}
+		else if (mState == Player::ePlayerState::Idle
+			&& Input::GetKeyUp(eKeyCode::A))
+		{
+			mVel.x = 0.0f;
 		}
 
-		if (Input::GetKey(eKeyCode::D))
+		if (mState == Player::ePlayerState::Idle
+			&& Input::GetKeyDown(eKeyCode::D))
 		{
-			mPos.x += mSpeed * Time::GetDeltaTime();
+			mVel.x = 200.0f;
+			mDirection = 1;
+		}
+		else if (mState == Player::ePlayerState::Idle
+			&& Input::GetKeyUp(eKeyCode::D))
+		{
+			mVel.x = 0.0f;
 		}
 
-		if (Input::GetKey(eKeyCode::W))
+		if ((mState == Player::ePlayerState::Idle || mState == Player::ePlayerState::Move)
+			&& Input::GetKeyDown(eKeyCode::Space))
 		{
-			mPos.y -= mSpeed * Time::GetDeltaTime();
+			jump();
+		}
+		else if (mState == Player::ePlayerState::Jump
+			&& Input::GetKeyDown(eKeyCode::Space))
+		{
+			doubleJump();
 		}
 
-		if (Input::GetKey(eKeyCode::S))
-		{
-			mPos.y += mSpeed * Time::GetDeltaTime();
-		}
-
-		applyGravity();
-
+		updatePhysics();
 
 		GameObject::Update();
+
+		if (mPos.y >= 600.0f)
+		{
+			mState = Player::ePlayerState::Idle;
+			mAcc.x = 0.0f;
+			mAcc.y = 0.0f;
+			color = RGB(0, 0, 255);
+		}
 	}
 
 	void Player::LateUpdate()
@@ -44,7 +73,7 @@ namespace hs
 
 	void Player::Render(HDC& hdc)
 	{
-		int color = RGB(0, 0, 255);
+
 		HBRUSH newBrush = CreateSolidBrush(color);
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
 
@@ -59,9 +88,32 @@ namespace hs
 		DeleteObject(newPen);
 	}
 
-	void Player::applyGravity()
+	void Player::updatePhysics()
 	{
-		mPos.y += 0.5f;
+		float dt = Time::GetDeltaTime();
+		float dt2 = dt * dt;
+
+		mPos.x += mVel.x * dt + mAcc.x * dt2;
+		mVel.x += mAcc.x * dt;
+
+		mPos.y += mVel.y * dt + mAcc.y * dt2;
+		mVel.y += mAcc.y * dt;
+		mAcc.y += 0.5f;
+	}
+
+	void Player::jump()
+	{
+		color = RGB(0, 0, 0);
+		mState = Player::ePlayerState::Jump;
+		mVel.y = -50.0f;
+		mAcc.y = -100.0f;
+	}
+
+	void Player::doubleJump()
+	{
+		color = RGB(100, 100, 100);
+		mVel.x += mDirection * 100.0f;
+		mAcc.x += -mDirection * 60.0f;
 	}
 
 	//void Player::UseSkill(size_t skillId)
@@ -84,3 +136,4 @@ namespace hs
 	}*/
 
 }
+

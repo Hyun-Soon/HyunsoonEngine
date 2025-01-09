@@ -24,6 +24,7 @@ namespace hs
 		AddGameObject(pObj);
 
 		pObj = new Player();
+		pObj->SetPosition(0, 600);
 		AddGameObject(pObj);
 	}
 

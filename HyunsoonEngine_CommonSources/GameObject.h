@@ -1,20 +1,13 @@
 #pragma once
 
 #include "Input.h"
+#include "PhysicsTypes.h"
 
 namespace hs
 {
 	class GameObject
 	{
 	public:
-		struct Position
-		{
-			float x;
-			float y;
-
-			Position(float x, float y) : x(x), y(y) {}
-		};
-
 		GameObject();
 		~GameObject();
 
@@ -28,7 +21,6 @@ namespace hs
 		const float GetPositionY() const;
 
 	protected:
-		float mSpeed;
 		Position mPos;
 
 	private:

@@ -26,11 +26,20 @@ namespace hs
 			UsingSkill, HangOn, Dead,
 		};
 
-		void applyGravity();
+		void updatePhysics();
+		void jump();
+		void doubleJump();
 
+		Velocity mVel;
+		Acceleration mAcc;
+
+		int mDirection;
 		ePlayerState mState;
 		uint16_t mHP;
 		uint16_t mMP;
+
+
+		int color = RGB(0, 0, 255); //test
 
 		//std::vector<Item> mInventory;
 		//std::vector<Skill> mSkills;
