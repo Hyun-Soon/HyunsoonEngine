@@ -1,4 +1,4 @@
-#include "VillageScene.h""
+#include "VillageScene.h"
 
 namespace hs
 {
@@ -13,24 +13,30 @@ namespace hs
 	void VillageScene::Initialize()
 	{
 		//test
-		mNpcs.emplace_back();
-		mNpcs.emplace_back();
-		mNpcs[1].SetPosition(500.0f, 0.0f);
+		GameObject* pObj;
+
+		pObj = new Npc();
+		AddGameObject(pObj);
+
+		pObj = new Npc();
+		pObj->SetPosition(500.0f, 0.0f);
+		AddGameObject(pObj);
+
 	}
 
-	void VillageScene::Update()
-	{
-	}
+	//void VillageScene::Update()
+	//{
+	//}
 
-	void VillageScene::LateUpdate()
-	{
-	}
+	//void VillageScene::LateUpdate()
+	//{
+	//}
 
-	void VillageScene::Render(HDC& hdc)
-	{
-		for (Npc& npc : mNpcs)
-		{
-			npc.Render(hdc);
-		}
-	}
+	//void VillageScene::Render(HDC& hdc)
+	//{
+	//	for (Npc& npc : mNpcs)
+	//	{
+	//		npc.Render(hdc);
+	//	}
+	//}
 }

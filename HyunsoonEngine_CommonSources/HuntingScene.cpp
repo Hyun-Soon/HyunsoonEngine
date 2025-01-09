@@ -2,10 +2,8 @@
 
 namespace hs
 {
-	HuntingScene::HuntingScene(uint8_t monsterCnt, uint8_t monsterGenPeriod, std::vector<Monster> monsters)
-		: mMonsterCount(monsterCnt)
-		, mMonsterGenPeriod(monsterGenPeriod)
-		, mMonsters(monsters)
+	HuntingScene::HuntingScene()
+		: mMonsterGenPeriod(7) //temp
 	{
 	}
 
@@ -16,24 +14,30 @@ namespace hs
 	void HuntingScene::Initialize()
 	{
 		//test
-		mMonsters.emplace_back(0, 0, 100);
-		mMonsters.emplace_back(0, 0, 100);
-		mMonsters[1].SetPosition(500, 500);
+		GameObject* pObj;
+
+		pObj = new Monster(0, 0, 100);
+		AddGameObject(pObj);
+
+		pObj = new Monster(0, 0, 100);
+		pObj->SetPosition(500, 500);
+		AddGameObject(pObj);
+
+		pObj = new Player();
+		AddGameObject(pObj);
 	}
 
-	void HuntingScene::Update()
-	{
-		for (Monster& monster : mMonsters)
-			monster.Update();
-	}
+	//void HuntingScene::Update()
+	//{
+	//}
 
-	void HuntingScene::LateUpdate()
-	{
-	}
+	//void HuntingScene::LateUpdate()
+	//{
+	//}
 
-	void HuntingScene::Render(HDC& hdc)
-	{
-		for (Monster& monster : mMonsters)
-			monster.Render(hdc);
-	}
+	//void HuntingScene::Render(HDC& hdc)
+	//{
+	//	for (Monster& monster : mMonsters)
+	//		monster.Render(hdc);
+	//}
 }

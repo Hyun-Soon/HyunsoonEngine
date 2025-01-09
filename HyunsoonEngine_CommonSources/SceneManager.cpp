@@ -22,7 +22,7 @@ namespace hs
 				scene = new VillageScene();
 				break;
 			case 2:
-				scene = new HuntingScene(1, 0, {});
+				scene = new HuntingScene();
 				break;
 			default:
 				break;

@@ -3,7 +3,7 @@
 namespace hs
 {
 	GameObject::GameObject()
-		: mPos(0.0f, 0.0f), mSpeed(100.0f)
+		: mPos(0.0f, 0.0f), mSpeed(200.0f)
 	{
 	}
 

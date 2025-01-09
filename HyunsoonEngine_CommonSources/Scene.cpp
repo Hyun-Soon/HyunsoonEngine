@@ -3,12 +3,13 @@
 namespace hs
 {
 	Scene::Scene()
-		: mGameObjects()
 	{
 	}
 
 	Scene::~Scene()
 	{
+		for (GameObject* gameObj : mGameObjects)
+			delete gameObj;
 	}
 
 	void Scene::Initialize()

@@ -12,12 +12,11 @@ namespace hs
 		~VillageScene();
 
 		virtual void Initialize() override;
-		virtual void Update() override;
-		virtual void LateUpdate() override;
-		virtual void Render(HDC& hdc) override;
+		//virtual void Update() override;
+		//virtual void LateUpdate() override;
+		//virtual void Render(HDC& hdc) override;
 
 	private:
-		std::vector<Npc> mNpcs;
 		//background image
 	};
 }
