@@ -2,6 +2,13 @@
 
 namespace hs
 {
+	Player Player::mPlayer;
+
+	Player& Player::GetInstance()
+	{
+		return mPlayer;
+	}
+
 	Player::Player()
 		: GameObject()
 		, mVel(0.0f, 0.0f)
@@ -116,14 +123,14 @@ namespace hs
 		mAcc.x += -mDirection * 60.0f;
 	}
 
-	//void Player::UseSkill(size_t skillId)
+	// void Player::UseSkill(size_t skillId)
 	//{
 	//	assert(skillId < mSkills.size());
 
 	//	mSkills[skillId].Use();
 	//}
 
-	//void Player::UseItem(size_t slotId)
+	// void Player::UseItem(size_t slotId)
 	//{
 	//	assert(slotId < mInventory.size());
 
@@ -135,5 +142,4 @@ namespace hs
 
 	}*/
 
-}
-
+} // namespace hs

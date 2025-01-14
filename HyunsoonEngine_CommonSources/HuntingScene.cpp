@@ -3,7 +3,7 @@
 namespace hs
 {
 	HuntingScene::HuntingScene()
-		: mMonsterGenPeriod(7) //temp
+		: mMonsterGenPeriod(7) // temp
 	{
 	}
 
@@ -13,7 +13,7 @@ namespace hs
 
 	void HuntingScene::Initialize()
 	{
-		//test
+		// test
 		GameObject* pObj;
 
 		pObj = new Monster(0, 0, 100);
@@ -22,23 +22,19 @@ namespace hs
 		pObj = new Monster(0, 0, 100);
 		pObj->SetPosition(500, 500);
 		AddGameObject(pObj);
-
-		pObj = new Player();
-		pObj->SetPosition(0, 600);
-		AddGameObject(pObj);
 	}
 
-	//void HuntingScene::Update()
+	// void HuntingScene::Update()
 	//{
-	//}
+	// }
 
-	//void HuntingScene::LateUpdate()
+	// void HuntingScene::LateUpdate()
 	//{
-	//}
+	// }
 
-	//void HuntingScene::Render(HDC& hdc)
+	// void HuntingScene::Render(HDC& hdc)
 	//{
 	//	for (Monster& monster : mMonsters)
 	//		monster.Render(hdc);
-	//}
-}
+	// }
+} // namespace hs

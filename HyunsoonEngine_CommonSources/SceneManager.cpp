@@ -3,7 +3,7 @@
 namespace hs
 {
 	std::unordered_map<std::wstring, Scene*> SceneManager::mScenes = {};
-	Scene* SceneManager::mActiveScene = nullptr;
+	Scene*									 SceneManager::mActiveScene = nullptr;
 
 	Scene* SceneManager::CreateScene(const std::wstring& name, const eSceneType type)
 	{
@@ -15,17 +15,17 @@ namespace hs
 
 			switch (sceneType)
 			{
-				//case 0:
-				//	scene = new LoginScene();
-				//	break;
-			case 1:
-				scene = new VillageScene();
-				break;
-			case 2:
-				scene = new HuntingScene();
-				break;
-			default:
-				break;
+					// case 0:
+					//	scene = new LoginScene();
+					//	break;
+				case 1:
+					scene = new VillageScene();
+					break;
+				case 2:
+					scene = new HuntingScene();
+					break;
+				default:
+					break;
 			}
 
 			scene->SetName(name);
@@ -51,9 +51,9 @@ namespace hs
 
 	void SceneManager::Initialize()
 	{
-		//test
-		//mActiveScene = new HuntingScene(1, 0, {});
-		//mActiveScene = new VillageScene();
+		// test
+		// mActiveScene = new HuntingScene(1, 0, {});
+		// mActiveScene = new VillageScene();
 		CreateScene(L"Henesys", SceneManager::eSceneType::Village);
 		CreateScene(L"Mushrooms", SceneManager::eSceneType::Hunting);
 		LoadScene(L"Henesys");
@@ -64,7 +64,7 @@ namespace hs
 	{
 		if (Input::GetKeyDown(eKeyCode::Tab))
 		{
-			auto it = mScenes.find(mActiveScene->GetName());
+			std::unordered_map<std::wstring, Scene*>::iterator it = mScenes.find(mActiveScene->GetName());
 			if (it != mScenes.end())
 			{
 				++it;
@@ -86,4 +86,4 @@ namespace hs
 	{
 		mActiveScene->Render(hdc);
 	}
-}
+} // namespace hs
