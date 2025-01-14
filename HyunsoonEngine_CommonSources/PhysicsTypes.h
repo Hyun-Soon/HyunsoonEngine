@@ -5,7 +5,8 @@ struct Position
 	float x;
 	float y;
 
-	Position(float x, float y) : x(x), y(y) {}
+	Position(float x, float y)
+		: x(x), y(y) {}
 };
 
 struct Velocity
@@ -13,7 +14,8 @@ struct Velocity
 	float x;
 	float y;
 
-	Velocity(float x, float y) : x(x), y(y) {}
+	Velocity(float x, float y)
+		: x(x), y(y) {}
 };
 
 struct Acceleration
@@ -21,5 +23,6 @@ struct Acceleration
 	float x;
 	float y;
 
-	Acceleration(float x, float y) : x(x), y(y) {}
+	Acceleration(float x, float y)
+		: x(x), y(y) {}
 };

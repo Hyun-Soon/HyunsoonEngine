@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Entity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)HuntingScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Input.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Monster.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Npc.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Player.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Time.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)VillageScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Item.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Equipment.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Consumables.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Miscellaneous.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Meso.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Skill.cpp">
+      <Filter>Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LuckySeven.cpp">
+      <Filter>Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Inventory.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Entity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)HuntingScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Input.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Monster.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Npc.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)PhysicsTypes.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Player.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Time.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)VillageScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Item.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Equipment.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Consumables.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Miscellaneous.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Meso.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Skill.h">
+      <Filter>Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LuckySeven.h">
+      <Filter>Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Inventory.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Item">
+      <UniqueIdentifier>{e1f86ef8-a0e6-4804-b11a-4c1816fd30f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill">
+      <UniqueIdentifier>{93a4333e-d880-4069-b826-c30082816f28}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory).clang-format" />
+  </ItemGroup>
+</Project>

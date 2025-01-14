@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include <queue>
 
 namespace hs
 {
@@ -43,4 +44,4 @@ namespace hs
 	{
 		mGameObjects.push_back(gameObject);
 	}
-}
+} // namespace hs

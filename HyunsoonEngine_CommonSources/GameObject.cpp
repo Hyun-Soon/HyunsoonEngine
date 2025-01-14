@@ -22,7 +22,6 @@ namespace hs
 
 	void GameObject::Render(HDC& hdc)
 	{
-
 	}
 
 	void GameObject::SetPosition(float x, float y)
@@ -54,10 +53,7 @@ namespace hs
 
 		if (mPos.y < 0.0f)
 			mPos.y = 0.0f;
-		else if (mPos.y > 600.0f) //temp //question : how to determine
+		else if (mPos.y > 600.0f) // temp //question : how to determine
 			mPos.y = 600.0f;
 	}
-}
-
-
-
+} // namespace hs

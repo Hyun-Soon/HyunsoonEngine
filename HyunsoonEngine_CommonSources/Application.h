@@ -10,7 +10,8 @@ namespace hs
 		UINT width;
 		UINT height;
 
-		Resolution(UINT w, UINT h) : width(w), height(h) {};
+		Resolution(UINT w, UINT h)
+			: width(w), height(h) {};
 	};
 
 	class Application
@@ -33,11 +34,11 @@ namespace hs
 		void present(HDC dst, HDC src);
 
 		HWND mHwnd;
-		HDC mHdc;
+		HDC	 mHdc;
 
-		HDC mBackHdc;
+		HDC		mBackHdc;
 		HBITMAP mBackBitmap;
 
 		static Resolution mResolution;
 	};
-}
+} // namespace hs
