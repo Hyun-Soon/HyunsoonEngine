@@ -5,7 +5,7 @@
 
 namespace hs
 {
-	class Time
+	class TimeUtils
 	{
 	public:
 		static void Initialize();
@@ -18,6 +18,6 @@ namespace hs
 		static LARGE_INTEGER CpuFrequency;
 		static LARGE_INTEGER PrevFrequency;
 		static LARGE_INTEGER CurrentFrequency;
-		static float DeltaTimeValue;
+		static float		 DeltaTimeValue;
 	};
-}
+} // namespace hs
