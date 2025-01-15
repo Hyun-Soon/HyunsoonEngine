@@ -2,7 +2,7 @@
 
 namespace hs
 {
-	Equipment::Equipment(uint8_t id, uint8_t part)
+	Equipment::Equipment(eItemId id, uint8_t part)
 		: Item(id)
 		, mbEquipped(false)
 		, mPart(part)

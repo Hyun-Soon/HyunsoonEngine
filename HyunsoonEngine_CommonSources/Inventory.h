@@ -8,13 +8,20 @@
 
 namespace hs
 {
+	class Shuriken;
+
 	class Inventory
 	{
 	public:
+		static Inventory* GetInstance();
+		Shuriken*		  findShuriken();
+
+	private:
 		Inventory();
 		~Inventory();
 
-	private:
+		static Inventory inventory;
+
 		std::list<Equipment*>	  mEquipments;
 		std::list<Consumables*>	  mConsumables;
 		std::list<Miscellaneous*> mMiscellaneous;

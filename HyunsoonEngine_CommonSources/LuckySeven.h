@@ -13,6 +13,7 @@ namespace hs
 		virtual void Cast() override;
 
 	private:
+		uint8_t mShurikenUsage;
 	};
 
 } // namespace hs

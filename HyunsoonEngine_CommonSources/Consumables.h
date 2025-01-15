@@ -7,7 +7,7 @@ namespace hs
 	class Consumables : public Item
 	{
 	public:
-		Consumables(uint8_t id, uint8_t initAmount);
+		Consumables(eItemId id, uint8_t initAmount);
 		~Consumables();
 
 		bool Use(uint8_t amount);

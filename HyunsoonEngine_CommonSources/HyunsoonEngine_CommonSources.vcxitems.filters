@@ -37,6 +37,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Inventory.cpp">
       <Filter>Item</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Shuriken.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
@@ -74,6 +77,9 @@
       <Filter>Skill</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Inventory.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Shuriken.h">
       <Filter>Item</Filter>
     </ClInclude>
   </ItemGroup>

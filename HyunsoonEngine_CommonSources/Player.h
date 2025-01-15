@@ -8,7 +8,7 @@ namespace hs
 	static class Player : public GameObject
 	{
 	public:
-		static Player& GetInstance();
+		static Player* GetInstance();
 
 		virtual void Update() override;
 		virtual void LateUpdate() override;
@@ -33,6 +33,8 @@ namespace hs
 		Player();
 		~Player();
 
+		static Player player;
+
 		void updatePhysics();
 		void jump();
 		void doubleJump();
@@ -44,11 +46,8 @@ namespace hs
 		ePlayerState mState;
 		uint16_t	 mHP;
 		uint16_t	 mMP;
-		Inventory	 mInventory;
 
 		int color = RGB(0, 0, 255); // test
-
-		static Player mPlayer;
 
 		// std::vector<Item> mInventory;
 		// std::vector<Skill> mSkills;

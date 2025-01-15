@@ -24,17 +24,4 @@ namespace hs
 		AddGameObject(pObj);
 	}
 
-	// void HuntingScene::Update()
-	//{
-	// }
-
-	// void HuntingScene::LateUpdate()
-	//{
-	// }
-
-	// void HuntingScene::Render(HDC& hdc)
-	//{
-	//	for (Monster& monster : mMonsters)
-	//		monster.Render(hdc);
-	// }
 } // namespace hs

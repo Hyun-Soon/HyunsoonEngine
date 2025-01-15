@@ -12,7 +12,7 @@ namespace hs
 
 	void VillageScene::Initialize()
 	{
-		//test
+		// test
 		GameObject* pObj;
 
 		pObj = new Npc();
@@ -21,22 +21,6 @@ namespace hs
 		pObj = new Npc();
 		pObj->SetPosition(500.0f, 0.0f);
 		AddGameObject(pObj);
-
 	}
 
-	//void VillageScene::Update()
-	//{
-	//}
-
-	//void VillageScene::LateUpdate()
-	//{
-	//}
-
-	//void VillageScene::Render(HDC& hdc)
-	//{
-	//	for (Npc& npc : mNpcs)
-	//	{
-	//		npc.Render(hdc);
-	//	}
-	//}
-}
+} // namespace hs

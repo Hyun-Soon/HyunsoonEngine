@@ -7,7 +7,7 @@ namespace hs
 	class Equipment : public Item
 	{
 	public:
-		Equipment(uint8_t id, uint8_t part);
+		Equipment(eItemId id, uint8_t part);
 		~Equipment();
 
 	private:

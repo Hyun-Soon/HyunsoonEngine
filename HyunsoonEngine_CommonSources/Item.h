@@ -10,14 +10,20 @@ namespace hs
 	class Item
 	{
 	public:
-		Item(uint8_t id);
+		enum class eItemId
+		{
+			Meso,
+			Shuriken,
+		};
+		Item(eItemId id);
 		~Item();
 
-		virtual void Update();
 		virtual void Render(HDC& hdc);
 
+		const eItemId GetId() const;
+
 	private:
-		const uint8_t mId;
+		const eItemId mId;
 		Position	  mPos;
 	};
 } // namespace hs

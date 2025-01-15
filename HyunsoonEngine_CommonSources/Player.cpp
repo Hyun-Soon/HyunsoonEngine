@@ -2,11 +2,11 @@
 
 namespace hs
 {
-	Player Player::mPlayer;
+	Player Player::player;
 
-	Player& Player::GetInstance()
+	Player* Player::GetInstance()
 	{
-		return mPlayer;
+		return &player;
 	}
 
 	Player::Player()

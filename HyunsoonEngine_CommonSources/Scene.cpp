@@ -23,6 +23,9 @@ namespace hs
 		{
 			gameObj->Update();
 		}
+
+		Player* player = Player::GetInstance();
+		player->Update();
 	}
 	void Scene::LateUpdate()
 	{
@@ -30,6 +33,9 @@ namespace hs
 		{
 			gameObj->LateUpdate();
 		}
+
+		Player* player = Player::GetInstance();
+		player->LateUpdate();
 	}
 
 	void Scene::Render(HDC& hdc)
@@ -38,6 +44,9 @@ namespace hs
 		{
 			gameObj->Render(hdc);
 		}
+
+		Player* player = Player::GetInstance();
+		player->Render(hdc);
 	}
 
 	void Scene::AddGameObject(GameObject* gameObject)

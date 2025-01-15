@@ -7,7 +7,7 @@ namespace hs
 	class Miscellaneous : public Item
 	{
 	public:
-		Miscellaneous(uint8_t id, uint8_t initAmount);
+		Miscellaneous(eItemId id, uint8_t initAmount);
 		~Miscellaneous();
 
 	private:

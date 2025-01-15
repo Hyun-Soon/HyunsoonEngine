@@ -2,7 +2,7 @@
 
 namespace hs
 {
-	Item::Item(uint8_t id)
+	Item::Item(eItemId id)
 		: mId(id)
 		, mPos(0.0f, 0.0f)
 	{
@@ -12,11 +12,12 @@ namespace hs
 	{
 	}
 
-	void Item::Update()
+	void Item::Render(HDC& hdc)
 	{
 	}
 
-	void Item::Render(HDC& hdc)
+	const Item::eItemId Item::GetId() const
 	{
+		return mId;
 	}
 } // namespace hs

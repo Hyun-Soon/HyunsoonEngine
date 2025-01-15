@@ -2,7 +2,7 @@
 
 namespace hs
 {
-	Consumables::Consumables(uint8_t id, uint8_t initAmount)
+	Consumables::Consumables(eItemId id, uint8_t initAmount)
 		: Item(id)
 		, mAmount(initAmount)
 	{
