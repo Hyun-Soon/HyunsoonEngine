@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Input.h"
-#include "PhysicsTypes.h"
+#include "MathTypes.h"
 
 namespace hs
 {
@@ -21,11 +21,9 @@ namespace hs
 		const float GetPositionY() const;
 
 	protected:
-		Position mPos;
+		Vector2 mPos;
 
 	private:
 		void repositionWithinBounds();
-
-
 	};
-}
+} // namespace hs

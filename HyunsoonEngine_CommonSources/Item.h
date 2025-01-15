@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <Windows.h>
 
-#include "PhysicsTypes.h"
+#include "MathTypes.h"
 
 namespace hs
 {
@@ -24,6 +24,6 @@ namespace hs
 
 	private:
 		const eItemId mId;
-		Position	  mPos;
+		Vector2		  mPos;
 	};
 } // namespace hs

@@ -39,8 +39,8 @@ namespace hs
 		void jump();
 		void doubleJump();
 
-		Velocity	 mVel;
-		Acceleration mAcc;
+		Vector2 mVel;
+		Vector2 mAcc;
 
 		int			 mDirection;
 		ePlayerState mState;
