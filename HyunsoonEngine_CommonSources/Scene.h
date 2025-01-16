@@ -9,7 +9,14 @@ namespace hs
 	class Scene : public Entity
 	{
 	public:
-		Scene();
+		enum class eSceneType
+		{
+			Login,
+			Village,
+			Hunting,
+		};
+
+		Scene(eSceneType sceneType);
 		~Scene();
 
 		virtual void Initialize();
@@ -17,11 +24,12 @@ namespace hs
 		virtual void LateUpdate();
 		virtual void Render(HDC& hdc);
 
-		void AddGameObject(GameObject* gameObject);
+		void			 AddGameObject(GameObject* gameObject);
+		const eSceneType GetType() const;
 
 	private:
-
+		eSceneType				 mSceneType;
 		std::vector<GameObject*> mGameObjects;
-		//Image backgroundImage;
+		// Image backgroundImage;
 	};
-}
+} // namespace hs

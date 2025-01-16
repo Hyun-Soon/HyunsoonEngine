@@ -5,7 +5,7 @@ namespace hs
 	std::unordered_map<std::wstring, Scene*> SceneManager::mScenes = {};
 	Scene*									 SceneManager::mActiveScene = nullptr;
 
-	Scene* SceneManager::CreateScene(const std::wstring& name, const eSceneType type)
+	Scene* SceneManager::CreateScene(const std::wstring& name, const Scene::eSceneType type)
 	{
 		Scene* scene = nullptr;
 
@@ -54,8 +54,8 @@ namespace hs
 		// test
 		// mActiveScene = new HuntingScene(1, 0, {});
 		// mActiveScene = new VillageScene();
-		CreateScene(L"Henesys", SceneManager::eSceneType::Village);
-		CreateScene(L"Mushrooms", SceneManager::eSceneType::Hunting);
+		CreateScene(L"Henesys", Scene::eSceneType::Village);
+		CreateScene(L"Mushrooms", Scene::eSceneType::Hunting);
 		LoadScene(L"Henesys");
 		mActiveScene->Initialize();
 	}
@@ -85,5 +85,19 @@ namespace hs
 	void SceneManager::Render(HDC hdc)
 	{
 		mActiveScene->Render(hdc);
+	}
+
+	Monster* SceneManager::FindNearestMonster(float range)
+	{
+		if (mActiveScene->GetType() != Scene::eSceneType::Hunting)
+			return nullptr;
+
+		HuntingScene* pHuntingScene = static_cast<HuntingScene*>(mActiveScene);
+		return pHuntingScene->FindNearestMonster(range);
+	}
+
+	void SceneManager::AddGameObject(GameObject* obj)
+	{
+		mActiveScene->AddGameObject(obj);
 	}
 } // namespace hs

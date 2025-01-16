@@ -10,12 +10,10 @@ namespace hs
 		, mBackHdc(NULL)
 		, mBackBitmap(NULL)
 	{
-
 	}
 
 	Application::~Application()
 	{
-
 	}
 
 	const Resolution& Application::GetResolution()
@@ -40,7 +38,7 @@ namespace hs
 
 		createBuffer(mResolution.width, mResolution.height);
 		Input::Initialize();
-		Time::Initialize();
+		TimeUtils::Initialize();
 		SceneManager::Initialize();
 	}
 
@@ -54,20 +52,19 @@ namespace hs
 	void Application::update()
 	{
 		Input::Update();
-		Time::Update();
+		TimeUtils::Update();
 		SceneManager::Update();
 	}
 
 	void Application::lateUpdate()
 	{
-
 	}
 
 	void Application::render()
 	{
 		clearRenderTarget();
 
-		Time::Render(mBackHdc);
+		TimeUtils::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
 		present(mHdc, mBackHdc);
@@ -75,10 +72,10 @@ namespace hs
 
 	void Application::createBuffer(UINT width, UINT height)
 	{
-		//윈도우 해상도에 맞는 백버퍼(도화지)생성
+		// 윈도우 해상도에 맞는 백버퍼(도화지)생성
 		mBackBitmap = CreateCompatibleBitmap(mHdc, width, height);
 
-		//백버퍼를 가르킬 DC생성
+		// 백버퍼를 가르킬 DC생성
 		mBackHdc = CreateCompatibleDC(mHdc);
 
 		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
@@ -94,5 +91,4 @@ namespace hs
 	{
 		BitBlt(dst, 0, 0, mResolution.width, mResolution.height, src, 0, 0, SRCCOPY);
 	}
-}
-
+} // namespace hs

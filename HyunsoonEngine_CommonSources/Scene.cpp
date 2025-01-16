@@ -1,9 +1,10 @@
 #include "Scene.h"
-#include <queue>
 
 namespace hs
 {
-	Scene::Scene()
+	Scene::Scene(eSceneType sceneType)
+		: mSceneType(sceneType)
+		, mGameObjects()
 	{
 	}
 
@@ -52,5 +53,10 @@ namespace hs
 	void Scene::AddGameObject(GameObject* gameObject)
 	{
 		mGameObjects.push_back(gameObject);
+	}
+
+	const Scene::eSceneType Scene::GetType() const
+	{
+		return mSceneType;
 	}
 } // namespace hs

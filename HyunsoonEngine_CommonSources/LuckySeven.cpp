@@ -8,6 +8,7 @@ namespace hs
 {
 	LuckySeven::LuckySeven()
 		: mShurikenUsage(2)
+		, mRange(200)
 	{
 	}
 
@@ -17,6 +18,7 @@ namespace hs
 
 	void LuckySeven::Cast()
 	{
+		Player*	   pPlayer = Player::GetInstance();
 		Inventory* pInventory = Inventory::GetInstance();
 
 		Shuriken* pShuriken = pInventory->findShuriken();
@@ -24,17 +26,16 @@ namespace hs
 		if (!pShuriken)
 			return;
 
-		if (pShuriken->Use(mShurikenUsage) == false)
+		if (!pShuriken->Use(mShurikenUsage))
 			return;
 
-		// 1. find Monster
-		// 2. create shuriken object towards to monster
-		/*Monster* pTarget = SceneManager::findNearestMonster();
-		Position targetDir(0.0f, 0.0f);
-		if (pTarget)
-			targetDir = pTarget->GetPosition();
-		else
-			targetDir*/
-		// target.TakeDamage(pShuriken->GetPower() * pAbility->GetMainStat() * randVal);
+		Monster* pTarget = SceneManager::FindNearestMonster(mRange);
+		// SceneManager::AddGameObject(new Projectile());
+
+		// take damage after collision
+		// pTarget->TakeDamage(DamageUtils::CalculateDamage(pShuriken->GetPower()));
+		// shuriken object create
+		//
+		// *pAbility->GetMainStat()
 	}
 } // namespace hs

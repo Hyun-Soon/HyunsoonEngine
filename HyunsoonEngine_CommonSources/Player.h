@@ -14,6 +14,9 @@ namespace hs
 		virtual void LateUpdate() override;
 		virtual void Render(HDC& hdc) override;
 
+		const Vector2& GetPosition() const;
+		const Vector2& GetDirection() const;
+
 		// void UseSkill(size_t skillId);
 		// void UseItem(size_t slotId);
 		// void PickUpItem();
@@ -42,7 +45,7 @@ namespace hs
 		Vector2 mVel;
 		Vector2 mAcc;
 
-		int			 mDirection;
+		Vector2		 mDirection;
 		ePlayerState mState;
 		uint16_t	 mHP;
 		uint16_t	 mMP;

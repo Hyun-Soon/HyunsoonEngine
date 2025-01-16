@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Consumables.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)DamageUtils.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Entity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Equipment.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h" />
@@ -34,7 +35,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Shuriken.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Skill.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Time.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)TimeUtils.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)VillageScene.h" />
   </ItemGroup>
   <ItemGroup>
@@ -57,7 +58,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Shuriken.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Skill.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Time.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TimeUtils.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)VillageScene.cpp" />
   </ItemGroup>
   <ItemGroup>

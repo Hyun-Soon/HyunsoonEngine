@@ -15,7 +15,7 @@ namespace hs
 
 	void Monster::Update()
 	{
-		//random logic
+		// random logic
 
 		GameObject::Update();
 	}
@@ -26,7 +26,7 @@ namespace hs
 
 	void Monster::Render(HDC& hdc)
 	{
-		int color = RGB(int(mPos.x * 3) % 256, int(mPos.x * 6) % 256, int(mPos.y * 9) % 256);
+		int	   color = RGB(int(mPos.x * 3) % 256, int(mPos.x * 6) % 256, int(mPos.y * 9) % 256);
 		HBRUSH newBrush = CreateSolidBrush(color);
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
 
@@ -45,14 +45,25 @@ namespace hs
 	{
 		if (isPlayerNearby() == false)
 			return;
-		//attack
+		// attack
 	}
 
-
+	void Monster::TakeDamage(uint32_t damage)
+	{
+		if (damage > mHP)
+		{
+			mHP = 0;
+			mState = DEAD;
+		}
+		else
+		{
+			mHP -= damage;
+		}
+	}
 
 	bool Monster::isPlayerNearby()
 	{
 
 		return false;
 	}
-}
+} // namespace hs

@@ -13,7 +13,7 @@ namespace hs
 		: GameObject()
 		, mVel(0.0f, 0.0f)
 		, mAcc(0.0f, 0.0f)
-		, mDirection(1)
+		, mDirection(1.0f, 0.0f)
 		, mState(ePlayerState::Idle)
 		, mHP(100)
 		, mMP(100)
@@ -30,7 +30,7 @@ namespace hs
 			&& Input::GetKeyDown(eKeyCode::A))
 		{
 			mVel.x = -200.0f;
-			mDirection = -1;
+			mDirection = { -1.0f, 0.0f };
 		}
 		else if (mState == Player::ePlayerState::Idle
 			&& Input::GetKeyUp(eKeyCode::A))
@@ -42,7 +42,7 @@ namespace hs
 			&& Input::GetKeyDown(eKeyCode::D))
 		{
 			mVel.x = 200.0f;
-			mDirection = 1;
+			mDirection = { 1.0f, 0.0f };
 		}
 		else if (mState == Player::ePlayerState::Idle
 			&& Input::GetKeyUp(eKeyCode::D))
@@ -95,9 +95,19 @@ namespace hs
 		DeleteObject(newPen);
 	}
 
+	const Vector2& Player::GetPosition() const
+	{
+		return mPos;
+	}
+
+	const Vector2& Player::GetDirection() const
+	{
+		return mDirection;
+	}
+
 	void Player::updatePhysics()
 	{
-		float dt = Time::GetDeltaTime();
+		float dt = TimeUtils::GetDeltaTime();
 		float dt2 = dt * dt;
 
 		mPos.x += mVel.x * dt + mAcc.x * dt2;
@@ -119,8 +129,8 @@ namespace hs
 	void Player::doubleJump()
 	{
 		color = RGB(100, 100, 100);
-		mVel.x += mDirection * 100.0f;
-		mAcc.x += -mDirection * 60.0f;
+		mVel += mDirection * 100.0f;
+		mAcc += -mDirection * 60.0f;
 	}
 
 	// void Player::UseSkill(size_t skillId)

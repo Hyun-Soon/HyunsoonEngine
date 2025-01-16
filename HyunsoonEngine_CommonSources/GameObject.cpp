@@ -32,14 +32,9 @@ namespace hs
 		return;
 	}
 
-	const float GameObject::GetPositionX() const
+	const Vector2& GameObject::GetPosition() const
 	{
-		return mPos.x;
-	}
-
-	const float GameObject::GetPositionY() const
-	{
-		return mPos.y;
+		return mPos;
 	}
 
 	void GameObject::repositionWithinBounds()

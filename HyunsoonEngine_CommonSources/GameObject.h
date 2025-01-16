@@ -17,8 +17,7 @@ namespace hs
 
 		void SetPosition(float x, float y);
 
-		const float GetPositionX() const;
-		const float GetPositionY() const;
+		const Vector2& GetPosition() const;
 
 	protected:
 		Vector2 mPos;

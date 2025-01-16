@@ -3,6 +3,7 @@
 namespace hs
 {
 	VillageScene::VillageScene()
+		: Scene(eSceneType::Village)
 	{
 	}
 

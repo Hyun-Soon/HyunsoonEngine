@@ -3,7 +3,8 @@
 namespace hs
 {
 	HuntingScene::HuntingScene()
-		: mMonsterGenPeriod(7) // temp
+		: Scene(eSceneType::Hunting)
+		, mMonsterGenPeriod(7) // temp
 	{
 	}
 
@@ -14,14 +15,54 @@ namespace hs
 	void HuntingScene::Initialize()
 	{
 		// test
-		GameObject* pObj;
+		Monster* pMonster;
 
-		pObj = new Monster(0, 0, 100);
-		AddGameObject(pObj);
+		pMonster = new Monster(0, 0, 100);
+		AddGameObject(pMonster);
+		mMonsters.push_back(pMonster);
 
-		pObj = new Monster(0, 0, 100);
-		pObj->SetPosition(500, 500);
-		AddGameObject(pObj);
+		pMonster = new Monster(0, 0, 100);
+		pMonster->SetPosition(500, 500);
+		AddGameObject(pMonster);
+		mMonsters.push_back(pMonster);
+	}
+
+	Monster* HuntingScene::FindNearestMonster(float range)
+	{
+		Player* pPlayer = Player::GetInstance();
+
+		Vector2 playerPos = pPlayer->GetPosition();
+		Vector2 playerDir = pPlayer->GetDirection();
+
+		Monster* ret = nullptr;
+		float	 minDist = FLT_MAX;
+
+		for (Monster* pMon : mMonsters)
+		{
+			Vector2 monsterPos = pMon->GetPosition();
+
+			if (playerDir.x < 0)
+			{
+				if (playerPos.x < monsterPos.x)
+					continue;
+			}
+			else
+			{
+				if (playerPos.x > monsterPos.x)
+					continue;
+			}
+
+			float dist = Vector2 ::Length(monsterPos, playerPos);
+			if (abs(monsterPos.y - playerPos.y) < 100
+				&& dist <= range
+				&& dist < minDist)
+			{
+				ret = pMon;
+				minDist = dist;
+			}
+		}
+
+		return ret;
 	}
 
 } // namespace hs

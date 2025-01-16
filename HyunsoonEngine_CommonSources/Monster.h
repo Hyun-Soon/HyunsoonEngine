@@ -11,7 +11,7 @@ namespace hs
 	{
 	public:
 		// Why error occured if use enum class for constructor parameter?
-		//enum class eMonsterState
+		// enum class eMonsterState
 		//{
 		//	Idle, Move, Dead,
 		//};
@@ -24,12 +24,13 @@ namespace hs
 		virtual void Render(HDC& hdc) override;
 
 		void Attack();
+		void TakeDamage(uint32_t damage);
 
 	private:
 		bool isPlayerNearby();
 
-		bool bDirection;
-		int mState;
+		bool	 bDirection;
+		int		 mState;
 		uint16_t mHP;
 	};
-}
+} // namespace hs

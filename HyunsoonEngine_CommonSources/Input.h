@@ -4,7 +4,7 @@
 #include <vector>
 #include <cassert>
 
-#include "Time.h"
+#include "TimeUtils.h"
 
 namespace hs
 {

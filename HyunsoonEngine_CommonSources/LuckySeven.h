@@ -14,6 +14,7 @@ namespace hs
 
 	private:
 		uint8_t mShurikenUsage;
+		uint8_t mRange;
 	};
 
 } // namespace hs

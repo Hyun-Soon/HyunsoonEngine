@@ -10,12 +10,7 @@ namespace hs
 	class SceneManager
 	{
 	public:
-		enum class eSceneType
-		{
-			Login, Village, Hunting,
-		};
-
-		static Scene* CreateScene(const std::wstring& name, const eSceneType type);
+		static Scene* CreateScene(const std::wstring& name, const Scene::eSceneType type);
 		static Scene* LoadScene(const std::wstring& name);
 
 		static void Initialize();
@@ -23,8 +18,13 @@ namespace hs
 		static void LateUpdate();
 		static void Render(HDC hdc);
 
+		static Monster* FindNearestMonster(float range);
+		static void		AddGameObject(GameObject* obj);
+
 	private:
+		SceneManager();
+		~SceneManager();
 		static std::unordered_map<std::wstring, Scene*> mScenes;
-		static Scene* mActiveScene;
+		static Scene*									mActiveScene;
 	};
-}
+} // namespace hs

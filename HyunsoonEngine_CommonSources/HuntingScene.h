@@ -12,8 +12,11 @@ namespace hs
 
 		virtual void Initialize() override;
 
+		Monster* FindNearestMonster(float range);
+
 	private:
-		uint8_t mMonsterGenPeriod;
+		uint8_t				  mMonsterGenPeriod;
+		std::vector<Monster*> mMonsters;
 		// Geometry;
 	};
 } // namespace hs
