@@ -10,7 +10,7 @@ namespace hs
 	}
 
 	Player::Player()
-		: GameObject()
+		: GameObject({ 0.0f, 0.0f })
 		, mVel(0.0f, 0.0f)
 		, mAcc(0.0f, 0.0f)
 		, mDirection(1.0f, 0.0f)
@@ -80,7 +80,6 @@ namespace hs
 
 	void Player::Render(HDC& hdc)
 	{
-
 		HBRUSH newBrush = CreateSolidBrush(color);
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
 

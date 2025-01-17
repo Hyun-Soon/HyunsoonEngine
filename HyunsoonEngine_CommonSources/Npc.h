@@ -9,7 +9,7 @@ namespace hs
 	class Npc : public GameObject
 	{
 	public:
-		Npc();
+		Npc(Vector2 pos);
 		~Npc();
 
 		virtual void Update();
@@ -22,4 +22,4 @@ namespace hs
 		std::string mDialogues[3];
 	};
 
-}
+} // namespace hs

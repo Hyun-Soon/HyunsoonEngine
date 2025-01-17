@@ -2,8 +2,9 @@
 
 namespace hs
 {
-	Monster::Monster(bool dir, int state, uint16_t hp)
-		: bDirection(dir)
+	Monster::Monster(Vector2 pos, bool dir, int state, uint16_t hp)
+		: GameObject(pos)
+		, bDirection(dir)
 		, mState(state)
 		, mHP(hp)
 	{

@@ -17,12 +17,11 @@ namespace hs
 		// test
 		Monster* pMonster;
 
-		pMonster = new Monster(0, 0, 100);
+		pMonster = new Monster({ 0, 0 }, 0, 0, 100);
 		AddGameObject(pMonster);
 		mMonsters.push_back(pMonster);
 
-		pMonster = new Monster(0, 0, 100);
-		pMonster->SetPosition(500, 500);
+		pMonster = new Monster({ 500, 500 }, 0, 0, 100);
 		AddGameObject(pMonster);
 		mMonsters.push_back(pMonster);
 	}
@@ -52,7 +51,7 @@ namespace hs
 					continue;
 			}
 
-			float dist = Vector2 ::Length(monsterPos, playerPos);
+			float dist = Vector2::Length(monsterPos, playerPos);
 			if (abs(monsterPos.y - playerPos.y) < 100
 				&& dist <= range
 				&& dist < minDist)

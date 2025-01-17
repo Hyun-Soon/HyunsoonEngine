@@ -141,53 +141,36 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam,
 {
 	switch (message)
 	{
-		case WM_COMMAND:
+	case WM_COMMAND:
+	{
+		int wmId = LOWORD(wParam);
+		// Parse the menu selections:
+		switch (wmId)
 		{
-			int wmId = LOWORD(wParam);
-			// Parse the menu selections:
-			switch (wmId)
-			{
-				case IDM_ABOUT:
-					DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-					break;
-				case IDM_EXIT:
-					DestroyWindow(hWnd);
-					break;
-				default:
-					return DefWindowProc(hWnd, message, wParam, lParam);
-			}
-		}
-		break;
-		case WM_PAINT:
-		{
-			PAINTSTRUCT ps;
-			HDC			hdc = BeginPaint(hWnd, &ps);
-			// TODO: Add any drawing code that uses hdc here...
-		}
-		break;
-		case WM_DESTROY:
-			PostQuitMessage(0);
+		case IDM_ABOUT:
+			DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
 			break;
-		// case WM_MOVE:
-		//	MessageBoxW(hWnd, L"hihi", nullptr, 0);
-		//	break;
-		// case WM_CREATE:
-		//	MessageBoxW(hWnd, L"window created", nullptr, 0);
-		//	break;
-		// case WM_SIZE:
-		//	MessageBoxW(hWnd, L"window resized", nullptr, 0);
-		//	break;
-		//  case WM_ACTIVATE:
-		//	MessageBoxW(hWnd, L"window activated", nullptr, 0);
-		//	break;
-		// case WM_CLOSE:
-		//	MessageBoxW(hWnd, L"window closed", nullptr, 0);
-		//	break;
-		// case WM_ENABLE:
-		//	MessageBoxW(hWnd, L"window enable", nullptr, 0);
-		//	break;
+		case IDM_EXIT:
+			DestroyWindow(hWnd);
+			break;
 		default:
 			return DefWindowProc(hWnd, message, wParam, lParam);
+		}
+	}
+	break;
+	case WM_PAINT:
+	{
+		PAINTSTRUCT ps;
+		HDC			hdc = BeginPaint(hWnd, &ps);
+		// TODO: Add any drawing code that uses hdc here...
+	}
+	break;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		break;
+
+	default:
+		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
 	return 0;
 }
@@ -198,16 +181,16 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 	UNREFERENCED_PARAMETER(lParam);
 	switch (message)
 	{
-		case WM_INITDIALOG:
-			return (INT_PTR)TRUE;
+	case WM_INITDIALOG:
+		return (INT_PTR)TRUE;
 
-		case WM_COMMAND:
-			if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
-			{
-				EndDialog(hDlg, LOWORD(wParam));
-				return (INT_PTR)TRUE;
-			}
-			break;
+	case WM_COMMAND:
+		if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
+		{
+			EndDialog(hDlg, LOWORD(wParam));
+			return (INT_PTR)TRUE;
+		}
+		break;
 	}
 	return (INT_PTR)FALSE;
 }

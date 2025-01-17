@@ -8,7 +8,7 @@ namespace hs
 	class GameObject
 	{
 	public:
-		GameObject();
+		GameObject(Vector2 pos);
 		~GameObject();
 
 		virtual void Update();

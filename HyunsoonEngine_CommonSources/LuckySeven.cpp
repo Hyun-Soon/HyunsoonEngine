@@ -3,6 +3,7 @@
 #include "Inventory.h"
 #include "SceneManager.h"
 #include "Shuriken.h"
+#include "Projectile.h"
 
 namespace hs
 {
@@ -29,13 +30,10 @@ namespace hs
 		if (!pShuriken->Use(mShurikenUsage))
 			return;
 
-		Monster* pTarget = SceneManager::FindNearestMonster(mRange);
-		// SceneManager::AddGameObject(new Projectile());
+		Monster*	pTarget = SceneManager::FindNearestMonster(mRange);
+		Projectile* projectile = new Projectile(pPlayer->GetPosition(), 100.0f, 10.0f, pTarget);
+		SceneManager::AddGameObject(projectile);
 
-		// take damage after collision
-		// pTarget->TakeDamage(DamageUtils::CalculateDamage(pShuriken->GetPower()));
-		// shuriken object create
-		//
 		// *pAbility->GetMainStat()
 	}
 } // namespace hs

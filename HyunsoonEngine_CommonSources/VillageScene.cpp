@@ -16,11 +16,10 @@ namespace hs
 		// test
 		GameObject* pObj;
 
-		pObj = new Npc();
+		pObj = new Npc({ 0.0f, 0.0f });
 		AddGameObject(pObj);
 
-		pObj = new Npc();
-		pObj->SetPosition(500.0f, 0.0f);
+		pObj = new Npc({ 500.0f, 0.0f });
 		AddGameObject(pObj);
 	}
 

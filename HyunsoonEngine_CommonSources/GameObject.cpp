@@ -2,8 +2,8 @@
 
 namespace hs
 {
-	GameObject::GameObject()
-		: mPos(0.0f, 0.0f)
+	GameObject::GameObject(Vector2 pos)
+		: mPos(pos)
 	{
 	}
 

@@ -3,7 +3,8 @@
 namespace hs
 {
 
-	Npc::Npc()
+	Npc::Npc(Vector2 pos)
+		: GameObject(pos)
 	{
 	}
 
@@ -21,7 +22,7 @@ namespace hs
 
 	void Npc::Render(HDC& hdc)
 	{
-		int color = RGB(0, 255, 0);
+		int	   color = RGB(0, 255, 0);
 		HBRUSH newBrush = CreateSolidBrush(color);
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
 
@@ -39,4 +40,4 @@ namespace hs
 	void Npc::showDialogue()
 	{
 	}
-}
+} // namespace hs

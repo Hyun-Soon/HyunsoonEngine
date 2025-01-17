@@ -15,6 +15,19 @@ namespace hs
 		Vector2(float x, float y)
 			: x(x), y(y) {}
 
+		inline float Magnitude() const
+		{
+			return sqrt(x * x + y * y);
+		}
+
+		inline Vector2 Normalize()
+		{
+			float mag = Magnitude();
+			x /= mag;
+			y /= mag;
+			return *this;
+		}
+
 		inline static float Length(Vector2& lhs, Vector2& rhs)
 		{
 			return sqrt((rhs.x - lhs.x) * (rhs.x - lhs.x) + (rhs.y - lhs.y) * (rhs.y - lhs.y));

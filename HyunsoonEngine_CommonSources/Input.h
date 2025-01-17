@@ -18,10 +18,40 @@ namespace hs
 
 	enum class eKeyCode
 	{
-		Q, W, E, R, T, Y, U, I, O, P,
-		A, S, D, F, G, H, J, K, L,
-		Z, X, C, V, B, N, M,
-		Left, Right, Up, Down, Space, Tab,
+		Q,
+		W,
+		E,
+		R,
+		T,
+		Y,
+		U,
+		I,
+		O,
+		P,
+		A,
+		S,
+		D,
+		F,
+		G,
+		H,
+		J,
+		K,
+		L,
+		Z,
+		X,
+		C,
+		V,
+		B,
+		N,
+		M,
+		Left,
+		Right,
+		Up,
+		Down,
+		Space,
+		Tab,
+		Ctrl,
+		Alt,
 		End,
 	};
 
@@ -30,17 +60,13 @@ namespace hs
 	public:
 		struct Key
 		{
-			Key(eKeyCode code, eKeyState state, bool pressed) :
-				keyCode(code),
-				state(state),
-				bPressed(pressed)
-			{
-			};
+			Key(eKeyCode code, eKeyState state, bool pressed)
+				: keyCode(code), state(state), bPressed(pressed) {
+				};
 
-
-			eKeyCode keyCode;
+			eKeyCode  keyCode;
 			eKeyState state;
-			bool bPressed;
+			bool	  bPressed;
 		};
 
 		static void Initialize();
@@ -60,4 +86,4 @@ namespace hs
 
 		static std::vector<Key> mKeys;
 	};
-}
+} // namespace hs

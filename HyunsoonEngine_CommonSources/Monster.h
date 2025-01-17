@@ -16,7 +16,7 @@ namespace hs
 		//	Idle, Move, Dead,
 		//};
 
-		Monster(bool dir, int state, uint16_t hp);
+		Monster(Vector2 pos, bool dir, int state, uint16_t hp);
 		~Monster();
 
 		virtual void Update() override;
