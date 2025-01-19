@@ -45,7 +45,7 @@ namespace hs
 	{
 		for (Component* component : mComponents)
 		{
-			component->Render();
+			component->Render(hdc);
 		}
 	}
 
