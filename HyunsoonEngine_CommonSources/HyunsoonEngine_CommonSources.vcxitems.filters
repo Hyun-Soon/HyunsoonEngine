@@ -4,15 +4,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Entity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)HuntingScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Monster.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Npc.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Player.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Scene.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)TimeUtils.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)VillageScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Item.cpp">
       <Filter>Item</Filter>
     </ClCompile>
@@ -41,21 +37,30 @@
       <Filter>Item</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Projectile.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)HuntingScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)VillageScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)SceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Entity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)HuntingScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Input.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Monster.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Npc.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MathTypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Player.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Scene.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)TimeUtils.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)VillageScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Item.h">
       <Filter>Item</Filter>
     </ClInclude>
@@ -85,6 +90,19 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)DamageUtils.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Projectile.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)HuntingScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)VillageScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Item">
@@ -92,6 +110,9 @@
     </Filter>
     <Filter Include="Skill">
       <UniqueIdentifier>{93a4333e-d880-4069-b826-c30082816f28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{1b32180b-5997-473e-8a79-670ea02e8102}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

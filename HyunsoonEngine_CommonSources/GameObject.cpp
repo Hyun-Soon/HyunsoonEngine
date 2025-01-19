@@ -9,19 +9,44 @@ namespace hs
 
 	GameObject::~GameObject()
 	{
+		for (Component*& component : mComponents)
+		{
+			delete component;
+			component = nullptr;
+		}
+	}
+
+	void GameObject::Initialize()
+	{
+		for (Component* component : mComponents)
+		{
+			component->Initialize();
+		}
 	}
 
 	void GameObject::Update()
 	{
-		repositionWithinBounds();
+		for (Component* component : mComponents)
+		{
+			component->Update();
+		}
+		// repositionWithinBounds();
 	}
 
 	void GameObject::LateUpdate()
 	{
+		for (Component* component : mComponents)
+		{
+			component->LateUpdate();
+		}
 	}
 
 	void GameObject::Render(HDC& hdc)
 	{
+		for (Component* component : mComponents)
+		{
+			component->Render();
+		}
 	}
 
 	void GameObject::SetPosition(float x, float y)
