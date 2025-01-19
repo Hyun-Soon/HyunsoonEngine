@@ -24,8 +24,15 @@ namespace hs
 	{
 	}
 
+	void Player::Initialize()
+	{
+		GameObject::Initialize();
+	}
+
 	void Player::Update()
 	{
+		GameObject::Update();
+
 		if (mState == Player::ePlayerState::Idle
 			&& Input::GetKeyDown(eKeyCode::A))
 		{
@@ -61,9 +68,13 @@ namespace hs
 			doubleJump();
 		}
 
-		updatePhysics();
+		if ((mState == Player::ePlayerState::Idle || mState == Player::ePlayerState::Jump || mState == Player::ePlayerState::DoubleJump)
+			&& Input::GetKey(eKeyCode::Ctrl))
+		{
+			// LuckySeven cast
+		}
 
-		GameObject::Update();
+		updatePhysics();
 
 		if (mPos.y >= 600.0f)
 		{
@@ -76,10 +87,13 @@ namespace hs
 
 	void Player::LateUpdate()
 	{
+		GameObject::LateUpdate();
 	}
 
 	void Player::Render(HDC& hdc)
 	{
+		GameObject::Render(hdc);
+
 		HBRUSH newBrush = CreateSolidBrush(color);
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
 

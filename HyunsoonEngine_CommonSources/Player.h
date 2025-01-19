@@ -10,6 +10,7 @@ namespace hs
 	public:
 		static Player* GetInstance();
 
+		virtual void Initialize() override;
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render(HDC& hdc) override;

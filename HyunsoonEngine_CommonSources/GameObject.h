@@ -10,7 +10,7 @@ namespace hs
 	{
 	public:
 		GameObject(Vector2 pos);
-		~GameObject();
+		virtual ~GameObject();
 
 		virtual void Initialize();
 		virtual void Update();
@@ -31,14 +31,16 @@ namespace hs
 		}
 
 		template <typename T>
-		T* GetComponent()
+		T* GetComponent(std::wstring& compName)
 		{
 			T* component = nullptr;
 			for (Component* comp : mComponents)
 			{
-				component = dynamic_cast<T*>(comp);
-				if (component)
+				if (comp->GetName() == compName)
+				{
+					component = dynamic_cast<T*>(comp);
 					break;
+				}
 			}
 			return component;
 		}

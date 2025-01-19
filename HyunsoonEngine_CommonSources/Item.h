@@ -16,7 +16,7 @@ namespace hs
 			Shuriken,
 		};
 		Item(eItemId id);
-		~Item();
+		virtual ~Item();
 
 		virtual void Render(HDC& hdc);
 

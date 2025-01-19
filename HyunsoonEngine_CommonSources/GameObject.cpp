@@ -30,7 +30,7 @@ namespace hs
 		{
 			component->Update();
 		}
-		// repositionWithinBounds();
+		repositionWithinBounds();
 	}
 
 	void GameObject::LateUpdate()

@@ -28,6 +28,7 @@ namespace hs
 		Player* player = Player::GetInstance();
 		player->Update();
 	}
+
 	void Scene::LateUpdate()
 	{
 		for (GameObject* gameObj : mGameObjects)
