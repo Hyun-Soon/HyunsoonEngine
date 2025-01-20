@@ -22,7 +22,7 @@ namespace hs
 	{
 	}
 
-	void Component::Render(HDC hdc)
+	void Component::Render(HDC& hdc)
 	{
 	}
 } // namespace hs
