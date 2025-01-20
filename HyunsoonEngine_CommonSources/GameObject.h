@@ -3,13 +3,14 @@
 #include "Input.h"
 #include "MathTypes.h"
 #include "Component.h"
+#include "Layer.h"
 
 namespace hs
 {
 	class GameObject
 	{
 	public:
-		GameObject(Vector2 pos);
+		GameObject(Vector2 pos, Layer::eLayerType type);
 		virtual ~GameObject();
 
 		virtual void Initialize();
@@ -17,8 +18,9 @@ namespace hs
 		virtual void LateUpdate();
 		virtual void Render(HDC& hdc);
 
-		void		   SetPosition(float x, float y);
-		const Vector2& GetPosition() const;
+		void					SetPosition(float x, float y);
+		const Vector2&			GetPosition() const;
+		const Layer::eLayerType GetLayerLevel() const;
 
 		template <typename T>
 		T* AddComponent()
@@ -52,6 +54,7 @@ namespace hs
 	private:
 		void repositionWithinBounds();
 
+		const Layer::eLayerType mLayerLevel;
 		std::vector<Component*> mComponents;
 	};
 } // namespace hs

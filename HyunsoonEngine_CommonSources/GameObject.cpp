@@ -1,9 +1,11 @@
 #include "Application.h"
+#include "Layer.h"
 
 namespace hs
 {
-	GameObject::GameObject(Vector2 pos)
-		: mPos(pos)
+	GameObject::GameObject(Vector2 pos, Layer::eLayerType type)
+		: mLayerLevel(type)
+		, mPos(pos)
 	{
 	}
 
@@ -60,6 +62,11 @@ namespace hs
 	const Vector2& GameObject::GetPosition() const
 	{
 		return mPos;
+	}
+
+	const Layer::eLayerType GameObject::GetLayerLevel() const
+	{
+		return mLayerLevel;
 	}
 
 	void GameObject::repositionWithinBounds()
