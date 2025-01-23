@@ -15,7 +15,6 @@ namespace hs
 		virtual void LateUpdate() override;
 		virtual void Render(HDC& hdc) override;
 
-		const Vector2& GetPosition() const;
 		const Vector2& GetDirection() const;
 
 		// void UseSkill(size_t skillId);
@@ -42,9 +41,6 @@ namespace hs
 		void updatePhysics();
 		void jump();
 		void doubleJump();
-
-		Vector2 mVel;
-		Vector2 mAcc;
 
 		Vector2		 mDirection;
 		ePlayerState mState;

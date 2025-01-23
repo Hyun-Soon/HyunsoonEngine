@@ -11,6 +11,9 @@
 // Global Variables:
 hs::Application app;
 
+ULONG_PTR gpToken;
+Gdiplus::GdiplusStartupInput gpsi;
+
 HINSTANCE hInst;						 // current instance
 WCHAR	  szTitle[MAX_LOADSTRING];		 // The title bar text
 WCHAR	  szWindowClass[MAX_LOADSTRING]; // the main window class name
@@ -65,6 +68,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 			app.Run();
 		}
 	}
+
+	Gdiplus::GdiplusShutdown(gpToken);
 
 	return (int)msg.wParam;
 }
@@ -122,6 +127,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
+
+
+	Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
 	return TRUE;
 }

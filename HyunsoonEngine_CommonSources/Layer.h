@@ -1,18 +1,24 @@
 #pragma once
 
+#include <vector>
+
 #include "Entity.h"
-#include "GameObject.h"
 
 namespace hs
 {
+	class GameObject;
 	class Layer : public Entity
 	{
 	public:
-		/*enum class eLayerType
+		enum class eLayerType
 		{
 			Background,
+			Monster,
 			Player,
-		};*/
+			Item,
+			Npc,
+			End,
+		};
 
 		Layer();
 		~Layer();

@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include "Monster.h"
 
 namespace hs
 {
@@ -89,11 +90,7 @@ namespace hs
 
 	Monster* SceneManager::FindNearestMonster(float range)
 	{
-		if (mActiveScene->GetType() != Scene::eSceneType::Hunting)
-			return nullptr;
-
-		HuntingScene* pHuntingScene = static_cast<HuntingScene*>(mActiveScene);
-		return pHuntingScene->FindNearestMonster(range);
+		return mActiveScene->FindNearestMonster(range);
 	}
 
 	void SceneManager::AddGameObject(GameObject* obj)

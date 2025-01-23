@@ -4,7 +4,7 @@ namespace hs
 {
 
 	Npc::Npc(Vector2 pos)
-		: GameObject(pos)
+		: GameObject(Layer::eLayerType::Npc)
 	{
 	}
 
@@ -22,19 +22,19 @@ namespace hs
 
 	void Npc::Render(HDC& hdc)
 	{
-		int	   color = RGB(0, 255, 0);
-		HBRUSH newBrush = CreateSolidBrush(color);
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
+		// int	   color = RGB(0, 255, 0);
+		// HBRUSH newBrush = CreateSolidBrush(color);
+		// HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
 
-		HPEN newPen = CreatePen(PS_SOLID, 2, color);
-		HPEN oldPen = (HPEN)SelectObject(hdc, newPen);
+		// HPEN newPen = CreatePen(PS_SOLID, 2, color);
+		// HPEN oldPen = (HPEN)SelectObject(hdc, newPen);
 
-		Rectangle(hdc, 100.0f + mPos.x, 100.0f + mPos.y, 200.0f + mPos.x, 200.0f + mPos.y);
+		// Rectangle(hdc, 100.0f + mPos.x, 100.0f + mPos.y, 200.0f + mPos.x, 200.0f + mPos.y);
 
-		SelectObject(hdc, oldBrush);
-		SelectObject(hdc, oldPen);
-		DeleteObject(newBrush);
-		DeleteObject(newPen);
+		// SelectObject(hdc, oldBrush);
+		// SelectObject(hdc, oldPen);
+		// DeleteObject(newBrush);
+		// DeleteObject(newPen);
 	}
 
 	void Npc::showDialogue()

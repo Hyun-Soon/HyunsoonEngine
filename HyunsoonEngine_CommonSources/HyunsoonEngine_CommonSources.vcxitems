@@ -15,7 +15,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Component.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Component.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Physics.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\PlayerBehaviour.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Transform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Consumables.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)DamageUtils.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Entity.h" />
@@ -25,6 +28,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Input.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Inventory.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Item.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Layer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LuckySeven.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Meso.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Miscellaneous.h" />
@@ -43,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Component.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Component.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\PlayerBehaviour.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Transform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Consumables.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Entity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Equipment.cpp" />
@@ -52,11 +58,13 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Inventory.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Item.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Layer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LuckySeven.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Meso.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Miscellaneous.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Monster.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Npc.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Physics.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Player.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Projectile.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene.cpp" />

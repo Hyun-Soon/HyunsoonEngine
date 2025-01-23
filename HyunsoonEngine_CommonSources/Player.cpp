@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Component/Transform.h"
 
 namespace hs
 {
@@ -10,9 +11,7 @@ namespace hs
 	}
 
 	Player::Player()
-		: GameObject({ 0.0f, 0.0f })
-		, mVel(0.0f, 0.0f)
-		, mAcc(0.0f, 0.0f)
+		: GameObject(Layer::eLayerType::Player)
 		, mDirection(1.0f, 0.0f)
 		, mState(ePlayerState::Idle)
 		, mHP(100)
@@ -26,63 +25,14 @@ namespace hs
 
 	void Player::Initialize()
 	{
+		Transform* transform = AddComponent<Transform>();
+
 		GameObject::Initialize();
 	}
 
 	void Player::Update()
 	{
 		GameObject::Update();
-
-		if (mState == Player::ePlayerState::Idle
-			&& Input::GetKeyDown(eKeyCode::A))
-		{
-			mVel.x = -200.0f;
-			mDirection = { -1.0f, 0.0f };
-		}
-		else if (mState == Player::ePlayerState::Idle
-			&& Input::GetKeyUp(eKeyCode::A))
-		{
-			mVel.x = 0.0f;
-		}
-
-		if (mState == Player::ePlayerState::Idle
-			&& Input::GetKeyDown(eKeyCode::D))
-		{
-			mVel.x = 200.0f;
-			mDirection = { 1.0f, 0.0f };
-		}
-		else if (mState == Player::ePlayerState::Idle
-			&& Input::GetKeyUp(eKeyCode::D))
-		{
-			mVel.x = 0.0f;
-		}
-
-		if ((mState == Player::ePlayerState::Idle || mState == Player::ePlayerState::Move)
-			&& Input::GetKeyDown(eKeyCode::Space))
-		{
-			jump();
-		}
-		else if (mState == Player::ePlayerState::Jump
-			&& Input::GetKeyDown(eKeyCode::Space))
-		{
-			doubleJump();
-		}
-
-		if ((mState == Player::ePlayerState::Idle || mState == Player::ePlayerState::Jump || mState == Player::ePlayerState::DoubleJump)
-			&& Input::GetKey(eKeyCode::Ctrl))
-		{
-			// LuckySeven cast
-		}
-
-		updatePhysics();
-
-		if (mPos.y >= 600.0f)
-		{
-			mState = Player::ePlayerState::Idle;
-			mAcc.x = 0.0f;
-			mAcc.y = 0.0f;
-			color = RGB(0, 0, 255);
-		}
 	}
 
 	void Player::LateUpdate()
@@ -94,23 +44,18 @@ namespace hs
 	{
 		GameObject::Render(hdc);
 
-		HBRUSH newBrush = CreateSolidBrush(color);
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
+		// HBRUSH newBrush = CreateSolidBrush(color);
+		// HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
 
-		HPEN newPen = CreatePen(PS_SOLID, 2, color);
-		HPEN oldPen = (HPEN)SelectObject(hdc, newPen);
+		// HPEN newPen = CreatePen(PS_SOLID, 2, color);
+		// HPEN oldPen = (HPEN)SelectObject(hdc, newPen);
 
-		Rectangle(hdc, 100.0f + mPos.x, 100.0f + mPos.y, 200.0f + mPos.x, 200.0f + mPos.y);
+		// Rectangle(hdc, 100.0f + mPos.x, 100.0f + mPos.y, 200.0f + mPos.x, 200.0f + mPos.y);
 
-		SelectObject(hdc, oldBrush);
-		SelectObject(hdc, oldPen);
-		DeleteObject(newBrush);
-		DeleteObject(newPen);
-	}
-
-	const Vector2& Player::GetPosition() const
-	{
-		return mPos;
+		// SelectObject(hdc, oldBrush);
+		// SelectObject(hdc, oldPen);
+		// DeleteObject(newBrush);
+		// DeleteObject(newPen);
 	}
 
 	const Vector2& Player::GetDirection() const
@@ -120,30 +65,21 @@ namespace hs
 
 	void Player::updatePhysics()
 	{
-		float dt = TimeUtils::GetDeltaTime();
-		float dt2 = dt * dt;
-
-		mPos.x += mVel.x * dt + mAcc.x * dt2;
-		mVel.x += mAcc.x * dt;
-
-		mPos.y += mVel.y * dt + mAcc.y * dt2;
-		mVel.y += mAcc.y * dt;
-		mAcc.y += 0.5f;
 	}
 
 	void Player::jump()
 	{
-		color = RGB(0, 0, 0);
-		mState = Player::ePlayerState::Jump;
-		mVel.y = -50.0f;
-		mAcc.y = -100.0f;
+		// color = RGB(0, 0, 0);
+		// mState = Player::ePlayerState::Jump;
+		// mVel.y = -50.0f;
+		// mAcc.y = -100.0f;
 	}
 
 	void Player::doubleJump()
 	{
-		color = RGB(100, 100, 100);
+		/*color = RGB(100, 100, 100);
 		mVel += mDirection * 100.0f;
-		mAcc += -mDirection * 60.0f;
+		mAcc += -mDirection * 60.0f;*/
 	}
 
 	// void Player::UseSkill(size_t skillId)

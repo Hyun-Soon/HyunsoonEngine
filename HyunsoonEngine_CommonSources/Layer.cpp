@@ -1,4 +1,5 @@
 #include "Layer.h"
+#include "GameObject.h"
 
 namespace hs
 {

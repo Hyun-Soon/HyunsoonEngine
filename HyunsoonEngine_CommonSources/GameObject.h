@@ -2,7 +2,7 @@
 
 #include "Input.h"
 #include "MathTypes.h"
-#include "Component.h"
+#include "Component/Component.h"
 #include "Layer.h"
 
 namespace hs
@@ -10,7 +10,7 @@ namespace hs
 	class GameObject
 	{
 	public:
-		GameObject(Vector2 pos, Layer::eLayerType type);
+		GameObject(Layer::eLayerType type);
 		virtual ~GameObject();
 
 		virtual void Initialize();
@@ -18,9 +18,7 @@ namespace hs
 		virtual void LateUpdate();
 		virtual void Render(HDC& hdc);
 
-		void					SetPosition(float x, float y);
-		const Vector2&			GetPosition() const;
-		const Layer::eLayerType GetLayerLevel() const;
+		const enum class Layer::eLayerType GetLayerLevel() const;
 
 		template <typename T>
 		T* AddComponent()
@@ -34,7 +32,7 @@ namespace hs
 		}
 
 		template <typename T>
-		T* GetComponent(std::wstring& compName)
+		T* GetComponent(std::wstring compName)
 		{
 			T* component = nullptr;
 			for (Component* comp : mComponents)
@@ -48,11 +46,8 @@ namespace hs
 			return component;
 		}
 
-	protected:
-		Vector2 mPos;
-
 	private:
-		void repositionWithinBounds();
+		// void repositionWithinBounds();
 
 		const Layer::eLayerType mLayerLevel;
 		std::vector<Component*> mComponents;

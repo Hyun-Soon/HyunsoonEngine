@@ -10,13 +10,13 @@ namespace hs
 		HuntingScene();
 		~HuntingScene();
 
-		virtual void Initialize() override;
+		void Initialize() override;
 
-		Monster* FindNearestMonster(float range);
+		// Monster* FindNearestMonster(float range);
 
 	private:
-		uint8_t				  mMonsterGenPeriod;
-		std::vector<Monster*> mMonsters;
-		// Geometry;
+		uint8_t mMonsterGenPeriod;
+		// std::vector<Monster*> mMonsters;
+		//  Geometry;
 	};
 } // namespace hs

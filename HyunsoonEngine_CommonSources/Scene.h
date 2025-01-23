@@ -1,11 +1,10 @@
 #pragma once
 
-#include "Entity.h"
-#include "Player.h"
-#include "Monster.h"
+#include "Layer.h"
 
 namespace hs
 {
+	class Monster;
 	class Scene : public Entity
 	{
 	public:
@@ -26,10 +25,10 @@ namespace hs
 
 		void			 AddGameObject(GameObject* gameObject);
 		const eSceneType GetType() const;
+		Monster*		 FindNearestMonster(float range);
 
 	private:
-		eSceneType				 mSceneType;
-		std::vector<GameObject*> mGameObjects;
-		// Image backgroundImage;
+		eSceneType			mSceneType;
+		std::vector<Layer*> mLayers;
 	};
 } // namespace hs

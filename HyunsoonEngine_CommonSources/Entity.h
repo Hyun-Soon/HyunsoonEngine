@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <Windows.h>
 
 namespace hs
 {
@@ -10,10 +11,10 @@ namespace hs
 		Entity();
 		virtual ~Entity();
 
-		void SetName(const std::wstring& name) { mName = name; }
+		void				SetName(const std::wstring& name) { mName = name; }
 		const std::wstring& GetName() const { return mName; };
 
 	private:
 		std::wstring mName;
 	};
-}
+} // namespace hs

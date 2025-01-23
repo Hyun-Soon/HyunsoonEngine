@@ -3,7 +3,7 @@
 namespace hs
 {
 	Projectile::Projectile(Vector2 pos, float speed, uint32_t power, GameObject* target)
-		: GameObject(pos)
+		: GameObject(Layer::eLayerType::Item)
 		, mTarget(target)
 		, mSpeed(speed)
 		, mPower(power)
@@ -26,33 +26,33 @@ namespace hs
 
 	void Projectile::Render(HDC& hdc)
 	{
-		COLORREF color = RGB(255, 255, 0);
-		HBRUSH	 newBrush = CreateSolidBrush(color);
-		HBRUSH	 oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
+		// COLORREF color = RGB(255, 255, 0);
+		// HBRUSH	 newBrush = CreateSolidBrush(color);
+		// HBRUSH	 oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
 
-		HPEN newPen = CreatePen(PS_SOLID, 2, color);
-		HPEN oldPen = (HPEN)SelectObject(hdc, newPen);
+		// HPEN newPen = CreatePen(PS_SOLID, 2, color);
+		// HPEN oldPen = (HPEN)SelectObject(hdc, newPen);
 
-		Ellipse(hdc, mPos.x, mPos.y, 50.0f + mPos.x, 50.0f + mPos.y);
+		// Ellipse(hdc, mPos.x, mPos.y, 50.0f + mPos.x, 50.0f + mPos.y);
 
-		SelectObject(hdc, oldBrush);
-		SelectObject(hdc, oldPen);
-		DeleteObject(newBrush);
-		DeleteObject(newPen);
+		// SelectObject(hdc, oldBrush);
+		// SelectObject(hdc, oldPen);
+		// DeleteObject(newBrush);
+		// DeleteObject(newPen);
 	}
 
 	void Projectile::traceTarget()
 	{
-		if (!mTarget)
+		/*if (!mTarget)
 			return;
 
 		Vector2 direction = mTarget->GetPosition() - mPos;
 
-		mVel = direction.Normalize() * mSpeed;
+		mVel = direction.Normalize() * mSpeed;*/
 	}
 
 	void Projectile::updatePhysics()
 	{
-		mPos += mVel * TimeUtils::GetDeltaTime();
+		// mPos += mVel * TimeUtils::GetDeltaTime();
 	}
 } // namespace hs

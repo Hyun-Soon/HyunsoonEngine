@@ -3,9 +3,8 @@
 
 namespace hs
 {
-	GameObject::GameObject(Vector2 pos, Layer::eLayerType type)
+	GameObject::GameObject(Layer::eLayerType type)
 		: mLayerLevel(type)
-		, mPos(pos)
 	{
 	}
 
@@ -32,7 +31,7 @@ namespace hs
 		{
 			component->Update();
 		}
-		repositionWithinBounds();
+		// repositionWithinBounds();
 	}
 
 	void GameObject::LateUpdate()
@@ -51,36 +50,23 @@ namespace hs
 		}
 	}
 
-	void GameObject::SetPosition(float x, float y)
-	{
-		mPos.x = x;
-		mPos.y = y;
-
-		return;
-	}
-
-	const Vector2& GameObject::GetPosition() const
-	{
-		return mPos;
-	}
-
 	const Layer::eLayerType GameObject::GetLayerLevel() const
 	{
 		return mLayerLevel;
 	}
 
-	void GameObject::repositionWithinBounds()
-	{
-		Resolution res = Application::GetResolution();
+	// void GameObject::repositionWithinBounds()
+	//{
+	//	Resolution res = Application::GetResolution();
 
-		if (mPos.x < 0.0f)
-			mPos.x = 0.0f;
-		else if (mPos.x > res.width)
-			mPos.x = res.width;
+	//	if (mPos.x < 0.0f)
+	//		mPos.x = 0.0f;
+	//	else if (mPos.x > res.width)
+	//		mPos.x = res.width;
 
-		if (mPos.y < 0.0f)
-			mPos.y = 0.0f;
-		else if (mPos.y > 600.0f) // temp //question : how to determine
-			mPos.y = 600.0f;
-	}
+	//	if (mPos.y < 0.0f)
+	//		mPos.y = 0.0f;
+	//	else if (mPos.y > 600.0f) // temp
+	//		mPos.y = 600.0f;
+	//}
 } // namespace hs

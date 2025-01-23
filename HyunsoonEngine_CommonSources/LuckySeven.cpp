@@ -4,6 +4,7 @@
 #include "SceneManager.h"
 #include "Shuriken.h"
 #include "Projectile.h"
+#include "Player.h"
 
 namespace hs
 {
@@ -19,20 +20,20 @@ namespace hs
 
 	void LuckySeven::Cast()
 	{
-		Player*	   pPlayer = Player::GetInstance();
-		Inventory* pInventory = Inventory::GetInstance();
+		// Player*	   player = Player::GetInstance();
+		// Inventory* inventory = Inventory::GetInstance();
 
-		Shuriken* pShuriken = pInventory->findShuriken();
+		// Shuriken* shuriken = inventory->findShuriken();
 
-		if (!pShuriken)
-			return;
+		// if (!shuriken)
+		//	return;
 
-		if (!pShuriken->Use(mShurikenUsage))
-			return;
+		// if (!shuriken->Use(mShurikenUsage))
+		//	return;
 
-		Monster*	pTarget = SceneManager::FindNearestMonster(mRange);
-		Projectile* projectile = new Projectile(pPlayer->GetPosition(), 100.0f, 10.0f, pTarget);
-		SceneManager::AddGameObject(projectile);
+		// Monster*	pTarget = SceneManager::FindNearestMonster(mRange);
+		// Projectile* projectile = new Projectile(player->GetPosition(), 100.0f, 10.0f, pTarget);
+		// SceneManager::AddGameObject(projectile);
 
 		// *pAbility->GetMainStat()
 	}

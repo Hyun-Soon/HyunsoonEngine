@@ -1,63 +1,103 @@
 #include "Scene.h"
+#include "Monster.h"
+#include "Player.h"
 
 namespace hs
 {
 	Scene::Scene(eSceneType sceneType)
 		: mSceneType(sceneType)
-		, mGameObjects()
+		, mLayers()
 	{
+		// for (int i = 0; i < (int)Layer::eLayerType::End; i++)
+		//	mLayers.push_back(nullptr);
 	}
 
 	Scene::~Scene()
 	{
-		for (GameObject* gameObj : mGameObjects)
-			delete gameObj;
+		for (Layer* layer : mLayers)
+			delete layer;
 	}
 
 	void Scene::Initialize()
 	{
+		for (UINT i = 0; i < (UINT)Layer::eLayerType::End; i++)
+		{
+			mLayers.push_back(new Layer());
+		}
 	}
 
 	void Scene::Update()
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->Update();
+			layer->Update();
 		}
-
-		Player* player = Player::GetInstance();
-		player->Update();
 	}
 
 	void Scene::LateUpdate()
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->LateUpdate();
+			layer->LateUpdate();
 		}
-
-		Player* player = Player::GetInstance();
-		player->LateUpdate();
 	}
 
 	void Scene::Render(HDC& hdc)
 	{
-		for (GameObject* gameObj : mGameObjects)
+		for (Layer* layer : mLayers)
 		{
-			gameObj->Render(hdc);
+			layer->Render(hdc);
 		}
-
-		Player* player = Player::GetInstance();
-		player->Render(hdc);
 	}
 
 	void Scene::AddGameObject(GameObject* gameObject)
 	{
-		mGameObjects.push_back(gameObject);
+		UINT layerLevel = (UINT)gameObject->GetLayerLevel();
+		mLayers[layerLevel]->AddGameObject(gameObject);
 	}
 
 	const Scene::eSceneType Scene::GetType() const
 	{
 		return mSceneType;
+	}
+
+	Monster* Scene::FindNearestMonster(float range)
+	{
+		// Player* player = Player::GetInstance();
+
+		// Vector2 playerPos = player->GetPosition();
+		// Vector2 playerDir = player->GetDirection();
+
+		// Monster* ret = nullptr;
+		// float	 minDist = FLT_MAX;
+
+		// find monster in Monster Layer
+		// for (Monster* pMon : mMonsters)
+		//{
+		//	Vector2 monsterPos = pMon->GetPosition();
+
+		//	if (playerDir.x < 0)
+		//	{
+		//		if (playerPos.x < monsterPos.x)
+		//			continue;
+		//	}
+		//	else
+		//	{
+		//		if (playerPos.x > monsterPos.x)
+		//			continue;
+		//	}
+
+		//	float dist = Vector2::Length(monsterPos, playerPos);
+		//	if (abs(monsterPos.y - playerPos.y) < 100
+		//		&& dist <= range
+		//		&& dist < minDist)
+		//	{
+		//		ret = pMon;
+		//		minDist = dist;
+		//	}
+		//}
+
+		// return ret;
+		return nullptr;
 	}
 } // namespace hs

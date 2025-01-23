@@ -7,6 +7,7 @@
 
 namespace hs
 {
+	class Monster;
 	class SceneManager
 	{
 	public:
