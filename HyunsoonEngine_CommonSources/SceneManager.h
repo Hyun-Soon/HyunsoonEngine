@@ -17,7 +17,7 @@ namespace hs
 		static void Initialize();
 		static void Update();
 		static void LateUpdate();
-		static void Render(HDC hdc);
+		static void Render(HDC& hdc);
 
 		static Monster* FindNearestMonster(float range);
 		static void		AddGameObject(GameObject* obj);

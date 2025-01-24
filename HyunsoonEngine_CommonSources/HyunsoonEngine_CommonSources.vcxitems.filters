@@ -133,6 +133,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\PlayerBehaviour.h">
       <Filter>Component</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LayerTypes.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Item">

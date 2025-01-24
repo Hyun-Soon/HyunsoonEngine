@@ -8,8 +8,10 @@ namespace hs
 		: mSceneType(sceneType)
 		, mLayers()
 	{
-		// for (int i = 0; i < (int)Layer::eLayerType::End; i++)
-		//	mLayers.push_back(nullptr);
+		for (UINT i = 0; i < (UINT)eLayerType::End; i++)
+		{
+			mLayers.push_back(new Layer());
+		}
 	}
 
 	Scene::~Scene()
@@ -20,10 +22,10 @@ namespace hs
 
 	void Scene::Initialize()
 	{
-		for (UINT i = 0; i < (UINT)Layer::eLayerType::End; i++)
-		{
-			mLayers.push_back(new Layer());
-		}
+		// for (UINT i = 0; i < (UINT)eLayerType::End; i++)
+		//{
+		//	mLayers.push_back(new Layer());
+		// }
 	}
 
 	void Scene::Update()

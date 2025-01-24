@@ -2,15 +2,16 @@
 
 #include "Input.h"
 #include "MathTypes.h"
-#include "Component/Component.h"
-#include "Layer.h"
+#include "SpriteRenderer.h"
+// #include "Component/Component.h"
+#include "LayerTypes.h"
 
 namespace hs
 {
 	class GameObject
 	{
 	public:
-		GameObject(Layer::eLayerType type);
+		GameObject(eLayerType type);
 		virtual ~GameObject();
 
 		virtual void Initialize();
@@ -18,7 +19,7 @@ namespace hs
 		virtual void LateUpdate();
 		virtual void Render(HDC& hdc);
 
-		const enum class Layer::eLayerType GetLayerLevel() const;
+		const enum class eLayerType GetLayerLevel() const;
 
 		template <typename T>
 		T* AddComponent()
@@ -49,7 +50,7 @@ namespace hs
 	private:
 		// void repositionWithinBounds();
 
-		const Layer::eLayerType mLayerLevel;
+		const eLayerType		mLayerLevel;
 		std::vector<Component*> mComponents;
 	};
 } // namespace hs

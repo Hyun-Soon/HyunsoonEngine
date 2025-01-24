@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "Entity.h"
+#include "LayerTypes.h"
 
 namespace hs
 {
@@ -10,16 +11,6 @@ namespace hs
 	class Layer : public Entity
 	{
 	public:
-		enum class eLayerType
-		{
-			Background,
-			Monster,
-			Player,
-			Item,
-			Npc,
-			End,
-		};
-
 		Layer();
 		~Layer();
 

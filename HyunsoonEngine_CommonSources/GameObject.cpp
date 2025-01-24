@@ -1,9 +1,8 @@
-#include "Application.h"
-#include "Layer.h"
+#include "GameObject.h"
 
 namespace hs
 {
-	GameObject::GameObject(Layer::eLayerType type)
+	GameObject::GameObject(eLayerType type)
 		: mLayerLevel(type)
 	{
 	}
@@ -50,7 +49,7 @@ namespace hs
 		}
 	}
 
-	const Layer::eLayerType GameObject::GetLayerLevel() const
+	const eLayerType GameObject::GetLayerLevel() const
 	{
 		return mLayerLevel;
 	}

@@ -29,6 +29,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Inventory.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Item.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Layer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LayerTypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LuckySeven.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Meso.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Miscellaneous.h" />

@@ -56,9 +56,8 @@ namespace hs
 		// mActiveScene = new HuntingScene(1, 0, {});
 		// mActiveScene = new VillageScene();
 		CreateScene(L"Henesys", Scene::eSceneType::Village);
-		CreateScene(L"Mushrooms", Scene::eSceneType::Hunting);
+		// CreateScene(L"Mushrooms", Scene::eSceneType::Hunting);
 		LoadScene(L"Henesys");
-		mActiveScene->Initialize();
 	}
 
 	void SceneManager::Update()
@@ -83,7 +82,7 @@ namespace hs
 		mActiveScene->LateUpdate();
 	}
 
-	void SceneManager::Render(HDC hdc)
+	void SceneManager::Render(HDC& hdc)
 	{
 		mActiveScene->Render(hdc);
 	}

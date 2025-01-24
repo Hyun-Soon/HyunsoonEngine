@@ -6,12 +6,14 @@
 
 #include "../HyunsoonEngine_CommonSources/Application.h"
 
+
+
 #define MAX_LOADSTRING 100
 
 // Global Variables:
 hs::Application app;
 
-ULONG_PTR gpToken;
+ULONG_PTR					 gpToken;
 Gdiplus::GdiplusStartupInput gpsi;
 
 HINSTANCE hInst;						 // current instance
@@ -128,8 +130,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
 
-
 	Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+
 
 	return TRUE;
 }
