@@ -79,6 +79,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SceneManager.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\BeginnersTown\BeginnersTown1.cpp">
+      <Filter>Scene\BeginnersTown</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
@@ -165,6 +168,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SceneManager.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\BeginnersTown\BeginnersTown1.h">
+      <Filter>Scene\BeginnersTown</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\ObjectUtils.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Item">
@@ -184,6 +193,9 @@
     </Filter>
     <Filter Include="Input">
       <UniqueIdentifier>{1ffa4f5b-ff14-444d-9fc9-61f75e56292f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\BeginnersTown">
+      <UniqueIdentifier>{45be29ef-6330-4052-bdcc-aebeaa847117}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

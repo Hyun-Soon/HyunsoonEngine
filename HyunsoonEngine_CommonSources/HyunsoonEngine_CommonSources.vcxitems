@@ -25,6 +25,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\GameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Monster.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Npc.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\ObjectUtils.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Player.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Projectile.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Input\Input.h" />
@@ -37,6 +38,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Item\Shuriken.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LayerTypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MathTypes.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\BeginnersTown\BeginnersTown1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\HuntingScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\Layer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\LayerTypes.h" />
@@ -68,6 +70,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Item\Miscellaneous.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Item\Shuriken.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Physics.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\BeginnersTown\BeginnersTown1.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\HuntingScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\Layer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\Scene.cpp" />
