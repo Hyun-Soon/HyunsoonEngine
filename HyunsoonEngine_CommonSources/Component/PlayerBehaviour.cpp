@@ -1,5 +1,5 @@
 #include "PlayerBehaviour.h"
-#include "GameObject.h"
+#include "GameObject/GameObject.h"
 #include "Transform.h"
 
 namespace hs

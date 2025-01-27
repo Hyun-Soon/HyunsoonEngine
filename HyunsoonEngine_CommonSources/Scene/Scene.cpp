@@ -1,6 +1,6 @@
 #include "Scene.h"
-#include "Monster.h"
-#include "Player.h"
+#include "GameObject/Monster.h"
+#include "GameObject/Player.h"
 
 namespace hs
 {

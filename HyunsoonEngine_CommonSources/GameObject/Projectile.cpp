@@ -1,4 +1,4 @@
-#include "Projectile.h"
+#include "GameObject/Projectile.h"
 
 namespace hs
 {

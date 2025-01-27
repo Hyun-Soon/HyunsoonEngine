@@ -1,6 +1,6 @@
 #include "VillageScene.h"
 #include "Component/Transform.h"
-#include "SpriteRenderer.h"
+#include "Component/SpriteRenderer.h"
 
 namespace hs
 {

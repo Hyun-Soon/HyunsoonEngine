@@ -1,4 +1,4 @@
-#include "Equipment.h"
+#include "Item/Equipment.h"
 
 namespace hs
 {

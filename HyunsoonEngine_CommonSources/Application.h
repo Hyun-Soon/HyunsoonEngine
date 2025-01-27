@@ -1,7 +1,7 @@
 #pragma once
 
-#include "SceneManager.h"
-#include "Input.h"
+#include "Scene/SceneManager.h"
+#include "Input/Input.h"
 
 namespace hs
 {

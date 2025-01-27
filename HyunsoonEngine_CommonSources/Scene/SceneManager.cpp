@@ -1,5 +1,5 @@
-#include "SceneManager.h"
-#include "Monster.h"
+#include "Scene/SceneManager.h"
+#include "GameObject/Monster.h"
 
 namespace hs
 {

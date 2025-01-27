@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
-#include "Inventory.h"
+#include "Item/Inventory.h"
 
 namespace hs
 {

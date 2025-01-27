@@ -2,9 +2,9 @@
 
 #include <list>
 
-#include "Equipment.h"
-#include "Consumables.h"
-#include "Miscellaneous.h"
+#include "Item/Equipment.h"
+#include "Item/Consumables.h"
+#include "Item/Miscellaneous.h"
 
 namespace hs
 {

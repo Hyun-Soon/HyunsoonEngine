@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "Entity.h"
-#include "LayerTypes.h"
+#include "Scene/LayerTypes.h"
 
 namespace hs
 {

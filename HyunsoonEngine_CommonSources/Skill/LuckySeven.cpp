@@ -1,10 +1,10 @@
 #include "LuckySeven.h"
-#include "Monster.h"
-#include "Inventory.h"
-#include "SceneManager.h"
-#include "Shuriken.h"
-#include "Projectile.h"
-#include "Player.h"
+#include "GameObject/Monster.h"
+#include "Item/Inventory.h"
+#include "Scene/SceneManager.h"
+#include "Item/Shuriken.h"
+#include "GameObject/Projectile.h"
+#include "GameObject/Player.h"
 
 namespace hs
 {

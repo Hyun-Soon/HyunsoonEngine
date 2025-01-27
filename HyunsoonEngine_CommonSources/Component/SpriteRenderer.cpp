@@ -1,6 +1,6 @@
-#include "SpriteRenderer.h"
+#include "Component/SpriteRenderer.h"
 #include "Component/Transform.h"
-#include "GameObject.h"
+#include "GameObject/GameObject.h"
 
 namespace hs
 {

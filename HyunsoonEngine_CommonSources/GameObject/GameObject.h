@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Input.h"
+#include "Input/Input.h"
 #include "MathTypes.h"
-#include "SpriteRenderer.h"
+#include "Component/SpriteRenderer.h"
 // #include "Component/Component.h"
-#include "LayerTypes.h"
+#include "Scene/LayerTypes.h"
 
 namespace hs
 {
