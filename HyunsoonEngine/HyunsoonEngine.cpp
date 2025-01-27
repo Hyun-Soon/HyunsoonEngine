@@ -125,12 +125,14 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	{
 		return FALSE;
 	}
+	Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+
 	app.Initialize(hWnd, width, height);
 
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
 
-	Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+
 
 
 	return TRUE;

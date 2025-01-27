@@ -29,27 +29,28 @@ namespace hs
 
 	void SpriteRenderer::Render(HDC& hdc)
 	{
-		// GameObject*		  owner = GetOwner();
-		// Transform*		  transform = owner->GetComponent<Transform>(L"Transform");
-		// Vector2			  pos = transform->GetPosition();
-		// Gdiplus::Graphics graphics(hdc);
-		// graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
+		GameObject*		  owner = GetOwner();
+		Transform*		  transform = owner->GetComponent<Transform>(L"Transform");
+		Vector2			  pos = transform->GetPosition();
+		Gdiplus::Graphics graphics(hdc);
+		graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
 
-		Gdiplus::Image*	  image = Gdiplus::Image::FromFile(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Southferry/SouthferryNotSprite/Map/SouthFerry.png");
-		Gdiplus::Graphics g(hdc);
+		// Test
+		//  Gdiplus::Image*	  image = Gdiplus::Image::FromFile(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Southferry/SouthferryNotSprite/Map/SouthFerry.png");
+		// mImage = Gdiplus::Image::FromFile(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Southferry/SouthferryNotSprite/Map/SouthFerry.png");
+		// Gdiplus::Graphics g(hdc);
 
-		// (x, y)에 width X height 크기의 이미지를 그립니다.
-		g.DrawImage(image, 0, 0, 800, 800);
+		// g.DrawImage(mImage, 0, 0, 800, 800);
 
-		// 데이터 메모리 해제
-		delete image;
+		// delete mImage;
 	}
 
 	void SpriteRenderer::ImageLoad(const std::wstring& path)
 	{
-		// mImage = Gdiplus::Image::FromFile(path.c_str());
 
-		// mWidth = mImage->GetWidth();
-		// mHeight = mImage->GetHeight();
+		mImage = Gdiplus::Image::FromFile(path.c_str());
+
+		mWidth = mImage->GetWidth();
+		mHeight = mImage->GetHeight();
 	}
 } // namespace hs

@@ -14,7 +14,8 @@ namespace hs
 
 	void HuntingScene::Initialize()
 	{
-		// test
+
+		//  test
 
 		// Monster* pMonster;
 

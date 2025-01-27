@@ -28,9 +28,6 @@ namespace hs
 		spr->ImageLoad(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Southferry/SouthferryNotSprite/Map/SouthFerry.png");
 
 		AddGameObject(obj);
-
-		//  obj = new Npc({ 500.0f, 0.0f });
-		//  AddGameObject(pObj);
 	}
 
 } // namespace hs
