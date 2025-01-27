@@ -13,6 +13,7 @@ namespace hs
 
 	SpriteRenderer::~SpriteRenderer()
 	{
+		delete mImage;
 	}
 
 	void SpriteRenderer::Initialize()
@@ -30,19 +31,11 @@ namespace hs
 	void SpriteRenderer::Render(HDC& hdc)
 	{
 		GameObject*		  owner = GetOwner();
-		Transform*		  transform = owner->GetComponent<Transform>(L"Transform");
+		Transform*		  transform = owner->GetComponent<Transform>();
 		Vector2			  pos = transform->GetPosition();
 		Gdiplus::Graphics graphics(hdc);
-		graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
-
-		// Test
-		//  Gdiplus::Image*	  image = Gdiplus::Image::FromFile(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Southferry/SouthferryNotSprite/Map/SouthFerry.png");
-		// mImage = Gdiplus::Image::FromFile(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Southferry/SouthferryNotSprite/Map/SouthFerry.png");
-		// Gdiplus::Graphics g(hdc);
-
-		// g.DrawImage(mImage, 0, 0, 800, 800);
-
-		// delete mImage;
+		graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, 300, 200));
+		//  graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
 	}
 
 	void SpriteRenderer::ImageLoad(const std::wstring& path)

@@ -14,7 +14,7 @@ namespace hs
 
 	void Physics::Initialize()
 	{
-		mTransform = GetOwner()->GetComponent<Transform>(L"Transform");
+		mTransform = GetOwner()->GetComponent<Transform>();
 	}
 
 	void Physics::Update()

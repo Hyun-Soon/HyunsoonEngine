@@ -1,10 +1,12 @@
-#include "GameObject.h"
+#include "GameObject/GameObject.h"
+#include "Component/Transform.h"
 
 namespace hs
 {
 	GameObject::GameObject(eLayerType type)
 		: mLayerLevel(type)
 	{
+		initializeTransform();
 	}
 
 	GameObject::~GameObject()
@@ -52,6 +54,11 @@ namespace hs
 	const eLayerType GameObject::GetLayerLevel() const
 	{
 		return mLayerLevel;
+	}
+
+	void GameObject::initializeTransform()
+	{
+		AddComponent<Transform>();
 	}
 
 	// void GameObject::repositionWithinBounds()

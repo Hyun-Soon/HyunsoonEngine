@@ -14,7 +14,7 @@ namespace hs
 
 	void PlayerBehaviour::Initialize()
 	{
-		mTransform = GetOwner()->GetComponent<Transform>(L"Transform");
+		mTransform = GetOwner()->GetComponent<Transform>();
 	}
 
 	void PlayerBehaviour::Update()

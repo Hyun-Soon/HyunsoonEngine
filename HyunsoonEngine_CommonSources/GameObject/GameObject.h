@@ -3,7 +3,6 @@
 #include "Input/Input.h"
 #include "MathTypes.h"
 #include "Component/SpriteRenderer.h"
-// #include "Component/Component.h"
 #include "Scene/LayerTypes.h"
 
 namespace hs
@@ -33,22 +32,20 @@ namespace hs
 		}
 
 		template <typename T>
-		T* GetComponent(std::wstring compName)
+		T* GetComponent()
 		{
 			T* component = nullptr;
 			for (Component* comp : mComponents)
 			{
-				if (comp->GetName() == compName)
-				{
-					component = dynamic_cast<T*>(comp);
-					break;
-				}
+				if (component = dynamic_cast<T*>(comp))
+					return component;
 			}
 			return component;
 		}
 
 	private:
 		// void repositionWithinBounds();
+		void initializeTransform();
 
 		const eLayerType		mLayerLevel;
 		std::vector<Component*> mComponents;

@@ -20,12 +20,13 @@ namespace hs
 
 		obj = new GameObject(eLayerType::Background);
 		Transform* transform = obj->AddComponent<Transform>();
-		Vector2	   pos = { 100.0f, 100.0f };
+		Vector2	   pos = { 0.0f, 0.0f };
 		transform->SetName(L"Transform");
 		transform->SetPosition(pos);
 
 		SpriteRenderer* spr = obj->AddComponent<SpriteRenderer>();
-		spr->ImageLoad(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Southferry/SouthferryNotSprite/Map/SouthFerry.png");
+		// spr->ImageLoad(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Southferry/SouthferryNotSprite/Map/SouthFerry.png");
+		spr->ImageLoad(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/BeginnersTown1/BeginnersTown1NotSprite/KeyGuide_Alt.png");
 
 		AddGameObject(obj);
 	}
