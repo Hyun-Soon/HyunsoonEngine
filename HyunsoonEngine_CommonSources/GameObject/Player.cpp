@@ -1,13 +1,19 @@
 #include "Player.h"
 #include "Component/Transform.h"
+#include "Component/SpriteRenderer.h"
 
 namespace hs
 {
-	Player Player::player;
+	Player* Player::player = nullptr;
 
 	Player* Player::GetInstance()
 	{
-		return &player;
+		if (player == nullptr)
+		{
+			player = new Player();
+			player->Initialize();
+		}
+		return player;
 	}
 
 	Player::Player()
@@ -25,37 +31,10 @@ namespace hs
 
 	void Player::Initialize()
 	{
-		Transform* transform = AddComponent<Transform>();
+		SpriteRenderer* spr = AddComponent<SpriteRenderer>();
+		spr->ImageLoad(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Common/CommonNotSprite/NPC/GM.png");
 
 		GameObject::Initialize();
-	}
-
-	void Player::Update()
-	{
-		GameObject::Update();
-	}
-
-	void Player::LateUpdate()
-	{
-		GameObject::LateUpdate();
-	}
-
-	void Player::Render(HDC& hdc)
-	{
-		GameObject::Render(hdc);
-
-		// HBRUSH newBrush = CreateSolidBrush(color);
-		// HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
-
-		// HPEN newPen = CreatePen(PS_SOLID, 2, color);
-		// HPEN oldPen = (HPEN)SelectObject(hdc, newPen);
-
-		// Rectangle(hdc, 100.0f + mPos.x, 100.0f + mPos.y, 200.0f + mPos.x, 200.0f + mPos.y);
-
-		// SelectObject(hdc, oldBrush);
-		// SelectObject(hdc, oldPen);
-		// DeleteObject(newBrush);
-		// DeleteObject(newPen);
 	}
 
 	const Vector2& Player::GetDirection() const

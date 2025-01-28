@@ -11,9 +11,6 @@ namespace hs
 		static Player* GetInstance();
 
 		virtual void Initialize() override;
-		virtual void Update() override;
-		virtual void LateUpdate() override;
-		virtual void Render(HDC& hdc) override;
 
 		const Vector2& GetDirection() const;
 
@@ -36,7 +33,7 @@ namespace hs
 		Player();
 		~Player();
 
-		static Player player;
+		static Player* player;
 
 		void updatePhysics();
 		void jump();
