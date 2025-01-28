@@ -23,11 +23,13 @@ namespace hs
 		virtual void LateUpdate();
 		virtual void Render(HDC& hdc);
 
-		void			 AddGameObject(GameObject* gameObject);
+		void			 AddGameObject(GameObject* gameObject, enums::eLayerType layerLevel);
 		const eSceneType GetType() const;
 		Monster*		 FindNearestMonster(float range);
 
 	private:
+		void createLayers();
+
 		eSceneType			mSceneType;
 		std::vector<Layer*> mLayers;
 	};

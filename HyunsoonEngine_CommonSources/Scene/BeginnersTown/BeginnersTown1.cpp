@@ -14,6 +14,6 @@ namespace hs
 
 	void BeginnersTown1::Initialize()
 	{
-		GameObject* background = new GameObject(enums::eLayerType::Background);
+		GameObject* background = new GameObject();
 	}
 } // namespace hs

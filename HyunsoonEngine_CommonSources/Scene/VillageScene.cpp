@@ -18,7 +18,7 @@ namespace hs
 		// test
 		GameObject* obj;
 
-		obj = new GameObject(enums::eLayerType::Background);
+		obj = new GameObject();
 		Transform* transform = obj->AddComponent<Transform>();
 		Vector2	   pos = { 0.0f, 0.0f };
 		transform->SetName(L"Transform");
@@ -28,7 +28,7 @@ namespace hs
 		// spr->ImageLoad(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Southferry/SouthferryNotSprite/Map/SouthFerry.png");
 		spr->ImageLoad(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/BeginnersTown1/BeginnersTown1NotSprite/KeyGuide_Alt.png");
 
-		AddGameObject(obj);
+		AddGameObject(obj, enums::eLayerType::Background);
 	}
 
 } // namespace hs

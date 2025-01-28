@@ -92,8 +92,8 @@ namespace hs
 		return mActiveScene->FindNearestMonster(range);
 	}
 
-	void SceneManager::AddGameObject(GameObject* obj)
+	void SceneManager::AddGameObject(GameObject* obj, enums::eLayerType layerLevel)
 	{
-		mActiveScene->AddGameObject(obj);
+		mActiveScene->AddGameObject(obj, layerLevel);
 	}
 } // namespace hs

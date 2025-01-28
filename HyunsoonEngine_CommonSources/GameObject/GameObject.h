@@ -10,15 +10,13 @@ namespace hs
 	class GameObject
 	{
 	public:
-		GameObject(enums::eLayerType type);
+		GameObject();
 		virtual ~GameObject();
 
 		virtual void Initialize();
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC& hdc);
-
-		const enum class enums::eLayerType GetLayerLevel() const;
 
 		template <typename T>
 		T* AddComponent()
@@ -47,7 +45,6 @@ namespace hs
 		// void repositionWithinBounds();
 		void initializeTransform();
 
-		const enums::eLayerType mLayerLevel;
 		std::vector<Component*> mComponents;
 	};
 } // namespace hs

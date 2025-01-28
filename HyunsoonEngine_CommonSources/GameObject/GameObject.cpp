@@ -3,8 +3,7 @@
 
 namespace hs
 {
-	GameObject::GameObject(enums::eLayerType type)
-		: mLayerLevel(type)
+	GameObject::GameObject()
 	{
 		initializeTransform();
 	}
@@ -49,11 +48,6 @@ namespace hs
 		{
 			component->Render(hdc);
 		}
-	}
-
-	const enums::eLayerType GameObject::GetLayerLevel() const
-	{
-		return mLayerLevel;
 	}
 
 	void GameObject::initializeTransform()

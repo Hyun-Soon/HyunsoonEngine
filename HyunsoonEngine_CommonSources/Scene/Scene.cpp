@@ -8,6 +8,7 @@ namespace hs
 		: mSceneType(sceneType)
 		, mLayers()
 	{
+		createLayers();
 		for (UINT i = 0; i < (UINT)enums::eLayerType::End; i++)
 		{
 			mLayers.push_back(new Layer());
@@ -48,10 +49,9 @@ namespace hs
 		}
 	}
 
-	void Scene::AddGameObject(GameObject* gameObject)
+	void Scene::AddGameObject(GameObject* gameObject, enums::eLayerType layerLevel)
 	{
-		UINT layerLevel = (UINT)gameObject->GetLayerLevel();
-		mLayers[layerLevel]->AddGameObject(gameObject);
+		mLayers[(UINT)layerLevel]->AddGameObject(gameObject);
 	}
 
 	const Scene::eSceneType Scene::GetType() const
@@ -97,5 +97,15 @@ namespace hs
 
 		// return ret;
 		return nullptr;
+	}
+
+	void Scene::createLayers()
+	{
+		UINT layerDepth = static_cast<UINT>(enums::eLayerType::End);
+		mLayers.resize(layerDepth);
+		for (size_t i = 0; i < layerDepth; i++)
+		{
+			mLayers[i] = new Layer();
+		}
 	}
 } // namespace hs

@@ -4,7 +4,7 @@ namespace hs
 {
 
 	Npc::Npc(Vector2 pos)
-		: GameObject(enums::eLayerType::Npc)
+		: GameObject()
 	{
 	}
 

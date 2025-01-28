@@ -20,7 +20,7 @@ namespace hs
 		static void Render(HDC& hdc);
 
 		static Monster* FindNearestMonster(float range);
-		static void		AddGameObject(GameObject* obj);
+		static void		AddGameObject(GameObject* obj, enums::eLayerType layerLevel);
 
 	private:
 		SceneManager();
