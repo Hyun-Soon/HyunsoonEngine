@@ -3,34 +3,33 @@
 #include "GameObject/GameObject.h"
 #include "Enums/Enums.h"
 #include "MathTypes.h"
+#include "Scene/SceneManager.h"
 
 namespace hs
 {
 	namespace object
 	{
 		template <typename T>
-		static T* Instantiate(hs::enums::eLayerType type)
+		static T* Instantiate(hs::enums::eLayerType layerLevel)
 		{
-			T*	   gameObject = new T();
-			Scene* activeScene = SceneManager::GetActiveScene();
-			Layer* layer = activeScene->GetLayer(type);
-			layer->AddGameObject(gameObject);
+			T* gameObj = new T();
+			gameObj->Initialize();
+			SceneManager::AddGameObject(gameObj, layerLevel);
 
-			return gameObject;
+			return gameObj;
 		}
 
 		template <typename T>
-		static T* Instantiate(hs::enums::eLayerType type, hs::Vector2 position)
+		static T* Instantiate(hs::enums::eLayerType layerLevel, hs::Vector2 position)
 		{
-			T*	   gameObject = new T();
-			Scene* activeScene = SceneManager::GetActiveScene();
-			Layer* layer = activeScene->GetLayer(type);
-			layer->AddGameObject(gameObject);
+			T* gameObj = new T();
+			gameObj->Initialize();
+			SceneManager::AddGameObject(gameObj, layerLevel);
 
-			Transform* tr = gameObject->GetComponent<Transform>();
+			Transform* tr = gameObj->GetComponent<Transform>();
 			tr->SetPosition(position);
 
-			return gameObject;
+			return gameObj;
 		}
 
 	} // namespace object

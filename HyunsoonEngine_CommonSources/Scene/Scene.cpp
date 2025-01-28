@@ -9,10 +9,6 @@ namespace hs
 		, mLayers()
 	{
 		createLayers();
-		for (UINT i = 0; i < (UINT)enums::eLayerType::End; i++)
-		{
-			mLayers.push_back(new Layer());
-		}
 	}
 
 	Scene::~Scene()

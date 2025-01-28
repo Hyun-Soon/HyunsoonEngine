@@ -82,5 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory).clang-format" />
+    <None Include="$(MSBuildThisFileDirectory)Maps\BeginnersTown1.json" />
   </ItemGroup>
 </Project>

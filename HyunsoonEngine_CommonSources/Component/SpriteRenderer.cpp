@@ -34,8 +34,7 @@ namespace hs
 		Transform*		  transform = owner->GetComponent<Transform>();
 		Vector2			  pos = transform->GetPosition();
 		Gdiplus::Graphics graphics(hdc);
-		graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, 300, 200));
-		//  graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
+		graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
 	}
 
 	void SpriteRenderer::ImageLoad(const std::wstring& path)

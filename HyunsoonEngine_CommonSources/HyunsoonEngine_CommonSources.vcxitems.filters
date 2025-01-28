@@ -200,8 +200,14 @@
     <Filter Include="Enums">
       <UniqueIdentifier>{e40d6c91-4a4d-41ed-bd7d-fde584e6dc10}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Maps">
+      <UniqueIdentifier>{9a2991c6-cb28-4367-9650-7051a42c1581}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory).clang-format" />
+    <None Include="$(MSBuildThisFileDirectory)Maps\BeginnersTown1.json">
+      <Filter>Maps</Filter>
+    </None>
   </ItemGroup>
 </Project>

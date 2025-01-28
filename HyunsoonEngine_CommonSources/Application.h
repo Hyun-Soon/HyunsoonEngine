@@ -2,6 +2,7 @@
 
 #include "Scene/SceneManager.h"
 #include "Input/Input.h"
+#include "GameObject/Player.h"
 
 namespace hs
 {

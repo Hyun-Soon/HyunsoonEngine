@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Scene/Scene.h"
+#include "../Scene.h"
 
 namespace hs
 {
@@ -11,9 +11,6 @@ namespace hs
 		~BeginnersTown1();
 
 		virtual void Initialize() override;
-		virtual void Update() override;
-		virtual void LateUpdate() override;
-		virtual void Render(HDC& hdc) override;
 
 	private:
 	};

@@ -2,7 +2,7 @@
 
 #include "Input/Input.h"
 #include "MathTypes.h"
-#include "Component/SpriteRenderer.h"
+#include "Component/Component.h"
 #include "Enums/Enums.h"
 
 namespace hs
@@ -24,7 +24,7 @@ namespace hs
 			T* component = new T();
 			component->Initialize();
 			component->SetOwner(this);
-			mComponents.push_back(component);
+			mComponents.emplace_back(component);
 
 			return component;
 		}

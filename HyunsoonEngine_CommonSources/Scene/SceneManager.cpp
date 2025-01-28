@@ -1,42 +1,13 @@
-#include "Scene/SceneManager.h"
 #include "GameObject/Monster.h"
+#include "Scene/SceneManager.h"
+#include "Scene/BeginnersTown/BeginnersTown1.h"
+#include "Scene/VillageScene.h"
 
 namespace hs
 {
-	std::unordered_map<std::wstring, Scene*> SceneManager::mScenes = {};
-	Scene*									 SceneManager::mActiveScene = nullptr;
+	std::unordered_map<std::wstring, Scene*> SceneManager::mScenes;
 
-	Scene* SceneManager::CreateScene(const std::wstring& name, const Scene::eSceneType type)
-	{
-		Scene* scene = nullptr;
-
-		if (mScenes.find(name) == mScenes.end())
-		{
-			int sceneType = static_cast<int>(type);
-
-			switch (sceneType)
-			{
-					// case 0:
-					//	scene = new LoginScene();
-					//	break;
-				case 1:
-					scene = new VillageScene();
-					break;
-				case 2:
-					scene = new HuntingScene();
-					break;
-				default:
-					break;
-			}
-
-			scene->SetName(name);
-			scene->Initialize();
-
-			mScenes[name] = scene;
-		}
-
-		return scene;
-	}
+	Scene* SceneManager::mActiveScene = nullptr;
 
 	Scene* SceneManager::LoadScene(const std::wstring& name)
 	{
@@ -46,6 +17,7 @@ namespace hs
 			return nullptr;
 
 		mActiveScene = iter->second;
+		// mActiveScene->OnEnter();
 
 		return iter->second;
 	}
@@ -53,11 +25,11 @@ namespace hs
 	void SceneManager::Initialize()
 	{
 		// test
-		// mActiveScene = new HuntingScene(1, 0, {});
-		// mActiveScene = new VillageScene();
-		CreateScene(L"Henesys", Scene::eSceneType::Village);
-		// CreateScene(L"Mushrooms", Scene::eSceneType::Hunting);
-		LoadScene(L"Henesys");
+		const std::wstring mapName = L"Henesys";
+		Scene*			   begginersTown1 = CreateScene<BeginnersTown1>(mapName);
+
+		const std::wstring testMap = L"testScene";
+		Scene*			   village = CreateScene<VillageScene>(testMap);
 	}
 
 	void SceneManager::Update()

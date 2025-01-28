@@ -4,6 +4,7 @@
 
 #include "HuntingScene.h"
 #include "VillageScene.h"
+#include "../Component/SpriteRenderer.h"
 
 namespace hs
 {
@@ -11,7 +12,19 @@ namespace hs
 	class SceneManager
 	{
 	public:
-		static Scene* CreateScene(const std::wstring& name, const Scene::eSceneType type);
+		template <typename T>
+		static Scene* CreateScene(const std::wstring& name)
+		{
+			T* scene = new T();
+			scene->SetName(name);
+			mActiveScene = scene;
+			scene->Initialize();
+
+			mScenes[name] = scene;
+
+			return scene;
+		}
+
 		static Scene* LoadScene(const std::wstring& name);
 
 		static void Initialize();
@@ -25,6 +38,7 @@ namespace hs
 	private:
 		SceneManager();
 		~SceneManager();
+
 		static std::unordered_map<std::wstring, Scene*> mScenes;
 		static Scene*									mActiveScene;
 	};
