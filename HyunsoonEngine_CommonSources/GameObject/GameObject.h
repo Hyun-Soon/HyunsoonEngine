@@ -3,14 +3,14 @@
 #include "Input/Input.h"
 #include "MathTypes.h"
 #include "Component/SpriteRenderer.h"
-#include "Scene/LayerTypes.h"
+#include "Enums/Enums.h"
 
 namespace hs
 {
 	class GameObject
 	{
 	public:
-		GameObject(eLayerType type);
+		GameObject(enums::eLayerType type);
 		virtual ~GameObject();
 
 		virtual void Initialize();
@@ -18,7 +18,7 @@ namespace hs
 		virtual void LateUpdate();
 		virtual void Render(HDC& hdc);
 
-		const enum class eLayerType GetLayerLevel() const;
+		const enum class enums::eLayerType GetLayerLevel() const;
 
 		template <typename T>
 		T* AddComponent()
@@ -47,7 +47,7 @@ namespace hs
 		// void repositionWithinBounds();
 		void initializeTransform();
 
-		const eLayerType		mLayerLevel;
+		const enums::eLayerType mLayerLevel;
 		std::vector<Component*> mComponents;
 	};
 } // namespace hs

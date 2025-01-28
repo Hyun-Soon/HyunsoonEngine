@@ -3,7 +3,7 @@
 
 namespace hs
 {
-	GameObject::GameObject(eLayerType type)
+	GameObject::GameObject(enums::eLayerType type)
 		: mLayerLevel(type)
 	{
 		initializeTransform();
@@ -51,7 +51,7 @@ namespace hs
 		}
 	}
 
-	const eLayerType GameObject::GetLayerLevel() const
+	const enums::eLayerType GameObject::GetLayerLevel() const
 	{
 		return mLayerLevel;
 	}

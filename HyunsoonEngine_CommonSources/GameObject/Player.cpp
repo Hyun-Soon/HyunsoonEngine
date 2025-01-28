@@ -11,7 +11,7 @@ namespace hs
 	}
 
 	Player::Player()
-		: GameObject(eLayerType::Player)
+		: GameObject(enums::eLayerType::Player)
 		, mDirection(1.0f, 0.0f)
 		, mState(ePlayerState::Idle)
 		, mHP(100)

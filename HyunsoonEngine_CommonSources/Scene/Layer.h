@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "Entity.h"
-#include "Scene/LayerTypes.h"
+#include "Enums/Enums.h"
 
 namespace hs
 {

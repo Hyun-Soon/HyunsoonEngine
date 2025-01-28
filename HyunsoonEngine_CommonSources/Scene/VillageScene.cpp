@@ -18,7 +18,7 @@ namespace hs
 		// test
 		GameObject* obj;
 
-		obj = new GameObject(eLayerType::Background);
+		obj = new GameObject(enums::eLayerType::Background);
 		Transform* transform = obj->AddComponent<Transform>();
 		Vector2	   pos = { 0.0f, 0.0f };
 		transform->SetName(L"Transform");

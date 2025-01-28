@@ -147,9 +147,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\Layer.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\LayerTypes.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\Scene.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -174,6 +171,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\ObjectUtils.h">
       <Filter>GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Enums\Enums.h">
+      <Filter>Enums</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Item">
@@ -196,6 +196,9 @@
     </Filter>
     <Filter Include="Scene\BeginnersTown">
       <UniqueIdentifier>{45be29ef-6330-4052-bdcc-aebeaa847117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enums">
+      <UniqueIdentifier>{e40d6c91-4a4d-41ed-bd7d-fde584e6dc10}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@
 namespace hs
 {
 	Projectile::Projectile(Vector2 pos, float speed, uint32_t power, GameObject* target)
-		: GameObject(eLayerType::Item)
+		: GameObject(enums::eLayerType::Item)
 		, mTarget(target)
 		, mSpeed(speed)
 		, mPower(power)

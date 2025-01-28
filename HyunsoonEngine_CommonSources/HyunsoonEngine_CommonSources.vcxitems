@@ -22,6 +22,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Transform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)DamageUtils.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Entity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Enums\Enums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\GameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Monster.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Npc.h" />
@@ -41,7 +42,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\BeginnersTown\BeginnersTown1.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\HuntingScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\Layer.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\LayerTypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\Scene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\VillageScene.h" />

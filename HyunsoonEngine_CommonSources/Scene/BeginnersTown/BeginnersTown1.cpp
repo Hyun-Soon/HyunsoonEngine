@@ -4,6 +4,7 @@
 namespace hs
 {
 	BeginnersTown1::BeginnersTown1()
+		: Scene(eSceneType::Hunting)
 	{
 	}
 
@@ -13,6 +14,6 @@ namespace hs
 
 	void BeginnersTown1::Initialize()
 	{
-		GameObject* background = new GameObject(eLayerType::Background);
+		GameObject* background = new GameObject(enums::eLayerType::Background);
 	}
 } // namespace hs

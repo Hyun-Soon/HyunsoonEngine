@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameObject/GameObject.h"
-#include "Scene/LayerTypes.h"
+#include "Enums/Enums.h"
 #include "MathTypes.h"
 
 namespace hs
@@ -9,7 +9,7 @@ namespace hs
 	namespace object
 	{
 		template <typename T>
-		static T* Instantiate(hs::eLayerType type)
+		static T* Instantiate(hs::enums::eLayerType type)
 		{
 			T*	   gameObject = new T();
 			Scene* activeScene = SceneManager::GetActiveScene();
@@ -20,7 +20,7 @@ namespace hs
 		}
 
 		template <typename T>
-		static T* Instantiate(hs::eLayerType type, hs::Vector2 position)
+		static T* Instantiate(hs::enums::eLayerType type, hs::Vector2 position)
 		{
 			T*	   gameObject = new T();
 			Scene* activeScene = SceneManager::GetActiveScene();

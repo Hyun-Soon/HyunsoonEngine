@@ -3,7 +3,7 @@
 namespace hs
 {
 	Monster::Monster(Vector2 pos, bool dir, int state, uint16_t hp)
-		: GameObject(eLayerType::Monster)
+		: GameObject(enums::eLayerType::Monster)
 		, bDirection(dir)
 		, mState(state)
 		, mHP(hp)
