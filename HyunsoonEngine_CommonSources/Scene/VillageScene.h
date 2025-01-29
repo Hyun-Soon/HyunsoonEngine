@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Scene.h"
-#include "GameObject/Npc.h"
+#include "../GameObject/Npc.h"
 
 namespace hs
 {

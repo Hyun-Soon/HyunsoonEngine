@@ -1,5 +1,6 @@
 #pragma once
 
+#include "GdiPlusInclude.h"
 #include "Scene/SceneManager.h"
 #include "Input/Input.h"
 #include "GameObject/Player.h"
@@ -22,6 +23,7 @@ namespace hs
 		~Application();
 
 		static const Resolution& GetResolution();
+		const HDC&				 GetHdc() const;
 
 		void Initialize(HWND hwnd, UINT width, UINT height);
 		void Run();

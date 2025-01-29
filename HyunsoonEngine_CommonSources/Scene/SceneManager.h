@@ -4,7 +4,6 @@
 
 #include "HuntingScene.h"
 #include "VillageScene.h"
-#include "../Component/SpriteRenderer.h"
 
 namespace hs
 {

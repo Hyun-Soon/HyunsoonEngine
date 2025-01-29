@@ -5,15 +5,14 @@
 namespace hs
 {
 	SpriteRenderer::SpriteRenderer()
-		: mImage(nullptr)
-		, mWidth(0)
-		, mHeight(0)
+		: Component()
+		, mTexture(nullptr)
+		, mScale(Vector2::One)
 	{
 	}
 
 	SpriteRenderer::~SpriteRenderer()
 	{
-		delete mImage;
 	}
 
 	void SpriteRenderer::Initialize()
@@ -30,19 +29,30 @@ namespace hs
 
 	void SpriteRenderer::Render(HDC& hdc)
 	{
-		GameObject*		  owner = GetOwner();
-		Transform*		  transform = owner->GetComponent<Transform>();
-		Vector2			  pos = transform->GetPosition();
-		Gdiplus::Graphics graphics(hdc);
-		graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
+		assert(mTexture);
+
+		Transform* transform = GetOwner()->GetComponent<Transform>();
+		Vector2	   pos = transform->GetPosition();
+
+		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
+		{
+			Gdiplus::Graphics graphics(hdc);
+			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth() * mScale.x, mTexture->GetHeight() * mScale.y));
+		}
+		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
+		{
+			TransparentBlt(hdc, pos.x, pos.y, mTexture->GetWidth() * mScale.x, mTexture->GetHeight() * mScale.y, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight(), RGB(255, 0, 255));
+		}
 	}
 
-	void SpriteRenderer::ImageLoad(const std::wstring& path)
+	void SpriteRenderer::SetTexture(graphics::Texture* texture)
 	{
-
-		mImage = Gdiplus::Image::FromFile(path.c_str());
-
-		mWidth = mImage->GetWidth();
-		mHeight = mImage->GetHeight();
+		mTexture = texture;
 	}
+
+	void SpriteRenderer::SetScale(Vector2 scale)
+	{
+		mScale = scale;
+	}
+
 } // namespace hs

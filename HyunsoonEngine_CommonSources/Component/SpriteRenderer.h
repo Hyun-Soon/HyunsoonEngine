@@ -1,16 +1,8 @@
 #pragma once
 
-#include <Windows.h>
-#include <mmsystem.h>
-#include <dinput.h>
-#pragma comment(lib, "Msimg32.lib")
-#pragma comment(lib, "winmm.lib")
-
-#include <gdiplus.h>
-#pragma comment(lib, "gdiplus.lib")
-
-#include "Entity.h"
-#include "Component/Component.h"
+#include "../GdiPlusInclude.h"
+#include "Component.h"
+#include "Resource/Texture.h"
 
 namespace hs
 {
@@ -25,11 +17,11 @@ namespace hs
 		void LateUpdate() override;
 		void Render(HDC& hdc) override;
 
-		void ImageLoad(const std::wstring& path);
+		void SetTexture(graphics::Texture* texture);
+		void SetScale(Vector2 scale);
 
 	private:
-		Gdiplus::Image* mImage;
-		UINT			mWidth;
-		UINT			mHeight;
+		graphics::Texture* mTexture;
+		Vector2			   mScale;
 	};
 } // namespace hs

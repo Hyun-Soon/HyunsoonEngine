@@ -6,6 +6,9 @@ namespace hs
 {
 	struct Vector2
 	{
+		static Vector2 Zero;
+		static Vector2 One;
+
 		float x;
 		float y;
 
@@ -60,5 +63,4 @@ namespace hs
 			return Vector2(this->x * -1, this->y * -1);
 		}
 	};
-
 } // namespace hs

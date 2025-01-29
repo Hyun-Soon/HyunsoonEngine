@@ -82,6 +82,16 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\BeginnersTown\BeginnersTown1.cpp">
       <Filter>Scene\BeginnersTown</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resource\Resource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resource\ResourceManager.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resource\Texture.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MathTypes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
@@ -174,6 +184,16 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Enums\Enums.h">
       <Filter>Enums</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resource\Resource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resource\ResourceManager.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resource\Texture.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GdiPlusInclude.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Item">
@@ -202,6 +222,9 @@
     </Filter>
     <Filter Include="Maps">
       <UniqueIdentifier>{9a2991c6-cb28-4367-9650-7051a42c1581}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{c98584c5-534e-49e6-a4af-57f1c0cd97a8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

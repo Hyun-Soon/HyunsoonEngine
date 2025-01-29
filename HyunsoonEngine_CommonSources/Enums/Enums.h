@@ -13,5 +13,13 @@ namespace hs
 			Npc,
 			End,
 		};
-	}
+
+		enum class eResourceType
+		{
+			Texture,
+			AudioClip,
+			Prefab,
+			End,
+		};
+	} // namespace enums
 } // namespace hs

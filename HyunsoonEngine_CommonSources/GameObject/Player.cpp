@@ -32,6 +32,7 @@ namespace hs
 	void Player::Initialize()
 	{
 		SpriteRenderer* spr = AddComponent<SpriteRenderer>();
+
 		spr->ImageLoad(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Common/CommonNotSprite/NPC/GM.png");
 
 		GameObject::Initialize();

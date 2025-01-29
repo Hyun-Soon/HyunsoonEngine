@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Input/Input.h"
-#include "MathTypes.h"
-#include "Component/Component.h"
-#include "Enums/Enums.h"
+#include "../Input/Input.h"
+#include "../MathTypes.h"
+#include "../Component/Component.h"
+#include "../Enums/Enums.h"
 
 namespace hs
 {

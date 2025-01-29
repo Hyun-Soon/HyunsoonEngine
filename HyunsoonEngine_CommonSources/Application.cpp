@@ -21,6 +21,11 @@ namespace hs
 		return mResolution;
 	}
 
+	const HDC& Application::GetHdc() const
+	{
+		return mHdc;
+	}
+
 	void Application::Initialize(HWND hwnd, UINT width, UINT height)
 	{
 		mHwnd = hwnd;
