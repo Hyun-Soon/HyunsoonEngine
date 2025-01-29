@@ -3,6 +3,7 @@
 #include "../GdiPlusInclude.h"
 #include "Component.h"
 #include "Resource/Texture.h"
+#include "MathTypes.h"
 
 namespace hs
 {

@@ -1,6 +1,8 @@
 #include "Player.h"
 #include "Component/Transform.h"
 #include "Component/SpriteRenderer.h"
+#include "Resource/ResourceManager.h"
+#include "Resource/Texture.h"
 
 namespace hs
 {
@@ -33,7 +35,9 @@ namespace hs
 	{
 		SpriteRenderer* spr = AddComponent<SpriteRenderer>();
 
-		spr->ImageLoad(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Common/CommonNotSprite/NPC/GM.png");
+		graphics::Texture* texture = ResourceManager::Load<graphics::Texture>(L"player", L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Common/CommonNotSprite/NPC/GM.png");
+		spr->SetTexture(texture);
+		// spr->ImageLoad(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Common/CommonNotSprite/NPC/GM.png");
 
 		GameObject::Initialize();
 	}

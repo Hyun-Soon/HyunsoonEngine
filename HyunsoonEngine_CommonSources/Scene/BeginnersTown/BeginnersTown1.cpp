@@ -4,6 +4,7 @@
 #include "Component/Transform.h"
 #include "Component/SpriteRenderer.h"
 #include "GameObject/ObjectUtils.h"
+#include "Resource/ResourceManager.h"
 
 namespace hs
 {
@@ -19,8 +20,10 @@ namespace hs
 	void BeginnersTown1::Initialize()
 	{
 		GameObject*		background = object::Instantiate<GameObject>(enums::eLayerType::Background);
-		SpriteRenderer* sr = background->AddComponent<SpriteRenderer>();
-		sr->ImageLoad(L"../Resources/BeginnersTown1/BeginnersTown1NotSprite/BeginnersTown1/BeginnersTown1Background.png");
+		SpriteRenderer* spr = background->AddComponent<SpriteRenderer>();
+
+		graphics::Texture* bg = ResourceManager::Load<graphics::Texture>(L"background", L"../Resources/BeginnersTown1/BeginnersTown1NotSprite/BeginnersTown1/BeginnersTown1Background.png");
+		spr->SetTexture(bg);
 
 		// It will be executed in Scene::Enter() func later
 		Player*	   player = Player::GetInstance();

@@ -1,7 +1,7 @@
 #include "Texture.h"
 #include "Application.h"
 
-extern hs::Application application;
+extern hs::Application app;
 
 namespace hs
 {
@@ -34,7 +34,7 @@ namespace hs
 				mWidth = info.bmWidth;
 				mHeight = info.bmHeight;
 
-				HDC mainDC = application.GetHdc();
+				HDC mainDC = app.GetHdc();
 				mHdc = CreateCompatibleDC(mainDC);
 
 				HBITMAP oldBitmap = (HBITMAP)SelectObject(mHdc, mBitmap);
