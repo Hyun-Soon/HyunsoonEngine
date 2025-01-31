@@ -92,6 +92,9 @@
       <Filter>Resource</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MathTypes.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Script.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
@@ -194,6 +197,9 @@
       <Filter>Resource</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)GdiPlusInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Script.h">
+      <Filter>Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Item">

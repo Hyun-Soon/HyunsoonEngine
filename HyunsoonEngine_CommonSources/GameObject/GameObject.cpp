@@ -4,6 +4,7 @@
 namespace hs
 {
 	GameObject::GameObject()
+		: mComponents((UINT)enums::eComponentType::End, nullptr)
 	{
 		initializeTransform();
 	}
@@ -21,6 +22,8 @@ namespace hs
 	{
 		for (Component* component : mComponents)
 		{
+			if (component == nullptr)
+				continue;
 			component->Initialize();
 		}
 	}
@@ -29,6 +32,8 @@ namespace hs
 	{
 		for (Component* component : mComponents)
 		{
+			if (component == nullptr)
+				continue;
 			component->Update();
 		}
 		// repositionWithinBounds();
@@ -38,6 +43,8 @@ namespace hs
 	{
 		for (Component* component : mComponents)
 		{
+			if (component == nullptr)
+				continue;
 			component->LateUpdate();
 		}
 	}
@@ -46,6 +53,8 @@ namespace hs
 	{
 		for (Component* component : mComponents)
 		{
+			if (component == nullptr)
+				continue;
 			component->Render(hdc);
 		}
 	}

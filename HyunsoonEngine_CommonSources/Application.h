@@ -7,23 +7,14 @@
 
 namespace hs
 {
-	struct Resolution
-	{
-		UINT width;
-		UINT height;
-
-		Resolution(UINT w, UINT h)
-			: width(w), height(h) {};
-	};
-
 	class Application
 	{
 	public:
 		Application();
 		~Application();
 
-		static const Resolution& GetResolution();
-		const HDC&				 GetHdc() const;
+		const Vector2& GetResolution();
+		const HDC&	   GetHdc() const;
 
 		void Initialize(HWND hwnd, UINT width, UINT height);
 		void Run();
@@ -42,6 +33,6 @@ namespace hs
 		HDC		mBackHdc;
 		HBITMAP mBackBitmap;
 
-		static Resolution mResolution;
+		Vector2 mResolution;
 	};
 } // namespace hs

@@ -2,13 +2,12 @@
 
 namespace hs
 {
-	Resolution Application::mResolution(0, 0);
-
 	Application::Application()
 		: mHwnd(nullptr)
 		, mHdc(nullptr)
 		, mBackHdc(NULL)
 		, mBackBitmap(NULL)
+		, mResolution(0, 0)
 	{
 	}
 
@@ -16,7 +15,7 @@ namespace hs
 	{
 	}
 
-	const Resolution& Application::GetResolution()
+	const Vector2& Application::GetResolution()
 	{
 		return mResolution;
 	}
@@ -34,14 +33,14 @@ namespace hs
 		RECT rect = { 0, 0, width, height };
 		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
-		mResolution.width = rect.right - rect.left;
-		mResolution.height = rect.bottom - rect.top;
+		mResolution.x = rect.right - rect.left;
+		mResolution.y = rect.bottom - rect.top;
 
-		SetWindowPos(mHwnd, nullptr, 0, 0, mResolution.width, mResolution.height, 0);
+		SetWindowPos(mHwnd, nullptr, 0, 0, mResolution.x, mResolution.y, 0);
 		ShowWindow(mHwnd, true);
 		UpdateWindow(mHwnd);
 
-		createBuffer(mResolution.width, mResolution.height);
+		createBuffer(mResolution.x, mResolution.y);
 		Input::Initialize();
 		TimeUtils::Initialize();
 		SceneManager::Initialize();
@@ -94,6 +93,6 @@ namespace hs
 
 	void Application::present(HDC dst, HDC src)
 	{
-		BitBlt(dst, 0, 0, mResolution.width, mResolution.height, src, 0, 0, SRCCOPY);
+		BitBlt(dst, 0, 0, mResolution.x, mResolution.y, src, 0, 0, SRCCOPY);
 	}
 } // namespace hs

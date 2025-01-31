@@ -18,6 +18,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Component.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Physics.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\PlayerBehaviour.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Script.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Transform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)DamageUtils.h" />
@@ -57,6 +58,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Component.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\PlayerBehaviour.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Script.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Transform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Entity.cpp" />

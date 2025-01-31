@@ -24,7 +24,7 @@ namespace hs
 			T* component = new T();
 			component->Initialize();
 			component->SetOwner(this);
-			mComponents.emplace_back(component);
+			mComponents[(UINT)component->GetType()] = component;
 
 			return component;
 		}

@@ -5,6 +5,7 @@
 namespace hs
 {
 	PlayerBehaviour::PlayerBehaviour()
+		: Component(enums::eComponentType::End)
 	{
 	}
 
