@@ -3,6 +3,7 @@
 namespace hs
 {
 	Transform::Transform()
+		: Component(enums::eComponentType::Transform)
 	{
 	}
 

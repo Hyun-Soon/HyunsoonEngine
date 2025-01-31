@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Entity.h"
+#include "../Entity.h"
+#include "../Enums/Enums.h"
 
 namespace hs
 {
@@ -8,7 +9,7 @@ namespace hs
 	class Component : public Entity
 	{
 	public:
-		Component();
+		Component(enums::eComponentType type);
 		~Component();
 
 		virtual void Initialize();
@@ -16,10 +17,12 @@ namespace hs
 		virtual void LateUpdate();
 		virtual void Render(HDC& hdc);
 
-		void		SetOwner(GameObject* owner) { mOwner = owner; };
-		GameObject* GetOwner() { return mOwner; }
+		void				  SetOwner(GameObject* owner) { mOwner = owner; };
+		GameObject*			  GetOwner() const { return mOwner; }
+		enums::eComponentType GetType() const { return mType; }
 
 	private:
-		GameObject* mOwner;
+		enums::eComponentType mType;
+		GameObject*			  mOwner;
 	};
 } // namespace hs

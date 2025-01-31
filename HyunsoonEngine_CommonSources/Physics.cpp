@@ -5,6 +5,7 @@
 namespace hs
 {
 	Physics::Physics()
+		: Component(enums::eComponentType::Physics)
 	{
 	}
 

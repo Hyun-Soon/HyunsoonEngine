@@ -5,7 +5,7 @@
 namespace hs
 {
 	SpriteRenderer::SpriteRenderer()
-		: Component()
+		: Component(enums::eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
 		, mScale(Vector2::One)
 	{

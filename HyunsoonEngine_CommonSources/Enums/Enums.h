@@ -4,6 +4,16 @@ namespace hs
 {
 	namespace enums
 	{
+		enum class eComponentType
+		{
+			Transform,
+			SpriteRenderer,
+			Physics,
+			Script,
+			Camera,
+			End,
+		};
+
 		enum class eLayerType
 		{
 			Background,
