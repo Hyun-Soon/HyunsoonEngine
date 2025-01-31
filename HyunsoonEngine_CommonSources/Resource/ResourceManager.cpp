@@ -2,6 +2,6 @@
 
 namespace hs
 {
-	std::map<std::wstring, Resource*> ResourceManager::mResources;
+	std::unordered_map<std::wstring, Resource*> ResourceManager::mResources;
 
 }

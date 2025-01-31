@@ -1,6 +1,6 @@
 #pragma once
 
-#include <map>
+#include <unordered_map>
 
 #include "Resource.h"
 
@@ -12,7 +12,7 @@ namespace hs
 		template <typename T>
 		static T* Find(const std::wstring& key)
 		{
-			std::map<std::wstring, Resource*>::iterator iter = mResources.find(key);
+			std::unordered_map<std::wstring, Resource*>::iterator iter = mResources.find(key);
 			if (iter == mResources.end())
 				return nullptr;
 
@@ -38,6 +38,6 @@ namespace hs
 		}
 
 	private:
-		static std::map<std::wstring, Resource*> mResources;
+		static std::unordered_map<std::wstring, Resource*> mResources;
 	};
 } // namespace hs

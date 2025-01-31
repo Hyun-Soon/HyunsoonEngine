@@ -37,7 +37,6 @@ namespace hs
 
 		graphics::Texture* texture = ResourceManager::Load<graphics::Texture>(L"player", L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Common/CommonNotSprite/NPC/GM.png");
 		spr->SetTexture(texture);
-		// spr->ImageLoad(L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Common/CommonNotSprite/NPC/GM.png");
 
 		GameObject::Initialize();
 	}
