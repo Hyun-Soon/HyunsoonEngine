@@ -25,33 +25,16 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Entity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Enums\Enums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\GameObject.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Monster.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Npc.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\ObjectUtils.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Player.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Projectile.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GdiPlusInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Input\Input.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Consumables.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Equipment.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Inventory.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Item.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Meso.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Miscellaneous.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Shuriken.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)LayerTypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MathTypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\Resource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\ResourceManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\Texture.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\BeginnersTown\BeginnersTown1.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\HuntingScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\Layer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\Scene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SceneManager.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\VillageScene.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Skill\LuckySeven.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Skill\Skill.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)TimeUtils.h" />
   </ItemGroup>
   <ItemGroup>
@@ -63,35 +46,18 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Transform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Entity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\GameObject.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\Monster.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\Npc.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\Player.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\Projectile.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Input\Input.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Consumables.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Equipment.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Inventory.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Item.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Meso.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Miscellaneous.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Shuriken.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MathTypes.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Physics.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\Resource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\ResourceManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\Texture.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\BeginnersTown\BeginnersTown1.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\HuntingScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\Layer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\Scene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SceneManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\VillageScene.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Skill\LuckySeven.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Skill\Skill.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)TimeUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory).clang-format" />
-    <None Include="$(MSBuildThisFileDirectory)Maps\BeginnersTown1.json" />
   </ItemGroup>
 </Project>

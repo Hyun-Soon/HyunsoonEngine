@@ -2,9 +2,9 @@
 
 #include <list>
 
-#include "Item/Equipment.h"
-#include "Item/Consumables.h"
-#include "Item/Miscellaneous.h"
+#include "Equipment.h"
+#include "Consumables.h"
+#include "Miscellaneous.h"
 
 namespace hs
 {
@@ -14,7 +14,7 @@ namespace hs
 	{
 	public:
 		static Inventory* GetInstance();
-		Shuriken*		  findShuriken();
+		Shuriken* findShuriken();
 
 	private:
 		Inventory();

@@ -3,7 +3,7 @@
 #include "GdiPlusInclude.h"
 #include "Scene/SceneManager.h"
 #include "Input/Input.h"
-#include "GameObject/Player.h"
+#include "../HyunsoonEngine_Window/Object/Player.h"
 
 namespace hs
 {

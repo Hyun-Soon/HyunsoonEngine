@@ -1,5 +1,5 @@
-#include "Item/Inventory.h"
-#include "Item/Shuriken.h"
+#include "Inventory.h"
+#include "Shuriken.h"
 
 namespace hs
 {

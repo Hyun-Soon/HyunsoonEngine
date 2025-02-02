@@ -2,6 +2,7 @@
 #include "Component/Transform.h"
 #include "Component/SpriteRenderer.h"
 #include "Resource/ResourceManager.h"
+#include "GameObject/GameObject.h"
 
 namespace hs
 {

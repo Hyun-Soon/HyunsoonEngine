@@ -1,7 +1,6 @@
 #pragma once
 
-#include "Scene.h"
-#include "../GameObject/Npc.h"
+#include "../../HyunsoonEngine_CommonSources/Scene/SceneManager.h"
 
 namespace hs
 {

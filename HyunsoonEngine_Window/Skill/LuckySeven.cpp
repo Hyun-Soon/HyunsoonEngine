@@ -1,10 +1,10 @@
 #include "LuckySeven.h"
-#include "GameObject/Monster.h"
-#include "Item/Inventory.h"
+#include "../../HyunsoonEngine_Window/Object/Monster.h"
+#include "../Item/Inventory.h"
 #include "Scene/SceneManager.h"
-#include "Item/Shuriken.h"
-#include "GameObject/Projectile.h"
-#include "GameObject/Player.h"
+#include "../Item/Shuriken.h"
+#include "../../HyunsoonEngine_Window/Object/Projectile.h"
+#include "../../HyunsoonEngine_Window/Object/Player.h"
 
 namespace hs
 {

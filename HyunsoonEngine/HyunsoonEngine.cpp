@@ -5,6 +5,7 @@
 #include "framework.h"
 
 #include "../HyunsoonEngine_CommonSources/Application.h"
+#include "../HyunsoonEngine_Window/Scene/LoadScenes.h"
 
 
 
@@ -133,6 +134,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	UpdateWindow(hWnd);
 
 
+	hs::LoadScenes();
 
 
 	return TRUE;

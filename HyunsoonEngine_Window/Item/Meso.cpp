@@ -1,4 +1,4 @@
-#include "Item/Meso.h"
+#include "Meso.h"
 
 namespace hs
 {

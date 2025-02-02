@@ -19,44 +19,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\GameObject.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\Monster.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\Npc.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\Player.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Consumables.cpp">
-      <Filter>Item</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Equipment.cpp">
-      <Filter>Item</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Inventory.cpp">
-      <Filter>Item</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Item.cpp">
-      <Filter>Item</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Meso.cpp">
-      <Filter>Item</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Miscellaneous.cpp">
-      <Filter>Item</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Item\Shuriken.cpp">
-      <Filter>Item</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\Projectile.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SpriteRenderer.cpp">
       <Filter>Component</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\HuntingScene.cpp">
-      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\Layer.cpp">
       <Filter>Scene</Filter>
@@ -64,23 +28,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\Scene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\VillageScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Input\Input.cpp">
       <Filter>Input</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Skill\LuckySeven.cpp">
-      <Filter>Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Skill\Skill.cpp">
-      <Filter>Skill</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SceneManager.cpp">
       <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\BeginnersTown\BeginnersTown1.cpp">
-      <Filter>Scene\BeginnersTown</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\Resource.cpp">
       <Filter>Resource</Filter>
@@ -114,48 +66,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\PlayerBehaviour.h">
       <Filter>Component</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)LayerTypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\GameObject.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Monster.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Npc.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Player.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Consumables.h">
-      <Filter>Item</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Equipment.h">
-      <Filter>Item</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Inventory.h">
-      <Filter>Item</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Item.h">
-      <Filter>Item</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Meso.h">
-      <Filter>Item</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Miscellaneous.h">
-      <Filter>Item</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Item\Shuriken.h">
-      <Filter>Item</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\Projectile.h">
       <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SpriteRenderer.h">
       <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\HuntingScene.h">
-      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\Layer.h">
       <Filter>Scene</Filter>
@@ -163,23 +78,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\Scene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\VillageScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Input\Input.h">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Skill\LuckySeven.h">
-      <Filter>Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Skill\Skill.h">
-      <Filter>Skill</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SceneManager.h">
       <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\BeginnersTown\BeginnersTown1.h">
-      <Filter>Scene\BeginnersTown</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\ObjectUtils.h">
       <Filter>GameObject</Filter>
@@ -202,12 +105,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Item">
-      <UniqueIdentifier>{e1f86ef8-a0e6-4804-b11a-4c1816fd30f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Skill">
-      <UniqueIdentifier>{93a4333e-d880-4069-b826-c30082816f28}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Scene">
       <UniqueIdentifier>{1b32180b-5997-473e-8a79-670ea02e8102}</UniqueIdentifier>
     </Filter>
@@ -220,14 +117,8 @@
     <Filter Include="Input">
       <UniqueIdentifier>{1ffa4f5b-ff14-444d-9fc9-61f75e56292f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\BeginnersTown">
-      <UniqueIdentifier>{45be29ef-6330-4052-bdcc-aebeaa847117}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Enums">
       <UniqueIdentifier>{e40d6c91-4a4d-41ed-bd7d-fde584e6dc10}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Maps">
-      <UniqueIdentifier>{9a2991c6-cb28-4367-9650-7051a42c1581}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource">
       <UniqueIdentifier>{c98584c5-534e-49e6-a4af-57f1c0cd97a8}</UniqueIdentifier>
@@ -235,8 +126,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory).clang-format" />
-    <None Include="$(MSBuildThisFileDirectory)Maps\BeginnersTown1.json">
-      <Filter>Maps</Filter>
-    </None>
   </ItemGroup>
 </Project>

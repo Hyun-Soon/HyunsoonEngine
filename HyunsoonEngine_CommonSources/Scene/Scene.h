@@ -4,7 +4,7 @@
 
 namespace hs
 {
-	class Monster;
+	// class Monster;
 	class Scene : public Entity
 	{
 	public:
@@ -25,7 +25,7 @@ namespace hs
 
 		void			 AddGameObject(GameObject* gameObject, enums::eLayerType layerLevel);
 		const eSceneType GetType() const;
-		Monster*		 FindNearestMonster(float range);
+		// Monster*		 FindNearestMonster(float range);
 
 	private:
 		void createLayers();

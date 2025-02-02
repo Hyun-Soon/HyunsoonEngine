@@ -1,4 +1,4 @@
-#include "Item/Shuriken.h"
+#include "Shuriken.h"
 
 namespace hs
 {

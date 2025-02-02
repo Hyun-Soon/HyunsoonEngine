@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Scene.h"
+#include "../../../HyunsoonEngine_CommonSources/Scene/Scene.h"
 
 namespace hs
 {

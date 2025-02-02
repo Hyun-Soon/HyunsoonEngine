@@ -18,12 +18,50 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Item\Consumables.cpp" />
+    <ClCompile Include="Item\Equipment.cpp" />
+    <ClCompile Include="Item\Inventory.cpp" />
+    <ClCompile Include="Item\Item.cpp" />
+    <ClCompile Include="Item\Meso.cpp" />
+    <ClCompile Include="Item\Miscellaneous.cpp" />
+    <ClCompile Include="Item\Shuriken.cpp" />
+    <ClCompile Include="Object\Monster.cpp" />
+    <ClCompile Include="Object\Npc.cpp" />
+    <ClCompile Include="Object\Player.cpp" />
+    <ClCompile Include="Object\Projectile.cpp" />
+    <ClCompile Include="Scene\BeginnersTown\BeginnersTown1.cpp" />
+    <ClCompile Include="Scene\HuntingScene.cpp" />
+    <ClCompile Include="Scene\VillageScene.cpp" />
+    <ClCompile Include="Skill\LuckySeven.cpp" />
+    <ClCompile Include="Skill\Skill.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Item\Consumables.h" />
+    <ClInclude Include="Item\Equipment.h" />
+    <ClInclude Include="Item\Inventory.h" />
+    <ClInclude Include="Item\Item.h" />
+    <ClInclude Include="Item\Meso.h" />
+    <ClInclude Include="Item\Miscellaneous.h" />
+    <ClInclude Include="Item\Shuriken.h" />
+    <ClInclude Include="Object\Monster.h" />
+    <ClInclude Include="Object\Npc.h" />
+    <ClInclude Include="Object\Player.h" />
+    <ClInclude Include="Object\Projectile.h" />
+    <ClInclude Include="Scene\BeginnersTown\BeginnersTown1.h" />
+    <ClInclude Include="Scene\HuntingScene.h" />
+    <ClInclude Include="Scene\LoadScenes.h" />
+    <ClInclude Include="Scene\VillageScene.h" />
+    <ClInclude Include="Skill\LuckySeven.h" />
+    <ClInclude Include="Skill\Skill.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{0f977f29-2624-4cfd-885a-88052b9c4768}</ProjectGuid>
     <RootNamespace>HyunsoonEngineWindow</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>HyunsoonEngine_Window</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

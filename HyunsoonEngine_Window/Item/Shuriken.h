@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Item/Consumables.h"
+#include "Consumables.h"
 
 namespace hs
 {

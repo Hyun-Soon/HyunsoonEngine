@@ -1,6 +1,6 @@
 #include "Scene.h"
-#include "GameObject/Monster.h"
-#include "GameObject/Player.h"
+// #include "../../HyunsoonEngine_Window/Object/Monster.h"
+// #include "../../HyunsoonEngine_Window/Object/Player.h"
 
 namespace hs
 {
@@ -55,45 +55,45 @@ namespace hs
 		return mSceneType;
 	}
 
-	Monster* Scene::FindNearestMonster(float range)
-	{
-		// Player* player = Player::GetInstance();
+	// Monster* Scene::FindNearestMonster(float range)
+	//{
+	//	// Player* player = Player::GetInstance();
 
-		// Vector2 playerPos = player->GetPosition();
-		// Vector2 playerDir = player->GetDirection();
+	//	// Vector2 playerPos = player->GetPosition();
+	//	// Vector2 playerDir = player->GetDirection();
 
-		// Monster* ret = nullptr;
-		// float	 minDist = FLT_MAX;
+	//	// Monster* ret = nullptr;
+	//	// float	 minDist = FLT_MAX;
 
-		// find monster in Monster Layer
-		// for (Monster* pMon : mMonsters)
-		//{
-		//	Vector2 monsterPos = pMon->GetPosition();
+	//	// find monster in Monster Layer
+	//	// for (Monster* pMon : mMonsters)
+	//	//{
+	//	//	Vector2 monsterPos = pMon->GetPosition();
 
-		//	if (playerDir.x < 0)
-		//	{
-		//		if (playerPos.x < monsterPos.x)
-		//			continue;
-		//	}
-		//	else
-		//	{
-		//		if (playerPos.x > monsterPos.x)
-		//			continue;
-		//	}
+	//	//	if (playerDir.x < 0)
+	//	//	{
+	//	//		if (playerPos.x < monsterPos.x)
+	//	//			continue;
+	//	//	}
+	//	//	else
+	//	//	{
+	//	//		if (playerPos.x > monsterPos.x)
+	//	//			continue;
+	//	//	}
 
-		//	float dist = Vector2::Length(monsterPos, playerPos);
-		//	if (abs(monsterPos.y - playerPos.y) < 100
-		//		&& dist <= range
-		//		&& dist < minDist)
-		//	{
-		//		ret = pMon;
-		//		minDist = dist;
-		//	}
-		//}
+	//	//	float dist = Vector2::Length(monsterPos, playerPos);
+	//	//	if (abs(monsterPos.y - playerPos.y) < 100
+	//	//		&& dist <= range
+	//	//		&& dist < minDist)
+	//	//	{
+	//	//		ret = pMon;
+	//	//		minDist = dist;
+	//	//	}
+	//	//}
 
-		// return ret;
-		return nullptr;
-	}
+	//	// return ret;
+	//	return nullptr;
+	//}
 
 	void Scene::createLayers()
 	{

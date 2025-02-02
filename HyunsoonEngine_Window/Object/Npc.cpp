@@ -1,4 +1,4 @@
-#include "Npc.h"
+#include "../../HyunsoonEngine_Window/Object/Npc.h"
 
 namespace hs
 {

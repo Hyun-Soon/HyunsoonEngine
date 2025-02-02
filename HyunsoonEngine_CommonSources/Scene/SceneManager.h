@@ -2,12 +2,10 @@
 
 #include <unordered_map>
 
-#include "HuntingScene.h"
-#include "VillageScene.h"
+#include "Scene.h"
 
 namespace hs
 {
-	class Monster;
 	class SceneManager
 	{
 	public:
@@ -31,8 +29,8 @@ namespace hs
 		static void LateUpdate();
 		static void Render(HDC& hdc);
 
-		static Monster* FindNearestMonster(float range);
-		static void		AddGameObject(GameObject* obj, enums::eLayerType layerLevel);
+		// static Monster* FindNearestMonster(float range);
+		static void AddGameObject(GameObject* obj, enums::eLayerType layerLevel);
 
 	private:
 		SceneManager();

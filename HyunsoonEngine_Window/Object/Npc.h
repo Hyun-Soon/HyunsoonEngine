@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "GameObject.h"
+#include "GameObject/GameObject.h"
 
 namespace hs
 {
