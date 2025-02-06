@@ -1,7 +1,7 @@
 #pragma once
 
-#include "GdiPlusInclude.h"
-#include "Resource/Resource.h"
+#include "../GdiPlusInclude.h"
+#include "../Resource/Resource.h"
 
 namespace hs
 {

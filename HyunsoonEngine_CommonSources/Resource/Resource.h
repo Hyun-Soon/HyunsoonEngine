@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Entity.h"
-#include "Enums/Enums.h"
+#include "../Entity.h"
+#include "../Enums/Enums.h"
 
 namespace hs
 {

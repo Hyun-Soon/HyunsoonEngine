@@ -15,6 +15,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Animator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Camera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Component.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Physics.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\PlayerBehaviour.h" />
@@ -29,6 +31,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GdiPlusInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Input\Input.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MathTypes.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Renderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resource\Animation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\Resource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\ResourceManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\Texture.h" />
@@ -39,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Animator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Camera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Component.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\PlayerBehaviour.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Script.cpp" />
@@ -49,6 +55,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Input\Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MathTypes.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Physics.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Renderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resource\Animation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\Resource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\ResourceManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\Texture.cpp" />

@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Scene\BeginnersTown">
       <UniqueIdentifier>{8e4511f8-b482-4123-958a-75b5c503c544}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Resource">
+      <UniqueIdentifier>{755eeb62-1b26-4180-a8a7-20fd3a0a7c93}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Object\Monster.cpp">
@@ -130,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="Scene\LoadScenes.h">
       <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\LoadResources.h">
+      <Filter>Source Files\Resource</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

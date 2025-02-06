@@ -11,6 +11,7 @@ namespace hs
 			Physics,
 			Script,
 			Camera,
+			Animator,
 			End,
 		};
 
@@ -29,6 +30,7 @@ namespace hs
 			Texture,
 			AudioClip,
 			Prefab,
+			Animation,
 			End,
 		};
 	} // namespace enums

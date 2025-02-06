@@ -1,6 +1,6 @@
 #include "Player.h"
 #include "Component/Transform.h"
-#include "Component/SpriteRenderer.h"
+#include "Component/Animator.h"
 #include "Resource/ResourceManager.h"
 #include "Resource/Texture.h"
 
@@ -33,10 +33,16 @@ namespace hs
 
 	void Player::Initialize()
 	{
-		SpriteRenderer* spr = AddComponent<SpriteRenderer>();
+		/*SpriteRenderer* spr = AddComponent<SpriteRenderer>();
 
-		graphics::Texture* texture = ResourceManager::Load<graphics::Texture>(L"player", L"C:/Users/Soon/Desktop/HyunsoonEngine/Resources/Common/CommonNotSprite/NPC/GM.png");
-		spr->SetTexture(texture);
+		graphics::Texture* texture = ResourceManager::Load<graphics::Texture>(L"player", L"../HyunsoonEngine_Window/MaplestoryResources/Common/CommonNotSprite/NPC/GM.png");
+		spr->SetTexture(texture);*/
+
+		Animator* animator = AddComponent<Animator>();
+		graphics::Texture* playerIdle = ResourceManager::Find<graphics::Texture>(L"PlayerIdle");
+		assert(playerIdle);
+		animator->CreateAnimation(L"PlayerIdle", playerIdle, Vector2::Zero, { 60, 80 }, { 0, 0 }, 4, 0.2f);
+		animator->PlayAnimation(L"PlayerIdle");
 
 		GameObject::Initialize();
 	}

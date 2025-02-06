@@ -22,12 +22,6 @@ namespace hs
 
 	void SceneManager::Initialize()
 	{
-		// test
-		// const std::wstring mapName = L"Henesys";
-		// Scene*			   begginersTown1 = CreateScene<BeginnersTown1>(mapName);
-
-		// const std::wstring testMap = L"testScene";
-		// Scene*			   village = CreateScene<VillageScene>(testMap);
 	}
 
 	void SceneManager::Update()
@@ -56,11 +50,6 @@ namespace hs
 	{
 		mActiveScene->Render(hdc);
 	}
-
-	// Monster* SceneManager::FindNearestMonster(float range)
-	//{
-	//	return mActiveScene->FindNearestMonster(range);
-	// }
 
 	void SceneManager::AddGameObject(GameObject* obj, enums::eLayerType layerLevel)
 	{

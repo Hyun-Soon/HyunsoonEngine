@@ -48,6 +48,7 @@
     <ClInclude Include="Object\Npc.h" />
     <ClInclude Include="Object\Player.h" />
     <ClInclude Include="Object\Projectile.h" />
+    <ClInclude Include="Resource\LoadResources.h" />
     <ClInclude Include="Scene\BeginnersTown\BeginnersTown1.h" />
     <ClInclude Include="Scene\HuntingScene.h" />
     <ClInclude Include="Scene\LoadScenes.h" />
@@ -145,6 +146,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -160,6 +162,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>

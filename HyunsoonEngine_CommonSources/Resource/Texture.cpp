@@ -24,11 +24,21 @@ namespace hs
 			{
 				mType = eTextureType::Png;
 				mImage = Gdiplus::Image::FromFile(path.c_str());
+
 				if (mImage == nullptr)
 					return S_FALSE;
 
 				mWidth = mImage->GetWidth();
 				mHeight = mImage->GetHeight();
+
+				HDC mainDC = app.GetHdc();
+				mHdc = CreateCompatibleDC(mainDC);
+
+				HBITMAP hBitmap = CreateCompatibleBitmap(mainDC, mWidth, mHeight);
+				SelectObject(mHdc, hBitmap);
+
+				Gdiplus::Graphics graphics(mHdc);
+				graphics.DrawImage(mImage, Gdiplus::Rect(0, 0, mWidth, mHeight));
 			}
 			else if (ext == L"bmp")
 			{
