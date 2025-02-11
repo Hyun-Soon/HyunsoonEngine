@@ -19,11 +19,11 @@ namespace hs
 
 	void BeginnersTown1::Initialize()
 	{
-		//GameObject* background = object::Instantiate<GameObject>(enums::eLayerType::Background);
-		//SpriteRenderer* spr = background->AddComponent<SpriteRenderer>();
+		GameObject* background = object::Instantiate<GameObject>(enums::eLayerType::Background);
+		SpriteRenderer* spr = background->AddComponent<SpriteRenderer>();
 
-		//graphics::Texture* bg = ResourceManager::Load<graphics::Texture>(L"background", L"../HyunsoonEngine_Window/MaplestoryResources/BeginnersTown1/BeginnersTown1NotSprite/BeginnersTown1/BeginnersTown1Background.png");
-		//spr->SetTexture(bg);
+		graphics::Texture* bg = ResourceManager::Load<graphics::Texture>(L"background", L"../HyunsoonEngine_Window/MaplestoryResources/BeginnersTown1/BeginnersTown1NotSprite/BeginnersTown1/BeginnersTown1Background.png");
+		spr->SetTexture(bg);
 
 		// It will be executed in Scene::Enter() func later
 		Player* player = Player::GetInstance();

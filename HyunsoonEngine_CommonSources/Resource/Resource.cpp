@@ -6,6 +6,7 @@ namespace hs
 		: mType(type)
 	{
 	}
+
 	Resource::~Resource()
 	{
 	}

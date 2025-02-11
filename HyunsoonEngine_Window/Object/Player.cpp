@@ -41,7 +41,7 @@ namespace hs
 		Animator* animator = AddComponent<Animator>();
 		graphics::Texture* playerIdle = ResourceManager::Find<graphics::Texture>(L"PlayerIdle");
 		assert(playerIdle);
-		animator->CreateAnimation(L"PlayerIdle", playerIdle, Vector2::Zero, { 60, 80 }, { 0, 0 }, 4, 0.2f);
+		animator->CreateAnimation(L"PlayerIdle", playerIdle, Vector2::Zero, { 70, 68 }, { 0, 0 }, 4, 0.3f);
 		animator->PlayAnimation(L"PlayerIdle");
 
 		GameObject::Initialize();

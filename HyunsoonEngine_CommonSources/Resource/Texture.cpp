@@ -44,12 +44,17 @@ namespace hs
 			{
 				mType = eTextureType::Bmp;
 				mBitmap = (HBITMAP)LoadImageW(nullptr, path.c_str(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-
-				if (mBitmap == nullptr)
-					return S_FALSE;
+				DWORD		 error = GetLastError();
+				std::wstring msg = L"Debug Value: " + std::to_wstring(error) + L"\n";
+				OutputDebugString(msg.c_str());
 
 				BITMAP info = {};
 				GetObject(mBitmap, sizeof(BITMAP), &info);
+
+				if (mBitmap == nullptr)
+				{
+					return S_FALSE;
+				}
 
 				mWidth = info.bmWidth;
 				mHeight = info.bmHeight;
