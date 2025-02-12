@@ -4,21 +4,13 @@ namespace hs
 {
 	Transform::Transform()
 		: Component(enums::eComponentType::Transform)
+		, mScale(Vector2::One)
+		, mRotation(0.0f)
 	{
 	}
 
 	Transform::~Transform()
 	{
-	}
-
-	void Transform::SetPosition(Vector2& pos)
-	{
-		mPosition = pos;
-	}
-
-	const Vector2& Transform::GetPosition() const
-	{
-		return mPosition;
 	}
 
 } // namespace hs

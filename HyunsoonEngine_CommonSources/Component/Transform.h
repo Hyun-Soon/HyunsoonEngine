@@ -11,10 +11,16 @@ namespace hs
 		Transform();
 		~Transform();
 
-		void		   SetPosition(Vector2& pos);
-		const Vector2& GetPosition() const;
+		void		   SetPosition(Vector2& pos) { mPosition = pos; }
+		const Vector2& GetPosition() const { return mPosition; };
+		void		   SetScale(Vector2& scale) { mScale = scale; };
+		const Vector2& GetScale() const { return mScale; };
+		void		   SetRotation(float rot) { mRotation = rot; };
+		const float	   GetRotation() const { return mRotation; };
 
 	private:
 		Vector2 mPosition;
+		Vector2 mScale;
+		float	mRotation;
 	};
 } // namespace hs

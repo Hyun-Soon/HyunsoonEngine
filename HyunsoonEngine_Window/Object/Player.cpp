@@ -39,10 +39,10 @@ namespace hs
 		spr->SetTexture(texture);*/
 
 		Animator* animator = AddComponent<Animator>();
-		graphics::Texture* playerIdle = ResourceManager::Find<graphics::Texture>(L"PlayerIdle");
+		graphics::Texture* playerIdle = ResourceManager::Find<graphics::Texture>(L"PlayerIdle_L");
 		assert(playerIdle);
-		animator->CreateAnimation(L"PlayerIdle", playerIdle, Vector2::Zero, { 70, 68 }, { 0, 0 }, 4, 0.3f);
-		animator->PlayAnimation(L"PlayerIdle");
+		animator->CreateAnimation(L"PlayerIdle_L", playerIdle, Vector2::Zero, { 64, 68 }, { 0, 0 }, 4, 0.3f);
+		animator->PlayAnimation(L"PlayerIdle_L");
 
 		GameObject::Initialize();
 	}

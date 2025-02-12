@@ -33,15 +33,20 @@ namespace hs
 
 		Transform* transform = GetOwner()->GetComponent<Transform>();
 		Vector2	   pos = transform->GetPosition();
+		Vector2	   scale = transform->GetScale();
+		float	   rotation = transform->GetRotation();
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
 		{
 			Gdiplus::Graphics graphics(hdc);
-			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth() * mScale.x, mTexture->GetHeight() * mScale.y));
+			// graphics.TranslateTransform(pos.x, pos.y);
+			// graphics.RotateTransform(rotation);
+			// graphics.TranslateTransform(-pos.x, -pos.y);
+			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth() * mScale.x * scale.x, mTexture->GetHeight() * mScale.y * scale.y));
 		}
 		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 		{
-			TransparentBlt(hdc, pos.x, pos.y, mTexture->GetWidth() * mScale.x, mTexture->GetHeight() * mScale.y, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight(), RGB(255, 0, 255));
+			TransparentBlt(hdc, pos.x, pos.y, mTexture->GetWidth() * mScale.x * scale.x, mTexture->GetHeight() * mScale.y * scale.y, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight(), RGB(255, 0, 255));
 		}
 	}
 
