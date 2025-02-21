@@ -22,8 +22,8 @@ namespace hs
 		T* AddComponent()
 		{
 			T* component = new T();
-			component->Initialize();
 			component->SetOwner(this);
+			component->Initialize();
 			mComponents[(UINT)component->GetType()] = component;
 
 			return component;

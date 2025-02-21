@@ -18,8 +18,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Animator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Camera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Component.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Physics.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Component\PlayerBehaviour.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Rigidbody.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Script.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Transform.h" />
@@ -46,7 +45,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Animator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Camera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Component.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Component\PlayerBehaviour.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Rigidbody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Script.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Transform.cpp" />
@@ -54,7 +53,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\GameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Input\Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MathTypes.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Physics.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Renderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\Animation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\Resource.cpp" />

@@ -67,5 +67,19 @@ namespace hs
 		{
 			return Vector2(this->x * -1, this->y * -1);
 		}
+
+		inline bool operator==(const Vector2& other) const
+		{
+			if (this->x == other.x && this->y == other.y)
+				return true;
+			return false;
+		}
+
+		inline const Vector2 operator*=(const float operand)
+		{
+			this->x *= operand;
+			this->y *= operand;
+			return Vector2(this->x, this->y);
+		}
 	};
 } // namespace hs

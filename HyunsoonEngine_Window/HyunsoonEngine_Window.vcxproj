@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Component\PlayerScript.cpp" />
     <ClCompile Include="Item\Consumables.cpp" />
     <ClCompile Include="Item\Equipment.cpp" />
     <ClCompile Include="Item\Inventory.cpp" />
@@ -37,6 +38,7 @@
     <ClCompile Include="Skill\Skill.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component\PlayerScript.h" />
     <ClInclude Include="Item\Consumables.h" />
     <ClInclude Include="Item\Equipment.h" />
     <ClInclude Include="Item\Inventory.h" />
@@ -55,6 +57,9 @@
     <ClInclude Include="Scene\VillageScene.h" />
     <ClInclude Include="Skill\LuckySeven.h" />
     <ClInclude Include="Skill\Skill.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".clang-format" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

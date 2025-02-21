@@ -7,11 +7,11 @@ namespace hs
 		enum class eComponentType
 		{
 			Transform,
+			Rigidbody,
 			SpriteRenderer,
-			Physics,
-			Script,
 			Camera,
 			Animator,
+			Script,
 			End,
 		};
 
@@ -22,6 +22,7 @@ namespace hs
 			Player,
 			Item,
 			Npc,
+			Particle,
 			End,
 		};
 

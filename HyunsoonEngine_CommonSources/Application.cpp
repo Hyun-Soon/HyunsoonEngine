@@ -62,6 +62,7 @@ namespace hs
 
 	void Application::lateUpdate()
 	{
+		SceneManager::LateUpdate();
 	}
 
 	void Application::render()

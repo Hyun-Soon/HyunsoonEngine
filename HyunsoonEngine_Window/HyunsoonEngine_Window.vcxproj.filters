@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Resource">
       <UniqueIdentifier>{755eeb62-1b26-4180-a8a7-20fd3a0a7c93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Component">
+      <UniqueIdentifier>{86bbd5c8-70b9-43bc-8c04-045ed284ad17}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Object\Monster.cpp">
@@ -80,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="Scene\BeginnersTown\BeginnersTown1.cpp">
       <Filter>Source Files\Scene\BeginnersTown</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\PlayerScript.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -137,5 +143,11 @@
     <ClInclude Include="Resource\LoadResources.h">
       <Filter>Source Files\Resource</Filter>
     </ClInclude>
+    <ClInclude Include="Component\PlayerScript.h">
+      <Filter>Source Files\Component</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".clang-format" />
   </ItemGroup>
 </Project>
