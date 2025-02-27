@@ -11,7 +11,7 @@ namespace hs
 		Transform();
 		~Transform();
 
-		void		   SetPosition(Vector2& pos) { mPosition = pos; }
+		void		   SetPosition(Vector2 pos) { mPosition = pos; }
 		const Vector2& GetPosition() const { return mPosition; };
 		void		   SetScale(Vector2& scale) { mScale = scale; };
 		const Vector2& GetScale() const { return mScale; };

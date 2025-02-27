@@ -69,7 +69,7 @@ namespace hs
 			func.AlphaFormat = AC_SRC_ALPHA;
 			func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 
-			TransparentBlt(hdc, pos.x, pos.y, sprite.size.x, sprite.size.y, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, RGB(255, 0, 255));
+			TransparentBlt(hdc, std::round(pos.x), std::round(pos.y), sprite.size.x, sprite.size.y, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, RGB(255, 0, 255));
 			// DWORD		 error = GetLastError();
 			// std::wstring msg = L"Debug Value: " + std::to_wstring(error) + L"\n";
 			// OutputDebugString(msg.c_str());
@@ -89,7 +89,7 @@ namespace hs
 			/*Gdiplus::Graphics graphics(mHdc);
 			 graphics.DrawImage(mImage, Gdiplus::Rect(0, 0, mWidth, mHeight));*/
 
-			assert(AlphaBlend(hdc, pos.x, pos.y, sprite.size.x, sprite.size.y, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, func));
+			assert(AlphaBlend(hdc, std::round(pos.x), std::round(pos.y), sprite.size.x, sprite.size.y, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, func));
 
 			// 2.
 			// 내가 원하는 픽셀을 투명화 시킬

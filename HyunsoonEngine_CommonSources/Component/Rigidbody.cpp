@@ -13,6 +13,7 @@ namespace hs
 		, mAcc(Vector2::Zero)
 		, mbUseGravity(false)
 		, mbIsKinematic(false)
+		, mbGrounded(false)
 	{
 	}
 
@@ -45,7 +46,16 @@ namespace hs
 		Vector2 position = mTransform->GetPosition();
 		position += mVel * dt + mAcc * dt2 * 0.5f;
 		mVel += mAcc * dt;
-		mTransform->SetPosition(position);
+		// mTransform->SetPosition({ std::round(position.x), std::round(position.y) }); // 12.53s
+		mTransform->SetPosition(position); // 14.23s
+
+		// std::wstring acc = std::to_wstring(mAcc.x) + L", " + std::to_wstring(mAcc.y) + L"\n";
+		/*std::wstring speed = std::to_wstring(mVel.x) + L", " + std::to_wstring(mVel.y) + L"\n";
+		std::wstring pos = std::to_wstring(position.x) + L", " + std::to_wstring(position.y) + L"\n\n";*/
+
+		// OutputDebugString(acc.c_str());
+		// OutputDebugString(speed.c_str());
+		// OutputDebugString(pos.c_str());
 	}
 
 	void Rigidbody::LateUpdate()
@@ -72,6 +82,11 @@ namespace hs
 		mbIsKinematic = enable;
 	}
 
+	void Rigidbody::SetGrounded(bool grounded)
+	{
+		mbGrounded = grounded;
+	}
+
 	void Rigidbody::AddVelocity(Vector2 vel)
 	{
 		mVel += vel;
@@ -86,8 +101,10 @@ namespace hs
 	{
 		AddAcceleration(force / mMass);
 	}
+
 	bool Rigidbody::isGrounded()
 	{
-		return (mTransform->GetPosition().y >= 600.0f);
+		return mbGrounded;
 	}
+
 } // namespace hs

@@ -19,6 +19,7 @@ namespace hs
 		void SetAcceleration(Vector2 acc);
 		void SetGravity(bool enable);
 		void SetKinematic(bool enable);
+		void SetGrounded(bool grounded);
 		void AddVelocity(Vector2 vel);
 		void AddAcceleration(Vector2 acc);
 		void AddForce(Vector2 force);
@@ -32,6 +33,7 @@ namespace hs
 		Vector2	   mAcc;
 		bool	   mbUseGravity;
 		bool	   mbIsKinematic;
+		bool	   mbGrounded;
 	};
 
 } // namespace hs
