@@ -7,11 +7,11 @@ namespace hs
 		enum class eComponentType
 		{
 			Transform,
-			Rigidbody,
 			SpriteRenderer,
 			Camera,
 			Animator,
 			Script,
+			Rigidbody,
 			End,
 		};
 
