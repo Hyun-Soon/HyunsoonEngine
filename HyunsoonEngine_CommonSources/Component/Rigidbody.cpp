@@ -35,9 +35,9 @@ namespace hs
 		float dt2 = dt * dt;
 
 		if (mbUseGravity)
-			AddAcceleration({ 0.0f, 98.0f });
+			AddAcceleration({ 0.0f, 120.0f });
 
-		if (isGrounded() && mVel.y > 0.0f)
+		if (IsGrounded() && mVel.y > 0.0f)
 		{
 			mVel.y = 0.0f;
 			mAcc.y = 0.0f;
@@ -48,18 +48,20 @@ namespace hs
 		mVel += mAcc * dt;
 		// mTransform->SetPosition({ std::round(position.x), std::round(position.y) }); // 12.53s
 		mTransform->SetPosition(position); // 14.23s
-
-		// std::wstring acc = std::to_wstring(mAcc.x) + L", " + std::to_wstring(mAcc.y) + L"\n";
-		/*std::wstring speed = std::to_wstring(mVel.x) + L", " + std::to_wstring(mVel.y) + L"\n";
-		std::wstring pos = std::to_wstring(position.x) + L", " + std::to_wstring(position.y) + L"\n\n";*/
-
-		// OutputDebugString(acc.c_str());
-		// OutputDebugString(speed.c_str());
-		// OutputDebugString(pos.c_str());
 	}
 
 	void Rigidbody::LateUpdate()
 	{
+	}
+
+	void Rigidbody::ResetVelocity()
+	{
+		mVel = Vector2::Zero;
+	}
+
+	void Rigidbody::ResetAcceleration()
+	{
+		mAcc = Vector2::Zero;
 	}
 
 	void Rigidbody::SetVelocity(Vector2 vel)
@@ -102,7 +104,7 @@ namespace hs
 		AddAcceleration(force / mMass);
 	}
 
-	bool Rigidbody::isGrounded()
+	bool Rigidbody::IsGrounded()
 	{
 		return mbGrounded;
 	}

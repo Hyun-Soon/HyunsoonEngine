@@ -40,9 +40,6 @@ namespace hs
 
 		static Player* player;
 
-		void jump();
-		void doubleJump();
-
 		// Vector2		 mDirection;
 		ePlayerState mState;
 		uint16_t	 mHP;

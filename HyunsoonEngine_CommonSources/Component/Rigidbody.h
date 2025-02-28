@@ -15,6 +15,8 @@ namespace hs
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 
+		void ResetVelocity();
+		void ResetAcceleration();
 		void SetVelocity(Vector2 vel);
 		void SetAcceleration(Vector2 acc);
 		void SetGravity(bool enable);
@@ -24,9 +26,9 @@ namespace hs
 		void AddAcceleration(Vector2 acc);
 		void AddForce(Vector2 force);
 
-	private:
-		bool isGrounded();
+		bool IsGrounded();
 
+	private:
 		Transform* mTransform;
 		float	   mMass;
 		Vector2	   mVel;

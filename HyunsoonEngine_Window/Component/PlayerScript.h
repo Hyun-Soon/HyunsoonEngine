@@ -38,7 +38,11 @@ namespace hs
 		Animator*	 mAnimator;
 		Vector2		 mDirection;
 		float		 mDuration;
+		float		 mSpeed;
 		std::wstring mDirString;
+
+		Vector2 mJumpForce;
+		Vector2 mDoubleJumpSpeed;
 	};
 
 } // namespace hs

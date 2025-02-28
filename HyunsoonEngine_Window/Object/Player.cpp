@@ -67,22 +67,22 @@ namespace hs
 		animator->CreateAnimation(L"PlayerLyingDown_R", playerLyingDown_R, Vector2::Zero, { 72, 41 }, { 0, 0 }, 1, 0.3f);
 
 		graphics::Texture* playerSwing0_L = ResourceManager::Find<graphics::Texture>(L"PlayerSwing0_L");
-		animator->CreateAnimation(L"PlayerSwing0_L", playerSwing0_L, Vector2::Zero, { 69, 68 }, { 0, 0 }, 3, 0.3f);
+		animator->CreateAnimation(L"PlayerSwing0_L", playerSwing0_L, Vector2::Zero, { 69, 68 }, { 0, 0 }, 3, 0.25f);
 
 		graphics::Texture* playerSwing0_R = ResourceManager::Find<graphics::Texture>(L"PlayerSwing0_R");
-		animator->CreateAnimation(L"PlayerSwing0_R", playerSwing0_R, Vector2::Zero, { 69, 68 }, { 0, 0 }, 3, 0.3f);
+		animator->CreateAnimation(L"PlayerSwing0_R", playerSwing0_R, Vector2::Zero, { 69, 68 }, { 0, 0 }, 3, 0.25f);
 
 		graphics::Texture* playerSwing1_L = ResourceManager::Find<graphics::Texture>(L"PlayerSwing1_L");
-		animator->CreateAnimation(L"PlayerSwing1_L", playerSwing1_L, Vector2::Zero, { 70, 69 }, { 0, 0 }, 3, 0.3f);
+		animator->CreateAnimation(L"PlayerSwing1_L", playerSwing1_L, Vector2::Zero, { 70, 69 }, { 0, 0 }, 3, 0.25f);
 
 		graphics::Texture* playerSwing1_R = ResourceManager::Find<graphics::Texture>(L"PlayerSwing1_R");
-		animator->CreateAnimation(L"PlayerSwing1_R", playerSwing1_R, Vector2::Zero, { 70, 69 }, { 0, 0 }, 3, 0.3f);
+		animator->CreateAnimation(L"PlayerSwing1_R", playerSwing1_R, Vector2::Zero, { 70, 69 }, { 0, 0 }, 3, 0.25f);
 
 		graphics::Texture* playerSwing2_L = ResourceManager::Find<graphics::Texture>(L"PlayerSwing2_L");
-		animator->CreateAnimation(L"PlayerSwing2_L", playerSwing2_L, Vector2::Zero, { 69, 65 }, { 0, 0 }, 3, 0.3f);
+		animator->CreateAnimation(L"PlayerSwing2_L", playerSwing2_L, Vector2::Zero, { 69, 65 }, { 0, 0 }, 3, 0.25f);
 
 		graphics::Texture* playerSwing2_R = ResourceManager::Find<graphics::Texture>(L"PlayerSwing2_R");
-		animator->CreateAnimation(L"PlayerSwing2_R", playerSwing2_R, Vector2::Zero, { 69, 65 }, { 0, 0 }, 3, 0.3f);
+		animator->CreateAnimation(L"PlayerSwing2_R", playerSwing2_R, Vector2::Zero, { 69, 65 }, { 0, 0 }, 3, 0.25f);
 
 		Rigidbody* rigidbody = AddComponent<Rigidbody>();
 		rigidbody->SetGravity(true);
@@ -111,21 +111,6 @@ namespace hs
 	void Player::SetState(ePlayerState state)
 	{
 		mState = state;
-	}
-
-	void Player::jump()
-	{
-		// color = RGB(0, 0, 0);
-		// mState = Player::ePlayerState::Jump;
-		// mVel.y = -50.0f;
-		// mAcc.y = -100.0f;
-	}
-
-	void Player::doubleJump()
-	{
-		/*color = RGB(100, 100, 100);
-		mVel += mDirection * 100.0f;
-		mAcc += -mDirection * 60.0f;*/
 	}
 
 	// void Player::UseSkill(size_t skillId)

@@ -28,9 +28,7 @@ namespace hs
 				return resource;
 
 			resource = new T();
-
-			assert(!FAILED(resource->Load(path)));
-
+			resource->Load(path);
 			resource->SetName(key);
 			resource->SetPath(path);
 			mResources[key] = resource;
