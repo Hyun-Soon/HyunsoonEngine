@@ -94,14 +94,14 @@ namespace hs
 
 	void Application::present(HDC dst, HDC src)
 	{
-		// BitBlt(dst, 0, 0, mResolution.x, mResolution.y, src, 0, 0, SRCCOPY);
-		StretchBlt(dst,	   // 출력할 DC (윈도우 화면)
-			0, 0,		   // 출력할 위치 (윈도우 좌상단)
-			mResolution.x, // 출력할 너비 (윈도우 너비)
-			mResolution.y, // 출력할 높이 (윈도우 높이)
-			src,		   // 원본 이미지 DC
-			0, 0,		   // 원본 이미지에서 가져올 부분의 좌상단 좌표
-			1500, 800,	   // 가져올 부분의 크기
-			SRCCOPY);
+		BitBlt(dst, 0, 0, mResolution.x, mResolution.y, src, 0, 0, SRCCOPY);
+		//	StretchBlt(dst,	   // 출력할 DC (윈도우 화면)
+		//		0, 0,		   // 출력할 위치 (윈도우 좌상단)
+		//		mResolution.x, // 출력할 너비 (윈도우 너비)
+		//		mResolution.y, // 출력할 높이 (윈도우 높이)
+		//		src,		   // 원본 이미지 DC
+		//		0, 0,		   // 원본 이미지에서 가져올 부분의 좌상단 좌표
+		//		1500, 800,	   // 가져올 부분의 크기
+		//		SRCCOPY);
 	}
 } // namespace hs

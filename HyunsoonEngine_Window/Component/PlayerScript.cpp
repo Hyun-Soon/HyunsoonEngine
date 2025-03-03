@@ -20,7 +20,7 @@ namespace hs
 		, mDuration(0.0f)
 		, mSpeed(0.0f)
 		, mDirString(L"_L")
-		, mJumpForce(0.0f, -1500.0f)
+		, mJumpForce(0.0f, -1700.0f)
 		, mDoubleJumpSpeed(500.0f, -10.0f)
 	{
 	}
