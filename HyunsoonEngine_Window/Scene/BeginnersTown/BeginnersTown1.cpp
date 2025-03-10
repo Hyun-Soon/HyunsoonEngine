@@ -24,11 +24,15 @@ namespace hs
 		graphics::Texture* bg = ResourceManager::Find<graphics::Texture>(L"bg_BeginnersTown1");
 		spr->SetTexture(bg);
 
-		// It will be executed in Scene::Enter() func later
+		// Player
+		//  It will be executed in Scene::Enter() func later
 		Player*	   player = Player::GetInstance();
 		Transform* tr = player->GetComponent<Transform>();
 		Vector2	   pos = Vector2(100.0f, 300.0f);
 		tr->SetPosition(pos);
 		AddGameObject(player, enums::eLayerType::Player);
+
+		// Monster
+		 //Monster* greenSnail 
 	}
 } // namespace hs

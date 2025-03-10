@@ -2,11 +2,10 @@
 
 namespace hs
 {
-	Monster::Monster(Vector2 pos, bool dir, int state, uint16_t hp)
+	Monster::Monster()
 		: GameObject()
-		, bDirection(dir)
-		, mState(state)
-		, mHP(hp)
+		, bDirection(Vector2::Left)
+		, mState(eMonsterState::Idle)
 	{
 	}
 
@@ -42,29 +41,39 @@ namespace hs
 		// DeleteObject(newPen);
 	}
 
-	void Monster::Attack()
+	void Monster::SetState(eMonsterState state)
 	{
-		if (isPlayerNearby() == false)
-			return;
-		// attack
+		mState = state;
 	}
 
-	void Monster::TakeDamage(uint32_t damage)
+	Monster::eMonsterState Monster::GetState() const
 	{
-		if (damage > mHP)
-		{
-			mHP = 0;
-			mState = DEAD;
-		}
-		else
-		{
-			mHP -= damage;
-		}
+		return mState;
 	}
 
-	bool Monster::isPlayerNearby()
-	{
+	// void Monster::Attack()
+	//{
+	//	if (isPlayerNearby() == false)
+	//		return;
+	//	// attack
+	// }
 
-		return false;
-	}
+	// void Monster::TakeDamage(uint32_t damage)
+	//{
+	//	if (damage > mHP)
+	//	{
+	//		mHP = 0;
+	//		mState = DEAD;
+	//	}
+	//	else
+	//	{
+	//		mHP -= damage;
+	//	}
+	// }
+
+	// bool Monster::isPlayerNearby()
+	//{
+
+	//	return false;
+	//}
 } // namespace hs

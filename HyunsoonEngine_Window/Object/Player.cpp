@@ -90,7 +90,6 @@ namespace hs
 		// rigidbody->AddVelocity(temp);
 
 		PlayerScript* ps = AddComponent<PlayerScript>();
-		// GameObject::Initialize();
 	}
 
 	// const Vector2& Player::GetDirection() const

@@ -1,7 +1,6 @@
 #include <algorithm>
 
-#include "../Object/Player.h"
-
+#include "RandomUtils.h"
 #include "TimeUtils.h"
 #include "PlayerScript.h"
 #include "Application.h"
@@ -11,8 +10,7 @@ extern hs::Application app;
 namespace hs
 {
 	PlayerScript::PlayerScript()
-		: Component(enums::eComponentType::Script)
-		, mPlayer(nullptr)
+		: mPlayer(nullptr)
 		, mTransform(nullptr)
 		, mRigidbody(nullptr)
 		, mAnimator(nullptr)
@@ -32,16 +30,16 @@ namespace hs
 	void PlayerScript::Initialize()
 	{
 		mPlayer = static_cast<Player*>(GetOwner());
-		mTransform = mPlayer->GetComponent<Transform>();
-		mRigidbody = mPlayer->GetComponent<Rigidbody>();
-		mAnimator = mPlayer->GetComponent<Animator>();
+		mTransform = GetOwner()->GetComponent<Transform>();
+		mRigidbody = GetOwner()->GetComponent<Rigidbody>();
+		mAnimator = GetOwner()->GetComponent<Animator>();
 		mSpeed = 100.0f;
 	}
 
 	void PlayerScript::Update()
 	{
-		static Player*		 player = static_cast<Player*>(GetOwner());
-		Player::ePlayerState state = player->GetState();
+		// static Player*		 player = static_cast<Player*>(GetOwner());
+		Player::ePlayerState state = mPlayer->GetState();
 
 		switch (state)
 		{
@@ -93,17 +91,6 @@ namespace hs
 	//	mAnimator = animator;
 	// }
 
-	std::wstring PlayerScript::getRandomValueString(int minVal, int maxVal)
-	{
-		static std::random_device				  rd;					// 하드웨어 난수 생성기
-		static std::mt19937						  gen(rd());			// Mersenne Twister 엔진
-		static std::uniform_int_distribution<int> dist(minVal, maxVal); // 0~2 균등 분포
-
-		int ret = dist(gen);
-
-		return std::to_wstring(ret);
-	}
-
 	void PlayerScript::stand()
 	{
 		// if (Input::GetKey(eKeyCode::Left))
@@ -150,7 +137,7 @@ namespace hs
 		else if (Input::GetKeyDown(eKeyCode::C))
 		{
 			mPlayer->SetState(Player::ePlayerState::Attack);
-			std::wstring motion = getRandomValueString(0, 2);
+			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
 			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
 		}
 		//  Idle -> Alert
@@ -197,7 +184,7 @@ namespace hs
 		{
 			mRigidbody->ResetVelocity();
 			mPlayer->SetState(Player::ePlayerState::Attack);
-			std::wstring motion = getRandomValueString(0, 2);
+			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
 			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
 		}
 		//// Walk-> Jump
@@ -240,7 +227,7 @@ namespace hs
 	//	else if (Input::GetKeyDown(eKeyCode::C))
 	//	{
 	//		mPlayer->SetState(Player::ePlayerState::Attack);
-	//		std::wstring motion = getRandomValueString(0, 2);
+	//		std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
 	//		mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
 	//	}
 	//	// Alert -> Idle
@@ -295,7 +282,7 @@ namespace hs
 		else if (Input::GetKeyDown(eKeyCode::C))
 		{
 			mPlayer->SetState(Player::ePlayerState::Attack);
-			std::wstring motion = getRandomValueString(0, 2);
+			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
 			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
 		}
 		// Jump -> Walk, Idle, LyingDown
@@ -352,7 +339,7 @@ namespace hs
 		else if (Input::GetKeyDown(eKeyCode::C))
 		{
 			mPlayer->SetState(Player::ePlayerState::Attack);
-			std::wstring motion = getRandomValueString(0, 2);
+			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
 			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
 		}
 		// DoubleJump -> Walk, Idle, LyingDown
@@ -414,7 +401,7 @@ namespace hs
 		// Attack -> Attack
 		if (Input::GetKey(eKeyCode::C))
 		{
-			std::wstring motion = getRandomValueString(0, 2);
+			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
 			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
 		}
 		else if (mRigidbody->IsGrounded())

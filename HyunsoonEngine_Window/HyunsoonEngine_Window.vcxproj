@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Component\LandMonsterScript.cpp" />
     <ClCompile Include="Component\PlayerScript.cpp" />
     <ClCompile Include="Item\Consumables.cpp" />
     <ClCompile Include="Item\Equipment.cpp" />
@@ -38,6 +39,7 @@
     <ClCompile Include="Skill\Skill.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component\LandMonsterScript.h" />
     <ClInclude Include="Component\PlayerScript.h" />
     <ClInclude Include="Item\Consumables.h" />
     <ClInclude Include="Item\Equipment.h" />

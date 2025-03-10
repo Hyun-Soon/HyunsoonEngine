@@ -4,33 +4,35 @@
 
 namespace hs
 {
-#define IDLE 0
-#define MOVE 1
-#define DEAD 2
-	class Monster : public GameObject
+	class Monster : public GameObject, public Entity
 	{
 	public:
-		// Why error occured if use enum class for constructor parameter?
-		// enum class eMonsterState
-		//{
-		//	Idle, Move, Dead,
-		//};
+		enum class eMonsterState
+		{
+			Idle,
+			Move,
+			Chase,
+			Attacked,
+			End,
+		};
 
-		Monster(Vector2 pos, bool dir, int state, uint16_t hp);
+		Monster();
 		~Monster();
 
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render(HDC& hdc) override;
 
-		void Attack();
-		void TakeDamage(uint32_t damage);
+		/*void Attack();
+		void TakeDamage(uint32_t damage);*/
+		void		  SetState(eMonsterState state);
+		eMonsterState GetState() const;
 
 	private:
-		bool isPlayerNearby();
+		// bool isPlayerNearby();
 
-		bool	 bDirection;
-		int		 mState;
-		uint16_t mHP;
+		Vector2		  bDirection;
+		eMonsterState mState;
+		// uint16_t	  mHP;
 	};
 } // namespace hs

@@ -30,6 +30,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GdiPlusInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Input\Input.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MathTypes.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RandomUtils.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Renderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\Animation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\Resource.h" />
@@ -53,6 +54,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\GameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Input\Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MathTypes.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)RandomUtils.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Renderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\Animation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\Resource.cpp" />

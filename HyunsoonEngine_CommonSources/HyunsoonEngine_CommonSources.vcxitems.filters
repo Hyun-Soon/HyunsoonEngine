@@ -54,6 +54,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Rigidbody.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)RandomUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
@@ -117,6 +118,7 @@
       <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Renderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)RandomUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">

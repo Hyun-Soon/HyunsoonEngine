@@ -1,14 +1,16 @@
 #pragma once
 
-#include <random>
-
 #include "Component/Animator.h"
 #include "Component/Transform.h"
 #include "Component/Rigidbody.h"
+#include "Component/Script.h"
+
+#include "../Object/Player.h";
 
 namespace hs
 {
-	class PlayerScript : public Component
+	class Player;
+	class PlayerScript : public Script
 	{
 	public:
 		PlayerScript();
@@ -22,8 +24,6 @@ namespace hs
 		// void SetAnimator(Animator* animator);
 
 	private:
-		std::wstring getRandomValueString(int minVal, int maxVal);
-
 		void stand();
 		void walk();
 		void alert();
