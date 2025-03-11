@@ -6,6 +6,7 @@ namespace hs
 		: GameObject()
 		, bDirection(Vector2::Left)
 		, mState(eMonsterState::Idle)
+		, mSpeed(3.0f)
 	{
 	}
 
@@ -49,6 +50,11 @@ namespace hs
 	Monster::eMonsterState Monster::GetState() const
 	{
 		return mState;
+	}
+
+	float Monster::GetSpeed() const
+	{
+		return mSpeed;
 	}
 
 	// void Monster::Attack()

@@ -28,7 +28,7 @@ namespace hs
 		Transform*	 mTransform;
 		Rigidbody*	 mRigidbody;
 		Animator*	 mAnimator;
-		bool		 mbChasing;
+		bool		 mbIsAttacked;
 		Vector2		 mDirection;
 		std::wstring mDirString;
 		float		 mDuration;

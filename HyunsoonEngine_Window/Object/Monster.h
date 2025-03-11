@@ -27,12 +27,14 @@ namespace hs
 		void TakeDamage(uint32_t damage);*/
 		void		  SetState(eMonsterState state);
 		eMonsterState GetState() const;
+		float		  GetSpeed() const;
 
 	private:
 		// bool isPlayerNearby();
 
 		Vector2		  bDirection;
 		eMonsterState mState;
+		float		  mSpeed;
 		// uint16_t	  mHP;
 	};
 } // namespace hs

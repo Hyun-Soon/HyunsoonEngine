@@ -10,7 +10,7 @@ namespace hs
 		, mTransform(nullptr)
 		, mRigidbody(nullptr)
 		, mAnimator(nullptr)
-		, mbChasing(false)
+		, mbIsAttacked(false)
 		, mDirection(Vector2::Left)
 		, mDirString(L"_L")
 		, mDuration(0.0f)
@@ -60,7 +60,7 @@ namespace hs
 	void LandMonsterScript::idle()
 	{
 		// Idle -> Attacked
-		if (mbChasing)
+		if (mbIsAttacked)
 		{
 			mMonster->SetState(Monster::eMonsterState::Attacked);
 			mAnimator->PlayAnimation(mMonster->GetName() + L"Attacked" + mDirString);
@@ -88,6 +88,48 @@ namespace hs
 
 	void LandMonsterScript::move()
 	{
+		if (mbIsAttacked)
+		{
+			mMonster->SetState(Monster::eMonsterState::Attacked);
+			mAnimator->PlayAnimation(mMonster->GetName() + L"Attacked" + mDirString);
+		}
+		else
+		{
+			if (mDuration < mMinTimeToTransition)
+				return;
+
+			// Move -> Idle
+			if (RandomUtils::GetRandomValueInt(0, 1))
+			{
+				mDirection = Vector2::Left;
+				mDirString = L"_L";
+			}
+			else
+			{
+				mDirection = Vector2::Right;
+				mDirString = L"_R";
+			}
+
+			mMonster->SetState(Monster::eMonsterState::Idle);
+			mAnimator->PlayAnimation(mMonster->GetName() + L"Idle" + mDirString);
+		}
+	}
+
+	void LandMonsterScript::chase()
+	{
+		mRigidbody->AddForce(Vector2::Up); // debug // need player logic
+	}
+
+	void LandMonsterScript::attacked()
+	{
+		mbIsAttacked = false;
+
+		if (mDuration < 1.0f) // attacked animation duration
+			return;
+
+		mMonster->SetState(Monster::eMonsterState::Chase);
+		mRigidbody->AddVelocity(mDirection * mMonster->GetSpeed());
+		mAnimator->PlayAnimation(mMonster->GetName() + L"Move" + mDirString);
 	}
 
 } // namespace hs
