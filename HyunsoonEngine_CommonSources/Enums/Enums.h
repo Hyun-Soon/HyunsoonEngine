@@ -17,7 +17,7 @@ namespace hs
 
 		enum class eLayerType
 		{
-			None,
+			// None,
 			Background,
 			Monster,
 			Player,

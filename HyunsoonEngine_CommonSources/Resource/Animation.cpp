@@ -72,7 +72,7 @@ namespace hs
 			func.AlphaFormat = AC_SRC_ALPHA;
 			func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 
-			TransparentBlt(hdc, std::round(pos.x), std::round(pos.y), sprite.size.x, sprite.size.y, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, RGB(255, 0, 255));
+			TransparentBlt(hdc, std::round(pos.x - sprite.size.x), std::round(pos.y - sprite.size.y), sprite.size.x, sprite.size.y, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, RGB(255, 0, 255));
 		}
 		else if (type == graphics::Texture::eTextureType::Png)
 		{
@@ -86,10 +86,7 @@ namespace hs
 			Sprite sprite = mAnimationSheet[mIndex];
 			HDC	   imgHdc = mTexture->GetHdc();
 
-			/*Gdiplus::Graphics graphics(mHdc);
-			 graphics.DrawImage(mImage, Gdiplus::Rect(0, 0, mWidth, mHeight));*/
-
-			AlphaBlend(hdc, std::round(pos.x), std::round(pos.y), sprite.size.x, sprite.size.y, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, func);
+			AlphaBlend(hdc, std::round(pos.x - sprite.size.x), std::round(pos.y - sprite.size.y), sprite.size.x, sprite.size.y, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, func);
 
 			// 2.
 			// 내가 원하는 픽셀을 투명화 시킬
@@ -98,7 +95,7 @@ namespace hs
 			// imgAtt.SetColorKey(Gdiplus::Color(255, 255, 255), Gdiplus::Color(255, 255, 255));
 			// Gdiplus::Graphics graphics(hdc);
 			// graphics.TranslateTransform(pos.x, pos.y);
-			//// graphics.RotateTransform(rot);
+			// graphics.RotateTransform(rot);
 			// graphics.TranslateTransform(-pos.x, -pos.y);
 			// graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x - (sprite.size.x / 2.0f), pos.y - (sprite.size.y / 2.0f), sprite.size.x, sprite.size.y), sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, Gdiplus::UnitPixel, /*&imgAtt*/ nullptr);
 		}
