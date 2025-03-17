@@ -19,10 +19,6 @@ namespace hs
 		Monster();
 		~Monster();
 
-		virtual void Update() override;
-		virtual void LateUpdate() override;
-		virtual void Render(HDC& hdc) override;
-
 		/*void Attack();
 		void TakeDamage(uint32_t damage);*/
 		void		  SetState(eMonsterState state);
