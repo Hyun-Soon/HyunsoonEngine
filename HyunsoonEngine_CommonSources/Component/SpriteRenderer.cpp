@@ -1,6 +1,7 @@
 #include "Component/SpriteRenderer.h"
 #include "Component/Transform.h"
 #include "GameObject/GameObject.h"
+#include "Renderer.h"
 
 namespace hs
 {
@@ -35,6 +36,9 @@ namespace hs
 		Vector2	   pos = transform->GetPosition();
 		Vector2	   scale = transform->GetScale();
 		float	   rotation = transform->GetRotation();
+
+		// camera
+		// pos = renderer::mainCamera->CalculatePosition(pos);
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
 		{

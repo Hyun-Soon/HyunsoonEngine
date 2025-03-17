@@ -17,6 +17,7 @@ namespace hs
 
 		void Initialize() override;
 		void Update() override;
+		void LateUpdate() override;
 
 	private:
 		void idle();

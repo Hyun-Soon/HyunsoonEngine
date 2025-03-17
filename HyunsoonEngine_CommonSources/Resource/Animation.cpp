@@ -53,9 +53,12 @@ namespace hs
 		GameObject* gameObj = mAnimator->GetOwner();
 		Transform*	tr = gameObj->GetComponent<Transform>();
 		Vector2		pos = tr->GetPosition();
+		float		rot = tr->GetRotation();
+		Vector2		scale = tr->GetScale();
 
-		if (renderer::mainCamera)
-			pos = renderer::mainCamera->CalculatePosition(pos);
+		// camera
+		/*if (renderer::mainCamera)
+			pos = renderer::mainCamera->CalculatePosition(pos);*/
 
 		Sprite sprite = mAnimationSheet[mIndex];
 		HDC	   imgHdc = mTexture->GetHdc();
@@ -70,9 +73,6 @@ namespace hs
 			func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 
 			TransparentBlt(hdc, std::round(pos.x), std::round(pos.y), sprite.size.x, sprite.size.y, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, RGB(255, 0, 255));
-			// DWORD		 error = GetLastError();
-			// std::wstring msg = L"Debug Value: " + std::to_wstring(error) + L"\n";
-			// OutputDebugString(msg.c_str());
 		}
 		else if (type == graphics::Texture::eTextureType::Png)
 		{

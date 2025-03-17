@@ -2,6 +2,9 @@
 #include "RandomUtils.h"
 
 #include "LandMonsterScript.h"
+#include "Application.h"
+
+extern hs::Application app;
 
 namespace hs
 {
@@ -57,6 +60,19 @@ namespace hs
 		}
 	}
 
+	void LandMonsterScript::LateUpdate()
+	{
+		Vector2 res = app.GetResolution();
+		Vector2 pos = mTransform->GetPosition();
+
+		pos.x = std::clamp<float>(pos.x, 0, res.x - 200);
+		pos.y = std::clamp<float>(pos.y, 0, res.y - 200);
+
+		mTransform->SetPosition(pos);
+		if (pos.y >= res.y - 200)
+			mRigidbody->SetGrounded(true);
+	}
+
 	void LandMonsterScript::idle()
 	{
 		// Idle -> Attacked
@@ -83,6 +99,7 @@ namespace hs
 			}
 			mMonster->SetState(Monster::eMonsterState::Move);
 			mAnimator->PlayAnimation(mMonster->GetName() + L"Move" + mDirString);
+			mDuration = 0.0f;
 		}
 	}
 
@@ -99,19 +116,9 @@ namespace hs
 				return;
 
 			// Move -> Idle
-			if (RandomUtils::GetRandomValueInt(0, 1))
-			{
-				mDirection = Vector2::Left;
-				mDirString = L"_L";
-			}
-			else
-			{
-				mDirection = Vector2::Right;
-				mDirString = L"_R";
-			}
-
 			mMonster->SetState(Monster::eMonsterState::Idle);
 			mAnimator->PlayAnimation(mMonster->GetName() + L"Idle" + mDirString);
+			mDuration = 0.0f;
 		}
 	}
 

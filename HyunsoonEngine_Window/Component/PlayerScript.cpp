@@ -78,11 +78,11 @@ namespace hs
 		Vector2 res = app.GetResolution();
 		Vector2 pos = mTransform->GetPosition();
 
-		pos.x = std::clamp<float>(pos.x, 0, 1400);
-		pos.y = std::clamp<float>(pos.y, 0, 600);
+		pos.x = std::clamp<float>(pos.x, 0, res.x - 200);
+		pos.y = std::clamp<float>(pos.y, 0, res.y - 200);
 
 		mTransform->SetPosition(pos);
-		if (pos.y >= 599.9f)
+		if (pos.y >= res.y - 200)
 			mRigidbody->SetGrounded(true);
 	}
 
