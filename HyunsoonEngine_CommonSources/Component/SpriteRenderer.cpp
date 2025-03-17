@@ -35,14 +35,17 @@ namespace hs
 		Transform* transform = GetOwner()->GetComponent<Transform>();
 		Vector2	   pos = transform->GetPosition();
 		Vector2	   scale = transform->GetScale();
-		float	   rotation = transform->GetRotation();
+		// float	   rotation = transform->GetRotation();
 
 		// camera
 		// pos = renderer::mainCamera->CalculatePosition(pos);
 
+		float renderWidth = mTexture->GetWidth() * mScale.x * scale.x;
+		float renderHeight = mTexture->GetHeight() * mScale.y * scale.y;
+
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 		{
-			TransparentBlt(hdc, std::round(pos.x - mTexture->GetWidth()), std::round(pos.y - mTexture->GetHeight()), mTexture->GetWidth() * mScale.x * scale.x, mTexture->GetHeight() * mScale.y * scale.y, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight(), RGB(255, 0, 255));
+			TransparentBlt(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight(), RGB(255, 0, 255));
 		}
 		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
 		{
@@ -55,7 +58,7 @@ namespace hs
 			// graphics.RotateTransform(rotation);
 			// graphics.TranslateTransform(-pos.x, -pos.y);
 			// graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth() * mScale.x * scale.x, mTexture->GetHeight() * mScale.y * scale.y));
-			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(std::round(pos.x - mTexture->GetWidth()), std::round(pos.y - mTexture->GetHeight()), mTexture->GetWidth() * mScale.x * scale.x, mTexture->GetHeight() * mScale.y * scale.y), 0, 0, mTexture->GetWidth(), mTexture->GetHeight(), Gdiplus::UnitPixel, nullptr /*&imgAtt*/);
+			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight), 0, 0, mTexture->GetWidth(), mTexture->GetHeight(), Gdiplus::UnitPixel, nullptr /*&imgAtt*/);
 		}
 	}
 

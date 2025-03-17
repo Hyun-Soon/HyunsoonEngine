@@ -53,8 +53,8 @@ namespace hs
 		GameObject* gameObj = mAnimator->GetOwner();
 		Transform*	tr = gameObj->GetComponent<Transform>();
 		Vector2		pos = tr->GetPosition();
-		float		rot = tr->GetRotation();
-		Vector2		scale = tr->GetScale();
+		// float		rot = tr->GetRotation();
+		Vector2 scale = tr->GetScale();
 
 		// camera
 		/*if (renderer::mainCamera)
@@ -62,6 +62,9 @@ namespace hs
 
 		Sprite sprite = mAnimationSheet[mIndex];
 		HDC	   imgHdc = mTexture->GetHdc();
+
+		float renderWidth = sprite.size.x * scale.x;
+		float renderHeight = sprite.size.y * scale.y;
 
 		graphics::Texture::eTextureType type = mTexture->GetTextureType();
 		if (type == graphics::Texture::eTextureType::Bmp)
@@ -72,7 +75,7 @@ namespace hs
 			func.AlphaFormat = AC_SRC_ALPHA;
 			func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 
-			TransparentBlt(hdc, std::round(pos.x - sprite.size.x), std::round(pos.y - sprite.size.y), sprite.size.x, sprite.size.y, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, RGB(255, 0, 255));
+			TransparentBlt(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, RGB(255, 0, 255));
 		}
 		else if (type == graphics::Texture::eTextureType::Png)
 		{
@@ -86,7 +89,7 @@ namespace hs
 			Sprite sprite = mAnimationSheet[mIndex];
 			HDC	   imgHdc = mTexture->GetHdc();
 
-			AlphaBlend(hdc, std::round(pos.x - sprite.size.x), std::round(pos.y - sprite.size.y), sprite.size.x, sprite.size.y, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, func);
+			AlphaBlend(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, imgHdc, sprite.leftTop.x, sprite.leftTop.y, sprite.size.x, sprite.size.y, func);
 
 			// 2.
 			// 내가 원하는 픽셀을 투명화 시킬
