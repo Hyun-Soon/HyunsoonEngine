@@ -1,8 +1,12 @@
 #include "Input.h"
+#include "Application.h"
+
+extern hs::Application app;
 
 namespace hs
 {
 	std::vector<Input::Key> Input::mKeys = {};
+	Vector2					Input::mMousePosition = Vector2::One;
 
 	int ASCII[(UINT)eKeyCode::End] = {
 		'Q',
@@ -39,6 +43,9 @@ namespace hs
 		VK_TAB,
 		VK_CONTROL,
 		VK_MENU,
+		VK_LBUTTON,
+		VK_MBUTTON,
+		VK_RBUTTON,
 	};
 
 	void Input::Initialize()
@@ -67,13 +74,22 @@ namespace hs
 
 	void Input::updateKey(Input::Key& key)
 	{
-		if (isKeyDown(key.keyCode))
+		if (GetFocus())
 		{
-			updateKeyDown(key);
+			if (isKeyDown(key.keyCode))
+			{
+				updateKeyDown(key);
+			}
+			else
+			{
+				updateKeyUp(key);
+			}
+
+			getMousePositionByWindow();
 		}
 		else
 		{
-			updateKeyUp(key);
+			clearKeys();
 		}
 	}
 
@@ -100,6 +116,29 @@ namespace hs
 			key.state = eKeyState::None;
 
 		key.bPressed = false;
+	}
+
+	void Input::clearKeys()
+	{
+		for (Key& key : mKeys)
+		{
+			if (key.state == eKeyState::Down || key.state == eKeyState::Pressed)
+				key.state = eKeyState::Up;
+			else if (key.state == eKeyState::Up)
+				key.state = eKeyState::None;
+
+			key.bPressed = false;
+		}
+	}
+
+	void Input::getMousePositionByWindow()
+	{
+		POINT mousePos = {};
+		GetCursorPos(&mousePos);
+		ScreenToClient(app.GetHwnd(), &mousePos);
+
+		mMousePosition.x = mousePos.x;
+		mMousePosition.y = mousePos.y;
 	}
 
 } // namespace hs

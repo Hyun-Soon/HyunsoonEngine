@@ -25,6 +25,11 @@ namespace hs
 		return mHdc;
 	}
 
+	const HWND& Application::GetHwnd() const
+	{
+		return mHwnd;
+	}
+
 	void Application::Initialize(HWND hwnd, UINT width, UINT height)
 	{
 		mHwnd = hwnd;

@@ -5,6 +5,7 @@
 #include <cassert>
 
 #include "TimeUtils.h"
+#include "MathTypes.h"
 
 namespace hs
 {
@@ -52,6 +53,9 @@ namespace hs
 		Tab,
 		Ctrl,
 		Alt,
+		LButton,
+		MButton,
+		RButton,
 		End,
 	};
 
@@ -72,9 +76,10 @@ namespace hs
 		static void Initialize();
 		static void Update();
 
-		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Down; }
-		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
-		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
+		static bool	   GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Down; }
+		static bool	   GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
+		static bool	   GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
+		static Vector2 GetMousePosition() { return mMousePosition; }
 
 	private:
 		static void createKeys();
@@ -83,7 +88,10 @@ namespace hs
 		static bool isKeyDown(eKeyCode code);
 		static void updateKeyDown(Input::Key& key);
 		static void updateKeyUp(Input::Key& key);
+		static void clearKeys();
+		static void getMousePositionByWindow();
 
 		static std::vector<Key> mKeys;
+		static Vector2			mMousePosition;
 	};
 } // namespace hs

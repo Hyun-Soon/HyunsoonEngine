@@ -15,6 +15,7 @@ namespace hs
 
 		const Vector2& GetResolution();
 		const HDC&	   GetHdc() const;
+		const HWND&	   GetHwnd() const;
 
 		void Initialize(HWND hwnd, UINT width, UINT height);
 		void Run();
