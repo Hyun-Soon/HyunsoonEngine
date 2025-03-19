@@ -28,13 +28,11 @@ namespace hs
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC& hdc);
+		static void Release();
 
 		static void AddGameObject(GameObject* obj, enums::eLayerType layerLevel);
 
 	private:
-		SceneManager();
-		~SceneManager();
-
 		static std::unordered_map<std::wstring, Scene*> mScenes;
 		static Scene*									mActiveScene;
 	};

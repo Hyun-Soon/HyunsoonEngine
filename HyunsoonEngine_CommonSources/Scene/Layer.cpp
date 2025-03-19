@@ -10,7 +10,10 @@ namespace hs
 	Layer::~Layer()
 	{
 		for (GameObject* gameObj : mGameObjects)
-			delete gameObj;
+		{
+			if (gameObj)
+				delete gameObj;
+		}
 	}
 
 	void Layer::Initialize()

@@ -22,11 +22,11 @@ namespace hs
 
 			virtual HRESULT Load(const std::wstring& path) override;
 
-			UINT			GetWidth() { return mWidth; }
-			UINT			GetHeight() { return mHeight; }
-			HDC				GetHdc() { return mHdc; }
-			eTextureType	GetTextureType() { return mType; }
-			Gdiplus::Image* GetImage() { return mImage; }
+			UINT			GetWidth() const { return mWidth; }
+			UINT			GetHeight() const { return mHeight; }
+			HDC				GetHdc() const { return mHdc; }
+			eTextureType	GetTextureType() const { return mType; }
+			Gdiplus::Image* GetImage() const { return mImage; }
 
 		private:
 			eTextureType	mType;

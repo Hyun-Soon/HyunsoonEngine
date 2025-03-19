@@ -36,6 +36,8 @@ namespace hs
 			return resource;
 		}
 
+		static void Release();
+
 	private:
 		static std::unordered_map<std::wstring, Resource*> mResources;
 	};

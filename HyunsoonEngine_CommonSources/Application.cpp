@@ -80,6 +80,12 @@ namespace hs
 		present(mHdc, mBackHdc);
 	}
 
+	void Application::Release()
+	{
+		SceneManager::Release();
+		ResourceManager::Release();
+	}
+
 	void Application::createBuffer(UINT width, UINT height)
 	{
 		// 윈도우 해상도에 맞는 백버퍼(도화지)생성

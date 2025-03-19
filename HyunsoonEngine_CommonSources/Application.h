@@ -3,6 +3,7 @@
 #include "GdiPlusInclude.h"
 #include "Scene/SceneManager.h"
 #include "Input/Input.h"
+#include "Resource/ResourceManager.h"
 #include "../HyunsoonEngine_Window/Object/Player.h"
 
 namespace hs
@@ -19,6 +20,7 @@ namespace hs
 
 		void Initialize(HWND hwnd, UINT width, UINT height);
 		void Run();
+		void Release();
 
 	private:
 		void update();

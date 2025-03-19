@@ -51,6 +51,15 @@ namespace hs
 		mActiveScene->Render(hdc);
 	}
 
+	void SceneManager::Release()
+	{
+		for (std::unordered_map<std::wstring, Scene*>::iterator iter = mScenes.begin(); iter != mScenes.end(); iter++)
+		{
+			delete iter->second;
+			iter->second = nullptr;
+		}
+	}
+
 	void SceneManager::AddGameObject(GameObject* obj, enums::eLayerType layerLevel)
 	{
 		mActiveScene->AddGameObject(obj, layerLevel);
