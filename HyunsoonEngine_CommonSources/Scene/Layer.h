@@ -8,6 +8,8 @@
 namespace hs
 {
 	class GameObject;
+	typedef std::vector<GameObject*>::iterator GameObjectIter;
+
 	class Layer : public Entity
 	{
 	public:
@@ -18,6 +20,7 @@ namespace hs
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC& hdc);
+		virtual void Destroy();
 
 		void AddGameObject(GameObject* gameObject);
 

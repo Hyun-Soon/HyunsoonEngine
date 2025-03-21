@@ -1,5 +1,6 @@
 #include "Texture.h"
 #include "Application.h"
+#include "Resource/ResourceManager.h"
 
 extern hs::Application app;
 
@@ -9,11 +10,37 @@ namespace hs
 	{
 		Texture::Texture()
 			: Resource(enums::eResourceType::Texture)
+			, mbAlpha(false)
 		{
 		}
 
 		Texture::~Texture()
 		{
+		}
+
+		Texture* Texture::Create(const std::wstring& name, UINT width, UINT height)
+		{
+			Texture* image = ResourceManager::Find<Texture>(name);
+			if (image)
+				return image;
+
+			image = new Texture();
+			image->SetName(name);
+			image->SetWidth(width);
+			image->SetHeight(height);
+
+			HDC	 hdc = app.GetHdc();
+			HWND hwnd = app.GetHwnd();
+
+			image->mBitmap = CreateCompatibleBitmap(hdc, width, height);
+			image->mHdc = CreateCompatibleDC(hdc);
+
+			HBITMAP oldBitmap = (HBITMAP)SelectObject(image->mHdc, image->mBitmap);
+			DeleteObject(oldBitmap);
+
+			ResourceManager::Insert(name + L"Image", image);
+
+			return image;
 		}
 
 		HRESULT Texture::Load(const std::wstring& path)

@@ -32,5 +32,9 @@ namespace hs
 			return gameObj;
 		}
 
+		static void Destory(GameObject* obj)
+		{
+			obj->Death();
+		}
 	} // namespace object
 } // namespace hs

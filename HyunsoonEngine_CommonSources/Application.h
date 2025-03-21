@@ -26,6 +26,7 @@ namespace hs
 		void update();
 		void lateUpdate();
 		void render();
+		void destroy();
 		void createBuffer(UINT width, UINT height);
 		void clearRenderTarget();
 		void present(HDC dst, HDC src);

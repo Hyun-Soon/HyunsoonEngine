@@ -56,6 +56,7 @@ namespace hs
 		update();
 		lateUpdate();
 		render();
+		destroy();
 	}
 
 	void Application::update()
@@ -78,6 +79,11 @@ namespace hs
 		SceneManager::Render(mBackHdc);
 
 		present(mHdc, mBackHdc);
+	}
+
+	void Application::destroy()
+	{
+		SceneManager::Destroy();
 	}
 
 	void Application::Release()

@@ -20,15 +20,20 @@ namespace hs
 			Texture();
 			~Texture();
 
+			static Texture* Create(const std::wstring& name, UINT width, UINT height);
+
 			virtual HRESULT Load(const std::wstring& path) override;
 
 			UINT			GetWidth() const { return mWidth; }
+			void			SetWidth(UINT width) { mWidth = width; }
 			UINT			GetHeight() const { return mHeight; }
+			void			SetHeight(UINT height) { mHeight = height; }
 			HDC				GetHdc() const { return mHdc; }
 			eTextureType	GetTextureType() const { return mType; }
 			Gdiplus::Image* GetImage() const { return mImage; }
 
 		private:
+			bool			mbAlpha;
 			eTextureType	mType;
 			Gdiplus::Image* mImage;
 			HBITMAP			mBitmap;

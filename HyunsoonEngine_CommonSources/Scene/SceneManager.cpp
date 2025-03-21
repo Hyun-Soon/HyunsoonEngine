@@ -51,6 +51,11 @@ namespace hs
 		mActiveScene->Render(hdc);
 	}
 
+	void SceneManager::Destroy()
+	{
+		mActiveScene->Destroy();
+	}
+
 	void SceneManager::Release()
 	{
 		for (std::unordered_map<std::wstring, Scene*>::iterator iter = mScenes.begin(); iter != mScenes.end(); iter++)

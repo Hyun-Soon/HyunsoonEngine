@@ -36,6 +36,16 @@ namespace hs
 			return resource;
 		}
 
+		static void Insert(const std::wstring& key, Resource* resource)
+		{
+			if (key == L"")
+				return;
+			if (resource == nullptr)
+				return;
+
+			mResources[key] = resource;
+		}
+
 		static void Release();
 
 	private:

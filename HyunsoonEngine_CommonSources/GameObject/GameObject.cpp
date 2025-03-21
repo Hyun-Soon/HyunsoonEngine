@@ -5,6 +5,7 @@ namespace hs
 {
 	GameObject::GameObject()
 		: mComponents((UINT)enums::eComponentType::End, nullptr)
+		, mState(GameObject::eGameObjectState::Active)
 	{
 		initializeTransform();
 	}
@@ -64,18 +65,4 @@ namespace hs
 		AddComponent<Transform>();
 	}
 
-	// void GameObject::repositionWithinBounds()
-	//{
-	//	Resolution res = Application::GetResolution();
-
-	//	if (mPos.x < 0.0f)
-	//		mPos.x = 0.0f;
-	//	else if (mPos.x > res.width)
-	//		mPos.x = res.width;
-
-	//	if (mPos.y < 0.0f)
-	//		mPos.y = 0.0f;
-	//	else if (mPos.y > 600.0f) // temp
-	//		mPos.y = 600.0f;
-	//}
 } // namespace hs

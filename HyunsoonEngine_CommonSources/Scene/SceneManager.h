@@ -28,6 +28,7 @@ namespace hs
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC& hdc);
+		static void Destroy();
 		static void Release();
 
 		static void AddGameObject(GameObject* obj, enums::eLayerType layerLevel);

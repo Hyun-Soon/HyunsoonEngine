@@ -10,6 +10,14 @@ namespace hs
 	class GameObject
 	{
 	public:
+		enum class eGameObjectState
+		{
+			Active,
+			Paused,
+			Dead,
+			End
+		};
+
 		GameObject();
 		virtual ~GameObject();
 
@@ -41,10 +49,22 @@ namespace hs
 			return component;
 		}
 
+		eGameObjectState GetActive() { return mState; }
+
+		void SetActive(bool power)
+		{
+			if (power == true)
+				mState = eGameObjectState::Active;
+			else
+				mState = eGameObjectState::Paused;
+		}
+
+		void Death() { mState = eGameObjectState::Dead; }
+
 	private:
-		// void repositionWithinBounds();
 		void initializeTransform();
 
+		eGameObjectState		mState;
 		std::vector<Component*> mComponents;
 	};
 } // namespace hs

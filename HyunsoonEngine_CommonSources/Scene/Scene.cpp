@@ -45,6 +45,17 @@ namespace hs
 		}
 	}
 
+	void Scene::Destroy()
+	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->Destroy();
+		}
+	}
+
 	void Scene::AddGameObject(GameObject* gameObject, enums::eLayerType layerLevel)
 	{
 		mLayers[(UINT)layerLevel]->AddGameObject(gameObject);
