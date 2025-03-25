@@ -39,8 +39,4 @@ namespace hs
 		TextOut(hdc, 0, 0, str, len);
 	}
 
-	__forceinline float TimeUtils::GetDeltaTime()
-	{
-		return DeltaTimeValue;
-	}
 } // namespace hs

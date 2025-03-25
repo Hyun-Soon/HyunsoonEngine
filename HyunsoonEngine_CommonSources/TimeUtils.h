@@ -12,7 +12,7 @@ namespace hs
 		static void Update();
 		static void Render(HDC hdc);
 
-		__forceinline static float GetDeltaTime();
+		__forceinline static float GetDeltaTime() { return DeltaTimeValue; };
 
 	private:
 		static LARGE_INTEGER CpuFrequency;
