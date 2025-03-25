@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Component/Transform.h"
+#include "Component/BoxCollider2D.h"
 #include "Component/Animator.h"
 #include "Component/Rigidbody.h"
 #include "../Component/PlayerScript.h"
@@ -34,6 +35,9 @@ namespace hs
 
 	void Player::Initialize()
 	{
+		BoxCollider2D* boxCollider = AddComponent<BoxCollider2D>();
+		boxCollider->Initialize();
+
 		Animator*		   animator = AddComponent<Animator>();
 		graphics::Texture* playerIdle_L = ResourceManager::Find<graphics::Texture>(L"PlayerIdle_L");
 		animator->CreateAnimation(L"PlayerIdle_L", playerIdle_L, Vector2::Zero, { 64, 69 }, Vector2::Zero, 4, 0.3f);

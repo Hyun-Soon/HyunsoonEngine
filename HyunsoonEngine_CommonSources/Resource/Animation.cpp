@@ -66,6 +66,9 @@ namespace hs
 		float renderWidth = sprite.size.x * scale.x;
 		float renderHeight = sprite.size.y * scale.y;
 
+		// debug
+		Rectangle(hdc, std::round(pos.x) - renderWidth, std::round(pos.y) - renderHeight, std::round(pos.x), std::round(pos.y));
+
 		graphics::Texture::eTextureType type = mTexture->GetTextureType();
 		if (type == graphics::Texture::eTextureType::Bmp)
 		{

@@ -1,4 +1,5 @@
 #include "Component/Transform.h"
+#include "Component/BoxCollider2D.h"
 #include "Component/SpriteRenderer.h"
 #include "GameObject/ObjectUtils.h"
 #include "Resource/ResourceManager.h"
@@ -50,7 +51,8 @@ namespace hs
 		greenSnail->SetName(L"GreenSnail");
 		Transform* tr_greenSnail = greenSnail->GetComponent<Transform>();
 		tr_greenSnail->SetPosition({ 300.0f, 500.0f });
-		Rigidbody* rgb_greenSnail = greenSnail->AddComponent<Rigidbody>();
+		BoxCollider2D* boxCollider = greenSnail->AddComponent<BoxCollider2D>();
+		Rigidbody*	   rgb_greenSnail = greenSnail->AddComponent<Rigidbody>();
 		rgb_greenSnail->SetGravity(true);
 		Animator*		   anim_greenSnail = greenSnail->AddComponent<Animator>();
 		graphics::Texture* greenSnailIdle_L = ResourceManager::Find<graphics::Texture>(L"GreenSnailIdle_L");

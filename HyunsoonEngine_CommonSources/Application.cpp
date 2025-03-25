@@ -106,7 +106,13 @@ namespace hs
 
 	void Application::clearRenderTarget()
 	{
+		HBRUSH backgroundBrush = (HBRUSH)CreateSolidBrush(RGB(255, 255, 255));
+		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, backgroundBrush);
+
 		Rectangle(mBackHdc, 0, 0, mResolution.x, mResolution.y);
+
+		(HBRUSH) SelectObject(mBackHdc, oldBrush);
+		DeleteObject(backgroundBrush);
 	}
 
 	void Application::present(HDC dst, HDC src)

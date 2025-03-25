@@ -16,7 +16,10 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Animator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\BoxCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Camera.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\CircleCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Collider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Component.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Rigidbody.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Script.h" />
@@ -44,7 +47,10 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Animator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\BoxCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Camera.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\CircleCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Collider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Component.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Rigidbody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Script.cpp" />

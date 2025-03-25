@@ -7,6 +7,7 @@ namespace hs
 		enum class eComponentType
 		{
 			Transform,
+			Collider,
 			SpriteRenderer,
 			Camera,
 			Animator,
