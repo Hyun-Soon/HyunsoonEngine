@@ -1,9 +1,13 @@
 #pragma once
 
-#include <cmath>
+#include <math.h>
 
 namespace hs
 {
+#define PI 3.141592f
+
+	static float ConvertRadianToDegree(float radian);
+
 	struct Vector2
 	{
 		static Vector2 Zero;
@@ -22,14 +26,14 @@ namespace hs
 		Vector2(float x, float y)
 			: x(x), y(y) {}
 
-		inline float Magnitude() const
+		inline float Length() const
 		{
-			return sqrt(x * x + y * y);
+			return sqrtf(x * x + y * y);
 		}
 
 		inline Vector2 Normalize()
 		{
-			float mag = Magnitude();
+			float mag = Length();
 			x /= mag;
 			y /= mag;
 			return *this;
@@ -38,6 +42,26 @@ namespace hs
 		inline static float Length(Vector2& lhs, Vector2& rhs)
 		{
 			return sqrt((rhs.x - lhs.x) * (rhs.x - lhs.x) + (rhs.y - lhs.y) * (rhs.y - lhs.y));
+		}
+
+		Vector2 Rotate(Vector2 vector, float degree)
+		{
+			float radian = (degree / 180.f) * PI;
+			vector.Normalize();
+			float x = cosf(radian) * vector.x - sinf(radian) * vector.y;
+			float y = sinf(radian) * vector.x + cosf(radian) * vector.y;
+
+			return Vector2(x, y);
+		}
+
+		float Dot(Vector2& v1, Vector2& v2)
+		{
+			return v1.x * v2.x + v1.y * v2.y;
+		}
+
+		float Cross(Vector2& v1, Vector2& v2)
+		{
+			return v1.x * v2.y - v1.y * v2.x;
 		}
 
 		inline Vector2 operator+(const Vector2& other) const

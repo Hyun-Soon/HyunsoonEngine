@@ -31,6 +31,7 @@ namespace hs
 			HDC				GetHdc() const { return mHdc; }
 			eTextureType	GetTextureType() const { return mType; }
 			Gdiplus::Image* GetImage() const { return mImage; }
+			bool			IsAlpha() { return mbAlpha; }
 
 		private:
 			bool			mbAlpha;

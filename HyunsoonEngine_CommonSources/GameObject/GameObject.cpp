@@ -3,6 +3,16 @@
 
 namespace hs
 {
+	namespace object
+	{
+		void Destory(GameObject* gameObject)
+		{
+			if (gameObject == nullptr)
+				return;
+			gameObject->death();
+		}
+	} // namespace object
+
 	GameObject::GameObject()
 		: mComponents((UINT)enums::eComponentType::End, nullptr)
 		, mState(GameObject::eGameObjectState::Active)
@@ -37,7 +47,6 @@ namespace hs
 				continue;
 			component->Update();
 		}
-		// repositionWithinBounds();
 	}
 
 	void GameObject::LateUpdate()

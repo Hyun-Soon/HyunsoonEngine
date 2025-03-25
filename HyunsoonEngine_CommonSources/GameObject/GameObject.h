@@ -7,9 +7,16 @@
 
 namespace hs
 {
+	namespace object
+	{
+		void Destory(GameObject* gameObject);
+	}
+
 	class GameObject
 	{
 	public:
+		friend void object::Destory(GameObject* obj);
+
 		enum class eGameObjectState
 		{
 			Active,
@@ -49,7 +56,7 @@ namespace hs
 			return component;
 		}
 
-		eGameObjectState GetActive() { return mState; }
+		eGameObjectState GetState() { return mState; }
 
 		void SetActive(bool power)
 		{
@@ -59,10 +66,13 @@ namespace hs
 				mState = eGameObjectState::Paused;
 		}
 
-		void Death() { mState = eGameObjectState::Dead; }
+		bool IsActive() { return mState == eGameObjectState::Active; }
+		bool IsDead() { return mState == eGameObjectState::Dead; }
+		// void Death() { mState = eGameObjectState::Dead; }
 
 	private:
 		void initializeTransform();
+		void death() { mState = eGameObjectState::Dead; }
 
 		eGameObjectState		mState;
 		std::vector<Component*> mComponents;
