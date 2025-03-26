@@ -26,6 +26,7 @@ namespace hs
 			Npc,
 			Particle,
 			End,
+			BitsetSize = 8,
 		};
 
 		enum class eResourceType

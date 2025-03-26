@@ -26,6 +26,7 @@ namespace hs
 
 		void			 AddGameObject(GameObject* gameObject, enums::eLayerType layerLevel);
 		const eSceneType GetType() const;
+		Layer*			 GetLayer(enums::eLayerType layerType) { return mLayers[(UINT)layerType]; }
 		// Monster*		 FindNearestMonster(float range);
 
 	private:

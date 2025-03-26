@@ -19,6 +19,10 @@ namespace hs
 		void Update() override;
 		void LateUpdate() override;
 
+		virtual void OnCollisionEnter(Collider* other) override;
+		virtual void OnCollisionStay(Collider* other) override;
+		virtual void OnCollisionExit(Collider* other) override;
+
 	private:
 		void idle();
 		void move();

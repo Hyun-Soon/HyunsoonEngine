@@ -86,6 +86,18 @@ namespace hs
 			mRigidbody->SetGrounded(true);
 	}
 
+	void PlayerScript::OnCollisionEnter(Collider* other)
+	{
+	}
+
+	void PlayerScript::OnCollisionStay(Collider* other)
+	{
+	}
+
+	void PlayerScript::OnCollisionExit(Collider* other)
+	{
+	}
+
 	// void PlayerScript::SetAnimator(Animator* animator)
 	//{
 	//	mAnimator = animator;

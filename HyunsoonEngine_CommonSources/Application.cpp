@@ -48,6 +48,7 @@ namespace hs
 		createBuffer(mResolution.x, mResolution.y);
 		Input::Initialize();
 		TimeUtils::Initialize();
+		CollisionManager::Initialize();
 		SceneManager::Initialize();
 	}
 
@@ -63,11 +64,13 @@ namespace hs
 	{
 		Input::Update();
 		TimeUtils::Update();
+		CollisionManager::Update();
 		SceneManager::Update();
 	}
 
 	void Application::lateUpdate()
 	{
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 
@@ -76,6 +79,7 @@ namespace hs
 		clearRenderTarget();
 
 		TimeUtils::Render(mBackHdc);
+		CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
 		present(mHdc, mBackHdc);

@@ -17,6 +17,5 @@ namespace hs
 		virtual void Render(HDC& hdc) override;
 
 	private:
-		Vector2 mSize;
 	};
 } // namespace hs

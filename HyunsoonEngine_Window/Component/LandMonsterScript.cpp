@@ -73,6 +73,18 @@ namespace hs
 			mRigidbody->SetGrounded(true);
 	}
 
+	void LandMonsterScript::OnCollisionEnter(Collider* other)
+	{
+	}
+
+	void LandMonsterScript::OnCollisionStay(Collider* other)
+	{
+	}
+
+	void LandMonsterScript::OnCollisionExit(Collider* other)
+	{
+	}
+
 	void LandMonsterScript::idle()
 	{
 		// Idle -> Attacked

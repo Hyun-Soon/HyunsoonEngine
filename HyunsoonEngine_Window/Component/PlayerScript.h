@@ -10,6 +10,7 @@
 namespace hs
 {
 	class Player;
+
 	class PlayerScript : public Script
 	{
 	public:
@@ -22,6 +23,10 @@ namespace hs
 		// virtual void Render(HDC& hdc) override;
 
 		// void SetAnimator(Animator* animator);
+
+		virtual void OnCollisionEnter(Collider* other) override;
+		virtual void OnCollisionStay(Collider* other) override;
+		virtual void OnCollisionExit(Collider* other) override;
 
 	private:
 		void stand();

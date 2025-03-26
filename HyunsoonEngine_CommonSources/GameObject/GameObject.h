@@ -66,8 +66,8 @@ namespace hs
 				mState = eGameObjectState::Paused;
 		}
 
-		bool IsActive() { return mState == eGameObjectState::Active; }
-		bool IsDead() { return mState == eGameObjectState::Dead; }
+		bool IsActive() const { return mState == eGameObjectState::Active; }
+		bool IsDead() const { return mState == eGameObjectState::Dead; }
 		// void Death() { mState = eGameObjectState::Dead; }
 
 	private:

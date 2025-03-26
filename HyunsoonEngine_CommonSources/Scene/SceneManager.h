@@ -31,7 +31,8 @@ namespace hs
 		static void Destroy();
 		static void Release();
 
-		static void AddGameObject(GameObject* obj, enums::eLayerType layerLevel);
+		static void	  AddGameObject(GameObject* obj, enums::eLayerType layerLevel);
+		static Scene* GetActiveScene() { return mActiveScene; };
 
 	private:
 		static std::unordered_map<std::wstring, Scene*> mScenes;
