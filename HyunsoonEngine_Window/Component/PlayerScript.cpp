@@ -4,6 +4,8 @@
 #include "TimeUtils.h"
 #include "PlayerScript.h"
 #include "Application.h"
+#include "../Object/ObjectUtilsCustom.h"
+#include "../Object/Projectile.h"
 
 extern hs::Application app;
 
@@ -88,6 +90,13 @@ namespace hs
 
 	void PlayerScript::OnCollisionEnter(Collider* other)
 	{
+		enums::eLayerType type = other->GetOwner()->GetLayerType();
+
+		if (type == enums::eLayerType::Monster)
+		{
+			mRigidbody->AddVelocity(mDirection * Vector2(500.0f, 0.0f) * -1.0f + Vector2(0.0f, -500.0f));
+			mRigidbody->SetGrounded(false);
+		}
 	}
 
 	void PlayerScript::OnCollisionStay(Collider* other)
@@ -145,12 +154,14 @@ namespace hs
 			mRigidbody->AddForce(mJumpForce);
 			mRigidbody->SetGrounded(false);
 		}
-		//// Idle -> Attack
+		// Idle -> Attack
 		else if (Input::GetKeyDown(eKeyCode::C))
 		{
 			mPlayer->SetState(Player::ePlayerState::Attack);
 			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
 			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
+
+			Projectile* projectile = object::InstantiateProjectile(GetOwner());
 		}
 		//  Idle -> Alert
 		//  After implementing monster

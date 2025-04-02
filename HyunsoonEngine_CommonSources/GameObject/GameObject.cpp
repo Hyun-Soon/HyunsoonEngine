@@ -14,8 +14,9 @@ namespace hs
 	} // namespace object
 
 	GameObject::GameObject()
-		: mComponents((UINT)enums::eComponentType::End, nullptr)
-		, mState(GameObject::eGameObjectState::Active)
+		: mState(GameObject::eGameObjectState::Active)
+		, mComponents((UINT)enums::eComponentType::End, nullptr)
+		, mLayerType(enums::eLayerType::None)
 	{
 		initializeTransform();
 	}

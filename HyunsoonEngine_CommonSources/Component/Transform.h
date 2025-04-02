@@ -13,6 +13,7 @@ namespace hs
 
 		void		   SetPosition(Vector2 pos) { mPosition = pos; }
 		const Vector2& GetPosition() const { return mPosition; };
+		const Vector2  GetCenterPosition() const;
 		void		   SetScale(Vector2& scale) { mScale = scale; };
 		const Vector2& GetScale() const { return mScale; };
 		void		   SetRotation(float rot) { mRotation = rot; };

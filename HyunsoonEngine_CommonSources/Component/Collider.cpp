@@ -6,8 +6,9 @@ namespace hs
 {
 	UINT Collider::CollisionID = 0;
 
-	Collider::Collider()
+	Collider::Collider(enums::eColliderType type)
 		: Component(enums::eComponentType::Collider)
+		, mType(type)
 		, mID(CollisionID++)
 		, mSize(Vector2::One)
 	{

@@ -26,6 +26,8 @@ namespace hs
 
 	void BeginnersTown1::Initialize()
 	{
+		CollisionManager::CollisionLayerCheck(enums::eLayerType::Player, enums::eLayerType::Monster, true);
+
 		GameObject* background = object::Instantiate<GameObject>(enums::eLayerType::Background);
 		Transform*	tr_bg = background->GetComponent<Transform>();
 		tr_bg->SetPosition(app.GetResolution());
@@ -42,7 +44,7 @@ namespace hs
 		//  It will be executed in Scene::Enter() func later
 		Player*	   player = Player::GetInstance();
 		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(100.0f, 300.0f);
+		Vector2	   pos = Vector2(600.0f, 300.0f);
 		tr->SetPosition(pos);
 		AddGameObject(player, enums::eLayerType::Player);
 

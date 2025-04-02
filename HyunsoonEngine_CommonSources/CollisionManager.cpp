@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "CollisionManager.h"
 #include "Scene/Scene.h"
 #include "Scene/SceneManager.h"
@@ -138,10 +140,65 @@ namespace hs
 		Vector2 rightSize = right->GetSize() * 100.0f;
 
 		// AABB 충돌
-		if (fabs(leftPos.x - rightPos.x) < fabs((leftSize.x + rightSize.x) / 2.0f)
-			&& fabs(leftPos.y - rightPos.y) < fabs((leftSize.y + rightSize.y) / 2.0f))
+		enums::eColliderType leftType = left->GetColliderType();
+		enums::eColliderType rightType = right->GetColliderType();
+
+		if (leftType == enums::eColliderType::Rect2D
+			&& rightType == enums::eColliderType::Rect2D)
 		{
-			return true;
+			if (fabs(leftPos.x - rightPos.x) < fabs((leftSize.x + rightSize.x) / 2.0f)
+				&& fabs(leftPos.y - rightPos.y) < fabs((leftSize.y + rightSize.y) / 2.0f))
+			{
+				return true;
+			}
+		}
+
+		if (leftType == enums::eColliderType::Circle2D
+			&& rightType == enums::eColliderType::Circle2D)
+		{
+			// circle -circle
+			Vector2 leftCirclePos = leftPos - (leftSize / 2.0f);
+			Vector2 rightCirclePos = rightPos - (rightSize / 2.0f);
+			float	distance = (leftCirclePos - rightCirclePos).Length();
+			if (distance <= ((leftSize.x + rightSize.x) / 2.0f))
+			{
+				return true;
+			}
+		}
+
+		if ((leftType == enums::eColliderType::Circle2D && rightType == enums::eColliderType::Rect2D)
+			|| (leftType == enums::eColliderType::Rect2D && rightType == enums::eColliderType::Circle2D))
+		{
+			// circle - rect
+			Collider* circle = (leftType == enums::eColliderType::Circle2D) ? left : right;
+			Collider* rect = (leftType == enums::eColliderType::Rect2D) ? left : right;
+
+			Vector2 circlePos = (circle == left) ? leftPos : rightPos;
+			Vector2 rectPos = (rect == left) ? leftPos : rightPos;
+			Vector2 rectSize = (rect == left) ? leftSize : rightSize;
+			float	circleRadius = (circle == left) ? leftSize.x / 2.0f : rightSize.x / 2.0f;
+
+			// 사각형의 절반 크기
+			Vector2 halfRectSize = rectSize / 2.0f;
+
+			// 사각형의 중심 좌표
+			Vector2 rectCenter = rectPos;
+
+			// 원의 중심에서 가장 가까운 사각형의 점 찾기
+			float closestX = std::fmax(rectCenter.x - halfRectSize.x, std::fmin(circlePos.x, rectCenter.x + halfRectSize.x));
+			float closestY = std::fmax(rectCenter.y - halfRectSize.y, std::fmin(circlePos.y, rectCenter.y + halfRectSize.y));
+
+			// 원의 중심과 가장 가까운 점 사이의 거리 계산
+			Vector2 closestPoint(closestX, closestY);
+			float	distance = (circlePos - closestPoint).Length();
+
+			// 꼭짓점이 아닌, 변과의 충돌 체크 필요
+
+			// 충돌 여부 확인
+			if (distance <= circleRadius)
+			{
+				return true;
+			}
 		}
 
 		return false;

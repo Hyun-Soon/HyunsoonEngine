@@ -15,8 +15,10 @@ namespace hs
 	{
 		if (player == nullptr)
 		{
-			player = new Player();
-			player->Initialize();
+			Player* gameObj = new Player();
+			gameObj->SetLayerType(enums::eLayerType::Player);
+			gameObj->Initialize();
+			player = gameObj;
 		}
 		return player;
 	}
@@ -96,16 +98,6 @@ namespace hs
 		PlayerScript* ps = AddComponent<PlayerScript>();
 	}
 
-	// const Vector2& Player::GetDirection() const
-	//{
-	//	return mDirection;
-	// }
-
-	// void Player::SetDirection(Vector2 dir)
-	//{
-	//	mDirection = dir;
-	// }
-
 	const Player::ePlayerState Player::GetState() const
 	{
 		return mState;
@@ -115,24 +107,5 @@ namespace hs
 	{
 		mState = state;
 	}
-
-	// void Player::UseSkill(size_t skillId)
-	//{
-	//	assert(skillId < mSkills.size());
-
-	//	mSkills[skillId].Use();
-	//}
-
-	// void Player::UseItem(size_t slotId)
-	//{
-	//	assert(slotId < mInventory.size());
-
-	//	mInventory[slotId].Use();
-	//}
-
-	/*void Player::PickUpItem()
-	{
-
-	}*/
 
 } // namespace hs

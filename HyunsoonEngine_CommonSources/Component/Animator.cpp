@@ -144,6 +144,13 @@ namespace hs
 		mbLoop = loop;
 	}
 
+	const Vector2 Animator::GetCenterOffset() const
+	{
+		if (mActiveAnimation)
+			return mActiveAnimation->GetCenterOffset();
+		return Vector2::Zero;
+	}
+
 	Animator::Events* Animator::FindEvents(const std::wstring& name)
 	{
 		std::unordered_map<std::wstring, Animator::Events*>::iterator iter = mEvents.find(name);

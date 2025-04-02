@@ -18,15 +18,16 @@ namespace hs
 
 		enum class eLayerType
 		{
-			// None,
 			Background,
 			Monster,
 			Player,
 			Item,
+			Projectile,
 			Npc,
 			Particle,
 			End,
-			BitsetSize = 8,
+			BitsetSize = 16,
+			None,
 		};
 
 		enum class eResourceType
@@ -35,6 +36,13 @@ namespace hs
 			AudioClip,
 			Prefab,
 			Animation,
+			End,
+		};
+
+		enum class eColliderType
+		{
+			Circle2D,
+			Rect2D,
 			End,
 		};
 	} // namespace enums

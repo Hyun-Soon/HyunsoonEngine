@@ -28,6 +28,8 @@ namespace hs
 		virtual void OnCollisionStay(Collider* other) override;
 		virtual void OnCollisionExit(Collider* other) override;
 
+		const Vector2& GetDirection() const { return mDirection; }
+
 	private:
 		void stand();
 		void walk();

@@ -1,6 +1,5 @@
 #include "Scene.h"
-// #include "../../HyunsoonEngine_Window/Object/Monster.h"
-// #include "../../HyunsoonEngine_Window/Object/Player.h"
+#include "GameObject/GameObject.h"
 
 namespace hs
 {
@@ -59,6 +58,12 @@ namespace hs
 	void Scene::AddGameObject(GameObject* gameObject, enums::eLayerType layerLevel)
 	{
 		mLayers[(UINT)layerLevel]->AddGameObject(gameObject);
+	}
+
+	void Scene::EraseGameObject(GameObject* gameObj)
+	{
+		enums::eLayerType layerType = gameObj->GetLayerType();
+		mLayers[(UINT)layerType]->EraseGameObject(gameObj);
 	}
 
 	const Scene::eSceneType Scene::GetType() const

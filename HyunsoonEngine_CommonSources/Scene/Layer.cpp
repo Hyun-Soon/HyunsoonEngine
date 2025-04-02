@@ -100,6 +100,14 @@ namespace hs
 		mGameObjects.push_back(gameObject);
 	}
 
+	void Layer::EraseGameObject(GameObject* eraseGameObj)
+	{
+		std::erase_if(mGameObjects,
+			[=](GameObject* gameObj) {
+				return gameObj == eraseGameObj;
+			});
+	}
+
 	// void Layer::findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs)
 	//{
 	//	for (GameObject* gameObj : mGameObjects)
@@ -119,7 +127,7 @@ namespace hs
 	//	}
 	// }
 
-	// void Layer::eraseGameObject()
+	// void Layer::eraseDeadGameObject()
 	//{
 	//	std::erase_if(mGameObjects,
 	//		[](GameObject* gameObj) {

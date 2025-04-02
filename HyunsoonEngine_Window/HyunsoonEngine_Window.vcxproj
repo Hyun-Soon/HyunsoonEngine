@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Component\LandMonsterScript.cpp" />
     <ClCompile Include="Component\PlayerScript.cpp" />
+    <ClCompile Include="Component\ProjectileScript.cpp" />
     <ClCompile Include="Item\Consumables.cpp" />
     <ClCompile Include="Item\Equipment.cpp" />
     <ClCompile Include="Item\Inventory.cpp" />
@@ -41,6 +42,7 @@
   <ItemGroup>
     <ClInclude Include="Component\LandMonsterScript.h" />
     <ClInclude Include="Component\PlayerScript.h" />
+    <ClInclude Include="Component\ProjectileScript.h" />
     <ClInclude Include="Item\Consumables.h" />
     <ClInclude Include="Item\Equipment.h" />
     <ClInclude Include="Item\Inventory.h" />
@@ -50,6 +52,7 @@
     <ClInclude Include="Item\Shuriken.h" />
     <ClInclude Include="Object\Monster.h" />
     <ClInclude Include="Object\Npc.h" />
+    <ClInclude Include="Object\ObjectUtilsCustom.h" />
     <ClInclude Include="Object\Player.h" />
     <ClInclude Include="Object\Projectile.h" />
     <ClInclude Include="Resource\LoadResources.h" />

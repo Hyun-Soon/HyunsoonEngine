@@ -1,5 +1,6 @@
 #pragma once
 
+#include "GameObject/ObjectUtils.h"
 #include "GameObject/GameObject.h"
 #include "../Item/Inventory.h"
 
@@ -45,8 +46,8 @@ namespace hs
 		uint16_t	 mHP;
 		uint16_t	 mMP;
 
-		// std::vector<Item> mInventory;
-		// std::vector<Skill> mSkills;
+		template <typename T>
+		friend static T* Instantiate(hs::enums::eLayerType layerLevel);
 	};
 
 } // namespace hs

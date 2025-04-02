@@ -43,5 +43,11 @@ namespace hs
 			ResourceManager::Load<graphics::Texture>(L"GreenSnailDeath_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/GreenSnail/GreenSnailDeath_L.bmp");
 			ResourceManager::Load<graphics::Texture>(L"GreenSnailDeath_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/GreenSnail/GreenSnailDeath_R.bmp");
 		}
+
+		// Item
+		{
+			ResourceManager::Load<graphics::Texture>(L"Shuriken_L", L"../HyunsoonEngine_Window/MaplestoryResources/Item/Shuriken_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"Shuriken_R", L"../HyunsoonEngine_Window/MaplestoryResources/Item/Shuriken_R.bmp");
+		}
 	}
 } // namespace hs

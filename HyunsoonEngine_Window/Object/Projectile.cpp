@@ -1,12 +1,15 @@
 #include "Projectile.h"
+#include "Resource/ResourceManager.h"
+#include "Component/Rigidbody.h"
+#include "Component/Animator.h"
+#include "Component/BoxCollider2D.h"
+#include "../Component/ProjectileScript.h"
 
 namespace hs
 {
-	Projectile::Projectile(Vector2 pos, float speed, uint32_t power, GameObject* target)
+	Projectile::Projectile()
 		: GameObject()
-		, mTarget(target)
-		, mSpeed(speed)
-		, mPower(power)
+		, mCaster(nullptr)
 	{
 	}
 
@@ -14,45 +17,15 @@ namespace hs
 	{
 	}
 
-	void Projectile::Update()
+	void Projectile::Initialize()
 	{
-		traceTarget();
-		updatePhysics();
-	}
-
-	void Projectile::LateUpdate()
-	{
-	}
-
-	void Projectile::Render(HDC& hdc)
-	{
-		// COLORREF color = RGB(255, 255, 0);
-		// HBRUSH	 newBrush = CreateSolidBrush(color);
-		// HBRUSH	 oldBrush = (HBRUSH)SelectObject(hdc, newBrush);
-
-		// HPEN newPen = CreatePen(PS_SOLID, 2, color);
-		// HPEN oldPen = (HPEN)SelectObject(hdc, newPen);
-
-		// Ellipse(hdc, mPos.x, mPos.y, 50.0f + mPos.x, 50.0f + mPos.y);
-
-		// SelectObject(hdc, oldBrush);
-		// SelectObject(hdc, oldPen);
-		// DeleteObject(newBrush);
-		// DeleteObject(newPen);
-	}
-
-	void Projectile::traceTarget()
-	{
-		/*if (!mTarget)
-			return;
-
-		Vector2 direction = mTarget->GetPosition() - mPos;
-
-		mVel = direction.Normalize() * mSpeed;*/
-	}
-
-	void Projectile::updatePhysics()
-	{
-		// mPos += mVel * TimeUtils::GetDeltaTime();
+		Rigidbody*		   rgb = AddComponent<Rigidbody>();
+		Animator*		   animator = AddComponent<Animator>();
+		graphics::Texture* shuriken_L = ResourceManager::Find<graphics::Texture>(L"Shuriken_L");
+		animator->CreateAnimation(L"Shuriken_L", shuriken_L, Vector2::Zero, { 48, 9 }, Vector2::Zero, 2, 0.5f);
+		graphics::Texture* shuriken_R = ResourceManager::Find<graphics::Texture>(L"Shuriken_R");
+		animator->CreateAnimation(L"Shuriken_R", shuriken_R, Vector2::Zero, { 48, 9 }, Vector2::Zero, 2, 0.5f);
+		BoxCollider2D*	  bCol = AddComponent<BoxCollider2D>();
+		ProjectileScript* projScript = AddComponent<ProjectileScript>();
 	}
 } // namespace hs

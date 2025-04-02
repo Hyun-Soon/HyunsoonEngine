@@ -34,12 +34,13 @@ namespace hs
 		void Update();
 		void Render(HDC& hdc);
 
-		void CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet, Vector2 leftTop, Vector2 sizei, Vector2 offset, UINT spriteLegth, float duration);
+		void CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLegth, float duration);
 
 		void Reset();
 
-		bool IsComplete() { return mbComplete; }
-		void SetAnimator(class Animator* animator) { mAnimator = animator; }
+		bool		  IsComplete() { return mbComplete; }
+		void		  SetAnimator(class Animator* animator) { mAnimator = animator; }
+		const Vector2 GetCenterOffset() const;
 
 	private:
 		class Animator*	   mAnimator;

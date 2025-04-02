@@ -1,14 +1,17 @@
 #pragma once
 
-#include "MathTypes.h"
+#include "../Enums/Enums.h"
+#include "../MathTypes.h"
 #include "Component.h"
 
 namespace hs
 {
+	using namespace enums;
+
 	class Collider : public Component
 	{
 	public:
-		Collider();
+		Collider(eColliderType type);
 		~Collider();
 
 		virtual void Initialize() = 0;
@@ -20,17 +23,19 @@ namespace hs
 		virtual void OnCollisionStay(Collider* other);
 		virtual void OnCollisionExit(Collider* other);
 
-		Vector2 GetOffset() const { return mOffset; }
-		void	SetOffset(Vector2 offset) { mOffset = offset; }
-		UINT32	GetID() const { return mID; }
-		Vector2 GetSize() const { return mSize; }
-		void	SetSize(Vector2 size) { mSize = size; }
+		Vector2		  GetOffset() const { return mOffset; }
+		void		  SetOffset(Vector2 offset) { mOffset = offset; }
+		UINT32		  GetID() const { return mID; }
+		Vector2		  GetSize() const { return mSize; }
+		void		  SetSize(Vector2 size) { mSize = size; }
+		eColliderType GetColliderType() const { return mType; }
 
 	private:
 		static UINT CollisionID;
 
-		UINT32	mID;
-		Vector2 mOffset;
-		Vector2 mSize;
+		eColliderType mType;
+		UINT32		  mID;
+		Vector2		  mOffset;
+		Vector2		  mSize;
 	};
 } // namespace hs

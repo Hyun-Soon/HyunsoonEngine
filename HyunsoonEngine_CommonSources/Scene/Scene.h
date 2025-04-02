@@ -25,6 +25,7 @@ namespace hs
 		virtual void Destroy();
 
 		void			 AddGameObject(GameObject* gameObject, enums::eLayerType layerLevel);
+		void			 EraseGameObject(GameObject* gameObj);
 		const eSceneType GetType() const;
 		Layer*			 GetLayer(enums::eLayerType layerType) { return mLayers[(UINT)layerType]; }
 		// Monster*		 FindNearestMonster(float range);

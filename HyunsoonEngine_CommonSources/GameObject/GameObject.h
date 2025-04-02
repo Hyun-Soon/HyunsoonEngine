@@ -56,7 +56,7 @@ namespace hs
 			return component;
 		}
 
-		eGameObjectState GetState() { return mState; }
+		eGameObjectState GetState() const { return mState; }
 
 		void SetActive(bool power)
 		{
@@ -66,9 +66,10 @@ namespace hs
 				mState = eGameObjectState::Paused;
 		}
 
-		bool IsActive() const { return mState == eGameObjectState::Active; }
-		bool IsDead() const { return mState == eGameObjectState::Dead; }
-		// void Death() { mState = eGameObjectState::Dead; }
+		bool			  IsActive() const { return mState == eGameObjectState::Active; }
+		bool			  IsDead() const { return mState == eGameObjectState::Dead; }
+		void			  SetLayerType(enums::eLayerType layerType) { mLayerType = layerType; }
+		enums::eLayerType GetLayerType() const { return mLayerType; }
 
 	private:
 		void initializeTransform();
@@ -76,5 +77,6 @@ namespace hs
 
 		eGameObjectState		mState;
 		std::vector<Component*> mComponents;
+		enums::eLayerType		mLayerType;
 	};
 } // namespace hs

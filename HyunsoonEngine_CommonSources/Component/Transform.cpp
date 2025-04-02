@@ -1,4 +1,6 @@
 #include "Transform.h"
+#include "GameObject/GameObject.h"
+#include "Animator.h"
 
 namespace hs
 {
@@ -11,6 +13,16 @@ namespace hs
 
 	Transform::~Transform()
 	{
+	}
+
+	const Vector2 Transform::GetCenterPosition() const
+	{
+		Animator* animator = GetOwner()->GetComponent<Animator>();
+		if (animator)
+		{
+			return mPosition + animator->GetCenterOffset();
+		}
+		return mPosition;
 	}
 
 } // namespace hs

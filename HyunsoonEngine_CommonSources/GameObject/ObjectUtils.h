@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Component/Transform.h"
 #include "GameObject/GameObject.h"
 #include "Enums/Enums.h"
 #include "MathTypes.h"
@@ -13,6 +14,7 @@ namespace hs
 		static T* Instantiate(hs::enums::eLayerType layerLevel)
 		{
 			T* gameObj = new T();
+			gameObj->SetLayerType(layerLevel);
 			gameObj->Initialize();
 			SceneManager::AddGameObject(gameObj, layerLevel);
 
@@ -23,6 +25,7 @@ namespace hs
 		static T* Instantiate(hs::enums::eLayerType layerLevel, hs::Vector2 position)
 		{
 			T* gameObj = new T();
+			gameObj->SetLayerType(layerLevel);
 			gameObj->Initialize();
 			SceneManager::AddGameObject(gameObj, layerLevel);
 
