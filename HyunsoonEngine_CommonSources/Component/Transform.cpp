@@ -8,11 +8,22 @@ namespace hs
 		: Component(enums::eComponentType::Transform)
 		, mScale(Vector2::One)
 		, mRotation(0.0f)
+		, mPrevPos(Vector2::Zero)
 	{
 	}
 
 	Transform::~Transform()
 	{
+	}
+
+	void Transform::Update()
+	{
+		mPrevPos = mPosition;
+	}
+
+	void Transform::RevertToPrevPos()
+	{
+		mPosition = mPrevPos;
 	}
 
 	const Vector2 Transform::GetCenterPosition() const

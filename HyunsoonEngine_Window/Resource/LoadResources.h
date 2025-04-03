@@ -9,6 +9,7 @@ namespace hs
 	{
 		// Background
 		{
+			// ResourceManager::Load<graphics::Texture>(L"bg_Henesys", L"../HyunsoonEngine_Window/MaplestoryResources/Henesys_back.bmp");
 			ResourceManager::Load<graphics::Texture>(L"bg_BeginnersTown1", L"../HyunsoonEngine_Window/MaplestoryResources/BeginnersTown1/BeginnersTown1NotSprite/BeginnersTown1/BeginnersTown1Background.png");
 		}
 

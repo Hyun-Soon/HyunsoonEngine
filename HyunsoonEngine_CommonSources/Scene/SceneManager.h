@@ -3,6 +3,7 @@
 #include <unordered_map>
 
 #include "Scene.h"
+#include "../CollisionManager.h"
 
 namespace hs
 {
@@ -16,6 +17,7 @@ namespace hs
 			scene->SetName(name);
 			mActiveScene = scene;
 			scene->Initialize();
+			CollisionManager::CreateCollisionMap(name);
 
 			mScenes[name] = scene;
 

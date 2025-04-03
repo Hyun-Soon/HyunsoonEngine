@@ -11,7 +11,6 @@ namespace hs
 		BoxCollider2D();
 		~BoxCollider2D();
 
-		virtual void Initialize() override;
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render(HDC& hdc) override;

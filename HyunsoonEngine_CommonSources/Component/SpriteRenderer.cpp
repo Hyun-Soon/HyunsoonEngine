@@ -30,8 +30,6 @@ namespace hs
 
 	void SpriteRenderer::Render(HDC& hdc)
 	{
-		assert(mTexture);
-
 		Transform* transform = GetOwner()->GetComponent<Transform>();
 		Vector2	   pos = transform->GetPosition();
 		Vector2	   scale = transform->GetScale();

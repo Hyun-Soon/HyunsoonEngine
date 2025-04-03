@@ -8,6 +8,7 @@ namespace hs
 
 	Collider::Collider(enums::eColliderType type)
 		: Component(enums::eComponentType::Collider)
+		, mOwnerLayerType(enums::eLayerType::None)
 		, mType(type)
 		, mID(CollisionID++)
 		, mSize(Vector2::One)
@@ -16,6 +17,11 @@ namespace hs
 
 	Collider::~Collider()
 	{
+	}
+
+	void Collider::Initialize()
+	{
+		mOwnerLayerType = GetOwner()->GetLayerType();
 	}
 
 	void Collider::OnCollisionEnter(Collider* other)

@@ -1,3 +1,5 @@
+#include <cassert>
+
 #include "TimeUtils.h"
 #include "RandomUtils.h"
 
@@ -75,6 +77,10 @@ namespace hs
 
 	void LandMonsterScript::OnCollisionEnter(Collider* other)
 	{
+		if (other->GetLayerType() == enums::eLayerType::Projectile)
+		{
+			attacked();
+		}
 	}
 
 	void LandMonsterScript::OnCollisionStay(Collider* other)
@@ -92,6 +98,7 @@ namespace hs
 		{
 			mMonster->SetState(Monster::eMonsterState::Attacked);
 			mAnimator->PlayAnimation(mMonster->GetName() + L"Attacked" + mDirString);
+			mDuration = 0.0f;
 		}
 		// Idle -> Move
 		else
@@ -121,6 +128,7 @@ namespace hs
 		{
 			mMonster->SetState(Monster::eMonsterState::Attacked);
 			mAnimator->PlayAnimation(mMonster->GetName() + L"Attacked" + mDirString);
+			mDuration = 0.0f;
 		}
 		else
 		{
@@ -136,12 +144,12 @@ namespace hs
 
 	void LandMonsterScript::chase()
 	{
-		mRigidbody->AddForce(Vector2::Up); // debug // need player logic
+		mRigidbody->AddForce({ 0.0f, -300.0f }); // debug // need player logic
 	}
 
 	void LandMonsterScript::attacked()
 	{
-		mbIsAttacked = false;
+		mbIsAttacked = true;
 
 		if (mDuration < 1.0f) // attacked animation duration
 			return;

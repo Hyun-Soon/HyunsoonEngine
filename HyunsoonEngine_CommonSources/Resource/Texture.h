@@ -28,7 +28,7 @@ namespace hs
 			void			SetWidth(UINT width) { mWidth = width; }
 			UINT			GetHeight() const { return mHeight; }
 			void			SetHeight(UINT height) { mHeight = height; }
-			HDC				GetHdc() const { return mHdc; }
+			const HDC&		GetHdc() const { return mHdc; }
 			eTextureType	GetTextureType() const { return mType; }
 			Gdiplus::Image* GetImage() const { return mImage; }
 			bool			IsAlpha() { return mbAlpha; }

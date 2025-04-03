@@ -26,6 +26,6 @@ namespace hs
 		graphics::Texture* shuriken_R = ResourceManager::Find<graphics::Texture>(L"Shuriken_R");
 		animator->CreateAnimation(L"Shuriken_R", shuriken_R, Vector2::Zero, { 48, 9 }, Vector2::Zero, 2, 0.5f);
 		BoxCollider2D*	  bCol = AddComponent<BoxCollider2D>();
-		ProjectileScript* projScript = AddComponent<ProjectileScript>();
+		ProjectileScript* prjtScript = AddComponent<ProjectileScript>();
 	}
 } // namespace hs

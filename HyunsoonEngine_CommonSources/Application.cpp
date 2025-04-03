@@ -79,9 +79,13 @@ namespace hs
 		clearRenderTarget();
 
 		TimeUtils::Render(mBackHdc);
-		CollisionManager::Render(mBackHdc);
+		// CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
+		// static int i = 0;
+		// if (i++ % 5)
+		//	present(mHdc, CollisionManager::mCollisionMaps[L"BeginnersTown1"]->GetHdc());
+		// else
 		present(mHdc, mBackHdc);
 	}
 

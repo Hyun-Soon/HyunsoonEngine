@@ -11,6 +11,10 @@ namespace hs
 		Transform();
 		~Transform();
 
+		virtual void Update() override;
+
+		void RevertToPrevPos();
+
 		void		   SetPosition(Vector2 pos) { mPosition = pos; }
 		const Vector2& GetPosition() const { return mPosition; };
 		const Vector2  GetCenterPosition() const;
@@ -23,5 +27,6 @@ namespace hs
 		Vector2 mPosition;
 		Vector2 mScale;
 		float	mRotation;
+		Vector2 mPrevPos;
 	};
 } // namespace hs

@@ -9,12 +9,14 @@
 
 namespace hs
 {
-
-	std::bitset<(UINT)eLayerType::BitsetSize> CollisionManager::mCollisionLayerMatrix[(UINT)eLayerType::BitsetSize] = {};
-	std::unordered_map<UINT64, bool>		  CollisionManager::mCollisionMap = {};
+	std::bitset<(UINT)eLayerType::BitsetSize>		CollisionManager::mCollisionLayerMatrix[(UINT)eLayerType::BitsetSize] = {};
+	std::unordered_map<UINT64, bool>				CollisionManager::mCollisionHistory = {};
+	std::unordered_map<std::wstring, CollisionMap*> CollisionManager::mCollisionMaps = {};
 
 	void CollisionManager::Initialize()
 	{
+		CollisionManager::CollisionLayerCheck(enums::eLayerType::Player, enums::eLayerType::Monster, true);
+		CollisionManager::CollisionLayerCheck(enums::eLayerType::Monster, enums::eLayerType::Projectile, true);
 	}
 
 	void CollisionManager::Update()
@@ -33,10 +35,6 @@ namespace hs
 	}
 
 	void CollisionManager::LateUpdate()
-	{
-	}
-
-	void CollisionManager::Render(HDC hdc)
 	{
 	}
 
@@ -94,11 +92,11 @@ namespace hs
 		id.left = leftCollider->GetID();
 		id.right = rightCollider->GetID();
 
-		std::unordered_map<UINT64, bool>::iterator iter = mCollisionMap.find(id.id);
-		if (iter == mCollisionMap.end())
+		std::unordered_map<UINT64, bool>::iterator iter = mCollisionHistory.find(id.id);
+		if (iter == mCollisionHistory.end())
 		{
-			mCollisionMap.insert(std::make_pair(id.id, false));
-			iter = mCollisionMap.find(id.id);
+			mCollisionHistory.insert(std::make_pair(id.id, false));
+			iter = mCollisionHistory.find(id.id);
 		}
 
 		if (Intersect(leftCollider, rightCollider))
@@ -132,12 +130,11 @@ namespace hs
 		Transform* leftTr = left->GetOwner()->GetComponent<Transform>();
 		Transform* rightTr = right->GetOwner()->GetComponent<Transform>();
 
-		Vector2 leftPos = leftTr->GetPosition() + left->GetOffset();
-		Vector2 rightPos = rightTr->GetPosition() + right->GetOffset();
+		Vector2 leftPos = leftTr->GetCenterPosition() + left->GetOffset();
+		Vector2 rightPos = rightTr->GetCenterPosition() + right->GetOffset();
 
-		// size 1,1 일떄 기본크기가 100픽셀
-		Vector2 leftSize = left->GetSize() * 100.0f;
-		Vector2 rightSize = right->GetSize() * 100.0f;
+		Vector2 leftSize = left->GetSize();
+		Vector2 rightSize = right->GetSize();
 
 		// AABB 충돌
 		enums::eColliderType leftType = left->GetColliderType();
@@ -202,6 +199,22 @@ namespace hs
 		}
 
 		return false;
+	}
+
+	void CollisionManager::CreateCollisionMap(std::wstring name)
+	{
+		mCollisionMaps.insert(std::pair<std::wstring, CollisionMap*>(name, new CollisionMap(name)));
+	}
+
+	bool CollisionManager::CheckCollisionMap(Vector2 pos)
+	{
+		std::wstring sceneName = SceneManager::GetActiveScene()->GetName();
+		auto		 colMapIter = mCollisionMaps.find(sceneName);
+		if (colMapIter == mCollisionMaps.end())
+			return false;
+		CollisionMap* colMap = colMapIter->second;
+		// pos.y += 100;
+		return colMap->CheckCollision(pos);
 	}
 
 } // namespace hs

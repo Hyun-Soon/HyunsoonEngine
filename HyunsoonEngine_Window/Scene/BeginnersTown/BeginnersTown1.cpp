@@ -1,5 +1,4 @@
 #include "Component/Transform.h"
-#include "Component/BoxCollider2D.h"
 #include "Component/SpriteRenderer.h"
 #include "GameObject/ObjectUtils.h"
 #include "Resource/ResourceManager.h"
@@ -26,14 +25,19 @@ namespace hs
 
 	void BeginnersTown1::Initialize()
 	{
-		CollisionManager::CollisionLayerCheck(enums::eLayerType::Player, enums::eLayerType::Monster, true);
+		// GameObject* background1 = object::Instantiate<GameObject>(enums::eLayerType::Background);
+		// Transform*	tr_bg1 = background1->GetComponent<Transform>();
+		// tr_bg1->SetPosition(app.GetResolution());
+		// SpriteRenderer*	   spr1 = background1->AddComponent<SpriteRenderer>();
+		// graphics::Texture* bg1 = ResourceManager::Find<graphics::Texture>(L"bg_Henesys");
+		// spr1->SetTexture(bg1);
 
-		GameObject* background = object::Instantiate<GameObject>(enums::eLayerType::Background);
-		Transform*	tr_bg = background->GetComponent<Transform>();
-		tr_bg->SetPosition(app.GetResolution());
-		SpriteRenderer*	   spr = background->AddComponent<SpriteRenderer>();
-		graphics::Texture* bg = ResourceManager::Find<graphics::Texture>(L"bg_BeginnersTown1");
-		spr->SetTexture(bg);
+		GameObject* background2 = object::Instantiate<GameObject>(enums::eLayerType::Background);
+		Transform*	tr_bg2 = background2->GetComponent<Transform>();
+		tr_bg2->SetPosition(app.GetResolution());
+		SpriteRenderer*	   spr2 = background2->AddComponent<SpriteRenderer>();
+		graphics::Texture* bg2 = ResourceManager::Find<graphics::Texture>(L"bg_BeginnersTown1");
+		spr2->SetTexture(bg2);
 
 		// main camera
 		// GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(600.0f, 0.0f));
@@ -44,7 +48,7 @@ namespace hs
 		//  It will be executed in Scene::Enter() func later
 		Player*	   player = Player::GetInstance();
 		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(600.0f, 300.0f);
+		Vector2	   pos = Vector2(100.0f, 300.0f);
 		tr->SetPosition(pos);
 		AddGameObject(player, enums::eLayerType::Player);
 

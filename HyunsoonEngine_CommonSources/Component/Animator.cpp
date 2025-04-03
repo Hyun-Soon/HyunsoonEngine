@@ -144,6 +144,13 @@ namespace hs
 		mbLoop = loop;
 	}
 
+	const Vector2 Animator::GetAnimationSize() const
+	{
+		if (mActiveAnimation)
+			return mActiveAnimation->GetAnimationSize();
+		return Vector2::Zero;
+	}
+
 	const Vector2 Animator::GetCenterOffset() const
 	{
 		if (mActiveAnimation)

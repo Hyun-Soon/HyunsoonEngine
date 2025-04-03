@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CollisionManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CollisionMap.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Animator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\BoxCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\Camera.h" />
@@ -48,6 +49,7 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)CollisionManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CollisionMap.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Animator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\BoxCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Camera.cpp" />

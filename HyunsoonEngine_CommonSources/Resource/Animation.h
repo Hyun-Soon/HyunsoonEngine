@@ -40,6 +40,7 @@ namespace hs
 
 		bool		  IsComplete() { return mbComplete; }
 		void		  SetAnimator(class Animator* animator) { mAnimator = animator; }
+		const Vector2 GetAnimationSize() const { return mAnimationSheet[mIndex].size; }
 		const Vector2 GetCenterOffset() const;
 
 	private:

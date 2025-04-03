@@ -49,6 +49,7 @@ namespace hs
 		Animation* FindAnimation(const std::wstring& name);
 		void	   PlayAnimation(const std::wstring& name, bool loop = true);
 
+		const Vector2 GetAnimationSize() const;
 		const Vector2 GetCenterOffset() const;
 
 		Events*				   FindEvents(const std::wstring& name);

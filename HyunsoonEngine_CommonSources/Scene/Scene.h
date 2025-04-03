@@ -4,7 +4,6 @@
 
 namespace hs
 {
-	// class Monster;
 	class Scene : public Entity
 	{
 	public:
@@ -28,7 +27,6 @@ namespace hs
 		void			 EraseGameObject(GameObject* gameObj);
 		const eSceneType GetType() const;
 		Layer*			 GetLayer(enums::eLayerType layerType) { return mLayers[(UINT)layerType]; }
-		// Monster*		 FindNearestMonster(float range);
 
 	private:
 		void createLayers();

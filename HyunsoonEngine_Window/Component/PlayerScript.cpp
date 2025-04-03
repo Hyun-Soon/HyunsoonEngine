@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cassert>
 
 #include "RandomUtils.h"
 #include "TimeUtils.h"
@@ -51,9 +52,9 @@ namespace hs
 			case Player::ePlayerState::Move:
 				walk();
 				break;
-				// case Player::ePlayerState::Alert:
-				//	alert();
-				//	break;
+			case Player::ePlayerState::Alert:
+				alert();
+				break;
 			case Player::ePlayerState::Jump:
 				jump();
 				break;
@@ -77,15 +78,27 @@ namespace hs
 
 	void PlayerScript::LateUpdate()
 	{
-		Vector2 res = app.GetResolution();
-		Vector2 pos = mTransform->GetPosition();
+		// Vector2 res = app.GetResolution();
+		// Vector2 pos = mTransform->GetPosition();
 
-		pos.x = std::clamp<float>(pos.x, 0, res.x - 200);
-		pos.y = std::clamp<float>(pos.y, 0, res.y - 200);
+		// pos.x = std::clamp<float>(pos.x, 0, res.x - 200);
+		// pos.y = std::clamp<float>(pos.y, 0, res.y - 200);
 
-		mTransform->SetPosition(pos);
-		if (pos.y >= res.y - 200)
-			mRigidbody->SetGrounded(true);
+		// mTransform->SetPosition(pos);
+
+		/*Vector2 pos = mTransform->GetPosition();
+		OutputDebugString((L"PlayerScript: " + std::to_wstring(pos.x) + L", " + std::to_wstring(pos.y) + L"\n").c_str());*/
+
+		if (CollisionManager::CheckCollisionMap(mTransform->GetPosition()) == true)
+		{
+			mTransform->RevertToPrevPos();
+			// mTransform->SetPosition(mTransform->GetPosition() + Vector2(0.0f, -100.0f));
+			if (mRigidbody->GetVelocity().y > 0.0f)
+				mRigidbody->SetGrounded(true);
+		}
+
+		/*if (pos.y >= res.y - 200)
+			mRigidbody->SetGrounded(true);*/
 	}
 
 	void PlayerScript::OnCollisionEnter(Collider* other)
@@ -114,14 +127,6 @@ namespace hs
 
 	void PlayerScript::stand()
 	{
-		// if (Input::GetKey(eKeyCode::Left))
-		//{
-		//	mTransform->SetPosition(mTransform->GetPosition() + Vector2(-1.0f, 0.0f));
-		// }
-		// else if (Input::GetKey(eKeyCode::Right))
-		//{
-		//	mTransform->SetPosition(mTransform->GetPosition() + Vector2(1.0f, 0.0f));
-		// }
 		//  Idle -> Walk
 		if (Input::GetKeyDown(eKeyCode::Left))
 		{
@@ -209,6 +214,8 @@ namespace hs
 			mPlayer->SetState(Player::ePlayerState::Attack);
 			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
 			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
+
+			Projectile* projectile = object::InstantiateProjectile(GetOwner());
 		}
 		//// Walk-> Jump
 		else if (Input::GetKeyDown(eKeyCode::V))
@@ -227,55 +234,53 @@ namespace hs
 		}
 	}
 
-	// void PlayerScript::alert()
-	//{
-	//	mDuration += TimeUtils::GetDeltaTime();
+	void PlayerScript::alert()
+	{
+		mDuration += TimeUtils::GetDeltaTime();
 
-	//	// Alert -> Walk
-	//	if (Input::GetKeyDown(eKeyCode::Left))
-	//	{
-	//		mDirection = Vector2(-1, 0);
-	//		mDirString = L"_L";
-	//		mPlayer->SetState(Player::ePlayerState::Move);
-	//		mAnimator->PlayAnimation(L"PlayerWalk_L");
-	//	}
-	//	else if (Input::GetKeyDown(eKeyCode::Right))
-	//	{
-	//		mDirection = Vector2(1, 0);
-	//		mDirString = L"_R";
-	//		mPlayer->SetState(Player::ePlayerState::Move);
-	//		mAnimator->PlayAnimation(L"PlayerWalk_R");
-	//	}
-	//	// Alert -> Attack
-	//	else if (Input::GetKeyDown(eKeyCode::C))
-	//	{
-	//		mPlayer->SetState(Player::ePlayerState::Attack);
-	//		std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
-	//		mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
-	//	}
-	//	// Alert -> Idle
-	//	else if (mDuration >= 3.0f)
-	//	{
-	//		mPlayer->SetState(Player::ePlayerState::Idle);
-	//		mAnimator->PlayAnimation(L"PlayerIdle" + mDirString);
-	//	}
-	//	// Alert -> Jump
-	//	else if (Input::GetKeyDown(eKeyCode::V))
-	//	{
-	//		mPlayer->SetState(Player::ePlayerState::Jump);
-	//		mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
-	//	}
-	//	// Alert -> LyingDown
-	//	else if (Input::GetKeyDown(eKeyCode::Down))
-	//	{
-	//		mPlayer->SetState(Player::ePlayerState::LyingDown);
-	//		mAnimator->PlayAnimation(L"PlayerLyingDown" + mDirString);
-	//	}
-	//	else
-	//		return;
-
-	//	mDuration = 0.0f;
-	//}
+		// Alert -> Walk
+		if (Input::GetKeyDown(eKeyCode::Left))
+		{
+			mDirection = Vector2(-1, 0);
+			mDirString = L"_L";
+			mPlayer->SetState(Player::ePlayerState::Move);
+			mAnimator->PlayAnimation(L"PlayerWalk_L");
+		}
+		else if (Input::GetKeyDown(eKeyCode::Right))
+		{
+			mDirection = Vector2(1, 0);
+			mDirString = L"_R";
+			mPlayer->SetState(Player::ePlayerState::Move);
+			mAnimator->PlayAnimation(L"PlayerWalk_R");
+		}
+		// Alert -> Attack
+		else if (Input::GetKeyDown(eKeyCode::C))
+		{
+			mPlayer->SetState(Player::ePlayerState::Attack);
+			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
+			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
+		}
+		// Alert -> Jump
+		else if (Input::GetKeyDown(eKeyCode::V))
+		{
+			mPlayer->SetState(Player::ePlayerState::Jump);
+			mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
+		}
+		// Alert -> LyingDown
+		else if (Input::GetKeyDown(eKeyCode::Down))
+		{
+			mPlayer->SetState(Player::ePlayerState::LyingDown);
+			mAnimator->PlayAnimation(L"PlayerLyingDown" + mDirString);
+		}
+		// Alert -> Idle
+		else if (mDuration >= 3.0f)
+		{
+			mPlayer->SetState(Player::ePlayerState::Idle);
+			mAnimator->PlayAnimation(L"PlayerIdle" + mDirString);
+		}
+		else
+			return;
+	}
 
 	void PlayerScript::jump()
 	{
@@ -307,6 +312,8 @@ namespace hs
 			mPlayer->SetState(Player::ePlayerState::Attack);
 			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
 			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
+
+			Projectile* projectile = object::InstantiateProjectile(GetOwner());
 		}
 		// Jump -> Walk, Idle, LyingDown
 		else if (mRigidbody->IsGrounded())
@@ -364,6 +371,8 @@ namespace hs
 			mPlayer->SetState(Player::ePlayerState::Attack);
 			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
 			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
+
+			Projectile* projectile = object::InstantiateProjectile(GetOwner());
 		}
 		// DoubleJump -> Walk, Idle, LyingDown
 		else if (mRigidbody->IsGrounded())
@@ -465,8 +474,9 @@ namespace hs
 			else
 			{
 				// temp //Alert check
-				mPlayer->SetState(Player::ePlayerState::Idle);
-				mAnimator->PlayAnimation(L"PlayerIdle" + mDirString);
+				mPlayer->SetState(Player::ePlayerState::Alert);
+				mAnimator->PlayAnimation(L"PlayerAlert" + mDirString);
+				mDuration = 0.0f;
 			}
 		}
 	}

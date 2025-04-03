@@ -14,7 +14,7 @@ namespace hs
 		Collider(eColliderType type);
 		~Collider();
 
-		virtual void Initialize() = 0;
+		virtual void Initialize();
 		virtual void Update() = 0;
 		virtual void LateUpdate() = 0;
 		virtual void Render(HDC& hdc) = 0;
@@ -29,11 +29,13 @@ namespace hs
 		Vector2		  GetSize() const { return mSize; }
 		void		  SetSize(Vector2 size) { mSize = size; }
 		eColliderType GetColliderType() const { return mType; }
+		eLayerType	  GetLayerType() const { return mOwnerLayerType; }
 
 	private:
 		static UINT CollisionID;
 
 		eColliderType mType;
+		eLayerType	  mOwnerLayerType;
 		UINT32		  mID;
 		Vector2		  mOffset;
 		Vector2		  mSize;

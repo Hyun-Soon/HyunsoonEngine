@@ -9,14 +9,11 @@ namespace hs
 
 	CircleCollider2D::CircleCollider2D()
 		: Collider(eColliderType::Circle2D)
+		, mRadius(0.0f)
 	{
 	}
 
 	CircleCollider2D::~CircleCollider2D()
-	{
-	}
-
-	void CircleCollider2D::Initialize()
 	{
 	}
 

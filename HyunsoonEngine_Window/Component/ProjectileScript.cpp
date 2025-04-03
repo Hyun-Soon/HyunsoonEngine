@@ -49,7 +49,6 @@ namespace hs
 		if (mTarget == nullptr)
 		{
 			Rigidbody* rgb = GetOwner()->GetComponent<Rigidbody>();
-			assert(rgb);
 			rgb->SetVelocity(casterDir * mSpeed);
 		}
 

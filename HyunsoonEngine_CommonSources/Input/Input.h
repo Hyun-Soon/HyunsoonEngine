@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <vector>
-#include <cassert>
 
 #include "TimeUtils.h"
 #include "MathTypes.h"
