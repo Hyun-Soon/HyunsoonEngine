@@ -97,12 +97,12 @@ namespace hs
 			fileCount++;
 		}
 
-		UINT			   sheetWidth = images[0]->GetWidth() * fileCount;
-		UINT			   sheetHeight = images[0]->GetHeight();
+		UINT			   sheetWidth = images[0]->GetResolution().x * fileCount;
+		UINT			   sheetHeight = images[0]->GetResolution().y;
 		graphics::Texture* spriteSheet = graphics::Texture::Create(name, sheetWidth, sheetHeight);
 
-		UINT imageWidth = images[0]->GetWidth();
-		UINT imageHeight = images[0]->GetHeight();
+		UINT imageWidth = images[0]->GetResolution().x;
+		UINT imageHeight = images[0]->GetResolution().y;
 		for (size_t i = 0; i < images.size(); i++)
 		{
 			BitBlt(spriteSheet->GetHdc(), i * imageWidth, 0, imageWidth, imageHeight, images[i]->GetHdc(), 0, 0, SRCCOPY);

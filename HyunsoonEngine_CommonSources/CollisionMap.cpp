@@ -12,7 +12,7 @@ namespace hs
 	{
 		HRESULT result = Load((collisionMapPath + name + L".bmp").c_str());
 		assert(result == S_OK);
-		ParseCollisionData();
+		// ParseCollisionData();
 	}
 
 	CollisionMap::~CollisionMap()
@@ -22,17 +22,19 @@ namespace hs
 	bool CollisionMap::ParseCollisionData()
 	{
 		const HDC& textureHdc = GetHdc();
-		UINT	   width = GetWidth();
-		UINT	   height = GetHeight();
+		UINT	   width = GetResolution().x;
+		UINT	   height = GetResolution().y;
 
-		collisionData.resize(width * height);
+		int sz = width * height;
+		collisionData.resize(sz);
 
 		for (int r = 0; r < height; r++)
 		{
 			for (int c = 0; c < width; c++)
 			{
-				COLORREF color = GetPixel(textureHdc, r, c);
-				if (color == CLR_INVALID) // TOOD :: error occured when r == 1
+
+				COLORREF color = GetPixel(textureHdc, c, r);
+				if (color == CLR_INVALID)
 				{
 					return false;
 				}
@@ -46,14 +48,12 @@ namespace hs
 				else
 					val = false;
 
+				int idx = r * width + c;
 				collisionData[r * width + c] = val;
-
-				if (val == true)
-					OutputDebugString((L"pos : " + std::to_wstring(r) + L", " + std::to_wstring(c) + L"\n").c_str());
 			}
 		}
 
-		// TODO :: release hdc and bitmap
+		Texture::Delete();
 
 		return true;
 	}
@@ -61,9 +61,13 @@ namespace hs
 	bool CollisionMap::CheckCollision(Vector2 pos) const
 
 	{
-		if (pos.x < 0 || pos.x >= GetWidth() || pos.y < 0 || pos.y >= GetHeight())
-			return true; // 甘 观篮 面倒 贸府
-		return collisionData[pos.y * GetWidth() + pos.x];
+		if (pos.x < 0 || pos.x >= GetResolution().x || pos.y < 0 || pos.y >= GetResolution().y)
+			return true;
+		COLORREF color = GetPixel(GetHdc(), pos.x, pos.y);
+		if (GetRValue(color) == 255 && GetGValue(color) == 0 && GetBValue(color) == 255)
+			return true;
+		return false;
+		// return collisionData[pos.y * GetResolution().x + pos.x];
 	}
 
 } // namespace hs

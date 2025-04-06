@@ -78,27 +78,53 @@ namespace hs
 
 	void PlayerScript::LateUpdate()
 	{
-		// Vector2 res = app.GetResolution();
-		// Vector2 pos = mTransform->GetPosition();
+		Vector2 curMapSize = CollisionManager::GetActiveCollisionMap()->GetResolution();
+		Vector2 pos = mTransform->GetPosition();
+		Vector2 adjustedPos = { std::clamp<float>(pos.x, 0, curMapSize.x - 1), std::clamp<float>(pos.y, 0, curMapSize.y - 1) };
 
-		// pos.x = std::clamp<float>(pos.x, 0, res.x - 200);
-		// pos.y = std::clamp<float>(pos.y, 0, res.y - 200);
-
-		// mTransform->SetPosition(pos);
-
-		/*Vector2 pos = mTransform->GetPosition();
-		OutputDebugString((L"PlayerScript: " + std::to_wstring(pos.x) + L", " + std::to_wstring(pos.y) + L"\n").c_str());*/
-
-		if (CollisionManager::CheckCollisionMap(mTransform->GetPosition()) == true)
+		if (CollisionManager::CheckCollisionMap(adjustedPos) == true)
 		{
-			mTransform->RevertToPrevPos();
-			// mTransform->SetPosition(mTransform->GetPosition() + Vector2(0.0f, -100.0f));
+			mTransform->SetPosition(CollisionManager::GetGroundPos(adjustedPos));
 			if (mRigidbody->GetVelocity().y > 0.0f)
 				mRigidbody->SetGrounded(true);
 		}
+		else
+		{
+			mTransform->SetPosition(adjustedPos);
+			mRigidbody->SetGrounded(false);
+		}
+	}
 
-		/*if (pos.y >= res.y - 200)
-			mRigidbody->SetGrounded(true);*/
+	void PlayerScript::Render(HDC& hdc)
+	{
+		// debug
+		{
+			wchar_t				 str[50] = L"";
+			Player::ePlayerState state = static_cast<Player*>(GetOwner())->GetState();
+			std::wstring		 wstr;
+			if (state == Player::ePlayerState::Idle)
+				wstr = L"Idle";
+			else if (state == Player::ePlayerState::Move)
+				wstr = L"Move";
+			else if (state == Player::ePlayerState::Attack)
+				wstr = L"Attack";
+			else if (state == Player::ePlayerState::LyingDown)
+				wstr = L"LyingDown";
+			else if (state == Player::ePlayerState::Dead)
+				wstr = L"Dead";
+			else if (state == Player::ePlayerState::Jump)
+				wstr = L"Jump";
+			else if (state == Player::ePlayerState::DoubleJump)
+				wstr = L"DoubleJump";
+			else if (state == Player::ePlayerState::Alert)
+				wstr = L"Alert";
+			else
+				wstr = L"None";
+			swprintf_s(str, 50, L"state : %s", wstr.c_str());
+			int len = wcsnlen_s(str, 50);
+
+			TextOut(hdc, 0, 20, str, len);
+		}
 	}
 
 	void PlayerScript::OnCollisionEnter(Collider* other)
@@ -478,6 +504,13 @@ namespace hs
 				mAnimator->PlayAnimation(L"PlayerAlert" + mDirString);
 				mDuration = 0.0f;
 			}
+		}
+		else
+		{
+			// temp //Alert check
+			mPlayer->SetState(Player::ePlayerState::Alert);
+			mAnimator->PlayAnimation(L"PlayerAlert" + mDirString);
+			mDuration = 0.0f;
 		}
 	}
 

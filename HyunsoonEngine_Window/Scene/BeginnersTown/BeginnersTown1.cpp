@@ -34,21 +34,23 @@ namespace hs
 
 		GameObject* background2 = object::Instantiate<GameObject>(enums::eLayerType::Background);
 		Transform*	tr_bg2 = background2->GetComponent<Transform>();
-		tr_bg2->SetPosition(app.GetResolution());
+
 		SpriteRenderer*	   spr2 = background2->AddComponent<SpriteRenderer>();
 		graphics::Texture* bg2 = ResourceManager::Find<graphics::Texture>(L"bg_BeginnersTown1");
 		spr2->SetTexture(bg2);
+		tr_bg2->SetPosition(bg2->GetResolution());
 
 		// main camera
-		// GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(600.0f, 0.0f));
+		// GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Background, Vector2(600.0f, 100.0f));
 		// Camera*		cameraComp = camera->AddComponent<Camera>();
 		// renderer::mainCamera = cameraComp;
 
 		// Player
 		//  It will be executed in Scene::Enter() func later
-		Player*	   player = Player::GetInstance();
+		Player* player = Player::GetInstance();
+		// cameraComp->SetTarget(player);
 		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(100.0f, 300.0f);
+		Vector2	   pos = Vector2(800.0f, 300.0f);
 		tr->SetPosition(pos);
 		AddGameObject(player, enums::eLayerType::Player);
 

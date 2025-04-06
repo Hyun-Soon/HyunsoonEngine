@@ -27,11 +27,11 @@ namespace hs
 
 	void CircleCollider2D::Render(HDC& hdc)
 	{
-		Transform* tr = GetOwner()->GetComponent<Transform>();
+		/*Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2	   pos = tr->GetPosition();
 
-		// if (renderer::mainCamera)
-		//	pos = renderer::mainCamera->CalculatePosition(pos);
+		if (renderer::mainCamera)
+			pos = renderer::mainCamera->CalculatePosition(pos);
 
 		Vector2 offset = GetOffset();
 
@@ -49,7 +49,7 @@ namespace hs
 
 		SelectObject(hdc, oldBrush);
 		SelectObject(hdc, oldPen);
-		DeleteObject(greenPen);
+		DeleteObject(greenPen);*/
 	}
 
 } // namespace hs

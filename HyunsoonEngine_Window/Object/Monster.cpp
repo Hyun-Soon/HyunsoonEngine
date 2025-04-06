@@ -6,7 +6,7 @@ namespace hs
 		: GameObject()
 		, bDirection(Vector2::Left)
 		, mState(eMonsterState::Idle)
-		, mSpeed(3.0f)
+		, mSpeed(10.0f)
 	{
 	}
 

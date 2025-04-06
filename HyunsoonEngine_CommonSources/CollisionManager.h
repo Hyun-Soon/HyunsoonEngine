@@ -28,6 +28,7 @@ namespace hs
 		static void Initialize();
 		static void Update();
 		static void LateUpdate();
+		static void Render(HDC& hdc);
 
 		static void CollisionLayerCheck(eLayerType left, eLayerType right, bool enable);
 		static void LayerCollision(class Scene* scene, eLayerType left, eLayerType right);
@@ -35,6 +36,9 @@ namespace hs
 		static bool Intersect(Collider* left, Collider* right);
 		static void CreateCollisionMap(std::wstring name);
 		static bool CheckCollisionMap(Vector2 pos);
+
+		static CollisionMap* GetActiveCollisionMap();
+		static const Vector2 GetGroundPos(Vector2 pos);
 
 	private:
 		static std::bitset<(UINT)eLayerType::BitsetSize>	   mCollisionLayerMatrix[(UINT)eLayerType::BitsetSize];

@@ -3,5 +3,4 @@
 namespace hs::renderer
 {
 	Camera* mainCamera = nullptr;
-
 }

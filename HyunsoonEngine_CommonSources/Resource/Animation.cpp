@@ -57,8 +57,8 @@ namespace hs
 		Vector2 scale = tr->GetScale();
 
 		// camera
-		/*if (renderer::mainCamera)
-			pos = renderer::mainCamera->CalculatePosition(pos);*/
+		if (renderer::mainCamera)
+			pos = renderer::mainCamera->CalculatePosition(pos);
 
 		Sprite sprite = mAnimationSheet[mIndex];
 		HDC	   imgHdc = mTexture->GetHdc();

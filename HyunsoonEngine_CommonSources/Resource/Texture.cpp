@@ -26,8 +26,7 @@ namespace hs
 
 			image = new Texture();
 			image->SetName(name);
-			image->SetWidth(width);
-			image->SetHeight(height);
+			image->SetResolution({ static_cast<float>(width), static_cast<float>(height) });
 
 			HDC	 hdc = app.GetHdc();
 			HWND hwnd = app.GetHwnd();
@@ -37,7 +36,7 @@ namespace hs
 
 			HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
 			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, transparentBrush);
-			Rectangle(image->mHdc, -1, -1, image->GetWidth() + 1, image->GetHeight() + 1);
+			Rectangle(image->mHdc, -1, -1, image->GetResolution().x + 1, image->GetResolution().y + 1);
 			SelectObject(hdc, oldBrush);
 
 			HBITMAP oldBitmap = (HBITMAP)SelectObject(image->mHdc, image->mBitmap);
@@ -65,8 +64,7 @@ namespace hs
 					return S_FALSE;
 				}
 
-				mWidth = info.bmWidth;
-				mHeight = info.bmHeight;
+				mResolution = { static_cast<float>(info.bmWidth), static_cast<float>(info.bmHeight) };
 
 				if (info.bmBitsPixel == 32)
 					mbAlpha = true;
@@ -87,20 +85,25 @@ namespace hs
 				if (mImage == nullptr)
 					return S_FALSE;
 
-				mWidth = mImage->GetWidth();
-				mHeight = mImage->GetHeight();
+				mResolution = { static_cast<float>(mImage->GetWidth()), static_cast<float>(mImage->GetHeight()) };
 
 				HDC mainDC = app.GetHdc();
 				mHdc = CreateCompatibleDC(mainDC);
 
-				HBITMAP hBitmap = CreateCompatibleBitmap(mainDC, mWidth, mHeight);
+				HBITMAP hBitmap = CreateCompatibleBitmap(mainDC, mResolution.x, mResolution.y);
 				SelectObject(mHdc, hBitmap);
 
 				Gdiplus::Graphics graphics(mHdc);
-				graphics.DrawImage(mImage, Gdiplus::Rect(0, 0, mWidth, mHeight));
+				graphics.DrawImage(mImage, Gdiplus::Rect(0, 0, mResolution.x, mResolution.y));
 			}
 
 			return S_OK;
+		}
+
+		void Texture::Delete()
+		{
+			DeleteDC(mHdc);
+			DeleteObject(mBitmap);
 		}
 	} // namespace graphics
 

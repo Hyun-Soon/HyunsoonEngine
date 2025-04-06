@@ -14,6 +14,7 @@ namespace hs
 		virtual void Initialize() override;
 		virtual void Update() override;
 		virtual void LateUpdate() override;
+		virtual void Render(HDC& hdc) override;
 
 		void	ResetVelocity();
 		void	ResetAcceleration();

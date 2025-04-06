@@ -30,16 +30,18 @@ namespace hs
 
 	void SpriteRenderer::Render(HDC& hdc)
 	{
+		Vector2	   res = mTexture->GetResolution();
 		Transform* transform = GetOwner()->GetComponent<Transform>();
 		Vector2	   pos = transform->GetPosition();
 		Vector2	   scale = transform->GetScale();
 		// float	   rotation = transform->GetRotation();
 
 		// camera
-		// pos = renderer::mainCamera->CalculatePosition(pos);
+		if (renderer::mainCamera)
+			pos = renderer::mainCamera->CalculatePosition(pos);
 
-		float renderWidth = mTexture->GetWidth() * mScale.x * scale.x;
-		float renderHeight = mTexture->GetHeight() * mScale.y * scale.y;
+		float renderWidth = res.x * mScale.x * scale.x;
+		float renderHeight = res.y * mScale.y * scale.y;
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 		{
@@ -51,10 +53,10 @@ namespace hs
 				func.AlphaFormat = AC_SRC_ALPHA;
 				func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 
-				AlphaBlend(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight(), func);
+				AlphaBlend(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, mTexture->GetHdc(), 0, 0, res.x, res.y, func);
 			}
 			else
-				TransparentBlt(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight(), RGB(255, 0, 255));
+				TransparentBlt(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, mTexture->GetHdc(), 0, 0, res.x, res.y, RGB(255, 0, 255));
 		}
 		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
 		{
@@ -66,8 +68,8 @@ namespace hs
 			// graphics.TranslateTransform(pos.x, pos.y);
 			// graphics.RotateTransform(rotation);
 			// graphics.TranslateTransform(-pos.x, -pos.y);
-			// graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth() * mScale.x * scale.x, mTexture->GetHeight() * mScale.y * scale.y));
-			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight), 0, 0, mTexture->GetWidth(), mTexture->GetHeight(), Gdiplus::UnitPixel, nullptr /*&imgAtt*/);
+			// graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y, res.x * mScale.x * scale.x, res.y * mScale.y * scale.y));
+			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight), 0, 0, res.x, res.y, Gdiplus::UnitPixel, nullptr /*&imgAtt*/);
 		}
 	}
 

@@ -83,6 +83,7 @@ namespace hs
 
 	void ProjectileScript::OnCollisionEnter(Collider* other)
 	{
+		object::Destory(GetOwner());
 	}
 
 	void ProjectileScript::OnCollisionStay(Collider* other)

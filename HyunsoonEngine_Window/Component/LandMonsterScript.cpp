@@ -64,22 +64,49 @@ namespace hs
 
 	void LandMonsterScript::LateUpdate()
 	{
-		Vector2 res = app.GetResolution();
+		Vector2 curMapSize = CollisionManager::GetActiveCollisionMap()->GetResolution();
 		Vector2 pos = mTransform->GetPosition();
+		Vector2 adjustedPos = { std::clamp<float>(pos.x, 0, curMapSize.x - 1), std::clamp<float>(pos.y, 0, curMapSize.y - 1) };
 
-		pos.x = std::clamp<float>(pos.x, 0, res.x - 200);
-		pos.y = std::clamp<float>(pos.y, 0, res.y - 200);
-
-		mTransform->SetPosition(pos);
-		if (pos.y >= res.y - 200)
-			mRigidbody->SetGrounded(true);
+		if (CollisionManager::CheckCollisionMap(adjustedPos) == true)
+		{
+			mTransform->SetPosition(CollisionManager::GetGroundPos(adjustedPos));
+			if (mRigidbody->GetVelocity().y > 0.0f)
+				mRigidbody->SetGrounded(true);
+		}
+		else
+		{
+			mTransform->SetPosition(adjustedPos);
+			mRigidbody->SetGrounded(false);
+		}
 	}
 
 	void LandMonsterScript::OnCollisionEnter(Collider* other)
 	{
 		if (other->GetLayerType() == enums::eLayerType::Projectile)
 		{
-			attacked();
+			Player*	   player = Player::GetInstance();
+			Transform* playerTr = player->GetComponent<Transform>();
+			Vector2	   playerPos = playerTr->GetPosition();
+
+			if (playerPos.x < mTransform->GetPosition().x)
+			{
+				mDirString = L"_L";
+				mDirection = Vector2::Left;
+			}
+			else
+			{
+				mDirString = L"_R";
+				mDirection = Vector2::Right;
+			}
+
+			mMonster->SetState(Monster::eMonsterState::Attacked);
+			mAnimator->PlayAnimation(mMonster->GetName() + L"Attacked" + mDirString);
+			mDuration = 0.0f;
+			mbIsAttacked = true;
+			mRigidbody->ResetVelocity();
+			mTransform->SetPosition(mTransform->GetPosition() + mDirection * -3.0f);
+			attacked(); // TODO :: change attakced() func to translateToAttacked(); attacked() func is just called when it's already attacked state.
 		}
 	}
 
@@ -94,68 +121,73 @@ namespace hs
 	void LandMonsterScript::idle()
 	{
 		// Idle -> Attacked
-		if (mbIsAttacked)
-		{
-			mMonster->SetState(Monster::eMonsterState::Attacked);
-			mAnimator->PlayAnimation(mMonster->GetName() + L"Attacked" + mDirString);
-			mDuration = 0.0f;
-		}
+		// //onCollisionEnter()
 		// Idle -> Move
+		if (mDuration < mMinTimeToTransition)
+			return;
+
+		if (RandomUtils::GetRandomValueInt(0, 1))
+		{
+			mDirection = Vector2::Left;
+			mDirString = L"_L";
+		}
 		else
 		{
-			if (mDuration < mMinTimeToTransition)
-				return;
-
-			if (RandomUtils::GetRandomValueInt(0, 1))
-			{
-				mDirection = Vector2::Left;
-				mDirString = L"_L";
-			}
-			else
-			{
-				mDirection = Vector2::Right;
-				mDirString = L"_R";
-			}
-			mMonster->SetState(Monster::eMonsterState::Move);
-			mAnimator->PlayAnimation(mMonster->GetName() + L"Move" + mDirString);
-			mDuration = 0.0f;
+			mDirection = Vector2::Right;
+			mDirString = L"_R";
 		}
+		mMonster->SetState(Monster::eMonsterState::Move);
+		mAnimator->PlayAnimation(mMonster->GetName() + L"Move" + mDirString);
+		mRigidbody->SetVelocity(mDirection * static_cast<Monster*>(GetOwner())->GetSpeed());
+		mDuration = 0.0f;
 	}
 
 	void LandMonsterScript::move()
 	{
-		if (mbIsAttacked)
-		{
-			mMonster->SetState(Monster::eMonsterState::Attacked);
-			mAnimator->PlayAnimation(mMonster->GetName() + L"Attacked" + mDirString);
-			mDuration = 0.0f;
-		}
-		else
-		{
-			if (mDuration < mMinTimeToTransition)
-				return;
 
-			// Move -> Idle
-			mMonster->SetState(Monster::eMonsterState::Idle);
-			mAnimator->PlayAnimation(mMonster->GetName() + L"Idle" + mDirString);
-			mDuration = 0.0f;
-		}
+		if (mDuration < mMinTimeToTransition)
+			return;
+
+		// move -> attacked
+		// OnCollisionEnter()
+		// Move -> Idle
+		mRigidbody->SetVelocity(Vector2::Zero);
+		mMonster->SetState(Monster::eMonsterState::Idle);
+		mAnimator->PlayAnimation(mMonster->GetName() + L"Idle" + mDirString);
+		mDuration = 0.0f;
 	}
 
 	void LandMonsterScript::chase()
 	{
-		mRigidbody->AddForce({ 0.0f, -300.0f }); // debug // need player logic
+		Player*	   player = Player::GetInstance();
+		Transform* playerTr = player->GetComponent<Transform>();
+		Vector2	   playerPos = playerTr->GetPosition();
+
+		if (playerPos.x < mTransform->GetPosition().x)
+		{
+			mDirString = L"_L";
+			mDirection = Vector2::Left;
+		}
+		else
+		{
+			mDirString = L"_R";
+			mDirection = Vector2::Right;
+		}
+
+		mRigidbody->SetVelocity(mDirection * static_cast<Monster*>(GetOwner())->GetSpeed());
+		mMonster->SetState(Monster::eMonsterState::Move);
+		mAnimator->PlayAnimation(mMonster->GetName() + L"Move" + mDirString);
+		mDuration = 0.0f;
+		mbIsAttacked = false;
 	}
 
 	void LandMonsterScript::attacked()
 	{
-		mbIsAttacked = true;
-
-		if (mDuration < 1.0f) // attacked animation duration
+		if (mDuration < 0.5f) // attacked animation duration
 			return;
 
+		mRigidbody->SetVelocity(Vector2::Zero);
 		mMonster->SetState(Monster::eMonsterState::Chase);
-		mRigidbody->AddVelocity(mDirection * mMonster->GetSpeed());
 		mAnimator->PlayAnimation(mMonster->GetName() + L"Move" + mDirString);
 	}
 

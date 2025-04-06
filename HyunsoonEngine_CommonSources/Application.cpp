@@ -1,5 +1,7 @@
 #include "Application.h"
 
+#include <cassert>
+
 namespace hs
 {
 	Application::Application()

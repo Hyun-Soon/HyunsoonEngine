@@ -2,6 +2,7 @@
 
 #include "../GdiPlusInclude.h"
 #include "../Resource/Resource.h"
+#include "../MathTypes.h"
 
 namespace hs
 {
@@ -24,10 +25,10 @@ namespace hs
 
 			virtual HRESULT Load(const std::wstring& path) override;
 
-			UINT			GetWidth() const { return mWidth; }
-			void			SetWidth(UINT width) { mWidth = width; }
-			UINT			GetHeight() const { return mHeight; }
-			void			SetHeight(UINT height) { mHeight = height; }
+			void Delete();
+
+			Vector2			GetResolution() const { return mResolution; }
+			void			SetResolution(Vector2 res) { mResolution = res; }
 			const HDC&		GetHdc() const { return mHdc; }
 			eTextureType	GetTextureType() const { return mType; }
 			Gdiplus::Image* GetImage() const { return mImage; }
@@ -40,8 +41,7 @@ namespace hs
 			HBITMAP			mBitmap;
 			HDC				mHdc;
 
-			UINT mWidth;
-			UINT mHeight;
+			Vector2 mResolution;
 		};
 	} // namespace graphics
 } // namespace hs

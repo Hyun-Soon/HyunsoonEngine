@@ -38,6 +38,20 @@ namespace hs
 	{
 	}
 
+	void CollisionManager::Render(HDC& hdc)
+	{
+		CollisionMap* colMap = GetActiveCollisionMap();
+
+		for (int i = 0; i < colMap->GetResolution().y; i++)
+		{
+			for (int j = 0; j < colMap->GetResolution().x; j++)
+			{
+				if (colMap->collisionData[i * colMap->GetResolution().x + j])
+					SetPixel(hdc, j, i, RGB(255, 0, 0));
+			}
+		}
+	}
+
 	void CollisionManager::CollisionLayerCheck(eLayerType leftType, eLayerType rightType, bool enable)
 	{
 		int row = 0;
@@ -213,8 +227,32 @@ namespace hs
 		if (colMapIter == mCollisionMaps.end())
 			return false;
 		CollisionMap* colMap = colMapIter->second;
-		// pos.y += 100;
 		return colMap->CheckCollision(pos);
 	}
 
+	CollisionMap* CollisionManager::GetActiveCollisionMap()
+	{
+		return mCollisionMaps[SceneManager::GetActiveScene()->GetName()];
+	}
+
+	const Vector2 CollisionManager::GetGroundPos(Vector2 pos)
+	{
+		CollisionMap* curMap = GetActiveCollisionMap();
+
+		while (curMap->CheckCollision(pos))
+		{
+			--pos.y;
+		}
+
+		//int			  width = curMap->GetResolution().x;
+
+		//int idx = (int)pos.y * width + (int)pos.x;
+		//while (curMap->collisionData[idx] && pos.y > 0)
+		//{
+		//	--pos.y;
+		//	idx = pos.y * width + pos.x;
+		//}
+
+		return pos;
+	}
 } // namespace hs

@@ -1,6 +1,7 @@
 #include "TimeUtils.h"
 #include "GameObject/GameObject.h"
 #include "Rigidbody.h"
+#include "Renderer.h"
 
 namespace hs
 {
@@ -52,6 +53,36 @@ namespace hs
 
 	void Rigidbody::LateUpdate()
 	{
+	}
+
+	void Rigidbody::Render(HDC& hdc)
+	{
+		// if (mbGrounded)
+		//{
+		//	Transform* tr = GetOwner()->GetComponent<Transform>();
+		//	Vector2	   pos = tr->GetPosition();
+
+		//	// debug
+		//	if (renderer::mainCamera)
+		//		pos = renderer::mainCamera->CalculatePosition(pos);
+
+		//	HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
+		//	HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, transparentBrush);
+
+		//	HPEN greenPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+		//	HPEN oldPen = (HPEN)SelectObject(hdc, greenPen);
+
+		//	// debug
+		//	// Rigidbody* rgb = GetOwner()->GetComponent<Rigidbody>();
+		//	// if (rgb && rgb->IsGrounded())
+		//	//	greenPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+
+		//	Rectangle(hdc, pos.x - 100, pos.y - 100, pos.x, pos.y);
+
+		//	SelectObject(hdc, oldBrush);
+		//	SelectObject(hdc, oldPen);
+		//	DeleteObject(greenPen);
+		//}
 	}
 
 	void Rigidbody::ResetVelocity()
