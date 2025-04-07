@@ -11,6 +11,29 @@ namespace hs
 	namespace object
 	{
 		template <typename T>
+		static T* Instantiate() // must initialize layertype in constructor
+		{
+			T* gameObj = new T();
+			gameObj->Initialize();
+			SceneManager::AddGameObject(gameObj);
+
+			return gameObj;
+		}
+
+		template <typename T>
+		static T* Instantiate(hs::Vector2 position) // must initialize layertype in constructor
+		{
+			T* gameObj = new T();
+			gameObj->Initialize();
+			SceneManager::AddGameObject(gameObj);
+
+			Transform* tr = gameObj->GetComponent<Transform>();
+			tr->SetPosition(position);
+
+			return gameObj;
+		}
+
+		template <typename T>
 		static T* Instantiate(hs::enums::eLayerType layerLevel)
 		{
 			T* gameObj = new T();

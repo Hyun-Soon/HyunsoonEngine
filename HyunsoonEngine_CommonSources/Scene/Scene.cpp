@@ -55,6 +55,11 @@ namespace hs
 		}
 	}
 
+	void Scene::AddGameObject(GameObject* gameObject)
+	{
+		mLayers[(UINT)gameObject->GetLayerType()]->AddGameObject(gameObject);
+	}
+
 	void Scene::AddGameObject(GameObject* gameObject, enums::eLayerType layerLevel)
 	{
 		mLayers[(UINT)layerLevel]->AddGameObject(gameObject);

@@ -10,6 +10,8 @@ namespace hs
 		// Background
 		{
 			// ResourceManager::Load<graphics::Texture>(L"bg_Henesys", L"../HyunsoonEngine_Window/MaplestoryResources/Henesys_back.bmp");
+			// ResourceManager::Load<graphics::Texture>(L"background1", L"../HyunsoonEngine_Window/MaplestoryResources/Common/CommonNotSprite/MapBackGround/MapBackGround5.png");
+			// ResourceManager::Load<graphics::Texture>(L"background1", L"../HyunsoonEngine_Window/MaplestoryResource/Background_Henesys.bmp");
 			ResourceManager::Load<graphics::Texture>(L"bg_BeginnersTown1", L"../HyunsoonEngine_Window/MaplestoryResources/BeginnersTown1/BeginnersTown1NotSprite/BeginnersTown1/BeginnersTown1Background.png");
 		}
 
@@ -49,6 +51,11 @@ namespace hs
 		{
 			ResourceManager::Load<graphics::Texture>(L"Shuriken_L", L"../HyunsoonEngine_Window/MaplestoryResources/Item/Shuriken_L.bmp");
 			ResourceManager::Load<graphics::Texture>(L"Shuriken_R", L"../HyunsoonEngine_Window/MaplestoryResources/Item/Shuriken_R.bmp");
+		}
+
+		// Portal
+		{
+			ResourceManager::Load<graphics::Texture>(L"Portal", L"../HyunsoonEngine_Window/MaplestoryResources/Common/CommonSprite/Portal/Portals.png");
 		}
 	}
 } // namespace hs

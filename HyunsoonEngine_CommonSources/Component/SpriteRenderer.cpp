@@ -2,6 +2,9 @@
 #include "Component/Transform.h"
 #include "GameObject/GameObject.h"
 #include "Renderer.h"
+#include "Application.h"
+
+extern hs::Application app;
 
 namespace hs
 {
@@ -9,6 +12,7 @@ namespace hs
 		: Component(enums::eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
 		, mScale(Vector2::One)
+		, mbStretch(false)
 	{
 	}
 
@@ -69,7 +73,10 @@ namespace hs
 			// graphics.RotateTransform(rotation);
 			// graphics.TranslateTransform(-pos.x, -pos.y);
 			// graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y, res.x * mScale.x * scale.x, res.y * mScale.y * scale.y));
-			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight), 0, 0, res.x, res.y, Gdiplus::UnitPixel, nullptr /*&imgAtt*/);
+			if (mbStretch == false)
+				graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight), 0, 0, res.x, res.y, Gdiplus::UnitPixel, nullptr /*&imgAtt*/);
+			else
+				StretchBlt(hdc, 0, 0, app.GetResolution().x, app.GetResolution().y, mTexture->GetHdc(), 0, 0, res.x, res.y, SRCCOPY);
 		}
 	}
 

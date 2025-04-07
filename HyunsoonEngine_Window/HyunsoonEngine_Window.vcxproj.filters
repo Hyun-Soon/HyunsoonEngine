@@ -93,6 +93,15 @@
     <ClCompile Include="Component\ProjectileScript.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
+    <ClCompile Include="Object\Portal.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\GreenSnail.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Background.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Object\Monster.h">
@@ -159,6 +168,15 @@
       <Filter>Source Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="Object\ObjectUtilsCustom.h">
+      <Filter>Source Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Portal.h">
+      <Filter>Source Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\GreenSnail.h">
+      <Filter>Source Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Background.h">
       <Filter>Source Files\Object</Filter>
     </ClInclude>
   </ItemGroup>

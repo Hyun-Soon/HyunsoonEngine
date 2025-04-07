@@ -65,6 +65,11 @@ namespace hs
 		}
 	}
 
+	void SceneManager::AddGameObject(GameObject* obj)
+	{
+		mActiveScene->AddGameObject(obj);
+	}
+
 	void SceneManager::AddGameObject(GameObject* obj, enums::eLayerType layerLevel)
 	{
 		mActiveScene->AddGameObject(obj, layerLevel);

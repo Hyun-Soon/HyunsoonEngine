@@ -16,8 +16,8 @@ namespace hs
 			T* scene = new T();
 			scene->SetName(name);
 			mActiveScene = scene;
-			scene->Initialize();
 			CollisionManager::CreateCollisionMap(name);
+			scene->Initialize();
 
 			mScenes[name] = scene;
 
@@ -33,6 +33,7 @@ namespace hs
 		static void Destroy();
 		static void Release();
 
+		static void	  AddGameObject(GameObject* obj);
 		static void	  AddGameObject(GameObject* obj, enums::eLayerType layerLevel);
 		static Scene* GetActiveScene() { return mActiveScene; };
 

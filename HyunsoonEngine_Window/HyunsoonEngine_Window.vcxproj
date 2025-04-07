@@ -29,9 +29,12 @@
     <ClCompile Include="Item\Meso.cpp" />
     <ClCompile Include="Item\Miscellaneous.cpp" />
     <ClCompile Include="Item\Shuriken.cpp" />
+    <ClCompile Include="Object\Background.cpp" />
+    <ClCompile Include="Object\GreenSnail.cpp" />
     <ClCompile Include="Object\Monster.cpp" />
     <ClCompile Include="Object\Npc.cpp" />
     <ClCompile Include="Object\Player.cpp" />
+    <ClCompile Include="Object\Portal.cpp" />
     <ClCompile Include="Object\Projectile.cpp" />
     <ClCompile Include="Scene\BeginnersTown\BeginnersTown1.cpp" />
     <ClCompile Include="Scene\HuntingScene.cpp" />
@@ -50,10 +53,13 @@
     <ClInclude Include="Item\Meso.h" />
     <ClInclude Include="Item\Miscellaneous.h" />
     <ClInclude Include="Item\Shuriken.h" />
+    <ClInclude Include="Object\Background.h" />
+    <ClInclude Include="Object\GreenSnail.h" />
     <ClInclude Include="Object\Monster.h" />
     <ClInclude Include="Object\Npc.h" />
     <ClInclude Include="Object\ObjectUtilsCustom.h" />
     <ClInclude Include="Object\Player.h" />
+    <ClInclude Include="Object\Portal.h" />
     <ClInclude Include="Object\Projectile.h" />
     <ClInclude Include="Resource\LoadResources.h" />
     <ClInclude Include="Scene\BeginnersTown\BeginnersTown1.h" />
