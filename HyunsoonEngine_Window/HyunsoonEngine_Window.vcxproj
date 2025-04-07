@@ -37,7 +37,9 @@
     <ClCompile Include="Object\Portal.cpp" />
     <ClCompile Include="Object\Projectile.cpp" />
     <ClCompile Include="Scene\BeginnersTown\BeginnersTown1.cpp" />
+    <ClCompile Include="Scene\BeginnersTown\BeginnersTown2.cpp" />
     <ClCompile Include="Scene\HuntingScene.cpp" />
+    <ClCompile Include="Scene\SouthFerry.cpp" />
     <ClCompile Include="Scene\VillageScene.cpp" />
     <ClCompile Include="Skill\LuckySeven.cpp" />
     <ClCompile Include="Skill\Skill.cpp" />
@@ -63,8 +65,10 @@
     <ClInclude Include="Object\Projectile.h" />
     <ClInclude Include="Resource\LoadResources.h" />
     <ClInclude Include="Scene\BeginnersTown\BeginnersTown1.h" />
+    <ClInclude Include="Scene\BeginnersTown\BeginnersTown2.h" />
     <ClInclude Include="Scene\HuntingScene.h" />
     <ClInclude Include="Scene\LoadScenes.h" />
+    <ClInclude Include="Scene\SouthFerry.h" />
     <ClInclude Include="Scene\VillageScene.h" />
     <ClInclude Include="Skill\LuckySeven.h" />
     <ClInclude Include="Skill\Skill.h" />

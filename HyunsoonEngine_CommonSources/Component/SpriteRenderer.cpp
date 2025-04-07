@@ -39,6 +39,7 @@ namespace hs
 		Vector2	   pos = transform->GetPosition();
 		Vector2	   scale = transform->GetScale();
 		// float	   rotation = transform->GetRotation();
+		Vector2 appRes = app.GetResolution();
 
 		// camera
 		if (renderer::mainCamera)
@@ -66,7 +67,7 @@ namespace hs
 		{
 			// 투명화 시킬 픽셀의 색 범위
 			Gdiplus::ImageAttributes imgAtt = {};
-			imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
+			imgAtt.SetColorKey(Gdiplus::Color(255, 255, 255), Gdiplus::Color(255, 255, 255));
 
 			Gdiplus::Graphics graphics(hdc);
 			// graphics.TranslateTransform(pos.x, pos.y);
@@ -76,7 +77,7 @@ namespace hs
 			if (mbStretch == false)
 				graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight), 0, 0, res.x, res.y, Gdiplus::UnitPixel, nullptr /*&imgAtt*/);
 			else
-				StretchBlt(hdc, 0, 0, app.GetResolution().x, app.GetResolution().y, mTexture->GetHdc(), 0, 0, res.x, res.y, SRCCOPY);
+				StretchBlt(hdc, 0, 0, appRes.x, appRes.y, mTexture->GetHdc(), 0, 0, res.x, res.y, SRCCOPY);
 		}
 	}
 

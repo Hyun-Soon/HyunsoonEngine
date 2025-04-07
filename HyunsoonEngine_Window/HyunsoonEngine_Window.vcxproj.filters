@@ -102,6 +102,12 @@
     <ClCompile Include="Object\Background.cpp">
       <Filter>Source Files\Object</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\BeginnersTown\BeginnersTown2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\SouthFerry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Object\Monster.h">
@@ -178,6 +184,12 @@
     </ClInclude>
     <ClInclude Include="Object\Background.h">
       <Filter>Source Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\BeginnersTown\BeginnersTown2.h">
+      <Filter>Source Files\Scene\BeginnersTown</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\SouthFerry.h">
+      <Filter>Source Files\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
