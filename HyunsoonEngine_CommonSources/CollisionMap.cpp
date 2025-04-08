@@ -58,16 +58,35 @@ namespace hs
 		return true;
 	}
 
-	bool CollisionMap::CheckCollision(Vector2 pos) const
-
+	bool CollisionMap::CheckCollision(Vector2 pos, const Vector2& size) const
 	{
-		if (pos.x < 0 || pos.x >= GetResolution().x || pos.y < 0 || pos.y >= GetResolution().y)
+		int left = pos.x - size.x;
+		int right = pos.x;
+		int top = pos.y - size.y;
+		int bottom = pos.y;
+
+		if (left < 0 || top < 0)
 			return true;
-		COLORREF color = GetPixel(GetHdc(), pos.x, pos.y);
-		if (GetRValue(color) == 255 && GetGValue(color) == 0 && GetBValue(color) == 255)
-			return true;
+
+		for (int r = top; r <= bottom; r++)
+		{
+			for (int c = left; c <= right; c++)
+			{
+				COLORREF color = GetPixel(GetHdc(), c, r);
+				if (GetRValue(color) == 255 && GetGValue(color) == 0 && GetBValue(color) == 255)
+					return true;
+			}
+		}
+
 		return false;
-		// return collisionData[pos.y * GetResolution().x + pos.x];
+
+		// if (pos.x < 0 || pos.x >= GetResolution().x || pos.y < 0 || pos.y >= GetResolution().y)
+		//	return true;
+		// COLORREF color = GetPixel(GetHdc(), pos.x, pos.y);
+		// if (GetRValue(color) == 255 && GetGValue(color) == 0 && GetBValue(color) == 255)
+		//	return true;
+		// return false;
+		//  return collisionData[pos.y * GetResolution().x + pos.x];
 	}
 
 } // namespace hs

@@ -21,7 +21,7 @@ namespace hs
 		, mDuration(0.0f)
 		, mSpeed(0.0f)
 		, mDirString(L"_L")
-		, mJumpForce(0.0f, -1700.0f)
+		, mJumpVel(0.0f, -370.0f)
 		, mDoubleJumpSpeed(500.0f, -10.0f)
 	{
 	}
@@ -82,23 +82,30 @@ namespace hs
 		Vector2 pos = mTransform->GetPosition();
 		Vector2 adjustedPos = { std::clamp<float>(pos.x, 0, curMapSize.x - 1), std::clamp<float>(pos.y, 0, curMapSize.y - 1) };
 
-		if (CollisionManager::CheckCollisionMap(adjustedPos) == true)
+		Vector2 animSize = mAnimator->GetAnimationSize();
+
+		if (CollisionManager::CheckCollisionMap(adjustedPos, animSize) == true)
 		{
-			mTransform->SetPosition(CollisionManager::GetGroundPos(adjustedPos));
-			if (mRigidbody->GetVelocity().y > 0.0f)
-				mRigidbody->SetGrounded(true);
+			Vector2 revDir = mRigidbody->GetVelocity().Normalize() * -1;
+			adjustedPos = CollisionManager::GetPossiblePos(adjustedPos, revDir, animSize);
+		}
+
+		if (CollisionManager::CheckCollisionMap(adjustedPos + Vector2(0, 1), animSize))
+		{
+			mRigidbody->SetGrounded(true);
 		}
 		else
 		{
-			mTransform->SetPosition(adjustedPos);
 			mRigidbody->SetGrounded(false);
 		}
+
+		mTransform->SetPosition(adjustedPos);
 	}
 
 	void PlayerScript::Render(HDC& hdc)
 	{
 		// debug
-		{
+		/*{
 			wchar_t				 str[50] = L"";
 			Player::ePlayerState state = static_cast<Player*>(GetOwner())->GetState();
 			std::wstring		 wstr;
@@ -124,7 +131,7 @@ namespace hs
 			int len = wcsnlen_s(str, 50);
 
 			TextOut(hdc, 0, 20, str, len);
-		}
+		}*/
 	}
 
 	void PlayerScript::OnCollisionEnter(Collider* other)
@@ -182,7 +189,7 @@ namespace hs
 		{
 			mPlayer->SetState(Player::ePlayerState::Jump);
 			mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
-			mRigidbody->AddForce(mJumpForce);
+			mRigidbody->AddVelocity(mJumpVel);
 			mRigidbody->SetGrounded(false);
 		}
 		// Idle -> Attack
@@ -248,7 +255,7 @@ namespace hs
 		{
 			mPlayer->SetState(Player::ePlayerState::Jump);
 			mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
-			mRigidbody->AddForce(mJumpForce);
+			mRigidbody->AddVelocity(mJumpVel);
 			mRigidbody->SetGrounded(false);
 		}
 		// Walk -> LyingDown
@@ -291,6 +298,8 @@ namespace hs
 		{
 			mPlayer->SetState(Player::ePlayerState::Jump);
 			mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
+			mRigidbody->AddVelocity(mJumpVel);
+			mRigidbody->SetGrounded(false);
 		}
 		// Alert -> LyingDown
 		else if (Input::GetKeyDown(eKeyCode::Down))
@@ -489,7 +498,7 @@ namespace hs
 			{
 				mPlayer->SetState(Player::ePlayerState::Jump);
 				mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
-				mRigidbody->AddForce(mJumpForce);
+				mRigidbody->AddVelocity(mJumpVel);
 				mRigidbody->SetGrounded(false);
 			}
 			else if (Input::GetKey(eKeyCode::Down) || Input::GetKeyDown(eKeyCode::Down))
@@ -543,7 +552,7 @@ namespace hs
 			{
 				mPlayer->SetState(Player::ePlayerState::Jump);
 				mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
-				mRigidbody->AddForce(mJumpForce);
+				mRigidbody->AddVelocity(mJumpVel);
 				mRigidbody->SetGrounded(false);
 			}
 			// LyingDown -> Idle

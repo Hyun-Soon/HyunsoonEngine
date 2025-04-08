@@ -35,10 +35,10 @@ namespace hs
 		static void ColliderCollision(Collider* left, Collider* right);
 		static bool Intersect(Collider* left, Collider* right);
 		static void CreateCollisionMap(std::wstring name);
-		static bool CheckCollisionMap(Vector2 pos);
+		static bool CheckCollisionMap(Vector2 pos, const Vector2& size);
 
 		static CollisionMap* GetActiveCollisionMap();
-		static const Vector2 GetGroundPos(Vector2 pos);
+		static const Vector2 GetPossiblePos(Vector2 pos, const Vector2& dir, const Vector2& size);
 
 	private:
 		static std::bitset<(UINT)eLayerType::BitsetSize>	   mCollisionLayerMatrix[(UINT)eLayerType::BitsetSize];

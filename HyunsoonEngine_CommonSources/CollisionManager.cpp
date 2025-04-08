@@ -220,14 +220,14 @@ namespace hs
 		mCollisionMaps.insert(std::pair<std::wstring, CollisionMap*>(name, new CollisionMap(name)));
 	}
 
-	bool CollisionManager::CheckCollisionMap(Vector2 pos)
+	bool CollisionManager::CheckCollisionMap(Vector2 pos, const Vector2& size)
 	{
 		std::wstring sceneName = SceneManager::GetActiveScene()->GetName();
 		auto		 colMapIter = mCollisionMaps.find(sceneName);
 		if (colMapIter == mCollisionMaps.end())
 			return false;
 		CollisionMap* colMap = colMapIter->second;
-		return colMap->CheckCollision(pos);
+		return colMap->CheckCollision(pos, size);
 	}
 
 	CollisionMap* CollisionManager::GetActiveCollisionMap()
@@ -235,23 +235,14 @@ namespace hs
 		return mCollisionMaps[SceneManager::GetActiveScene()->GetName()];
 	}
 
-	const Vector2 CollisionManager::GetGroundPos(Vector2 pos)
+	const Vector2 CollisionManager::GetPossiblePos(Vector2 pos, const Vector2& dir, const Vector2& size)
 	{
 		CollisionMap* curMap = GetActiveCollisionMap();
 
-		while (curMap->CheckCollision(pos))
+		while (curMap->CheckCollision(pos, size))
 		{
-			--pos.y;
+			pos += dir;
 		}
-
-		//int			  width = curMap->GetResolution().x;
-
-		//int idx = (int)pos.y * width + (int)pos.x;
-		//while (curMap->collisionData[idx] && pos.y > 0)
-		//{
-		//	--pos.y;
-		//	idx = pos.y * width + pos.x;
-		//}
 
 		return pos;
 	}

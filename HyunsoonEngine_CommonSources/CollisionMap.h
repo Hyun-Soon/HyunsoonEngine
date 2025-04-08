@@ -14,9 +14,10 @@ namespace hs
 		virtual ~CollisionMap();
 
 		bool ParseCollisionData();
-		bool CheckCollision(Vector2 pos) const;
+		bool CheckCollision(Vector2 pos, const Vector2& size) const;
 
 		std::vector<bool> collisionData; // true: 충돌, false: 이동 가능
+
 	private:
 		static std::wstring collisionMapPath;
 	};

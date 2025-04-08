@@ -68,9 +68,12 @@ namespace hs
 		Vector2 pos = mTransform->GetPosition();
 		Vector2 adjustedPos = { std::clamp<float>(pos.x, 0, curMapSize.x - 1), std::clamp<float>(pos.y, 0, curMapSize.y - 1) };
 
-		if (CollisionManager::CheckCollisionMap(adjustedPos) == true)
+		Vector2 animSize = mAnimator->GetAnimationSize();
+
+		if (CollisionManager::CheckCollisionMap(adjustedPos, animSize) == true)
 		{
-			mTransform->SetPosition(CollisionManager::GetGroundPos(adjustedPos));
+			Vector2 revDir = mRigidbody->GetVelocity().Normalize() * -1;
+			mTransform->SetPosition(CollisionManager::GetPossiblePos(adjustedPos, revDir, animSize));
 			if (mRigidbody->GetVelocity().y > 0.0f)
 				mRigidbody->SetGrounded(true);
 		}

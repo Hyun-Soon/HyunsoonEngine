@@ -48,7 +48,7 @@ namespace hs
 		float		 mSpeed;
 		std::wstring mDirString;
 
-		Vector2 mJumpForce;
+		Vector2 mJumpVel;
 		Vector2 mDoubleJumpSpeed;
 	};
 
