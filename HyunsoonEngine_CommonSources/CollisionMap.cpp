@@ -68,25 +68,30 @@ namespace hs
 		if (left < 0 || top < 0)
 			return true;
 
-		for (int r = top; r <= bottom; r++)
-		{
-			for (int c = left; c <= right; c++)
-			{
-				COLORREF color = GetPixel(GetHdc(), c, r);
-				if (GetRValue(color) == 255 && GetGValue(color) == 0 && GetBValue(color) == 255)
-					return true;
-			}
-		}
+		// for (int r = top; r <= bottom; r++)
+		//{
+		//	for (int c = left; c <= right; c++)
+		//	{
+		//		COLORREF color = GetPixel(GetHdc(), c, r);
+		//		if (GetRValue(color) == 255 && GetGValue(color) == 0 && GetBValue(color) == 255)
+		//			return true;
+		//	}
+		// }
+
+		COLORREF color1 = GetPixel(GetHdc(), left, top);
+		if (GetRValue(color1) == 255 && GetGValue(color1) == 0 && GetBValue(color1) == 255)
+			return true;
+		COLORREF color2 = GetPixel(GetHdc(), right, top);
+		if (GetRValue(color2) == 255 && GetGValue(color2) == 0 && GetBValue(color2) == 255)
+			return true;
+		COLORREF color3 = GetPixel(GetHdc(), left, bottom);
+		if (GetRValue(color3) == 255 && GetGValue(color3) == 0 && GetBValue(color3) == 255)
+			return true;
+		COLORREF color4 = GetPixel(GetHdc(), right, bottom);
+		if (GetRValue(color4) == 255 && GetGValue(color4) == 0 && GetBValue(color4) == 255)
+			return true;
 
 		return false;
-
-		// if (pos.x < 0 || pos.x >= GetResolution().x || pos.y < 0 || pos.y >= GetResolution().y)
-		//	return true;
-		// COLORREF color = GetPixel(GetHdc(), pos.x, pos.y);
-		// if (GetRValue(color) == 255 && GetGValue(color) == 0 && GetBValue(color) == 255)
-		//	return true;
-		// return false;
-		//  return collisionData[pos.y * GetResolution().x + pos.x];
 	}
 
 } // namespace hs

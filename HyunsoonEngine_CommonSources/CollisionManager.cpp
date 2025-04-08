@@ -242,6 +242,7 @@ namespace hs
 		while (curMap->CheckCollision(pos, size))
 		{
 			pos += dir;
+			pos += Vector2(0, -1); // slope
 		}
 
 		return pos;
