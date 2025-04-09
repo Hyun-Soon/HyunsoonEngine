@@ -45,6 +45,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\Scene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)TimeUtils.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\UIBase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\UIButton.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\UIHUD.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\UIManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Application.cpp" />
@@ -74,6 +78,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\Scene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)TimeUtils.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UI\UIBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UI\UIButton.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UI\UIHUD.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UI\UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory).clang-format" />

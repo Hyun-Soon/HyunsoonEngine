@@ -1,4 +1,7 @@
 #include "Application.h"
+#include "Resource/ResourceManager.h"
+#include "CollisionManager.h"
+#include "UI/UIManager.h"
 
 #include <cassert>
 
@@ -52,6 +55,7 @@ namespace hs
 		TimeUtils::Initialize();
 		CollisionManager::Initialize();
 		SceneManager::Initialize();
+		UIManager::Initialize();
 	}
 
 	void Application::Run()
@@ -68,12 +72,14 @@ namespace hs
 		TimeUtils::Update();
 		CollisionManager::Update();
 		SceneManager::Update();
+		UIManager::Update();
 	}
 
 	void Application::lateUpdate()
 	{
 		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
+		UIManager::LateUpdate();
 	}
 
 	void Application::render()
@@ -83,11 +89,8 @@ namespace hs
 		TimeUtils::Render(mBackHdc);
 		// CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
+		UIManager::Render(mBackHdc);
 
-		// static int i = 0;
-		// if (i++ % 5)
-		//	present(mHdc, CollisionManager::mCollisionMaps[L"BeginnersTown1"]->GetHdc());
-		// else
 		present(mHdc, mBackHdc);
 	}
 
@@ -100,6 +103,7 @@ namespace hs
 	{
 		SceneManager::Release();
 		ResourceManager::Release();
+		UIManager::Release();
 	}
 
 	void Application::createBuffer(UINT width, UINT height)

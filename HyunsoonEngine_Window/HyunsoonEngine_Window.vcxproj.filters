@@ -102,11 +102,11 @@
     <ClCompile Include="Object\Background.cpp">
       <Filter>Source Files\Object</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\BeginnersTown\BeginnersTown2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Scene\SouthFerry.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\BeginnersTown\BeginnersTown2.cpp">
+      <Filter>Source Files\Scene\BeginnersTown</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

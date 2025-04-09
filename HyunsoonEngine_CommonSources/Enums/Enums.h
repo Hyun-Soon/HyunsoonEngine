@@ -45,5 +45,13 @@ namespace hs
 			Rect2D,
 			End,
 		};
+
+		enum class eUIType
+		{
+			BottomBar,
+			Button,
+			Inventory,
+			End,
+		};
 	} // namespace enums
 } // namespace hs

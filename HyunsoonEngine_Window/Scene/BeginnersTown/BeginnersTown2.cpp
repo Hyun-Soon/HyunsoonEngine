@@ -40,10 +40,10 @@ namespace hs
 		AddGameObject(player, enums::eLayerType::Player);
 
 		// main camera
-		// GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Background, Vector2(600.0f, 100.0f));
-		// Camera*		cameraComp = camera->AddComponent<Camera>();
-		// renderer::mainCamera = cameraComp;
-		// cameraComp->SetTarget(player);
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Background, Vector2(600.0f, 100.0f));
+		Camera*		cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+		cameraComp->SetTarget(player);
 
 		// Monster
 		GreenSnail* greenSnail1 = object::Instantiate<GreenSnail>({ 300, 500 });

@@ -59,5 +59,10 @@ namespace hs
 		{
 			ResourceManager::Load<graphics::Texture>(L"Portal", L"../HyunsoonEngine_Window/MaplestoryResources/Common/CommonSprite/Portal/Portals.png");
 		}
+
+		// UI
+		{
+			ResourceManager::Load<graphics::Texture>(L"BottomBar", L"../HyunsoonEngine_Window/MaplestoryResources/UI/BottomBar.bmp");
+		}
 	}
 } // namespace hs
