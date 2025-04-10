@@ -71,27 +71,6 @@ namespace hs
 			[](GameObject* gameObj) {
 				return gameObj && gameObj->IsDead();
 			});
-
-		/*std::vector<GameObject*> deleteObjects = {};
-		findDeadGameObjects(deleteObjects);
-		eraseGameObject();
-		deleteGameObjects(deleteObjects);*/
-
-		/*for (GameObjectIter iter = mGameObjects.begin(); iter != mGameObjects.end();)
-		{
-			if ((*iter)->IsDead())
-			{
-				GameObject* deathObj = (*iter);
-				iter = mGameObjects.erase(iter);
-
-				delete deathObj;
-				deathObj = nullptr;
-
-				continue;
-			}
-
-			iter++;
-		}*/
 	}
 
 	void Layer::AddGameObject(GameObject* gameObject)
@@ -106,31 +85,4 @@ namespace hs
 				return gameObj == eraseGameObj;
 			});
 	}
-
-	// void Layer::findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs)
-	//{
-	//	for (GameObject* gameObj : mGameObjects)
-	//	{
-	//		GameObject::eGameObjectState state = gameObj->GetState();
-	//		if (state == GameObject::eState::Dead)
-	//			gameObjs.push_back(gameObj);
-	//	}
-	// }
-
-	// void Layer::deleteGameObjects(std::vector<GameObject*> deleteObjs)
-	//{
-	//	for (GameObject* obj : deleteObjs)
-	//	{
-	//		delete obj;
-	//		obj = nullptr;
-	//	}
-	// }
-
-	// void Layer::eraseDeadGameObject()
-	//{
-	//	std::erase_if(mGameObjects,
-	//		[](GameObject* gameObj) {
-	//			return (gameObj)->IsDead();
-	//		});
-	// }
 } // namespace hs

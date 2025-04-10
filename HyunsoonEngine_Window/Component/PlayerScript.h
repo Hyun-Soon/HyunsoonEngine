@@ -31,22 +31,30 @@ namespace hs
 		const Vector2& GetDirection() const { return mDirection; }
 
 	private:
-		void stand();
-		void walk();
+		void resetDuration() { mDuration = 0.0f; }
+		void translateToIdle();
+		void translateToMove(eKeyCode keyCode);
+		void translateToAlert();
+		void translateToJump();
+		void translateToDoubleJump();
+		void translateToAttack();
+		void translateToLyingDown();
+
+		void idle();
+		void move();
 		void alert();
 		void jump();
 		void doubleJump();
 		void attack();
 		void lieDown();
 
-		Player*		 mPlayer;
-		Transform*	 mTransform;
-		Rigidbody*	 mRigidbody;
-		Animator*	 mAnimator;
-		Vector2		 mDirection;
-		float		 mDuration;
-		float		 mSpeed;
-		std::wstring mDirString;
+		Player*	   mPlayer;
+		Transform* mTransform;
+		Rigidbody* mRigidbody;
+		Animator*  mAnimator;
+		Vector2	   mDirection;
+		float	   mDuration;
+		float	   mSpeed;
 
 		Vector2 mJumpVel;
 		Vector2 mDoubleJumpSpeed;

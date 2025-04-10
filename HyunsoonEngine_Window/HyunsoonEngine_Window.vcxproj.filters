@@ -191,6 +191,9 @@
     <ClInclude Include="Scene\SouthFerry.h">
       <Filter>Source Files\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="DirectionMap.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".clang-format" />

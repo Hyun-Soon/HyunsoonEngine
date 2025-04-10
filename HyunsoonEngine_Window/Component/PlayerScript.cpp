@@ -7,6 +7,7 @@
 #include "Application.h"
 #include "../Object/ObjectUtilsCustom.h"
 #include "../Object/Projectile.h"
+#include "../DirectionMap.h"
 
 extern hs::Application app;
 
@@ -20,7 +21,6 @@ namespace hs
 		, mDirection(-1.0f, 0.0f)
 		, mDuration(0.0f)
 		, mSpeed(0.0f)
-		, mDirString(L"_L")
 		, mJumpVel(0.0f, -370.0f)
 		, mDoubleJumpSpeed(500.0f, -10.0f)
 	{
@@ -47,10 +47,10 @@ namespace hs
 		switch (state)
 		{
 			case Player::ePlayerState::Idle:
-				stand();
+				idle();
 				break;
 			case Player::ePlayerState::Move:
-				walk();
+				move();
 				break;
 			case Player::ePlayerState::Alert:
 				alert();
@@ -158,54 +158,96 @@ namespace hs
 	//	mAnimator = animator;
 	// }
 
-	void PlayerScript::stand()
+	void PlayerScript::translateToIdle()
 	{
-		//  Idle -> Walk
+		resetDuration();
+		mPlayer->SetState(Player::ePlayerState::Idle);
+		mAnimator->PlayAnimation(L"PlayerIdle" + dirStrMap[mDirection]);
+	}
+
+	void PlayerScript::translateToMove(eKeyCode keyCode)
+	{
+		resetDuration();
+		mDirection = keyDirMap[keyCode];
+		mPlayer->SetState(Player::ePlayerState::Move);
+		mAnimator->PlayAnimation(L"PlayerWalk" + dirStrMap[mDirection]);
+		mRigidbody->AddVelocity(mDirection * mSpeed);
+	}
+
+	void PlayerScript::translateToAlert()
+	{
+		resetDuration();
+		mPlayer->SetState(Player::ePlayerState::Alert);
+		mAnimator->PlayAnimation(L"PlayerAlert" + dirStrMap[mDirection]);
+		mDuration = 0.0f;
+	}
+
+	void PlayerScript::translateToJump()
+	{
+		resetDuration();
+		mPlayer->SetState(Player::ePlayerState::Jump);
+		mAnimator->PlayAnimation(L"PlayerJump" + dirStrMap[mDirection]);
+		mRigidbody->AddVelocity(mJumpVel);
+		mRigidbody->SetGrounded(false);
+	}
+
+	void PlayerScript::translateToDoubleJump()
+	{
+		resetDuration();
+		mPlayer->SetState(Player::ePlayerState::DoubleJump);
+		mRigidbody->AddVelocity(mDoubleJumpSpeed * mDirection.x);
+		mAnimator->PlayAnimation(L"PlayerJump" + dirStrMap[mDirection]);
+	}
+
+	void PlayerScript::translateToAttack()
+	{
+		resetDuration();
+		mPlayer->SetState(Player::ePlayerState::Attack);
+		std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
+		mAnimator->PlayAnimation(L"PlayerSwing" + motion + dirStrMap[mDirection]);
+
+		Projectile* projectile = object::InstantiateProjectile(GetOwner());
+	}
+
+	void PlayerScript::translateToLyingDown()
+	{
+		resetDuration();
+		mRigidbody->ResetVelocity();
+		mPlayer->SetState(Player::ePlayerState::LyingDown);
+		mAnimator->PlayAnimation(L"PlayerLyingDown" + dirStrMap[mDirection]);
+	}
+
+	void PlayerScript::idle()
+	{
+		//  Idle -> Move
 		if (Input::GetKeyDown(eKeyCode::Left))
 		{
-			mDirection = Vector2(-1, 0);
-			mDirString = L"_L";
-			mPlayer->SetState(Player::ePlayerState::Move);
-			mAnimator->PlayAnimation(L"PlayerWalk_L");
-			mRigidbody->AddVelocity(mDirection * mSpeed);
+			translateToMove(eKeyCode::Left);
 		}
 		else if (Input::GetKeyDown(eKeyCode::Right))
 		{
-			mDirection = Vector2(1, 0);
-			mDirString = L"_R";
-			mPlayer->SetState(Player::ePlayerState::Move);
-			mAnimator->PlayAnimation(L"PlayerWalk_R");
-			mRigidbody->AddVelocity(mDirection * mSpeed);
+			translateToMove(eKeyCode::Right);
 		}
 		//  Idle -> LyingDown
 		else if (mRigidbody->IsGrounded() && Input::GetKeyDown(eKeyCode::Down))
 		{
-			mRigidbody->ResetVelocity();
-			mPlayer->SetState(Player::ePlayerState::LyingDown);
-			mAnimator->PlayAnimation(L"PlayerLyingDown" + mDirString);
+			translateToLyingDown();
 		}
 		// Idle -> Jump
 		else if (Input::GetKeyDown(eKeyCode::V))
 		{
-			mPlayer->SetState(Player::ePlayerState::Jump);
-			mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
-			mRigidbody->AddVelocity(mJumpVel);
-			mRigidbody->SetGrounded(false);
+			translateToJump();
 		}
 		// Idle -> Attack
 		else if (Input::GetKeyDown(eKeyCode::C))
 		{
-			mPlayer->SetState(Player::ePlayerState::Attack);
-			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
-			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
-
-			Projectile* projectile = object::InstantiateProjectile(GetOwner());
+			translateToAttack();
 		}
 		//  Idle -> Alert
 		//  After implementing monster
 	}
 
-	void PlayerScript::walk()
+	void PlayerScript::move()
 	{
 
 		if (Input::GetKeyUp(eKeyCode::Left))
@@ -215,13 +257,11 @@ namespace hs
 			{
 				mDirection = Vector2(1.0f, 0.0f);
 				mRigidbody->AddVelocity(mDirection * mSpeed);
-				mDirString = L"_R";
-				mAnimator->PlayAnimation(L"PlayerWalk" + mDirString);
+				mAnimator->PlayAnimation(L"PlayerWalk" + dirStrMap[mDirection]);
 			}
 			else
 			{
-				mPlayer->SetState(Player::ePlayerState::Idle);
-				mAnimator->PlayAnimation(L"PlayerIdle_L");
+				translateToIdle();
 			}
 		}
 		else if (Input::GetKeyUp(eKeyCode::Right))
@@ -231,39 +271,27 @@ namespace hs
 			{
 				mDirection = Vector2(-1.0f, 0.0f);
 				mRigidbody->AddVelocity(mDirection * mSpeed);
-				mDirString = L"_L";
-				mAnimator->PlayAnimation(L"PlayerWalk" + mDirString);
+				mAnimator->PlayAnimation(L"PlayerWalk" + dirStrMap[mDirection]);
 			}
 			else
 			{
-				mPlayer->SetState(Player::ePlayerState::Idle);
-				mAnimator->PlayAnimation(L"PlayerIdle_R");
+				translateToIdle();
 			}
 		}
-		// Walk -> Attack
+		// Move -> Attack
 		if (Input::GetKeyDown(eKeyCode::C))
 		{
-			mRigidbody->ResetVelocity();
-			mPlayer->SetState(Player::ePlayerState::Attack);
-			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
-			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
-
-			Projectile* projectile = object::InstantiateProjectile(GetOwner());
+			translateToAttack();
 		}
-		//// Walk-> Jump
+		// Move -> Jump
 		else if (Input::GetKeyDown(eKeyCode::V))
 		{
-			mPlayer->SetState(Player::ePlayerState::Jump);
-			mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
-			mRigidbody->AddVelocity(mJumpVel);
-			mRigidbody->SetGrounded(false);
+			translateToJump();
 		}
-		// Walk -> LyingDown
+		// Move -> LyingDown
 		else if (mRigidbody->IsGrounded() && Input::GetKeyDown(eKeyCode::Down))
 		{
-			mRigidbody->ResetVelocity();
-			mPlayer->SetState(Player::ePlayerState::LyingDown);
-			mAnimator->PlayAnimation(L"PlayerLyingDown" + mDirString);
+			translateToLyingDown();
 		}
 	}
 
@@ -271,49 +299,34 @@ namespace hs
 	{
 		mDuration += TimeUtils::GetDeltaTime();
 
-		// Alert -> Walk
+		// Alert -> Move
 		if (Input::GetKeyDown(eKeyCode::Left))
 		{
-			mDirection = Vector2(-1, 0);
-			mDirString = L"_L";
-			mPlayer->SetState(Player::ePlayerState::Move);
-			mAnimator->PlayAnimation(L"PlayerWalk_L");
+			translateToMove(eKeyCode::Left);
 		}
 		else if (Input::GetKeyDown(eKeyCode::Right))
 		{
-			mDirection = Vector2(1, 0);
-			mDirString = L"_R";
-			mPlayer->SetState(Player::ePlayerState::Move);
-			mAnimator->PlayAnimation(L"PlayerWalk_R");
+			translateToMove(eKeyCode::Right);
 		}
 		// Alert -> Attack
 		else if (Input::GetKeyDown(eKeyCode::C))
 		{
-			mPlayer->SetState(Player::ePlayerState::Attack);
-			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
-			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
-
-			Projectile* projectile = object::InstantiateProjectile(GetOwner());
+			translateToAttack();
 		}
 		// Alert -> Jump
 		else if (Input::GetKeyDown(eKeyCode::V))
 		{
-			mPlayer->SetState(Player::ePlayerState::Jump);
-			mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
-			mRigidbody->AddVelocity(mJumpVel);
-			mRigidbody->SetGrounded(false);
+			translateToJump();
 		}
 		// Alert -> LyingDown
 		else if (Input::GetKeyDown(eKeyCode::Down))
 		{
-			mPlayer->SetState(Player::ePlayerState::LyingDown);
-			mAnimator->PlayAnimation(L"PlayerLyingDown" + mDirString);
+			translateToLyingDown();
 		}
 		// Alert -> Idle
 		else if (mDuration >= 3.0f)
 		{
-			mPlayer->SetState(Player::ePlayerState::Idle);
-			mAnimator->PlayAnimation(L"PlayerIdle" + mDirString);
+			translateToIdle();
 		}
 		else
 			return;
@@ -325,63 +338,42 @@ namespace hs
 		if (Input::GetKeyDown(eKeyCode::Left))
 		{
 			mDirection = Vector2(-1, 0);
-			mDirString = L"_L";
 			mAnimator->PlayAnimation(L"PlayerJump_L");
 		}
 		else if (Input::GetKeyDown(eKeyCode::Right))
 		{
 			mDirection = Vector2(1, 0);
-			mDirString = L"_R";
 			mAnimator->PlayAnimation(L"PlayerJump_R");
 		}
 		// Jump -> DoubleJump
 		else if (Input::GetKeyDown(eKeyCode::V))
 		{
-			mPlayer->SetState(Player::ePlayerState::DoubleJump);
-			Vector2 temp = mDoubleJumpSpeed;
-			temp.x *= mDirection.x;
-			mRigidbody->AddVelocity(temp);
-			mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
+			translateToDoubleJump();
 		}
 		// Jump -> Attack
 		else if (Input::GetKeyDown(eKeyCode::C))
 		{
-			mPlayer->SetState(Player::ePlayerState::Attack);
-			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
-			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
-
-			Projectile* projectile = object::InstantiateProjectile(GetOwner());
+			translateToAttack();
 		}
-		// Jump -> Walk, Idle, LyingDown
+		// Jump -> Move, Idle, LyingDown
 		else if (mRigidbody->IsGrounded())
 		{
 			mRigidbody->ResetVelocity();
 			if (Input::GetKey(eKeyCode::Left) || Input::GetKeyDown(eKeyCode::Left))
 			{
-				mDirection = Vector2(-1, 0);
-				mPlayer->SetState(Player::ePlayerState::Move);
-				mDirString = L"_L";
-				mRigidbody->AddVelocity(mDirection * mSpeed);
-				mAnimator->PlayAnimation(L"PlayerWalk" + mDirString);
+				translateToMove(eKeyCode::Left);
 			}
 			else if (Input::GetKey(eKeyCode::Right) || Input::GetKeyDown(eKeyCode::Right))
 			{
-				mDirection = Vector2(1, 0);
-				mPlayer->SetState(Player::ePlayerState::Move);
-				mDirString = L"_R";
-				mRigidbody->AddVelocity(mDirection * mSpeed);
-				mAnimator->PlayAnimation(L"PlayerWalk" + mDirString);
+				translateToMove(eKeyCode::Right);
 			}
 			else if (Input::GetKey(eKeyCode::Down) || Input::GetKeyDown(eKeyCode::Down))
 			{
-				mRigidbody->ResetVelocity();
-				mPlayer->SetState(Player::ePlayerState::LyingDown);
-				mAnimator->PlayAnimation(L"PlayerLyingDown" + mDirString);
+				translateToLyingDown();
 			}
 			else
 			{
-				mPlayer->SetState(Player::ePlayerState::Idle);
-				mAnimator->PlayAnimation(L"PlayerIdle" + mDirString);
+				translateToIdle();
 			}
 		}
 		// Jump -> Alert
@@ -393,25 +385,19 @@ namespace hs
 		if (Input::GetKeyDown(eKeyCode::Left))
 		{
 			mDirection = Vector2(-1, 0);
-			mDirString = L"_L";
 			mAnimator->PlayAnimation(L"PlayerJump_L");
 		}
 		else if (Input::GetKeyDown(eKeyCode::Right))
 		{
 			mDirection = Vector2(1, 0);
-			mDirString = L"_R";
 			mAnimator->PlayAnimation(L"PlayerJump_R");
 		}
 		// DoubleJump -> Attack
 		else if (Input::GetKeyDown(eKeyCode::C))
 		{
-			mPlayer->SetState(Player::ePlayerState::Attack);
-			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
-			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
-
-			Projectile* projectile = object::InstantiateProjectile(GetOwner());
+			translateToAttack();
 		}
-		// DoubleJump -> Walk, Idle, LyingDown
+		// DoubleJump -> Move, Idle, LyingDown
 		else if (mRigidbody->IsGrounded())
 		{
 			mRigidbody->ResetVelocity();
@@ -419,30 +405,19 @@ namespace hs
 
 			if (Input::GetKey(eKeyCode::Left) || Input::GetKeyDown(eKeyCode::Left))
 			{
-				mDirection = Vector2(-1, 0);
-				mPlayer->SetState(Player::ePlayerState::Move);
-				mDirString = L"_L";
-				mRigidbody->AddVelocity(mDirection * mSpeed);
-				mAnimator->PlayAnimation(L"PlayerWalk" + mDirString);
+				translateToMove(eKeyCode::Left);
 			}
 			else if (Input::GetKey(eKeyCode::Right) || Input::GetKeyDown(eKeyCode::Right))
 			{
-				mDirection = Vector2(1, 0);
-				mPlayer->SetState(Player::ePlayerState::Move);
-				mDirString = L"_R";
-				mRigidbody->AddVelocity(mDirection * mSpeed);
-				mAnimator->PlayAnimation(L"PlayerWalk" + mDirString);
+				translateToMove(eKeyCode::Right);
 			}
 			else if (Input::GetKey(eKeyCode::Down) || Input::GetKeyDown(eKeyCode::Down))
 			{
-				mRigidbody->ResetVelocity();
-				mPlayer->SetState(Player::ePlayerState::LyingDown);
-				mAnimator->PlayAnimation(L"PlayerLyingDown" + mDirString);
+				translateToLyingDown();
 			}
 			else
 			{
-				mPlayer->SetState(Player::ePlayerState::Idle);
-				mAnimator->PlayAnimation(L"PlayerIdle" + mDirString);
+				translateToIdle();
 			}
 		}
 		else
@@ -470,8 +445,7 @@ namespace hs
 		// Attack -> Attack
 		if (Input::GetKey(eKeyCode::C))
 		{
-			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
-			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
+			translateToAttack();
 		}
 		else if (mRigidbody->IsGrounded())
 		{
@@ -481,47 +455,31 @@ namespace hs
 			// Attack -> Walk
 			if (Input::GetKey(eKeyCode::Left) || Input::GetKeyDown(eKeyCode::Left))
 			{
-				mPlayer->SetState(Player::ePlayerState::Move);
-				mDirection = Vector2(-1, 0);
-				mDirString = L"_L";
-				mRigidbody->AddVelocity(mDirection * mSpeed);
-				mAnimator->PlayAnimation(L"PlayerWalk_L");
+				translateToMove(eKeyCode::Left);
 			}
 			else if (Input::GetKey(eKeyCode::Right) || Input::GetKeyDown(eKeyCode::Right))
 			{
-				mPlayer->SetState(Player::ePlayerState::Move);
-				mDirection = Vector2(1, 0);
-				mDirString = L"_R";
-				mRigidbody->AddVelocity(mDirection * mSpeed);
-				mAnimator->PlayAnimation(L"PlayerWalk_R");
+				translateToMove(eKeyCode::Right);
 			}
 			// Attack -> Jump
 			else if (Input::GetKeyDown(eKeyCode::V))
 			{
-				mPlayer->SetState(Player::ePlayerState::Jump);
-				mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
-				mRigidbody->AddVelocity(mJumpVel);
-				mRigidbody->SetGrounded(false);
+				translateToJump();
 			}
 			else if (Input::GetKey(eKeyCode::Down) || Input::GetKeyDown(eKeyCode::Down))
 			{
-				mPlayer->SetState(Player::ePlayerState::LyingDown);
-				mAnimator->PlayAnimation(L"PlayerLyingDown" + mDirString);
+				translateToLyingDown();
 			}
 			else
 			{
 				// temp //Alert check
-				mPlayer->SetState(Player::ePlayerState::Alert);
-				mAnimator->PlayAnimation(L"PlayerAlert" + mDirString);
-				mDuration = 0.0f;
+				translateToAlert();
 			}
 		}
 		else
 		{
 			// temp //Alert check
-			mPlayer->SetState(Player::ePlayerState::Alert);
-			mAnimator->PlayAnimation(L"PlayerAlert" + mDirString);
-			mDuration = 0.0f;
+			translateToAlert();
 		}
 	}
 
@@ -532,36 +490,24 @@ namespace hs
 
 		if (Input::GetKeyUp(eKeyCode::Down))
 		{
-			// LyingDown -> Walk
+			// LyingDown -> Move
 			if (Input::GetKey(eKeyCode::Left) || Input::GetKeyDown(eKeyCode::Left))
 			{
-				mDirection = Vector2(-1, 0);
-				mDirString = L"_L";
-				mPlayer->SetState(Player::ePlayerState::Move);
-				mAnimator->PlayAnimation(L"PlayerWalk_L");
-				mRigidbody->AddVelocity(mDirection * mSpeed);
+				translateToMove(eKeyCode::Left);
 			}
 			else if (Input::GetKey(eKeyCode::Right) || Input::GetKeyDown(eKeyCode::Right))
 			{
-				mDirection = Vector2(1, 0);
-				mDirString = L"_R";
-				mPlayer->SetState(Player::ePlayerState::Move);
-				mAnimator->PlayAnimation(L"PlayerWalk_R");
-				mRigidbody->AddVelocity(mDirection * mSpeed);
+				translateToMove(eKeyCode::Right);
 			}
 			// LyingDown -> Jump
 			else if (Input::GetKey(eKeyCode::V))
 			{
-				mPlayer->SetState(Player::ePlayerState::Jump);
-				mAnimator->PlayAnimation(L"PlayerJump" + mDirString);
-				mRigidbody->AddVelocity(mJumpVel);
-				mRigidbody->SetGrounded(false);
+				translateToJump();
 			}
 			// LyingDown -> Idle
 			else
 			{
-				mPlayer->SetState(Player::ePlayerState::Idle);
-				mAnimator->PlayAnimation(L"PlayerIdle" + mDirString);
+				translateToIdle();
 			}
 			// LyingDown -> Alert
 		}

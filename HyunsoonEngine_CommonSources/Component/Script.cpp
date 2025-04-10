@@ -26,5 +26,4 @@ namespace hs
 	void Script::Render(HDC& hdc)
 	{
 	}
-
 } // namespace hs

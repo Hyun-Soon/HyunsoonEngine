@@ -23,4 +23,5 @@ namespace hs
 
 	private:
 	};
+
 } // namespace hs

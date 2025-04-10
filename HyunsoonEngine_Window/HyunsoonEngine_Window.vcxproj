@@ -48,6 +48,7 @@
     <ClInclude Include="Component\LandMonsterScript.h" />
     <ClInclude Include="Component\PlayerScript.h" />
     <ClInclude Include="Component\ProjectileScript.h" />
+    <ClInclude Include="DirectionMap.h" />
     <ClInclude Include="Item\Consumables.h" />
     <ClInclude Include="Item\Equipment.h" />
     <ClInclude Include="Item\Inventory.h" />

@@ -103,9 +103,7 @@ namespace hs
 
 		inline bool operator==(const Vector2& other) const
 		{
-			if (this->x == other.x && this->y == other.y)
-				return true;
-			return false;
+			return (this->x == other.x && this->y == other.y);
 		}
 
 		inline const Vector2 operator*=(const float operand)
@@ -115,4 +113,4 @@ namespace hs
 			return Vector2(this->x, this->y);
 		}
 	};
-} // namespace hs
+}; // namespace hs
