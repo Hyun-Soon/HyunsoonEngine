@@ -24,12 +24,16 @@ namespace hs
 		virtual void OnCollisionExit(Collider* other) override;
 
 		const Vector2& GetDirection() const { return mDirection; }
+		void		   SetHp(UINT hp);
+
+		void TakeDamage(UINT damage);
 
 	private:
 		void idle();
 		void move();
 		void chase();
 		void attacked();
+		void dead();
 
 		Monster*	 mMonster;
 		Transform*	 mTransform;
@@ -41,6 +45,7 @@ namespace hs
 		float		 mDuration;
 		const float	 mMinTimeToTransition;
 		const float	 mChaseDuration;
+		UINT		 mHp;
 	};
 
 } // namespace hs

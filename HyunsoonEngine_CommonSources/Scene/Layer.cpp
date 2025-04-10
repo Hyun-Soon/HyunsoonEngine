@@ -11,8 +11,7 @@ namespace hs
 	{
 		for (GameObject* gameObj : mGameObjects)
 		{
-			if (gameObj)
-				delete gameObj;
+			delete gameObj;
 		}
 	}
 

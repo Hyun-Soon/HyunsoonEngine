@@ -292,6 +292,8 @@ namespace hs
 			mPlayer->SetState(Player::ePlayerState::Attack);
 			std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);
 			mAnimator->PlayAnimation(L"PlayerSwing" + motion + mDirString);
+
+			Projectile* projectile = object::InstantiateProjectile(GetOwner());
 		}
 		// Alert -> Jump
 		else if (Input::GetKeyDown(eKeyCode::V))

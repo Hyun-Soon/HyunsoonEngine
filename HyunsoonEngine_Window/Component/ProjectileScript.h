@@ -23,6 +23,9 @@ namespace hs
 		virtual void OnCollisionStay(Collider* other);
 		virtual void OnCollisionExit(Collider* other);
 
+		void SetDamage(UINT damage) { mDamage = damage; }
+		UINT GetRandomDamage();
+
 	private:
 		void setTarget(const Vector2& ownerPos, const Vector2& ownerDir, std::vector<GameObject*> gameObjects);
 
@@ -30,6 +33,7 @@ namespace hs
 		float		mSpeed;
 		float		mRange;
 		Vector2		mDirection;
+		UINT		mDamage;
 	};
 
 } // namespace hs

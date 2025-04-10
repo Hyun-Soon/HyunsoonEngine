@@ -4,6 +4,7 @@
 #include "RandomUtils.h"
 
 #include "LandMonsterScript.h"
+#include "ProjectileScript.h"
 #include "Application.h"
 
 extern hs::Application app;
@@ -21,6 +22,7 @@ namespace hs
 		, mDuration(0.0f)
 		, mMinTimeToTransition(3.0f)
 		, mChaseDuration(5.0f)
+		, mHp(0)
 	{
 	}
 
@@ -38,7 +40,6 @@ namespace hs
 
 	void LandMonsterScript::Update()
 	{
-		// static Monster*		   monster = static_cast<Monster*>(GetOwner());
 		Monster::eMonsterState state = mMonster->GetState();
 		mDuration += TimeUtils::GetDeltaTime();
 
@@ -55,6 +56,9 @@ namespace hs
 				break;
 			case Monster::eMonsterState::Attacked:
 				attacked();
+				break;
+			case Monster::eMonsterState::Dead:
+				dead();
 				break;
 			default:
 				assert(false);
@@ -88,6 +92,9 @@ namespace hs
 	{
 		if (other->GetLayerType() == enums::eLayerType::Projectile)
 		{
+			ProjectileScript* prjtScript = other->GetOwner()->GetComponent<ProjectileScript>();
+			TakeDamage(prjtScript->GetRandomDamage());
+
 			Player*	   player = Player::GetInstance();
 			Transform* playerTr = player->GetComponent<Transform>();
 			Vector2	   playerPos = playerTr->GetPosition();
@@ -103,13 +110,24 @@ namespace hs
 				mDirection = Vector2::Right;
 			}
 
-			mMonster->SetState(Monster::eMonsterState::Attacked);
-			mAnimator->PlayAnimation(mMonster->GetName() + L"Attacked" + mDirString);
-			mDuration = 0.0f;
-			mbIsAttacked = true;
-			mRigidbody->ResetVelocity();
-			mTransform->SetPosition(mTransform->GetPosition() + mDirection * -3.0f);
-			attacked(); // TODO :: change attakced() func to translateToAttacked(); attacked() func is just called when it's already attacked state.
+			if (mHp == 0)
+			{
+				mMonster->SetState(Monster::eMonsterState::Dead);
+				mAnimator->PlayAnimation(mMonster->GetName() + L"Death" + mDirString);
+				mDuration = 0.0f;
+				mRigidbody->ResetVelocity();
+				dead();
+			}
+			else
+			{
+				mMonster->SetState(Monster::eMonsterState::Attacked);
+				mAnimator->PlayAnimation(mMonster->GetName() + L"Attacked" + mDirString);
+				mDuration = 0.0f;
+				mbIsAttacked = true;
+				mRigidbody->ResetVelocity();
+				mTransform->SetPosition(mTransform->GetPosition() + mDirection * -3.0f);
+				attacked(); // TODO :: change attakced() func to translateToAttacked(); attacked() func is just called when it's already attacked state.
+			}
 		}
 	}
 
@@ -119,6 +137,23 @@ namespace hs
 
 	void LandMonsterScript::OnCollisionExit(Collider* other)
 	{
+	}
+
+	void LandMonsterScript::SetHp(UINT hp)
+	{
+		mHp = hp;
+	}
+
+	void LandMonsterScript::TakeDamage(UINT damage)
+	{
+		if (mHp <= damage)
+		{
+			mHp = 0;
+		}
+		else
+		{
+			mHp -= damage;
+		}
 	}
 
 	void LandMonsterScript::idle()
@@ -147,7 +182,6 @@ namespace hs
 
 	void LandMonsterScript::move()
 	{
-
 		if (mDuration < mMinTimeToTransition)
 			return;
 
@@ -192,6 +226,14 @@ namespace hs
 		mRigidbody->SetVelocity(Vector2::Zero);
 		mMonster->SetState(Monster::eMonsterState::Chase);
 		mAnimator->PlayAnimation(mMonster->GetName() + L"Move" + mDirString);
+	}
+
+	void LandMonsterScript::dead()
+	{
+		if (mDuration < 0.9f)
+			return;
+
+		mMonster->SetActive(false);
 	}
 
 } // namespace hs

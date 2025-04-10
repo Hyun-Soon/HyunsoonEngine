@@ -43,5 +43,6 @@ namespace hs
 		anim->CreateAnimation(L"GreenSnailDeath_R", greenSnailDeath_R, Vector2::Zero, { 44, 33 }, Vector2::Zero, 9, 0.1f);
 		anim->PlayAnimation(L"GreenSnailIdle_L");
 		LandMonsterScript* lms_greenSnail = AddComponent<LandMonsterScript>();
+		lms_greenSnail->SetHp(10);
 	}
 } // namespace hs

@@ -28,28 +28,30 @@ namespace hs
 
 	void BeginnersTown2::Initialize()
 	{
-		Background* bg = object::Instantiate<Background>();
-		bg->SetTexture(L"bg_BeginnersTown2");
+		// Background
+		{
+			Background* bg = object::Instantiate<Background>();
+			bg->SetTexture(L"bg_BeginnersTown2");
+		}
 
 		// Player
-		//  It will be executed in Scene::Enter() func later
-		Player*	   player = Player::GetInstance();
-		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(800.0f, 300.0f);
-		tr->SetPosition(pos);
-		AddGameObject(player, enums::eLayerType::Player);
-
-		// main camera
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Background, Vector2(600.0f, 100.0f));
-		Camera*		cameraComp = camera->AddComponent<Camera>();
-		renderer::mainCamera = cameraComp;
-		cameraComp->SetTarget(player);
+		{
+			//  It will be executed in Scene::Enter() func later
+			Player*	   player = Player::GetInstance();
+			Transform* tr = player->GetComponent<Transform>();
+			Vector2	   pos = Vector2(800.0f, 300.0f);
+			tr->SetPosition(pos);
+			AddGameObject(player, enums::eLayerType::Player);
+		}
 
 		// Monster
-		GreenSnail* greenSnail1 = object::Instantiate<GreenSnail>({ 300, 500 });
-		// GreenSnail* greenSnail2 = object::Instantiate<GreenSnail>({ 500, 100 });
+		{
+			GreenSnail* greenSnail1 = object::Instantiate<GreenSnail>({ 300, 500 });
+		}
 
 		// Portal
-		Portal* portal = object::Instantiate<Portal>({ 1450, 570 });
+		{
+			Portal* portal = object::Instantiate<Portal>({ 1450, 570 });
+		}
 	}
 } // namespace hs

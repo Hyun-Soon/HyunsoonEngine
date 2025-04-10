@@ -6,6 +6,7 @@
 #include "Scene/SceneManager.h"
 #include "../Component/PlayerScript.h"
 #include "../Component/LandMonsterScript.h"
+#include "RandomUtils.h"
 
 namespace hs
 {
@@ -14,6 +15,7 @@ namespace hs
 		, mSpeed(0.0f)
 		, mRange(0.0f)
 		, mDirection(Vector2::Zero)
+		, mDamage(0)
 	{
 	}
 
@@ -92,6 +94,12 @@ namespace hs
 
 	void ProjectileScript::OnCollisionExit(Collider* other)
 	{
+	}
+
+	UINT ProjectileScript::GetRandomDamage()
+	{
+		float half = mDamage / 2.0f;
+		return RandomUtils::GetRandomValueInt(half, mDamage + half);
 	}
 
 	void ProjectileScript::setTarget(const Vector2& casterPos, const Vector2& casterDir, std::vector<GameObject*> gameObjects)

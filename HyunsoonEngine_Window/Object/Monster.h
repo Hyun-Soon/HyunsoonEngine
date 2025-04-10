@@ -13,6 +13,7 @@ namespace hs
 			Move,
 			Chase,
 			Attacked,
+			Dead,
 			End,
 		};
 
@@ -31,6 +32,5 @@ namespace hs
 		Vector2		  bDirection;
 		eMonsterState mState;
 		float		  mSpeed;
-		// uint16_t	  mHP;
 	};
 } // namespace hs
