@@ -39,13 +39,20 @@ namespace hs
 		tr->SetPosition(pos);
 		AddGameObject(player, enums::eLayerType::Player);
 
-		// main camera
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Background, Vector2(600.0f, 100.0f));
-		Camera*		cameraComp = camera->AddComponent<Camera>();
-		renderer::mainCamera = cameraComp;
-		cameraComp->SetTarget(player);
-
 		// Portal
-		// Portal* portal = object::Instantiate<Portal>({ 1450, 570 });
+		Portal* portal = object::Instantiate<Portal>({ 150, 1688 });
+		portal->SetName(L"BeginnersTown2");
+		portal->SetDestPortalIdx(1);
+	}
+	void SouthFerry::OnEnter()
+	{
+		Player*	   player = Player::GetInstance();
+		Transform* tr = player->GetComponent<Transform>();
+		Vector2	   pos = Vector2(800.0f, 300.0f);
+		tr->SetPosition(pos);
+	}
+
+	void SouthFerry::OnExit()
+	{
 	}
 } // namespace hs

@@ -55,6 +55,14 @@ namespace hs
 		}
 	}
 
+	void Scene::OnEnter()
+	{
+	}
+
+	void Scene::OnExit()
+	{
+	}
+
 	void Scene::AddGameObject(GameObject* gameObject)
 	{
 		mLayers[(UINT)gameObject->GetLayerType()]->AddGameObject(gameObject);

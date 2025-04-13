@@ -42,13 +42,6 @@ namespace hs
 			Vector2	   pos = Vector2(800.0f, 300.0f);
 			tr->SetPosition(pos);
 			AddGameObject(player, enums::eLayerType::Player);
-
-			// Camera
-			{
-				Camera* cameraComp = player->AddComponent<Camera>();
-				renderer::mainCamera = cameraComp;
-				cameraComp->SetTarget(player);
-			}
 		}
 
 		// Monster
@@ -60,6 +53,18 @@ namespace hs
 		// Portal
 		{
 			Portal* portal = object::Instantiate<Portal>({ 1450, 570 });
+			portal->SetName(L"BeginnersTown2");
+			portal->SetDestPortalIdx(0);
 		}
+	}
+	void BeginnersTown1::OnEnter()
+	{
+		Player*	   player = Player::GetInstance();
+		Transform* tr = player->GetComponent<Transform>();
+		Vector2	   pos = Vector2(800.0f, 300.0f);
+		tr->SetPosition(pos);
+	}
+	void BeginnersTown1::OnExit()
+	{
 	}
 } // namespace hs

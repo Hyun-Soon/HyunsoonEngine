@@ -62,6 +62,7 @@ namespace hs
 			}
 			else
 				TransparentBlt(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, mTexture->GetHdc(), 0, 0, res.x, res.y, RGB(255, 0, 255));
+			// BitBlt(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, mTexture->GetHdc(), 0, 0, SRCCOPY);
 		}
 		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
 		{

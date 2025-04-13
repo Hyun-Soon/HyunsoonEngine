@@ -23,6 +23,9 @@ namespace hs
 		virtual void Render(HDC& hdc);
 		virtual void Destroy();
 
+		virtual void OnEnter();
+		virtual void OnExit();
+
 		void			 AddGameObject(GameObject* gameObject);
 		void			 AddGameObject(GameObject* gameObject, enums::eLayerType layerLevel);
 		void			 EraseGameObject(GameObject* gameObj);

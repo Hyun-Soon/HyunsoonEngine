@@ -8,6 +8,7 @@
 #include "../Object/ObjectUtilsCustom.h"
 #include "../Object/Projectile.h"
 #include "../DirectionMap.h"
+#include "../Object/Portal.h"
 
 extern hs::Application app;
 
@@ -147,6 +148,18 @@ namespace hs
 
 	void PlayerScript::OnCollisionStay(Collider* other)
 	{
+		enums::eLayerType type = other->GetOwner()->GetLayerType();
+
+		if (type == enums::eLayerType::Particle && Input::GetKeyDown(eKeyCode::Up))
+		{
+			Portal*		 portal = static_cast<Portal*>(other->GetOwner());
+			std::wstring destination = portal->GetName();
+			Scene*		 activeScene = SceneManager::LoadScene(destination);
+
+			std::vector<GameObject*> objVec = activeScene->GetLayer(eLayerType::Particle)->GetGameObjects();
+			mTransform->SetPosition(objVec[portal->GetDestPortalIdx()]->GetComponent<Transform>()->GetPosition() + Vector2(0, -10));
+			mRigidbody->ResetVelocity();
+		}
 	}
 
 	void PlayerScript::OnCollisionExit(Collider* other)

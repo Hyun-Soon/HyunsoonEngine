@@ -51,7 +51,24 @@ namespace hs
 
 		// Portal
 		{
-			Portal* portal = object::Instantiate<Portal>({ 1450, 570 });
+			Portal* portal0 = object::Instantiate<Portal>({ 130, 465 });
+			portal0->SetName(L"BeginnersTown1");
+			portal0->SetDestPortalIdx(0);
+
+			Portal* portal1 = object::Instantiate<Portal>({ 1100, 400 });
+			portal1->SetName(L"SouthFerry");
+			portal1->SetDestPortalIdx(0);
 		}
+	}
+	void BeginnersTown2::OnEnter()
+	{
+		Player*	   player = Player::GetInstance();
+		Transform* tr = player->GetComponent<Transform>();
+		Vector2	   pos = Vector2(800.0f, 300.0f);
+		tr->SetPosition(pos);
+	}
+
+	void BeginnersTown2::OnExit()
+	{
 	}
 } // namespace hs

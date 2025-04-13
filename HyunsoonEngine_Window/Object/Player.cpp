@@ -3,9 +3,11 @@
 #include "Component/BoxCollider2D.h"
 #include "Component/Animator.h"
 #include "Component/Rigidbody.h"
+#include "Component/Camera.h"
 #include "../Component/PlayerScript.h"
 #include "Resource/ResourceManager.h"
 #include "Resource/Texture.h"
+#include "Renderer.h"
 
 namespace hs
 {
@@ -96,6 +98,13 @@ namespace hs
 		// rigidbody->AddVelocity(temp);
 
 		PlayerScript* ps = AddComponent<PlayerScript>();
+
+		// Camera
+		{
+			Camera* cameraComp = AddComponent<Camera>();
+			renderer::mainCamera = cameraComp;
+			cameraComp->SetTarget(this);
+		}
 	}
 
 	const Player::ePlayerState Player::GetState() const

@@ -5,9 +5,6 @@
 #include "Renderer.h"
 #include "Camera.h"
 
-// debug
-#include "Rigidbody.h"
-
 namespace hs
 {
 	BoxCollider2D::BoxCollider2D()

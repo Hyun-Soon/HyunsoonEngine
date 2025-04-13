@@ -4,18 +4,19 @@
 
 namespace hs
 {
-	class Portal : public GameObject
+	class Portal : public GameObject, public Entity
 	{
 	public:
 		Portal();
 		~Portal();
 
 		virtual void Initialize();
-		// virtual void Update();
-		// virtual void LateUpdate();
-		// virtual void Render(HDC& hdc);
+
+		const UINT GetDestPortalIdx() const { return mDestPortalIdx; }
+		void	   SetDestPortalIdx(const UINT portalIdx) { mDestPortalIdx = portalIdx; }
 
 	private:
+		UINT mDestPortalIdx;
 	};
 
 } // namespace hs

@@ -9,13 +9,16 @@ namespace hs
 
 	Scene* SceneManager::LoadScene(const std::wstring& name)
 	{
+		if (mActiveScene)
+			mActiveScene->OnExit();
+
 		std::unordered_map<std::wstring, Scene*>::iterator iter = mScenes.find(name);
 
 		if (iter == mScenes.end())
 			return nullptr;
 
 		mActiveScene = iter->second;
-		// mActiveScene->OnEnter();
+		mActiveScene->OnEnter();
 
 		return iter->second;
 	}
@@ -28,6 +31,7 @@ namespace hs
 	{
 		if (Input::GetKeyDown(eKeyCode::Tab))
 		{
+			mActiveScene->OnExit();
 			std::unordered_map<std::wstring, Scene*>::iterator it = mScenes.find(mActiveScene->GetName());
 			if (it != mScenes.end())
 			{
@@ -37,6 +41,7 @@ namespace hs
 				else
 					mActiveScene = it->second;
 			}
+			mActiveScene->OnEnter();
 		}
 		mActiveScene->Update();
 	}

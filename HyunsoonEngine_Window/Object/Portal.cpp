@@ -7,6 +7,7 @@
 namespace hs
 {
 	Portal::Portal()
+		: mDestPortalIdx(0)
 	{
 	}
 
@@ -23,6 +24,7 @@ namespace hs
 		graphics::Texture* portalTexture = ResourceManager::Find<graphics::Texture>(L"Portal");
 		portalAm->CreateAnimation(L"Portal", portalTexture, Vector2::Zero, { 90, 160 }, Vector2::Zero, 8, 0.15f);
 		portalAm->PlayAnimation(L"Portal");
+		BoxCollider2D* portalCol = AddComponent<BoxCollider2D>();
 	}
 
 } // namespace hs
