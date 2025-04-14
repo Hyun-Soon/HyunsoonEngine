@@ -36,11 +36,16 @@
     <ClCompile Include="Object\Player.cpp" />
     <ClCompile Include="Object\Portal.cpp" />
     <ClCompile Include="Object\Projectile.cpp" />
+    <ClCompile Include="Scene\AlterOfZakum.cpp" />
+    <ClCompile Include="Scene\AlterOfZakumEnt.cpp" />
     <ClCompile Include="Scene\BeginnersTown\BeginnersTown1.cpp" />
     <ClCompile Include="Scene\BeginnersTown\BeginnersTown2.cpp" />
+    <ClCompile Include="Scene\CrossRoad.cpp" />
     <ClCompile Include="Scene\HuntingScene.cpp" />
+    <ClCompile Include="Scene\KerningCity.cpp" />
     <ClCompile Include="Scene\SouthFerry.cpp" />
     <ClCompile Include="Scene\VillageScene.cpp" />
+    <ClCompile Include="Scene\ZakumRoad.cpp" />
     <ClCompile Include="Skill\LuckySeven.cpp" />
     <ClCompile Include="Skill\Skill.cpp" />
   </ItemGroup>
@@ -65,12 +70,17 @@
     <ClInclude Include="Object\Portal.h" />
     <ClInclude Include="Object\Projectile.h" />
     <ClInclude Include="Resource\LoadResources.h" />
+    <ClInclude Include="Scene\AlterOfZakum.h" />
+    <ClInclude Include="Scene\AlterOfZakumEnt.h" />
     <ClInclude Include="Scene\BeginnersTown\BeginnersTown1.h" />
     <ClInclude Include="Scene\BeginnersTown\BeginnersTown2.h" />
+    <ClInclude Include="Scene\CrossRoad.h" />
     <ClInclude Include="Scene\HuntingScene.h" />
+    <ClInclude Include="Scene\KerningCity.h" />
     <ClInclude Include="Scene\LoadScenes.h" />
     <ClInclude Include="Scene\SouthFerry.h" />
     <ClInclude Include="Scene\VillageScene.h" />
+    <ClInclude Include="Scene\ZakumRoad.h" />
     <ClInclude Include="Skill\LuckySeven.h" />
     <ClInclude Include="Skill\Skill.h" />
   </ItemGroup>

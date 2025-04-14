@@ -40,8 +40,8 @@ namespace hs
 		AddGameObject(player, enums::eLayerType::Player);
 
 		// Portal
-		Portal* portal = object::Instantiate<Portal>({ 150, 1688 });
-		portal->SetName(L"BeginnersTown2");
+		Portal* portal = object::Instantiate<Portal>({ 160, 1688 });
+		portal->SetName(L"CrossRoad");
 		portal->SetDestPortalIdx(1);
 	}
 	void SouthFerry::OnEnter()

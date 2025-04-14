@@ -56,7 +56,7 @@ namespace hs
 			portal0->SetDestPortalIdx(0);
 
 			Portal* portal1 = object::Instantiate<Portal>({ 1100, 400 });
-			portal1->SetName(L"SouthFerry");
+			portal1->SetName(L"CrossRoad");
 			portal1->SetDestPortalIdx(0);
 		}
 	}

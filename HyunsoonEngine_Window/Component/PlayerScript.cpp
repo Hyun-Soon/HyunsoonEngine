@@ -22,8 +22,8 @@ namespace hs
 		, mDirection(-1.0f, 0.0f)
 		, mDuration(0.0f)
 		, mSpeed(0.0f)
-		, mJumpVel(0.0f, -370.0f)
-		, mDoubleJumpSpeed(500.0f, -10.0f)
+		, mJumpVel(0.0f, -400.0f)
+		, mDoubleJumpSpeed(500.0f, -30.0f)
 	{
 	}
 
@@ -85,7 +85,7 @@ namespace hs
 
 		Vector2 animSize = mAnimator->GetAnimationSize();
 
-		if (CollisionManager::CheckCollisionMap(adjustedPos, animSize) == true)
+		if (mPlayer->GetState() != Player::ePlayerState::Jump && CollisionManager::CheckCollisionMap(adjustedPos, animSize) == true)
 		{
 			Vector2 revDir = mRigidbody->GetVelocity().Normalize() * -1;
 			adjustedPos = CollisionManager::GetPossiblePos(adjustedPos, revDir, animSize);
@@ -94,6 +94,9 @@ namespace hs
 		if (CollisionManager::CheckCollisionMap(adjustedPos + Vector2(0, 1), animSize))
 		{
 			mRigidbody->SetGrounded(true);
+			/*Vector2 orgVel = mRigidbody->GetVelocity();
+			orgVel.y = 0;
+			mRigidbody->SetVelocity(orgVel);*/
 		}
 		else
 		{
