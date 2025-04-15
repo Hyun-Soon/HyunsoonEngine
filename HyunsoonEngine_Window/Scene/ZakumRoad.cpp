@@ -43,15 +43,19 @@ namespace hs
 		AddGameObject(player, enums::eLayerType::Player);
 
 		// Portal
-		/*Portal* portal = object::Instantiate<Portal>({ 160, 1688 });
-		portal->SetName(L"CrossRoad");
-		portal->SetDestPortalIdx(1);*/
+		Portal* portal0 = object::Instantiate<Portal>({ 200, 738 });
+		portal0->SetName(L"KerningCity");
+		portal0->SetDestPortalIdx(0);
+
+		Portal* portal1 = object::Instantiate<Portal>({ 1700, 2115 });
+		portal1->SetName(L"AlterOfZakumEnt");
+		portal1->SetDestPortalIdx(0);
 	}
 	void ZakumRoad::OnEnter()
 	{
 		Player*	   player = Player::GetInstance();
 		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(600.0f, 100.0f);
+		Vector2	   pos = Vector2(200.0f, 100.0f);
 		tr->SetPosition(pos);
 	}
 

@@ -43,15 +43,15 @@ namespace hs
 		AddGameObject(player, enums::eLayerType::Player);
 
 		// Portal
-		/*Portal* portal = object::Instantiate<Portal>({ 160, 1688 });
-		portal->SetName(L"CrossRoad");
-		portal->SetDestPortalIdx(1);*/
+		Portal* portal = object::Instantiate<Portal>({ 1708, 1828 });
+		portal->SetName(L"ZakumRoad");
+		portal->SetDestPortalIdx(0);
 	}
 	void KerningCity::OnEnter()
 	{
 		Player*	   player = Player::GetInstance();
 		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(800.0f, 300.0f);
+		Vector2	   pos = Vector2(200.0f, 600.0f);
 		tr->SetPosition(pos);
 	}
 

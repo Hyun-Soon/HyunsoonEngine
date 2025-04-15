@@ -47,9 +47,13 @@ namespace hs
 		spr->SetTexture(layerTex);
 
 		// Portal
-		/*Portal* portal = object::Instantiate<Portal>({ 160, 1688 });
-		portal->SetName(L"CrossRoad");
-		portal->SetDestPortalIdx(1);*/
+		Portal* portal0 = object::Instantiate<Portal>({ 300, 512 });
+		portal0->SetName(L"ZakumRoad");
+		portal0->SetDestPortalIdx(1);
+
+		Portal* portal1 = object::Instantiate<Portal>({ 2600, 512 });
+		portal1->SetName(L"AlterOfZakum");
+		portal1->SetDestPortalIdx(0);
 	}
 	void AlterOfZakumEnt::OnEnter()
 	{
