@@ -78,12 +78,12 @@ namespace hs
 		//	}
 		// }
 
-		COLORREF color1 = GetPixel(GetHdc(), left, top);
+		/*COLORREF color1 = GetPixel(GetHdc(), left, top);
 		if (GetRValue(color1) == 255 && GetGValue(color1) == 0 && GetBValue(color1) == 255)
 			return true;
 		COLORREF color2 = GetPixel(GetHdc(), right, top);
 		if (GetRValue(color2) == 255 && GetGValue(color2) == 0 && GetBValue(color2) == 255)
-			return true;
+			return true;*/
 		COLORREF color3 = GetPixel(GetHdc(), left, bottom);
 		if (GetRValue(color3) == 255 && GetGValue(color3) == 0 && GetBValue(color3) == 255)
 			return true;

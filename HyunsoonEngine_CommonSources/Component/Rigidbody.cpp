@@ -48,6 +48,8 @@ namespace hs
 		position += mVel * dt + mAcc * dt2 * 0.5f;
 		mVel += mAcc * dt;
 		// mTransform->SetPosition({ std::round(position.x), std::round(position.y) }); // 12.53s
+		std::clamp<float>(mVel.x, -8, 8);
+		std::clamp<float>(mVel.y, -8, 8);
 		mTransform->SetPosition(position); // 14.23s
 	}
 

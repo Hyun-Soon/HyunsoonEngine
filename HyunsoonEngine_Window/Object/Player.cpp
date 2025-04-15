@@ -40,7 +40,6 @@ namespace hs
 	void Player::Initialize()
 	{
 		BoxCollider2D* boxCollider = AddComponent<BoxCollider2D>();
-		boxCollider->Initialize();
 
 		Animator*		   animator = AddComponent<Animator>();
 		graphics::Texture* playerIdle_L = ResourceManager::Find<graphics::Texture>(L"PlayerIdle_L");
