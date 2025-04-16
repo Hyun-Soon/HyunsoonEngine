@@ -76,6 +76,11 @@ namespace hs
 			ResourceManager::Load<graphics::Texture>(L"Shuriken_R", L"../HyunsoonEngine_Window/MaplestoryResources/Item/Shuriken_R.bmp");
 		}
 
+		// Npc
+		{
+			ResourceManager::Load<graphics::Texture>(L"Shanks", L"../HyunsoonEngine_Window/MaplestoryResources/Npc/Shanks.bmp");
+		}
+
 		// Portal
 		{
 			ResourceManager::Load<graphics::Texture>(L"Portal", L"../HyunsoonEngine_Window/MaplestoryResources/Common/CommonSprite/Portal/Portals.png");

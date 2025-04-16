@@ -12,6 +12,7 @@
 #include "../Object/Portal.h"
 #include "../Object/GreenSnail.h"
 #include "../Object/Background.h"
+#include "../Object/Npc.h"
 
 extern hs::Application app;
 
@@ -38,6 +39,11 @@ namespace hs
 		Vector2	   pos = Vector2(800.0f, 300.0f);
 		tr->SetPosition(pos);
 		AddGameObject(player, enums::eLayerType::Player);
+
+		// Npc
+		Npc* shanks = object::Instantiate<Npc>(enums::eLayerType::Npc, { 3932, 1379 });
+		shanks->SetTexture(L"Shanks");
+		shanks->SetRenderName(L"¼§Å©½º");
 
 		// Portal
 		Portal* portal = object::Instantiate<Portal>({ 160, 1688 });

@@ -1,7 +1,5 @@
 #pragma once
 
-#include <string>
-
 #include "GameObject/GameObject.h"
 
 namespace hs
@@ -9,17 +7,20 @@ namespace hs
 	class Npc : public GameObject
 	{
 	public:
-		Npc(Vector2 pos);
+		Npc();
 		~Npc();
 
-		virtual void Update();
-		virtual void LateUpdate();
-		virtual void Render(HDC& hdc);
+		virtual void Initialize() override;
+
+		void SetTexture(std::wstring texName);
+		void SetDialogues(std::vector<std::wstring>& dialogues) { mDialogues = dialogues; }
+		void SetRenderName(std::wstring name) { mRenderName = name; }
 
 	private:
 		void showDialogue();
 
-		std::string mDialogues[3];
+		std::vector<std::wstring> mDialogues;
+		std::wstring			  mRenderName;
 	};
 
 } // namespace hs
