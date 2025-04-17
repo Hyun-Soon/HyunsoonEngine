@@ -161,7 +161,7 @@ namespace hs
 
 			std::vector<GameObject*> objVec = activeScene->GetLayer(eLayerType::Particle)->GetGameObjects();
 			mTransform->SetPosition(objVec[portal->GetDestPortalIdx()]->GetComponent<Transform>()->GetPosition() + Vector2(0, -10));
-			mRigidbody->ResetVelocity();
+			// mRigidbody->ResetVelocity();
 		}
 	}
 

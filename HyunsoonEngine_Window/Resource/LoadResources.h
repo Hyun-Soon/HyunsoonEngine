@@ -68,6 +68,42 @@ namespace hs
 			ResourceManager::Load<graphics::Texture>(L"GreenSnailAttacked_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/GreenSnail/GreenSnailAttacked_R.bmp");
 			ResourceManager::Load<graphics::Texture>(L"GreenSnailDeath_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/GreenSnail/GreenSnailDeath_L.bmp");
 			ResourceManager::Load<graphics::Texture>(L"GreenSnailDeath_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/GreenSnail/GreenSnailDeath_R.bmp");
+
+			ResourceManager::Load<graphics::Texture>(L"BlueSnailIdle_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/BlueSnail/BlueSnailIdle_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"BlueSnailIdle_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/BlueSnail/BlueSnailIdle_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"BlueSnailMove_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/BlueSnail/BlueSnailMove_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"BlueSnailMove_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/BlueSnail/BlueSnailMove_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"BlueSnailAttacked_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/BlueSnail/BlueSnailAttacked_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"BlueSnailAttacked_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/BlueSnail/BlueSnailAttacked_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"BlueSnailDeath_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/BlueSnail/BlueSnailDeath_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"BlueSnailDeath_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/BlueSnail/BlueSnailDeath_R.bmp");
+
+			ResourceManager::Load<graphics::Texture>(L"SporeIdle_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Spore/SporeIdle_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"SporeIdle_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Spore/SporeIdle_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"SporeMove_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Spore/SporeMove_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"SporeMove_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Spore/SporeMove_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"SporeAttacked_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Spore/SporeAttacked_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"SporeAttacked_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Spore/SporeAttacked_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"SporeDeath_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Spore/SporeDeath_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"SporeDeath_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Spore/SporeDeath_R.bmp");
+
+			ResourceManager::Load<graphics::Texture>(L"OrangeMushroomIdle_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/OrangeMushroom/OrangeMushroomIdle_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"OrangeMushroomIdle_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/OrangeMushroom/OrangeMushroomIdle_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"OrangeMushroomMove_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/OrangeMushroom/OrangeMushroomMove_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"OrangeMushroomMove_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/OrangeMushroom/OrangeMushroomMove_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"OrangeMushroomAttacked_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/OrangeMushroom/OrangeMushroomAttacked_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"OrangeMushroomAttacked_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/OrangeMushroom/OrangeMushroomAttacked_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"OrangeMushroomDeath_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/OrangeMushroom/OrangeMushroomDeath_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"OrangeMushroomDeath_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/OrangeMushroom/OrangeMushroomDeath_R.bmp");
+
+			ResourceManager::Load<graphics::Texture>(L"ZombieIdle_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieIdle_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"ZombieIdle_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieIdle_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"ZombieMove_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieMove_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"ZombieMove_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieMove_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"ZombieAttacked_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieAttacked_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"ZombieAttacked_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieAttacked_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"ZombieDeath_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieDeath_L.bmp");
+			ResourceManager::Load<graphics::Texture>(L"ZombieDeath_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieDeath_R.bmp");
 		}
 
 		// Item

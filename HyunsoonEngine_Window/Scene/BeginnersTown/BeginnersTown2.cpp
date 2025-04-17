@@ -11,6 +11,7 @@
 #include "../HyunsoonEngine_Window/Component/LandMonsterScript.h"
 #include "../../Object/Portal.h"
 #include "../../Object/GreenSnail.h"
+#include "../../Object/BlueSnail.h"
 #include "../../Object/Background.h"
 
 extern hs::Application app;
@@ -47,6 +48,8 @@ namespace hs
 		// Monster
 		{
 			GreenSnail* greenSnail1 = object::Instantiate<GreenSnail>({ 300, 500 });
+
+			BlueSnail* blueSnail1 = object::Instantiate<BlueSnail>({ 700, 500 });
 		}
 
 		// Portal

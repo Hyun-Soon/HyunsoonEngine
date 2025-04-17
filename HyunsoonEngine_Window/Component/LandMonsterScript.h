@@ -24,6 +24,8 @@ namespace hs
 		virtual void OnCollisionExit(Collider* other) override;
 
 		const Vector2& GetDirection() const { return mDirection; }
+		void		   SetMinTimeToTrans(float time) { mMinTimeToTransition = time; }
+		void		   SetDeathAnimDuration(float duration) { mDeathAnimDuration = duration; }
 		void		   SetHp(UINT hp);
 
 		void TakeDamage(UINT damage);
@@ -43,8 +45,9 @@ namespace hs
 		Vector2		 mDirection;
 		std::wstring mDirString;
 		float		 mDuration;
-		const float	 mMinTimeToTransition;
+		float		 mMinTimeToTransition;
 		const float	 mChaseDuration;
+		float		 mDeathAnimDuration;
 		UINT		 mHp;
 	};
 

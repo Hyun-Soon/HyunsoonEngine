@@ -10,7 +10,7 @@
 #include "../HyunsoonEngine_Window/Object/Monster.h"
 #include "../HyunsoonEngine_Window/Component/LandMonsterScript.h"
 #include "../Object/Portal.h"
-#include "../Object/GreenSnail.h"
+#include "../Object/Zombie.h"
 #include "../Object/Background.h"
 
 extern hs::Application app;
@@ -41,6 +41,11 @@ namespace hs
 		Vector2	   pos = Vector2(800.0f, 300.0f);
 		tr->SetPosition(pos);
 		AddGameObject(player, enums::eLayerType::Player);
+
+		// Monster
+		Zombie* zombie0 = object::Instantiate<Zombie>({ 350, 300 });
+		Zombie* zombie1 = object::Instantiate<Zombie>({ 1300, 700 });
+		Zombie* zombie2 = object::Instantiate<Zombie>({ 800, 1450 });
 
 		// Portal
 		Portal* portal0 = object::Instantiate<Portal>({ 200, 738 });

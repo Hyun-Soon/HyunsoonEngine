@@ -24,6 +24,7 @@ namespace hs
 		void TakeDamage(uint32_t damage);*/
 		void		  SetState(eMonsterState state);
 		eMonsterState GetState() const;
+		void		  SetSpeed(float speed) { mSpeed = speed; }
 		float		  GetSpeed() const;
 
 	private:

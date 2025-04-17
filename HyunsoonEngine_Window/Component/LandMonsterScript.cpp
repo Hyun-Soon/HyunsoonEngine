@@ -22,6 +22,7 @@ namespace hs
 		, mDuration(0.0f)
 		, mMinTimeToTransition(3.0f)
 		, mChaseDuration(5.0f)
+		, mDeathAnimDuration(0.0f)
 		, mHp(0)
 	{
 	}
@@ -185,8 +186,6 @@ namespace hs
 		if (mDuration < mMinTimeToTransition)
 			return;
 
-		// move -> attacked
-		// OnCollisionEnter()
 		// Move -> Idle
 		mRigidbody->SetVelocity(Vector2::Zero);
 		mMonster->SetState(Monster::eMonsterState::Idle);
@@ -230,7 +229,7 @@ namespace hs
 
 	void LandMonsterScript::dead()
 	{
-		if (mDuration < 0.9f)
+		if (mDuration < mDeathAnimDuration)
 			return;
 
 		mMonster->SetActive(false);
