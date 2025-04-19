@@ -20,11 +20,11 @@ namespace hs
 
 		void SetTexture(graphics::Texture* texture);
 		void SetScale(Vector2 scale);
-		void SetStretch(bool stretch) { mbStretch = stretch; }
+		void SetRatioRender(bool enable) { mbRatioRender = enable; }
 
 	private:
 		graphics::Texture* mTexture;
 		Vector2			   mScale;
-		bool			   mbStretch;
+		bool			   mbRatioRender;
 	};
 } // namespace hs

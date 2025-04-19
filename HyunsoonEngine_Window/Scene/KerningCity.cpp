@@ -28,8 +28,9 @@ namespace hs
 
 	void KerningCity::Initialize()
 	{
-		// Background* bg0 = object::Instantiate<Background>();
-		// bg0->SetTexture(L"bg_KerningCityBack");
+		Background* sky = object::Instantiate<Background>();
+		sky->SetRatioRender(true);
+		sky->SetTexture(L"bg_KerningCityBack");
 
 		Background* bg1 = object::Instantiate<Background>();
 		bg1->SetTexture(L"bg_KerningCity");

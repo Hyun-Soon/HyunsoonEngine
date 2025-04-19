@@ -9,18 +9,19 @@ namespace hs
 	{
 		// Background
 		{
-			// ResourceManager::Load<graphics::Texture>(L"bg_Henesys", L"../HyunsoonEngine_Window/MaplestoryResources/Henesys_back.bmp");
-			// ResourceManager::Load<graphics::Texture>(L"background1", L"../HyunsoonEngine_Window/MaplestoryResources/Common/CommonNotSprite/MapBackGround/MapBackGround5.png");
-			// ResourceManager::Load<graphics::Texture>(L"background1", L"../HyunsoonEngine_Window/MaplestoryResource/Background_Henesys.bmp");
-			ResourceManager::Load<graphics::Texture>(L"bg_BeginnersTown1", L"../HyunsoonEngine_Window/MaplestoryResources/BeginnersTown1/BeginnersTown1NotSprite/BeginnersTown1/BeginnersTown1Background.png");
+			ResourceManager::Load<graphics::Texture>(L"bg_Sky", L"../HyunsoonEngine_Window/MaplestoryResources/MapBackground/Sky2.bmp");
+			// ResourceManager::Load<graphics::Texture>(L"bg_Sky", L"../HyunsoonEngine_Window/MaplestoryResources/MapBackground/Land.bmp");
+			ResourceManager::Load<graphics::Texture>(L"bg_Alter", L"../HyunsoonEngine_Window/MaplestoryResources/MapBackground/AlterOfZakumBack.bmp");
 
-			ResourceManager::Load<graphics::Texture>(L"bg_BeginnersTown2", L"../HyunsoonEngine_Window/MaplestoryResources/BeginnersTown2/BeginnersTown2NotSprite/BeginnersTown2/BeginnersTown2Background.png");
+			ResourceManager::Load<graphics::Texture>(L"bg_BeginnersTown1", L"../HyunsoonEngine_Window/MaplestoryResources/BeginnersTown1/BeginnersTown1NotSprite/BeginnersTown1/BeginnersTown1Background.bmp");
+
+			ResourceManager::Load<graphics::Texture>(L"bg_BeginnersTown2", L"../HyunsoonEngine_Window/MaplestoryResources/BeginnersTown2/BeginnersTown2NotSprite/BeginnersTown2/BeginnersTown2Background.bmp");
 
 			ResourceManager::Load<graphics::Texture>(L"bg_CrossRoad", L"../HyunsoonEngine_Window/MaplestoryResources/CrossRoad/CrossRoadNotSprite/CrossRoad/CrossRoad.bmp");
 
 			ResourceManager::Load<graphics::Texture>(L"bg_SouthFerry", L"../HyunsoonEngine_Window/MaplestoryResources/Southferry/SouthferryNotSprite/Map/SouthFerry.bmp");
 
-			// ResourceManager::Load<graphics::Texture>(L"bg_KerningCityBack", L"../HyunsoonEngine_Window/MaplestoryResources/KerningCity/KerningCityNotSprite/Map/KerningCityBackGround.bmp");
+			ResourceManager::Load<graphics::Texture>(L"bg_KerningCityBack", L"../HyunsoonEngine_Window/MaplestoryResources/KerningCity/KerningCityNotSprite/Map/KerningCityBackGround.bmp");
 			ResourceManager::Load<graphics::Texture>(L"bg_KerningCity", L"../HyunsoonEngine_Window/MaplestoryResources/KerningCity/KerningCityNotSprite/Map/KerningCity.bmp");
 
 			ResourceManager::Load<graphics::Texture>(L"bg_ZakumRoad", L"../HyunsoonEngine_Window/MaplestoryResources/ZakumRoad1/ZakumRoad1NotSprite/Map/ZakumRoad.bmp");
@@ -28,6 +29,7 @@ namespace hs
 
 			ResourceManager::Load<graphics::Texture>(L"bg_AlterOfZakumEnt", L"../HyunsoonEngine_Window/MaplestoryResources/AlterOfZakumEnt/AlterOfZakumEntNotSprite/Map/AlterOfZakumEnt.bmp");
 			ResourceManager::Load<graphics::Texture>(L"bg_AlterOfZakumEntLayer", L"../HyunsoonEngine_Window/MaplestoryResources/AlterOfZakumEnt/AlterOfZakumEntNotSprite/Map/AlterOfZakumEntLayer.bmp");
+			ResourceManager::Load<graphics::Texture>(L"bg_Pillar", L"../HyunsoonEngine_Window/MaplestoryResources/AlterOfZakumEnt/AlterOfZakumEntNotSprite/Map/ZakumLandScape3.bmp");
 
 			ResourceManager::Load<graphics::Texture>(L"bg_ZakumLandScape1", L"../HyunsoonEngine_Window/MaplestoryResources/AlterOfZakumEnt/AlterOfZakumEntNotSprite/Map/ZakumLandScape1.bmp");
 			ResourceManager::Load<graphics::Texture>(L"bg_ZakumLandScape2", L"../HyunsoonEngine_Window/MaplestoryResources/AlterOfZakumEnt/AlterOfZakumEntNotSprite/Map/ZakumLandScape2.bmp");

@@ -30,8 +30,12 @@ namespace hs
 	{
 		// Background
 		{
-			Background* bg = object::Instantiate<Background>();
-			bg->SetTexture(L"bg_BeginnersTown1");
+			Background* sky = object::Instantiate<Background>();
+			sky->SetRatioRender(true);
+			sky->SetTexture(L"bg_Sky");
+
+			Background* terrain = object::Instantiate<Background>();
+			terrain->SetTexture(L"bg_BeginnersTown1");
 		}
 
 		// Player

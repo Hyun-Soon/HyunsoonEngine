@@ -10,14 +10,13 @@ namespace hs
 	{
 	public:
 		Vector2 CalculatePosition(Vector2 pos) { return pos - mDistance; };
+		Vector2 CalculateRatioPosition(Vector2 pos, Vector2 res);
 
 		Camera();
 		~Camera();
 
 		void Initialize() override;
 		void Update() override;
-		void LateUpdate() override;
-		void Render(HDC& hdc) override;
 
 		void SetTarget(GameObject* target) { mTarget = target; };
 
@@ -26,5 +25,6 @@ namespace hs
 		Vector2		mDistance;
 		Vector2		mResolution;
 		Vector2		mLookPosition;
+		Vector2		mRatio;
 	};
 } // namespace hs

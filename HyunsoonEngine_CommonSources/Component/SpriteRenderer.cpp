@@ -12,7 +12,7 @@ namespace hs
 		: Component(enums::eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
 		, mScale(Vector2::One)
-		, mbStretch(false)
+		, mbRatioRender(false)
 	{
 	}
 
@@ -43,25 +43,34 @@ namespace hs
 
 		// camera
 		if (renderer::mainCamera)
-			pos = renderer::mainCamera->CalculatePosition(pos);
+		{
+			if (mbRatioRender)
+				pos = renderer::mainCamera->CalculateRatioPosition(pos, mTexture->GetResolution());
+			else
+				pos = renderer::mainCamera->CalculatePosition(pos);
+		}
 
 		float renderWidth = res.x * mScale.x * scale.x;
 		float renderHeight = res.y * mScale.y * scale.y;
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 		{
-			if (mTexture->IsAlpha())
-			{
-				BLENDFUNCTION func = {};
-				func.BlendOp = AC_SRC_OVER;
-				func.BlendFlags = 0;
-				func.AlphaFormat = AC_SRC_ALPHA;
-				func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
+			// if (mTexture->IsAlpha())
+			//{
+			//	BLENDFUNCTION func = {};
+			//	func.BlendOp = AC_SRC_OVER;
+			//	func.BlendFlags = 0;
+			//	func.AlphaFormat = AC_SRC_ALPHA;
+			//	func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 
-				AlphaBlend(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, mTexture->GetHdc(), 0, 0, res.x, res.y, func);
-			}
-			else
-				TransparentBlt(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, mTexture->GetHdc(), 0, 0, res.x, res.y, RGB(255, 0, 255));
+			//	AlphaBlend(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, mTexture->GetHdc(), 0, 0, res.x, res.y, func);
+			//}
+			// else
+			// if (mbStretch == false)
+			int left = std::round(pos.x - renderWidth);
+			int top = std::round(pos.y - renderHeight);
+			TransparentBlt(hdc, left, top, renderWidth, renderHeight, mTexture->GetHdc(), 0, 0, res.x, res.y, RGB(255, 0, 255));
+
 			// BitBlt(hdc, std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight, mTexture->GetHdc(), 0, 0, SRCCOPY);
 		}
 		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
@@ -75,10 +84,10 @@ namespace hs
 			// graphics.RotateTransform(rotation);
 			// graphics.TranslateTransform(-pos.x, -pos.y);
 			// graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(pos.x, pos.y, res.x * mScale.x * scale.x, res.y * mScale.y * scale.y));
-			if (mbStretch == false)
-				graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight), 0, 0, res.x, res.y, Gdiplus::UnitPixel, nullptr /*&imgAtt*/);
-			else
-				StretchBlt(hdc, 0, 0, appRes.x, appRes.y, mTexture->GetHdc(), 0, 0, res.x, res.y, SRCCOPY);
+			// if (mbStretch == false)
+			graphics.DrawImage(mTexture->GetImage(), Gdiplus::Rect(std::round(pos.x - renderWidth), std::round(pos.y - renderHeight), renderWidth, renderHeight), 0, 0, res.x, res.y, Gdiplus::UnitPixel, nullptr /*&imgAtt*/);
+			// else
+			// StretchBlt(hdc, 0, 0, appRes.x, appRes.y, mTexture->GetHdc(), 0, 0, res.x, res.y, SRCCOPY);
 		}
 	}
 

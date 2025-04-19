@@ -29,8 +29,12 @@ namespace hs
 
 	void CrossRoad::Initialize()
 	{
-		Background* bg = object::Instantiate<Background>();
-		bg->SetTexture(L"bg_CrossRoad");
+		Background* sky = object::Instantiate<Background>();
+		sky->SetRatioRender(true);
+		sky->SetTexture(L"bg_Sky");
+
+		Background* terrain = object::Instantiate<Background>();
+		terrain->SetTexture(L"bg_CrossRoad");
 
 		// Player
 		//  It will be executed in Scene::Enter() func later

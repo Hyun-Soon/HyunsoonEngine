@@ -29,8 +29,12 @@ namespace hs
 
 	void AlterOfZakumEnt::Initialize()
 	{
-		Background* bg = object::Instantiate<Background>();
-		bg->SetTexture(L"bg_AlterOfZakumEnt");
+		Background* larva = object::Instantiate<Background>();
+		larva->SetRatioRender(true);
+		larva->SetTexture(L"bg_Alter");
+
+		Background* terrain = object::Instantiate<Background>();
+		terrain->SetTexture(L"bg_AlterOfZakumEnt");
 
 		// Player
 		//  It will be executed in Scene::Enter() func later
@@ -45,6 +49,10 @@ namespace hs
 		layer->GetComponent<Transform>()->SetPosition(layerTex->GetResolution());
 		SpriteRenderer* spr = layer->AddComponent<SpriteRenderer>();
 		spr->SetTexture(layerTex);
+
+		Background* pillar = object::Instantiate<Background>(enums::eLayerType::Npc);
+		pillar->SetTexture(L"bg_Pillar");
+		pillar->SetPosition({ 1800, 600 });
 
 		// Portal
 		Portal* portal0 = object::Instantiate<Portal>({ 300, 512 });

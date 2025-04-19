@@ -89,6 +89,11 @@ namespace hs
 			return Vector2(this->x / operand, this->y / operand);
 		}
 
+		inline Vector2 operator/(const Vector2& other) const
+		{
+			return Vector2(this->x / other.x, this->y / other.y);
+		}
+
 		inline const Vector2 operator+=(const Vector2& other)
 		{
 			this->x += other.x;

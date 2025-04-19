@@ -29,6 +29,10 @@ namespace hs
 
 	void AlterOfZakum::Initialize()
 	{
+		Background* larva = object::Instantiate<Background>();
+		larva->SetRatioRender(true);
+		larva->SetTexture(L"bg_Alter");
+
 		Background* bg = object::Instantiate<Background>();
 		bg->SetTexture(L"bg_AlterOfZakum");
 
