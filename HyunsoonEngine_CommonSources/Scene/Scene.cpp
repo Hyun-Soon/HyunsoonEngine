@@ -1,5 +1,8 @@
 #include "Scene.h"
 #include "GameObject/GameObject.h"
+#include "Application.h"
+
+extern hs::Application app;
 
 namespace hs
 {

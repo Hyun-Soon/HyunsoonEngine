@@ -29,6 +29,9 @@ namespace hs
 
 	void AlterOfZakum::Initialize()
 	{
+		// CamLimit
+		Scene::SetCamLimit({ 1214, 950 });
+
 		Background* larva = object::Instantiate<Background>();
 		larva->SetRatioRender(true);
 		larva->SetTexture(L"bg_Alter");

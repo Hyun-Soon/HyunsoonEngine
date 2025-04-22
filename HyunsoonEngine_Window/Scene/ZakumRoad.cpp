@@ -28,6 +28,9 @@ namespace hs
 
 	void ZakumRoad::Initialize()
 	{
+		// CamLimit
+		Scene::SetCamLimit({ 1808, 2317 });
+
 		Background* bg0 = object::Instantiate<Background>();
 		bg0->SetTexture(L"bg_ZakumRoadBack");
 

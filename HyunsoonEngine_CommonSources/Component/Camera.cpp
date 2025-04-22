@@ -2,6 +2,7 @@
 #include "GameObject/GameObject.h"
 #include "Transform.h"
 #include "Application.h"
+#include "Scene/SceneManager.h"
 
 extern hs::Application app;
 
@@ -39,7 +40,12 @@ namespace hs
 			mLookPosition = cameraTr->GetPosition();
 		}
 
-		mDistance = mLookPosition - (mResolution / 2.0f);
+		Vector2 camLimit = SceneManager::GetActiveScene()->GetCamLimit();
+		Vector2 halfRes = mResolution / 2.0f;
+		float	clampedX = std::clamp<float>(mLookPosition.x, halfRes.x, camLimit.x - halfRes.x);
+		float	clampedY = std::clamp<float>(mLookPosition.y, halfRes.y, camLimit.y - halfRes.y);
+
+		mDistance = Vector2(clampedX, clampedY) - (mResolution / 2.0f);
 		mRatio = mDistance / mResolution * 0.1f;
 	}
 

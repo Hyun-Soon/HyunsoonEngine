@@ -29,6 +29,9 @@ namespace hs
 
 	void CrossRoad::Initialize()
 	{
+		// CamLimit
+		Scene::SetCamLimit({ 3858, 1195 });
+
 		Background* sky = object::Instantiate<Background>();
 		sky->SetRatioRender(true);
 		sky->SetTexture(L"bg_Sky");

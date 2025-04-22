@@ -28,6 +28,9 @@ namespace hs
 
 	void BeginnersTown1::Initialize()
 	{
+		// CamLimit
+		Scene::SetCamLimit({ 1518, 970 });
+
 		// Background
 		{
 			Background* sky = object::Instantiate<Background>();

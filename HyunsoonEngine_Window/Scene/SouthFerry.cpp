@@ -29,6 +29,9 @@ namespace hs
 
 	void SouthFerry::Initialize()
 	{
+		// CamLimit
+		Scene::SetCamLimit({ 4744, 2315 });
+
 		Background* sky = object::Instantiate<Background>();
 		sky->SetRatioRender(true);
 		sky->SetTexture(L"bg_Sky");

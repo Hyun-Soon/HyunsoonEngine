@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Layer.h"
+#include "../MathTypes.h"
 
 namespace hs
 {
@@ -31,11 +32,14 @@ namespace hs
 		void			 EraseGameObject(GameObject* gameObj);
 		const eSceneType GetType() const;
 		Layer*			 GetLayer(enums::eLayerType layerType) { return mLayers[(UINT)layerType]; }
+		void			 SetCamLimit(Vector2 limit) { mCamLimit = limit; }
+		Vector2			 GetCamLimit() { return mCamLimit; }
 
 	private:
 		void createLayers();
 
 		eSceneType			mSceneType;
 		std::vector<Layer*> mLayers;
+		Vector2				mCamLimit;
 	};
 } // namespace hs

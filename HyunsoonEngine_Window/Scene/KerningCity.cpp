@@ -28,6 +28,9 @@ namespace hs
 
 	void KerningCity::Initialize()
 	{
+		// CamLimit
+		Scene::SetCamLimit({ 5200, 2163 });
+
 		Background* sky = object::Instantiate<Background>();
 		sky->SetRatioRender(true);
 		sky->SetTexture(L"bg_KerningCityBack");
