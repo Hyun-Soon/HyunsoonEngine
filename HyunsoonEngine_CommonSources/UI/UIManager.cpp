@@ -2,6 +2,10 @@
 #include "UIHUD.h"
 #include "UIButton.h"
 
+// debug
+#include "../HyunsoonEngine_Window/Object/Player.h"
+#include "Component\Rigidbody.h"
+
 namespace hs
 {
 	std::unordered_map<eUIType, UIBase*> UIManager::mUIs = {};
@@ -57,6 +61,19 @@ namespace hs
 
 	void UIManager::Render(HDC& hdc)
 	{
+		// debug
+		{
+			Player*	   player = Player::GetInstance();
+			Rigidbody* rgb = player->GetComponent<Rigidbody>();
+			Vector2	   v = rgb->GetVelocity();
+
+			wchar_t str[50] = L"";
+			swprintf_s(str, 50, L"Velocity : %d, %d", (int)v.x, (int)v.y);
+			int len = wcsnlen_s(str, 50);
+
+			TextOut(hdc, 0, 0, str, len);
+		}
+
 		if (mUIBases.size() <= 0)
 			return;
 

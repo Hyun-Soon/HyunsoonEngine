@@ -23,6 +23,6 @@ namespace hs
 		SceneManager::CreateScene<AlterOfZakumEnt>(L"AlterOfZakumEnt");
 		SceneManager::CreateScene<AlterOfZakum>(L"AlterOfZakum");
 
-		SceneManager::LoadScene(L"AlterOfZakumEnt");
+		SceneManager::LoadScene(L"CrossRoad");
 	}
 } // namespace hs

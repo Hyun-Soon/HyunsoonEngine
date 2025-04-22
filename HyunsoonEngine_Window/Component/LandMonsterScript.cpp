@@ -75,17 +75,21 @@ namespace hs
 
 		Vector2 animSize = mAnimator->GetAnimationSize();
 
-		if (CollisionManager::CheckCollisionMap(adjustedPos, animSize) == true)
+		if (CollisionManager::CheckCollisionMap(adjustedPos + Vector2::Down, animSize) == true)
 		{
 			Vector2 revDir = mRigidbody->GetVelocity().Normalize() * -1;
 			mTransform->SetPosition(CollisionManager::GetPossiblePos(adjustedPos, revDir, animSize));
 			if (mRigidbody->GetVelocity().y > 0.0f)
+			{
 				mRigidbody->SetGrounded(true);
+				mRigidbody->SetGravity(false);
+			}
 		}
 		else
 		{
 			mTransform->SetPosition(adjustedPos);
 			mRigidbody->SetGrounded(false);
+			mRigidbody->SetGravity(true);
 		}
 	}
 

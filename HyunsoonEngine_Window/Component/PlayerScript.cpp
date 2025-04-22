@@ -94,6 +94,7 @@ namespace hs
 		if (CollisionManager::CheckCollisionMap(adjustedPos + Vector2(0, 1), animSize))
 		{
 			mRigidbody->SetGrounded(true);
+			mRigidbody->SetGravity(false);
 			/*Vector2 orgVel = mRigidbody->GetVelocity();
 			orgVel.y = 0;
 			mRigidbody->SetVelocity(orgVel);*/
@@ -101,6 +102,7 @@ namespace hs
 		else
 		{
 			mRigidbody->SetGrounded(false);
+			mRigidbody->SetGravity(true);
 		}
 
 		mTransform->SetPosition(adjustedPos);
@@ -160,8 +162,7 @@ namespace hs
 			Scene*		 activeScene = SceneManager::LoadScene(destination);
 
 			std::vector<GameObject*> objVec = activeScene->GetLayer(eLayerType::Particle)->GetGameObjects();
-			mTransform->SetPosition(objVec[portal->GetDestPortalIdx()]->GetComponent<Transform>()->GetPosition() + Vector2(0, -10));
-			// mRigidbody->ResetVelocity();
+			mTransform->SetPosition(objVec[portal->GetDestPortalIdx()]->GetComponent<Transform>()->GetPosition() + Vector2(0, -30));
 		}
 	}
 

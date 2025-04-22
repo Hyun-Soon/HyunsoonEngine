@@ -48,16 +48,16 @@ namespace hs
 		AddGameObject(player, enums::eLayerType::Player);
 
 		// Monster
-		GreenSnail* greenSnail0 = object::Instantiate<GreenSnail>({ 2300, 1500 });
+		GreenSnail* greenSnail0 = object::Instantiate<GreenSnail>({ 2300, 900 });
 
-		BlueSnail* blueSnail0 = object::Instantiate<BlueSnail>({ 700, 1500 });
-		BlueSnail* blueSnail1 = object::Instantiate<BlueSnail>({ 2000, 1500 });
+		BlueSnail* blueSnail0 = object::Instantiate<BlueSnail>({ 700, 900 });
+		BlueSnail* blueSnail1 = object::Instantiate<BlueSnail>({ 2000, 900 });
 
-		Spore* spore1 = object::Instantiate<Spore>({ 500, 1500 });
-		Spore* spore2 = object::Instantiate<Spore>({ 1200, 1500 });
+		Spore* spore1 = object::Instantiate<Spore>({ 500, 900 });
+		Spore* spore2 = object::Instantiate<Spore>({ 1200, 900 });
 
-		OrangeMushroom* orangeMushroom0 = object::Instantiate<OrangeMushroom>({ 600, 1500 });
-		OrangeMushroom* orangeMushroom1 = object::Instantiate<OrangeMushroom>({ 2300, 1500 });
+		OrangeMushroom* orangeMushroom0 = object::Instantiate<OrangeMushroom>({ 600, 900 });
+		OrangeMushroom* orangeMushroom1 = object::Instantiate<OrangeMushroom>({ 2300, 900 });
 
 		// Portal
 		Portal* portal0 = object::Instantiate<Portal>({ 120, 670 });
