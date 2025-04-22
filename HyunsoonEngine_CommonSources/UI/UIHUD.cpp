@@ -23,7 +23,6 @@ namespace hs
 
 	void UIHUD::OnActive()
 	{
-		// int* p = new int;
 	}
 
 	void UIHUD::OnInactive()
@@ -49,12 +48,12 @@ namespace hs
 		// func.AlphaFormat = AC_SRC_ALPHA;
 		// func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(Opaque)
 		// AlphaBlend(hdc, renderPos.x, renderPos.y, mTexture->GetResolution().x, mTexture->GetResolution().y, mTexture->GetHdc(), 0, 0, mTexture->GetResolution().x, mTexture->GetResolution().y, func);
-		TransparentBlt(hdc, 0, renderPos.y - 71, mTexture->GetResolution().x, mTexture->GetResolution().y, mTexture->GetHdc(), 0, 0, mTexture->GetResolution().x, mTexture->GetResolution().y, RGB(255, 0, 255));
+		// TransparentBlt(hdc, 0, renderPos.y - 42, mTexture->GetResolution().x, mTexture->GetResolution().y, mTexture->GetHdc(), 0, 0, mTexture->GetResolution().x, mTexture->GetResolution().y, RGB(255, 0, 255));
+		BitBlt(hdc, 0, renderPos.y - 42, mTexture->GetResolution().x, mTexture->GetResolution().y, mTexture->GetHdc(), 0, 0, SRCCOPY);
 	}
 
 	void UIHUD::OnClear()
 	{
-		// delete p;
 	}
 
 } // namespace hs
