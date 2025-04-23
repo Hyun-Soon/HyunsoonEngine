@@ -45,9 +45,9 @@ namespace hs
 		{
 			//  It will be executed in Scene::Enter() func later
 			Player*	   player = Player::GetInstance();
-			Transform* tr = player->GetComponent<Transform>();
-			Vector2	   pos = Vector2(800.0f, 300.0f);
-			tr->SetPosition(pos);
+			//Transform* tr = player->GetComponent<Transform>();
+			//Vector2	   pos = Vector2(300.0f, 800.0f);
+			//tr->SetPosition(pos);
 			AddGameObject(player, enums::eLayerType::Player);
 		}
 
@@ -68,7 +68,7 @@ namespace hs
 	{
 		Player*	   player = Player::GetInstance();
 		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(800.0f, 300.0f);
+		Vector2	   pos = Vector2(400.0f, 300.0f);
 		tr->SetPosition(pos);
 	}
 	void BeginnersTown1::OnExit()

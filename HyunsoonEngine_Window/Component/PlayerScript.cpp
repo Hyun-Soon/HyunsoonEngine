@@ -95,9 +95,6 @@ namespace hs
 		{
 			mRigidbody->SetGrounded(true);
 			mRigidbody->SetGravity(false);
-			/*Vector2 orgVel = mRigidbody->GetVelocity();
-			orgVel.y = 0;
-			mRigidbody->SetVelocity(orgVel);*/
 		}
 		else
 		{
@@ -146,7 +143,7 @@ namespace hs
 
 		if (type == enums::eLayerType::Monster)
 		{
-			mRigidbody->AddVelocity(mDirection * Vector2(500.0f, 0.0f) * -1.0f + Vector2(0.0f, -500.0f));
+			mRigidbody->AddVelocity(mDirection * Vector2(500.0f, 0.0f) * -1.0f + Vector2(0.0f, -600.0f));
 			mRigidbody->SetGrounded(false);
 		}
 	}

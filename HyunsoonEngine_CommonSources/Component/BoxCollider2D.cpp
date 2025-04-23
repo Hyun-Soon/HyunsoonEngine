@@ -30,25 +30,25 @@ namespace hs
 	void BoxCollider2D::Render(HDC& hdc)
 	{
 		//// debug
-		// Transform* tr = GetOwner()->GetComponent<Transform>();
-		// Vector2	   pos = tr->GetPosition();
+		 /*Transform* tr = GetOwner()->GetComponent<Transform>();
+		 Vector2	   pos = tr->GetPosition();
 
-		//
-		// if (renderer::mainCamera)
-		//	pos = renderer::mainCamera->CalculatePosition(pos);
+		
+		 if (renderer::mainCamera)
+			pos = renderer::mainCamera->CalculatePosition(pos);
 
-		// Vector2 offset = GetOffset();
+		 Vector2 offset = GetOffset();
 
-		// HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
-		// HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, transparentBrush);
+		 HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
+		 HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, transparentBrush);
 
-		// HPEN greenPen = CreatePen(PS_SOLID, 2, RGB(0, 255, 0));
-		// HPEN oldPen = (HPEN)SelectObject(hdc, greenPen);
+		 HPEN greenPen = CreatePen(PS_SOLID, 2, RGB(0, 255, 0));
+		 HPEN oldPen = (HPEN)SelectObject(hdc, greenPen);
 
-		// Rectangle(hdc, pos.x + offset.x - GetSize().x, pos.y + offset.y - GetSize().y, pos.x + offset.x, pos.y + offset.y);
+		 Rectangle(hdc, pos.x + offset.x - GetSize().x, pos.y + offset.y - GetSize().y, pos.x + offset.x, pos.y + offset.y);
 
-		// SelectObject(hdc, oldBrush);
-		// SelectObject(hdc, oldPen);
-		// DeleteObject(greenPen);
+		 SelectObject(hdc, oldBrush);
+		 SelectObject(hdc, oldPen);
+		 DeleteObject(greenPen);*/
 	}
 } // namespace hs

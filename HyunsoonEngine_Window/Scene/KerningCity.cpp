@@ -55,7 +55,7 @@ namespace hs
 	{
 		Player*	   player = Player::GetInstance();
 		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(200.0f, 600.0f);
+		Vector2	   pos = Vector2(200.0f, 1400.0f);
 		tr->SetPosition(pos);
 	}
 

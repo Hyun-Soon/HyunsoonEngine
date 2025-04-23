@@ -62,17 +62,17 @@ namespace hs
 	void UIManager::Render(HDC& hdc)
 	{
 		// debug
-		{
-			Player*	   player = Player::GetInstance();
-			Rigidbody* rgb = player->GetComponent<Rigidbody>();
-			Vector2	   v = rgb->GetVelocity();
+		//{
+		//	Player*	   player = Player::GetInstance();
+		//	Rigidbody* rgb = player->GetComponent<Rigidbody>();
+		//	Vector2	   v = rgb->GetVelocity();
 
-			wchar_t str[50] = L"";
-			swprintf_s(str, 50, L"Velocity : %d, %d", (int)v.x, (int)v.y);
-			int len = wcsnlen_s(str, 50);
+		//	wchar_t str[50] = L"";
+		//	swprintf_s(str, 50, L"Velocity : %d, %d", (int)v.x, (int)v.y);
+		//	int len = wcsnlen_s(str, 50);
 
-			TextOut(hdc, 0, 0, str, len);
-		}
+		//	TextOut(hdc, 0, 0, str, len);
+		//}
 
 		if (mUIBases.size() <= 0)
 			return;
