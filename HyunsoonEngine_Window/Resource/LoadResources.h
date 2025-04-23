@@ -9,7 +9,7 @@ namespace hs
 	{
 		// Background
 		{
-			ResourceManager::Load<graphics::Texture>(L"bg_Sky", L"../HyunsoonEngine_Window/MaplestoryResources/MapBackground/Sky2.bmp");
+			ResourceManager::Load<graphics::Texture>(L"bg_Sky", L"../HyunsoonEngine_Window/MaplestoryResources/MapBackground/Sky3.bmp");
 			// ResourceManager::Load<graphics::Texture>(L"bg_Sky", L"../HyunsoonEngine_Window/MaplestoryResources/MapBackground/Land.bmp");
 			ResourceManager::Load<graphics::Texture>(L"bg_Alter", L"../HyunsoonEngine_Window/MaplestoryResources/MapBackground/AlterOfZakumBack.bmp");
 
