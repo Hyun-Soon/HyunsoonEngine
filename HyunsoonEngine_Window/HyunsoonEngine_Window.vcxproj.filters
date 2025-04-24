@@ -135,6 +135,12 @@
     <ClCompile Include="Object\OrangeMushroom.cpp">
       <Filter>Source Files\Object</Filter>
     </ClCompile>
+    <ClCompile Include="Object\JrBalrog.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\JrBalrogScript.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Object\Monster.h">
@@ -247,6 +253,12 @@
     </ClInclude>
     <ClInclude Include="Object\OrangeMushroom.h">
       <Filter>Source Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\JrBalrog.h">
+      <Filter>Source Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\JrBalrogScript.h">
+      <Filter>Source Files\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

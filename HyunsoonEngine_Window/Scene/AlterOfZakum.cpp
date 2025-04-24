@@ -11,7 +11,7 @@
 #include "../HyunsoonEngine_Window/Object/Monster.h"
 #include "../HyunsoonEngine_Window/Component/LandMonsterScript.h"
 #include "../Object/Portal.h"
-#include "../Object/GreenSnail.h"
+#include "../Object/JrBalrog.h"
 #include "../Object/Background.h"
 
 extern hs::Application app;
@@ -40,12 +40,11 @@ namespace hs
 		bg->SetTexture(L"bg_AlterOfZakum");
 
 		// Player
-		//  It will be executed in Scene::Enter() func later
 		Player*	   player = Player::GetInstance();
-		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(800.0f, 300.0f);
-		tr->SetPosition(pos);
 		AddGameObject(player, enums::eLayerType::Player);
+
+		//Monster
+		JrBalrog* jrBalrog = object::Instantiate<JrBalrog>({ 800, 500 });
 
 		// Portal
 		Portal* portal = object::Instantiate<Portal>({ 200, 657 });
@@ -56,7 +55,7 @@ namespace hs
 	{
 		Player*	   player = Player::GetInstance();
 		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(800.0f, 300.0f);
+		Vector2	   pos = Vector2(200.0f, 300.0f);
 		tr->SetPosition(pos);
 	}
 
