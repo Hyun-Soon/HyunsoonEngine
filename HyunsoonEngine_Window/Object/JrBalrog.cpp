@@ -4,7 +4,7 @@
 #include "Component/Rigidbody.h"
 #include "Component/Animator.h"
 #include "Resource/ResourceManager.h"
-#include "../Component/LandMonsterScript.h"
+#include "../Component/JrBalrogScript.h"
 
 namespace hs
 {
@@ -50,7 +50,7 @@ namespace hs
 		graphics::Texture* jrBalrogDeath_R = ResourceManager::Find<graphics::Texture>(L"JrBalrogDeath_R");
 		anim->CreateAnimation(L"JrBalrogDeath_R", jrBalrogDeath_R, Vector2::Zero, { 239, 163 }, Vector2::Zero, 3, 0.3f);
 		anim->PlayAnimation(L"JrBalrogIdle_L");
-		LandMonsterScript* lms_jrBalrog = AddComponent<LandMonsterScript>();
+		JrBalrogScript* lms_jrBalrog = AddComponent<JrBalrogScript>();
 		lms_jrBalrog->SetDeathAnimDuration(0.9f);
 		lms_jrBalrog->SetMinTimeToTrans(4.0f);
 		lms_jrBalrog->SetHp(10);

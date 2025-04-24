@@ -13,6 +13,7 @@ namespace hs
 			Move,
 			Chase,
 			Attacked,
+			Attack,
 			Dead,
 			End,
 		};
