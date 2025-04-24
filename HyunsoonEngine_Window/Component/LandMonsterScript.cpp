@@ -6,6 +6,7 @@
 #include "LandMonsterScript.h"
 #include "ProjectileScript.h"
 #include "Application.h"
+#include "../DirectionMap.h"
 
 extern hs::Application app;
 
@@ -18,7 +19,6 @@ namespace hs
 		, mAnimator(nullptr)
 		, mbIsAttacked(false)
 		, mDirection(Vector2::Left)
-		, mDirString(L"_L")
 		, mDuration(0.0f)
 		, mMinTimeToTransition(3.0f)
 		, mChaseDuration(5.0f)
@@ -106,32 +106,20 @@ namespace hs
 
 			if (playerPos.x < mTransform->GetPosition().x)
 			{
-				mDirString = L"_L";
 				mDirection = Vector2::Left;
 			}
 			else
 			{
-				mDirString = L"_R";
 				mDirection = Vector2::Right;
 			}
 
 			if (mHp == 0)
 			{
-				mMonster->SetState(Monster::eMonsterState::Dead);
-				mAnimator->PlayAnimation(mMonster->GetName() + L"Death" + mDirString);
-				mDuration = 0.0f;
-				mRigidbody->ResetVelocity();
-				dead();
+				translateToDead();
 			}
 			else
 			{
-				mMonster->SetState(Monster::eMonsterState::Attacked);
-				mAnimator->PlayAnimation(mMonster->GetName() + L"Attacked" + mDirString);
-				mDuration = 0.0f;
-				mbIsAttacked = true;
-				mRigidbody->ResetVelocity();
-				mTransform->SetPosition(mTransform->GetPosition() + mDirection * -3.0f);
-				attacked(); // TODO :: change attakced() func to translateToAttacked(); attacked() func is just called when it's already attacked state.
+				translateToAttacked();
 			}
 		}
 	}
@@ -163,26 +151,12 @@ namespace hs
 
 	void LandMonsterScript::idle()
 	{
-		// Idle -> Attacked
-		// //onCollisionEnter()
 		// Idle -> Move
 		if (mDuration < mMinTimeToTransition)
 			return;
 
-		if (RandomUtils::GetRandomValueInt(0, 1))
-		{
-			mDirection = Vector2::Left;
-			mDirString = L"_L";
-		}
-		else
-		{
-			mDirection = Vector2::Right;
-			mDirString = L"_R";
-		}
-		mMonster->SetState(Monster::eMonsterState::Move);
-		mAnimator->PlayAnimation(mMonster->GetName() + L"Move" + mDirString);
-		mRigidbody->SetVelocity(mDirection * static_cast<Monster*>(GetOwner())->GetSpeed());
-		mDuration = 0.0f;
+
+		translateToMove();
 	}
 
 	void LandMonsterScript::move()
@@ -191,10 +165,7 @@ namespace hs
 			return;
 
 		// Move -> Idle
-		mRigidbody->SetVelocity(Vector2::Zero);
-		mMonster->SetState(Monster::eMonsterState::Idle);
-		mAnimator->PlayAnimation(mMonster->GetName() + L"Idle" + mDirString);
-		mDuration = 0.0f;
+		translateToIdle();
 	}
 
 	void LandMonsterScript::chase()
@@ -205,18 +176,16 @@ namespace hs
 
 		if (playerPos.x < mTransform->GetPosition().x)
 		{
-			mDirString = L"_L";
 			mDirection = Vector2::Left;
 		}
 		else
 		{
-			mDirString = L"_R";
 			mDirection = Vector2::Right;
 		}
 
 		mRigidbody->SetVelocity(mDirection * static_cast<Monster*>(GetOwner())->GetSpeed());
 		mMonster->SetState(Monster::eMonsterState::Move);
-		mAnimator->PlayAnimation(mMonster->GetName() + L"Move" + mDirString);
+		mAnimator->PlayAnimation(mMonster->GetName() + L"Move" + dirStrMap[mDirection]);
 		mDuration = 0.0f;
 		mbIsAttacked = false;
 	}
@@ -226,9 +195,7 @@ namespace hs
 		if (mDuration < 0.5f) // attacked animation duration
 			return;
 
-		mRigidbody->SetVelocity(Vector2::Zero);
 		mMonster->SetState(Monster::eMonsterState::Chase);
-		mAnimator->PlayAnimation(mMonster->GetName() + L"Move" + mDirString);
 	}
 
 	void LandMonsterScript::dead()
@@ -237,6 +204,50 @@ namespace hs
 			return;
 
 		mMonster->SetActive(false);
+	}
+
+	void LandMonsterScript::translateToIdle()
+	{
+		resetDuration();
+		mRigidbody->SetVelocity(Vector2::Zero);
+		mMonster->SetState(Monster::eMonsterState::Idle);
+		mAnimator->PlayAnimation(mMonster->GetName() + L"Idle" + dirStrMap[mDirection]);
+	}
+
+	void LandMonsterScript::translateToMove()
+	{
+		resetDuration();
+
+		if (RandomUtils::GetRandomValueInt(0, 1))
+		{
+			mDirection = Vector2::Left;
+		}
+		else
+		{
+			mDirection = Vector2::Right;
+		}
+
+		mMonster->SetState(Monster::eMonsterState::Move);
+		mAnimator->PlayAnimation(mMonster->GetName() + L"Move" + dirStrMap[mDirection]);
+		mRigidbody->SetVelocity(mDirection * static_cast<Monster*>(GetOwner())->GetSpeed());
+	}
+
+	void LandMonsterScript::translateToAttacked()
+	{
+		resetDuration();
+		mMonster->SetState(Monster::eMonsterState::Attacked);
+		mAnimator->PlayAnimation(mMonster->GetName() + L"Attacked" + dirStrMap[mDirection]);
+		mbIsAttacked = true;
+		mRigidbody->ResetVelocity();
+		mTransform->SetPosition(mTransform->GetPosition() + mDirection * -3.0f);
+	}
+
+	void LandMonsterScript::translateToDead()
+	{
+		resetDuration();
+		mMonster->SetState(Monster::eMonsterState::Dead);
+		mAnimator->PlayAnimation(mMonster->GetName() + L"Death" + dirStrMap[mDirection]);
+		mRigidbody->ResetVelocity();
 	}
 
 } // namespace hs

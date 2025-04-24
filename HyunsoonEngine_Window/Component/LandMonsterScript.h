@@ -37,13 +37,19 @@ namespace hs
 		void attacked();
 		void dead();
 
+		void translateToIdle();
+		void translateToMove();
+		void translateToAttacked();
+		void translateToDead();
+
+		void resetDuration() { mDuration = 0.0f; }
+
 		Monster*	 mMonster;
 		Transform*	 mTransform;
 		Rigidbody*	 mRigidbody;
 		Animator*	 mAnimator;
 		bool		 mbIsAttacked;
 		Vector2		 mDirection;
-		std::wstring mDirString;
 		float		 mDuration;
 		float		 mMinTimeToTransition;
 		const float	 mChaseDuration;
