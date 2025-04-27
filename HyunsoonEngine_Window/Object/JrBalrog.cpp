@@ -22,9 +22,9 @@ namespace hs
 		SetLayerType(enums::eLayerType::Monster);
 
 		BoxCollider2D* boxCollider = AddComponent<BoxCollider2D>();
-		Rigidbody* rgb = AddComponent<Rigidbody>();
+		Rigidbody*	   rgb = AddComponent<Rigidbody>();
 		rgb->SetGravity(true);
-		Animator* anim = AddComponent<Animator>();
+		Animator*		   anim = AddComponent<Animator>();
 		graphics::Texture* jrBalrogIdle_L = ResourceManager::Find<graphics::Texture>(L"JrBalrogIdle_L");
 		anim->CreateAnimation(L"JrBalrogIdle_L", jrBalrogIdle_L, Vector2::Zero, { 160, 157 }, Vector2::Zero, 1, 10);
 		graphics::Texture* jrBalrogIdle_R = ResourceManager::Find<graphics::Texture>(L"JrBalrogIdle_R");
@@ -52,7 +52,7 @@ namespace hs
 		anim->PlayAnimation(L"JrBalrogIdle_L");
 		JrBalrogScript* lms_jrBalrog = AddComponent<JrBalrogScript>();
 		lms_jrBalrog->SetDeathAnimDuration(0.9f);
-		lms_jrBalrog->SetMinTimeToTrans(4.0f);
+		lms_jrBalrog->SetMinTimeToTrans(2.0f);
 		lms_jrBalrog->SetHp(10);
 	}
 } // namespace hs

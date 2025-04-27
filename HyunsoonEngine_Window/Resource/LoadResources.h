@@ -107,7 +107,7 @@ namespace hs
 			ResourceManager::Load<graphics::Texture>(L"ZombieDeath_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieDeath_L.bmp");
 			ResourceManager::Load<graphics::Texture>(L"ZombieDeath_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieDeath_R.bmp");
 
-			//JrBalrog
+			// JrBalrog
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogIdle_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogIdle_L.bmp");
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogIdle_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogIdle_R.bmp");
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogMove_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogMove_L.bmp");
@@ -117,7 +117,7 @@ namespace hs
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogDeath_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogDeath_L.bmp");
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogDeath_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogDeath_R.bmp");
 
-			//JrBalrog Effect
+			// JrBalrog Effect
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogAttack1_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogAttack1_L.bmp");
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogAttack1_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogAttack1_R.bmp");
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogAttack2_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogAttack2_L.bmp");
@@ -126,6 +126,12 @@ namespace hs
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogAttackEffect1_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogAttackEffect1_R.png");
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogAttackEffect2_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogAttackEffect2_L.png");
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogAttackEffect2_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogAttackEffect2_R.png");
+
+			ResourceManager::Load<graphics::Texture>(L"ZakumLeftArm3", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumLeftArm3.bmp");
+			ResourceManager::Load<graphics::Texture>(L"ZakumSpawn0", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Spawn/ZakumSpawn0.png");
+			ResourceManager::Load<graphics::Texture>(L"ZakumSpawn1", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Spawn/ZakumSpawn1.bmp");
+			ResourceManager::Load<graphics::Texture>(L"ZakumSpawn2", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Spawn/ZakumSpawn2.bmp");
+			/*ResourceManager::Load<graphics::Texture>(L"test", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/test.bmp");*/
 		}
 
 		// Item

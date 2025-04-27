@@ -40,16 +40,26 @@ namespace hs
 		bg->SetTexture(L"bg_AlterOfZakum");
 
 		// Player
-		Player*	   player = Player::GetInstance();
+		Player* player = Player::GetInstance();
 		AddGameObject(player, enums::eLayerType::Player);
 
-		//Monster
+		// Monster
 		JrBalrog* jrBalrog = object::Instantiate<JrBalrog>({ 800, 500 });
 
 		// Portal
 		Portal* portal = object::Instantiate<Portal>({ 200, 657 });
 		portal->SetName(L"AlterOfZakumEnt");
 		portal->SetDestPortalIdx(1);
+
+		// test
+		GameObject* obj = object::Instantiate<GameObject>(enums::eLayerType::Monster, { 600, 500 });
+		// SpriteRenderer*	   spr = obj->AddComponent<SpriteRenderer>();
+		// graphics::Texture* testtex = ResourceManager::Find<graphics::Texture>(L"test");
+		// spr->SetTexture(testtex);
+		Animator*		   anim = obj->AddComponent<Animator>();
+		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(L"ZakumSpawn0");
+		anim->CreateAnimation(L"ZakumSpawn0", tex, Vector2::Zero, { 795, 513 }, Vector2::Zero, 21, 0.3f);
+		anim->PlayAnimation(L"ZakumSpawn0");
 	}
 	void AlterOfZakum::OnEnter()
 	{
