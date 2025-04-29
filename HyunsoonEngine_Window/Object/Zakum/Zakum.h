@@ -12,12 +12,12 @@ namespace hs
 		~Zakum();
 
 		virtual void Initialize() override;
-		virtual void Update() override;
-		virtual void LateUpdate() override;
-		virtual void Render(HDC& hdc) override;
+		//virtual void Update() override;
+		//virtual void LateUpdate() override;
+		//virtual void Render(HDC& hdc) override;
 
 	private:
 		const int mArmNum;
-		std::vector<ZakumArm*> mArms;
+		//std::vector<ZakumArm*> mArms;
 	};
 } // namespace hs

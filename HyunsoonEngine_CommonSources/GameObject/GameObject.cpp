@@ -1,5 +1,6 @@
 #include "GameObject/GameObject.h"
 #include "Component/Transform.h"
+#include "GameObject.h"
 
 namespace hs
 {
@@ -17,6 +18,7 @@ namespace hs
 		: mState(GameObject::eGameObjectState::Active)
 		, mComponents((UINT)enums::eComponentType::End, nullptr)
 		, mLayerType(enums::eLayerType::None)
+		, mChilds(0)
 	{
 		initializeTransform();
 	}
@@ -42,6 +44,9 @@ namespace hs
 
 	void GameObject::Update()
 	{
+		for (GameObject* child : mChilds)
+			child->Update();
+
 		for (Component* component : mComponents)
 		{
 			if (component == nullptr)
@@ -52,6 +57,9 @@ namespace hs
 
 	void GameObject::LateUpdate()
 	{
+		for (GameObject* child : mChilds)
+			child->LateUpdate();
+
 		for (Component* component : mComponents)
 		{
 			if (component == nullptr)
@@ -62,12 +70,21 @@ namespace hs
 
 	void GameObject::Render(HDC& hdc)
 	{
+		for (GameObject* child : mChilds)
+			child->Render(hdc);
+
 		for (Component* component : mComponents)
 		{
 			if (component == nullptr)
 				continue;
 			component->Render(hdc);
 		}
+	}
+
+	void GameObject::AddChild(GameObject* child)
+	{
+		child->Initialize();
+		mChilds.push_back(child);
 	}
 
 	void GameObject::initializeTransform()

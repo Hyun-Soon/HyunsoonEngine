@@ -80,22 +80,39 @@ namespace hs
 
 		for (GameObject* left : lefts)
 		{
-			if (left->IsActive() == false)
-				continue;
-			Collider* leftCollider = left->GetComponent<Collider>();
-			if (leftCollider == nullptr)
-				continue;
+			std::vector<Collider*> leftColliders;
+			findCollidersRecur(left, leftColliders);
+			//if (left->IsActive() == false)
+			//	continue;
+			//Collider* leftCollider = left->GetComponent<Collider>();
+			//if (leftCollider == nullptr)
+			//	continue;
 
 			for (GameObject* right : rights)
 			{
-				if (right->IsActive() == false)
-					continue;
-				Collider* rightCollider = right->GetComponent<Collider>();
-				if (rightCollider == nullptr)
-					continue;
 				if (left == right)
 					continue;
 
+				std::vector<Collider*> rightColliders;
+				findCollidersRecur(right, rightColliders);
+				/*if (right->IsActive() == false)
+					continue;
+				Collider* rightCollider = right->GetComponent<Collider>();
+				if (rightCollider == nullptr)
+					continue;*/
+
+				CheckColliderCollisions(leftColliders, rightColliders);
+				//ColliderCollision(leftCollider, rightCollider);
+			}
+		}
+	}
+
+	void CollisionManager::CheckColliderCollisions(std::vector<Collider*> lefts, std::vector<Collider*> rights)
+	{
+		for (Collider* leftCollider : lefts)
+		{
+			for (Collider* rightCollider : rights)
+			{
 				ColliderCollision(leftCollider, rightCollider);
 			}
 		}
@@ -248,5 +265,25 @@ namespace hs
 		}
 
 		return pos;
+	}
+
+	void CollisionManager::findCollidersRecur(GameObject* obj, std::vector<Collider*>& colliderVec)
+	{
+		if (obj->HasChild())
+		{
+			std::vector<GameObject*>& objVec = obj->GetChilds();
+
+			for (GameObject* childObj : objVec)
+			{
+				findCollidersRecur(childObj, colliderVec);
+			}
+		}
+
+		if (obj->IsActive() == false)
+			return;
+		Collider* collider = obj->GetComponent<Collider>();
+		if (collider == nullptr)
+			return;
+		colliderVec.push_back(collider);
 	}
 } // namespace hs

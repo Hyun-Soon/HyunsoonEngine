@@ -66,6 +66,10 @@ namespace hs
 				mState = eGameObjectState::Paused;
 		}
 
+		void AddChild(GameObject* child);
+		bool HasChild() { return mChilds.size(); }
+		std::vector<GameObject*>& GetChilds() { return mChilds; }
+
 		bool			  IsActive() const { return mState == eGameObjectState::Active; }
 		bool			  IsDead() const { return mState == eGameObjectState::Dead; }
 		void			  SetLayerType(enums::eLayerType layerType) { mLayerType = layerType; }
@@ -75,8 +79,9 @@ namespace hs
 		void initializeTransform();
 		void death() { mState = eGameObjectState::Dead; }
 
-		eGameObjectState		mState;
-		std::vector<Component*> mComponents;
-		enums::eLayerType		mLayerType;
+		eGameObjectState		 mState;
+		std::vector<Component*>  mComponents;
+		enums::eLayerType		 mLayerType;
+		std::vector<GameObject*> mChilds;
 	};
 } // namespace hs

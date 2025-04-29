@@ -10,7 +10,7 @@ namespace hs
 {
 	Zakum::Zakum()
 		: mArmNum(8)
-		, mArms(8)
+		//, mArms(8)
 	{
 	}
 
@@ -25,10 +25,16 @@ namespace hs
 
 		for (uint8_t idx = 0; idx < mArmNum; ++idx)
 		{
-			mArms[idx] = new ZakumArm();
-			mArms[idx]->SetParent(this);
-			mArms[idx]->SetIndex(idx);
-			mArms[idx]->Initialize();
+			ZakumArm* arm = new ZakumArm();
+			arm->SetParent(this);
+			arm->SetIndex(idx);
+			//arm->Initialize();
+			AddChild(arm);
+
+			//mArms[idx] = new ZakumArm();
+			//mArms[idx]->SetParent(this);
+			//mArms[idx]->SetIndex(idx);
+			//mArms[idx]->Initialize();
 		}
 
 		Animator* anim = AddComponent<Animator>();
@@ -44,30 +50,30 @@ namespace hs
 		lms_Zakum->SetHp(10);*/
 	}
 
-	void Zakum::Update()
-	{
-		for (uint8_t idx = 0; idx < mArmNum; ++idx)
-		{
-			mArms[idx]->Update();
-		}
-		GameObject::Update();
-	}
+	//void Zakum::Update()
+	//{
+	//	for (uint8_t idx = 0; idx < mArmNum; ++idx)
+	//	{
+	//		mArms[idx]->Update();
+	//	}
+	//	GameObject::Update();
+	//}
 
-	void Zakum::LateUpdate()
-	{
-		for (uint8_t idx = 0; idx < mArmNum; ++idx)
-		{
-			mArms[idx]->LateUpdate();
-		}
-		GameObject::LateUpdate();
-	}
+	//void Zakum::LateUpdate()
+	//{
+	//	for (uint8_t idx = 0; idx < mArmNum; ++idx)
+	//	{
+	//		mArms[idx]->LateUpdate();
+	//	}
+	//	GameObject::LateUpdate();
+	//}
 
-	void Zakum::Render(HDC& hdc)
-	{
-		for (uint8_t idx = 0; idx < mArmNum; ++idx)
-		{
-			mArms[idx]->Render(hdc);
-		}
-		GameObject::Render(hdc);
-	}
+	//void Zakum::Render(HDC& hdc)
+	//{
+	//	for (uint8_t idx = 0; idx < mArmNum; ++idx)
+	//	{
+	//		mArms[idx]->Render(hdc);
+	//	}
+	//	GameObject::Render(hdc);
+	//}
 } // namespace hs
