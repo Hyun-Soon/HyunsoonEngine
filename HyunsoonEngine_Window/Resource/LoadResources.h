@@ -127,11 +127,28 @@ namespace hs
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogAttackEffect2_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogAttackEffect2_L.png");
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogAttackEffect2_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogAttackEffect2_R.png");
 
-			ResourceManager::Load<graphics::Texture>(L"ZakumLeftArm3", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumLeftArm3.bmp");
-			ResourceManager::Load<graphics::Texture>(L"ZakumSpawn0", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Spawn/ZakumSpawn0.png");
-			ResourceManager::Load<graphics::Texture>(L"ZakumSpawn1", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Spawn/ZakumSpawn1.bmp");
-			ResourceManager::Load<graphics::Texture>(L"ZakumSpawn2", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Spawn/ZakumSpawn2.bmp");
-			/*ResourceManager::Load<graphics::Texture>(L"test", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/test.bmp");*/
+			//Zakum
+			{
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm0", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm0.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm1", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm1.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm2", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm2.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm3", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm3.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm4", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm4.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm5", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm5.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm6", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm6.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm7", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm7.bmp");
+
+				ResourceManager::Load<graphics::Texture>(L"ZakumPhase1Idle", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Phase1/ZakumIdle.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumPhase1Death", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Phase1/ZakumDeath.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumPhase2Idle", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Phase2/ZakumIdle.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumPhase2Death", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Phase2/ZakumDeath.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumPhase3Idle", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Phase3/ZakumIdle.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumPhase3Death", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Phase3/ZakumDeath.bmp");
+
+				ResourceManager::Load<graphics::Texture>(L"ZakumSpawn", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Spawn/ZakumSpawn.png");
+
+				ResourceManager::Load<graphics::Texture>(L"ZakumAttack", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Attack/ZakumAttack.png");
+			}
 		}
 
 		// Item
@@ -153,6 +170,14 @@ namespace hs
 		// UI
 		{
 			ResourceManager::Load<graphics::Texture>(L"BottomBar", L"../HyunsoonEngine_Window/MaplestoryResources/UI/BottomBar.bmp");
+		}
+
+		// DeBuff
+		{
+			ResourceManager::Load<graphics::Texture>(L"CannotJump", L"../HyunsoonEngine_Window/MaplestoryResources/DeBuff/CannotJump.png");
+			ResourceManager::Load<graphics::Texture>(L"AccuracyDrop", L"../HyunsoonEngine_Window/MaplestoryResources/DeBuff/AccuracyDrop.png");
+			ResourceManager::Load<graphics::Texture>(L"SkillLock", L"../HyunsoonEngine_Window/MaplestoryResources/DeBuff/SkillLock.png");
+
 		}
 	}
 } // namespace hs

@@ -12,6 +12,7 @@
 #include "../HyunsoonEngine_Window/Component/LandMonsterScript.h"
 #include "../Object/Portal.h"
 #include "../Object/JrBalrog.h"
+#include "../Object/Zakum/Zakum.h"
 #include "../Object/Background.h"
 
 extern hs::Application app;
@@ -44,7 +45,8 @@ namespace hs
 		AddGameObject(player, enums::eLayerType::Player);
 
 		// Monster
-		JrBalrog* jrBalrog = object::Instantiate<JrBalrog>({ 800, 500 });
+		//JrBalrog* jrBalrog = object::Instantiate<JrBalrog>({ 800, 500 });
+		Zakum* zakum = object::Instantiate<Zakum>({ 800, 657 });
 
 		// Portal
 		Portal* portal = object::Instantiate<Portal>({ 200, 657 });
@@ -52,14 +54,25 @@ namespace hs
 		portal->SetDestPortalIdx(1);
 
 		// test
-		GameObject* obj = object::Instantiate<GameObject>(enums::eLayerType::Monster, { 600, 500 });
+		//GameObject* obj = object::Instantiate<GameObject>(enums::eLayerType::Monster, { 600, 500 });
 		// SpriteRenderer*	   spr = obj->AddComponent<SpriteRenderer>();
 		// graphics::Texture* testtex = ResourceManager::Find<graphics::Texture>(L"test");
 		// spr->SetTexture(testtex);
-		Animator*		   anim = obj->AddComponent<Animator>();
-		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(L"ZakumSpawn0");
-		anim->CreateAnimation(L"ZakumSpawn0", tex, Vector2::Zero, { 795, 513 }, Vector2::Zero, 21, 0.3f);
-		anim->PlayAnimation(L"ZakumSpawn0");
+
+		/*Animator*		   anim = obj->AddComponent<Animator>();
+		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(L"SkillLock");
+		anim->CreateAnimation(L"SkillLock", tex, Vector2::Zero, { 73, 47 }, Vector2::Zero, 10, 0.2f);
+		anim->PlayAnimation(L"SkillLock");*/
+
+		/*Animator* anim = obj->AddComponent<Animator>();
+		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(L"AccuracyDrop");
+		anim->CreateAnimation(L"AccuracyDrop", tex, Vector2::Zero, { 48, 52 }, Vector2::Zero, 7, 0.2f);
+		anim->PlayAnimation(L"AccuracyDrop");*/
+
+		/*Animator* anim = obj->AddComponent<Animator>();
+		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(L"CannotJump");
+		anim->CreateAnimation(L"CannotJump", tex, Vector2::Zero, { 43, 41 }, Vector2::Zero, 6, 0.2f);
+		anim->PlayAnimation(L"CannotJump");*/
 	}
 	void AlterOfZakum::OnEnter()
 	{

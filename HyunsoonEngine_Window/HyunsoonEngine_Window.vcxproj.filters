@@ -34,6 +34,9 @@
     <Filter Include="Source Files\Component">
       <UniqueIdentifier>{86bbd5c8-70b9-43bc-8c04-045ed284ad17}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Object\Zakum">
+      <UniqueIdentifier>{a2c30466-c989-458d-be8a-367eeead811b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Object\Monster.cpp">
@@ -140,6 +143,12 @@
     </ClCompile>
     <ClCompile Include="Component\JrBalrogScript.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Zakum\Zakum.cpp">
+      <Filter>Source Files\Object\Zakum</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Zakum\ZakumArm.cpp">
+      <Filter>Source Files\Object\Zakum</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +268,12 @@
     </ClInclude>
     <ClInclude Include="Component\JrBalrogScript.h">
       <Filter>Source Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Zakum\Zakum.h">
+      <Filter>Source Files\Object\Zakum</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Zakum\ZakumArm.h">
+      <Filter>Source Files\Object\Zakum</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
