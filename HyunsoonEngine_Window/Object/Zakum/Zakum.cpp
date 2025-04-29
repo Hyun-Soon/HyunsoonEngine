@@ -21,7 +21,7 @@ namespace hs
 	void Zakum::Initialize()
 	{
 		SetName(L"Zakum");
-		SetLayerType(enums::eLayerType::Monster);
+		SetLayerType(enums::eLayerType::BossMonster);
 
 		for (uint8_t idx = 0; idx < mArmNum; ++idx)
 		{
@@ -35,6 +35,8 @@ namespace hs
 		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(L"ZakumPhase1Idle");
 		anim->CreateAnimation(L"ZakumPhase1Idle", tex, Vector2::Zero, { 385, 388 }, Vector2::Zero, 8, 0.2f);
 		anim->PlayAnimation(L"ZakumPhase1Idle");
+
+		BoxCollider2D* boxCol = AddComponent<BoxCollider2D>();
 
 		/*ZakumScript* lms_Zakum = AddComponent<ZakumScript>();
 		lms_Zakum->SetDeathAnimDuration(0.9f);

@@ -21,12 +21,14 @@ namespace hs
 	{
 		std::wstring name = L"ZakumArm" + std::to_wstring(mIdx);
 		SetName(name);
-		SetLayerType(enums::eLayerType::Monster);
+		SetLayerType(enums::eLayerType::BossMonster);
 
 		Animator* anim = AddComponent<Animator>();
 		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(name);
 		anim->CreateAnimation(name, tex, Vector2::Zero, zakumArms::sizes[mIdx], Vector2::Zero, 8, 0.2f);
 		anim->PlayAnimation(name);
+
+		BoxCollider2D* boxCol = AddComponent<BoxCollider2D>();
 	}
 	void ZakumArm::Update()
 	{

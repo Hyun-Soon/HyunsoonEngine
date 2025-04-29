@@ -30,7 +30,7 @@ namespace hs
 	void BoxCollider2D::Render(HDC& hdc)
 	{
 		//// debug
-		 /*Transform* tr = GetOwner()->GetComponent<Transform>();
+		 Transform* tr = GetOwner()->GetComponent<Transform>();
 		 Vector2	   pos = tr->GetPosition();
 
 		
@@ -49,6 +49,6 @@ namespace hs
 
 		 SelectObject(hdc, oldBrush);
 		 SelectObject(hdc, oldPen);
-		 DeleteObject(greenPen);*/
+		 DeleteObject(greenPen);
 	}
 } // namespace hs
