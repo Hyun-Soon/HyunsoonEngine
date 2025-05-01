@@ -30,6 +30,10 @@ namespace hs
 
 		const Vector2& GetDirection() const { return mDirection; }
 
+		const int IsBuffOn(unsigned short buff) const { return mBuff & buff; }
+		void	  BuffOn(unsigned short buff);
+		void	  BuffOff(unsigned short buff);
+
 	private:
 		void resetDuration() { mDuration = 0.0f; }
 		void translateToIdle();
@@ -58,6 +62,9 @@ namespace hs
 
 		Vector2 mJumpVel;
 		Vector2 mDoubleJumpSpeed;
+
+		unsigned short							  mBuff;
+		std::unordered_map<unsigned short, float> mRemainingBuffTime;
 	};
 
 } // namespace hs

@@ -24,6 +24,7 @@ namespace hs
 		, mSpeed(0.0f)
 		, mJumpVel(0.0f, -400.0f)
 		, mDoubleJumpSpeed(500.0f, -30.0f)
+		, mBuff(0)
 	{
 	}
 
@@ -42,8 +43,20 @@ namespace hs
 
 	void PlayerScript::Update()
 	{
-		// static Player*		 player = static_cast<Player*>(GetOwner());
 		Player::ePlayerState state = mPlayer->GetState();
+
+		assert(static_cast<unsigned short>(Player::ePlayerBuff::End) < USHRT_MAX);
+
+		float dt = TimeUtils::GetDeltaTime();
+		for (unsigned short buff = 1; buff < static_cast<unsigned short>(Player::ePlayerBuff::End); buff <<= 1)
+		{
+			if (IsBuffOn(buff))
+			{
+				mRemainingBuffTime[buff] -= dt;
+				if (mRemainingBuffTime[buff] < 0.0f)
+					BuffOff(buff);
+			}
+		}
 
 		switch (state)
 		{
@@ -135,6 +148,22 @@ namespace hs
 
 			TextOut(hdc, 0, 20, str, len);
 		}*/
+
+		wchar_t				 str[50] = L"";
+		bool		 result = IsBuffOn(static_cast<unsigned short>(Player::ePlayerBuff::SkillLock));
+		bool		 result1 = IsBuffOn(static_cast<unsigned short>(Player::ePlayerBuff::CannotJump));
+
+		std::wstring		 wstr;
+		if (result)
+			wstr = L"SkillLock";
+		else if (result1)
+			wstr = L"CannotJump";
+		else
+			wstr = L"No Buff";
+		swprintf_s(str, 50, L"state : %s", wstr.c_str());
+		int len = wcsnlen_s(str, 50);
+
+		TextOut(hdc, 0, 20, str, len);
 	}
 
 	void PlayerScript::OnCollisionEnter(Collider* other)
@@ -167,10 +196,19 @@ namespace hs
 	{
 	}
 
-	// void PlayerScript::SetAnimator(Animator* animator)
-	//{
-	//	mAnimator = animator;
-	// }
+	void PlayerScript::BuffOn(unsigned short buff)
+	{
+		mBuff |= buff;
+
+		mRemainingBuffTime[buff] = 3.0f; // temp
+	}
+
+	void PlayerScript::BuffOff(unsigned short buff)
+	{
+		mBuff &= ~buff;
+
+		mRemainingBuffTime[buff] = 0.0f;
+	}
 
 	void PlayerScript::translateToIdle()
 	{
@@ -198,6 +236,9 @@ namespace hs
 
 	void PlayerScript::translateToJump()
 	{
+		if (IsBuffOn(static_cast<unsigned short>(Player::ePlayerBuff::CannotJump)))
+			return;
+
 		resetDuration();
 		mPlayer->SetState(Player::ePlayerState::Jump);
 		mAnimator->PlayAnimation(L"PlayerJump" + dirStrMap[mDirection]);
@@ -207,6 +248,9 @@ namespace hs
 
 	void PlayerScript::translateToDoubleJump()
 	{
+		if (IsBuffOn(static_cast<unsigned short>(Player::ePlayerBuff::CannotJump)))
+			return;
+
 		resetDuration();
 		mPlayer->SetState(Player::ePlayerState::DoubleJump);
 		mRigidbody->AddVelocity(mDoubleJumpSpeed * mDirection.x);
@@ -215,6 +259,9 @@ namespace hs
 
 	void PlayerScript::translateToAttack()
 	{
+		if (IsBuffOn(static_cast<unsigned short>(Player::ePlayerBuff::SkillLock)))
+			return;
+
 		resetDuration();
 		mPlayer->SetState(Player::ePlayerState::Attack);
 		std::wstring motion = RandomUtils::GetRandomValueWString(0, 2);

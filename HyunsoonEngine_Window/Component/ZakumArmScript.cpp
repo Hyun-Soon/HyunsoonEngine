@@ -3,10 +3,12 @@
 #include "TimeUtils.h"
 #include "RandomUtils.h"
 
+#include "../HyunsoonEngine_Window/Object/Zakum/ZakumArm.h"
+#include "../HyunsoonEngine_Window/Object/Player.h"
+#include "PlayerScript.h"
 #include "ZakumArmScript.h"
 #include "ProjectileScript.h"
 #include "Application.h"
-#include "../DirectionMap.h"
 
 extern hs::Application app;
 
@@ -19,7 +21,6 @@ namespace hs
 		, mDeathAnimDuration(0.0f)
 		, mCooltime(0.0f)
 		, mSkillRenderOffset(Vector2::Zero)
-		//, mSkillPtr(nullptr)
 	{
 	}
 
@@ -33,8 +34,24 @@ namespace hs
 		mCooltime = RandomUtils::GetRandomValueInt(10, 15);
 		mDeathAnimDuration = 1.5f;
 
-		//test
-		mSkillFunc = std::bind(&ZakumArmScript::attackPlayer, this);
+		uint8_t idx = static_cast<ZakumArm*>(GetOwner())->GetIndex();
+
+		if (zakumArms::skillOrders[idx] == L"Attack")
+		{
+			mSkillFunc = std::bind(&ZakumArmScript::attackPlayer, this);
+		}
+		else if (zakumArms::skillOrders[idx] == L"AccuracyDrop")
+		{
+			mSkillFunc = std::bind(&ZakumArmScript::accuracyDrop, this);
+		}
+		else if (zakumArms::skillOrders[idx] == L"CannotJump")
+		{
+			mSkillFunc = std::bind(&ZakumArmScript::cannotJump, this);
+		}
+		else if (zakumArms::skillOrders[idx] == L"SkillLock")
+		{
+			mSkillFunc = std::bind(&ZakumArmScript::skillLock, this);
+		}
 	}
 
 	void ZakumArmScript::Update()
@@ -53,11 +70,6 @@ namespace hs
 				break;
 		}
 	}
-
-	//void ZakumArmScript::LateUpdate()
-	//{
-	//	
-	//}
 
 	void ZakumArmScript::OnCollisionEnter(Collider* other)
 	{
@@ -122,19 +134,22 @@ namespace hs
 
 	void ZakumArmScript::attackPlayer()
 	{
-		assert(1);
+		//PlayerScript->TakeDamage();
 	}
 
 	void ZakumArmScript::cannotJump()
 	{
+		Player::GetInstance()->GetComponent<PlayerScript>()->BuffOn(static_cast<unsigned short>(Player::ePlayerBuff::CannotJump));
 	}
 
 	void ZakumArmScript::skillLock()
 	{
+		Player::GetInstance()->GetComponent<PlayerScript>()->BuffOn(static_cast<unsigned short>(Player::ePlayerBuff::SkillLock));
 	}
 
 	void ZakumArmScript::accuracyDrop()
 	{
+		Player::GetInstance()->GetComponent<PlayerScript>()->BuffOn(static_cast<unsigned short>(Player::ePlayerBuff::AccuracyDrop));
 	}
 
 } // namespace hs

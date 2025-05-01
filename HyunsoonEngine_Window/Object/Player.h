@@ -9,16 +9,24 @@ namespace hs
 	static class Player : public GameObject
 	{
 	public:
-		enum class ePlayerState
+		enum class ePlayerState : short
 		{
-			Idle = 0x1,
-			Move = 0x2,
-			Attack = 0x4,
-			LyingDown = 0x8,
-			Dead = 0x16,
-			Jump = 0x32,
-			DoubleJump = 0x64,
-			Alert = 0x128,
+			Idle = 1,
+			Move = 2,
+			Attack = 4,
+			LyingDown = 8,
+			Dead = 16,
+			Jump = 32,
+			DoubleJump = 64,
+			Alert = 128,
+			End,
+		};
+
+		enum class ePlayerBuff : unsigned short
+		{
+			CannotJump = 1,
+			AccuracyDrop = 2,
+			SkillLock = 4,
 			End,
 		};
 
@@ -26,14 +34,8 @@ namespace hs
 
 		virtual void Initialize() override;
 
-		// const Vector2&	   GetDirection() const;
-		// void			   SetDirection(Vector2 dir);
 		const ePlayerState GetState() const;
 		void			   SetState(ePlayerState state);
-
-		// void UseSkill(size_t skillId);
-		// void UseItem(size_t slotId);
-		// void PickUpItem();
 
 	private:
 		Player();
@@ -41,10 +43,9 @@ namespace hs
 
 		static Player* player;
 
-		// Vector2		 mDirection;
-		ePlayerState mState;
-		uint16_t	 mHP;
-		uint16_t	 mMP;
+		ePlayerState			mState;
+		uint16_t				mHP;
+		uint16_t				mMP;
 
 		template <typename T>
 		friend static T* Instantiate(hs::enums::eLayerType layerLevel);

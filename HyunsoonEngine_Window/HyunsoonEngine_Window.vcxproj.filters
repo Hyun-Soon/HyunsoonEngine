@@ -153,6 +153,9 @@
     <ClCompile Include="Component\ZakumArmScript.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
+    <ClCompile Include="Component\ZakumScript.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Object\Monster.h">
@@ -279,6 +282,9 @@
       <Filter>Source Files\Object\Zakum</Filter>
     </ClInclude>
     <ClInclude Include="Component\ZakumArmScript.h">
+      <Filter>Source Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\ZakumScript.h">
       <Filter>Source Files\Component</Filter>
     </ClInclude>
   </ItemGroup>

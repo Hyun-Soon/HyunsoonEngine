@@ -24,6 +24,7 @@
     <ClCompile Include="Component\PlayerScript.cpp" />
     <ClCompile Include="Component\ProjectileScript.cpp" />
     <ClCompile Include="Component\ZakumArmScript.cpp" />
+    <ClCompile Include="Component\ZakumScript.cpp" />
     <ClCompile Include="Item\Consumables.cpp" />
     <ClCompile Include="Item\Equipment.cpp" />
     <ClCompile Include="Item\Inventory.cpp" />
@@ -64,6 +65,7 @@
     <ClInclude Include="Component\PlayerScript.h" />
     <ClInclude Include="Component\ProjectileScript.h" />
     <ClInclude Include="Component\ZakumArmScript.h" />
+    <ClInclude Include="Component\ZakumScript.h" />
     <ClInclude Include="DirectionMap.h" />
     <ClInclude Include="Item\Consumables.h" />
     <ClInclude Include="Item\Equipment.h" />
