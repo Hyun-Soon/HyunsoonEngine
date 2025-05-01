@@ -27,6 +27,7 @@ namespace hs
 		const std::vector<GameObject*> GetGameObjects() { return mGameObjects; }
 
 	private:
+		void destroyObjects(std::vector<GameObject*>& objs);
 		// void findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs);
 		// void deleteGameObjects(std::vector<GameObject*> gameObjs);
 		// void eraseDeadGameObject();

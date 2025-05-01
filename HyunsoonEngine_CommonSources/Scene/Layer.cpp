@@ -67,10 +67,7 @@ namespace hs
 
 	void Layer::Destroy()
 	{
-		std::erase_if(mGameObjects,
-			[](GameObject* gameObj) {
-				return gameObj && gameObj->IsDead();
-			});
+		destroyObjects(mGameObjects);
 	}
 
 	void Layer::AddGameObject(GameObject* gameObject)
@@ -83,6 +80,20 @@ namespace hs
 		std::erase_if(mGameObjects,
 			[=](GameObject* gameObj) {
 				return gameObj == eraseGameObj;
+			});
+	}
+
+	void Layer::destroyObjects(std::vector<GameObject*>& objs)
+	{
+		for (GameObject* obj : objs)
+		{
+			if (obj->HasChild())
+				destroyObjects(obj->GetChilds());
+		}
+
+		std::erase_if(objs,
+			[](GameObject* gameObj) {
+				return gameObj && gameObj->IsDead();
 			});
 	}
 } // namespace hs
