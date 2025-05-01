@@ -58,7 +58,7 @@ namespace hs
 			return gameObj;
 		}
 
-		// static void Destory(GameObject* obj)
+		// static void Destroy(GameObject* obj)
 		//{
 		//	if (obj == nullptr)
 		//		return;

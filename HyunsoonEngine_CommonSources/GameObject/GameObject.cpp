@@ -6,7 +6,7 @@ namespace hs
 {
 	namespace object
 	{
-		void Destory(GameObject* gameObject)
+		void Destroy(GameObject* gameObject)
 		{
 			if (gameObject == nullptr)
 				return;

@@ -9,13 +9,13 @@ namespace hs
 {
 	namespace object
 	{
-		void Destory(GameObject* gameObject);
+		void Destroy(GameObject* gameObject);
 	}
 
 	class GameObject
 	{
 	public:
-		friend void object::Destory(GameObject* obj);
+		friend void object::Destroy(GameObject* obj);
 
 		enum class eGameObjectState
 		{
