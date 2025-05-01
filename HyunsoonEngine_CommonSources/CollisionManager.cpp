@@ -82,11 +82,6 @@ namespace hs
 		{
 			std::vector<Collider*> leftColliders;
 			findCollidersRecur(left, leftColliders);
-			//if (left->IsActive() == false)
-			//	continue;
-			//Collider* leftCollider = left->GetComponent<Collider>();
-			//if (leftCollider == nullptr)
-			//	continue;
 
 			for (GameObject* right : rights)
 			{
@@ -95,14 +90,8 @@ namespace hs
 
 				std::vector<Collider*> rightColliders;
 				findCollidersRecur(right, rightColliders);
-				/*if (right->IsActive() == false)
-					continue;
-				Collider* rightCollider = right->GetComponent<Collider>();
-				if (rightCollider == nullptr)
-					continue;*/
 
 				CheckColliderCollisions(leftColliders, rightColliders);
-				//ColliderCollision(leftCollider, rightCollider);
 			}
 		}
 	}

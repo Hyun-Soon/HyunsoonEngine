@@ -101,7 +101,7 @@
     <ClInclude Include="Skill\Skill.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\HyunsoonEngine_CommonSources\.clang-format" />
+    <None Include=".clang-format" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

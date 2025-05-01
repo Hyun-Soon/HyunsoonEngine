@@ -277,6 +277,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\HyunsoonEngine_CommonSources\.clang-format" />
+    <None Include=".clang-format" />
   </ItemGroup>
 </Project>

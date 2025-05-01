@@ -130,13 +130,21 @@ namespace hs
 			//Zakum
 			{
 				ResourceManager::Load<graphics::Texture>(L"ZakumArm0", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm0.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm0Death", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm0_Death.png");
 				ResourceManager::Load<graphics::Texture>(L"ZakumArm1", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm1.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm1Death", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm1_Death.png");
 				ResourceManager::Load<graphics::Texture>(L"ZakumArm2", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm2.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm2Death", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm2_Death.png");
 				ResourceManager::Load<graphics::Texture>(L"ZakumArm3", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm3.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm3Death", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm3_Death.png");
 				ResourceManager::Load<graphics::Texture>(L"ZakumArm4", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm4.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm4Death", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm4_Death.png");
 				ResourceManager::Load<graphics::Texture>(L"ZakumArm5", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm5.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm5Death", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm5_Death.png");
 				ResourceManager::Load<graphics::Texture>(L"ZakumArm6", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm6.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm6Death", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm6_Death.png");
 				ResourceManager::Load<graphics::Texture>(L"ZakumArm7", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm7.bmp");
+				ResourceManager::Load<graphics::Texture>(L"ZakumArm7Death", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Arms/ZakumArm7_Death.png");
 
 				ResourceManager::Load<graphics::Texture>(L"ZakumPhase1Idle", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Phase1/ZakumIdle.bmp");
 				ResourceManager::Load<graphics::Texture>(L"ZakumPhase1Death", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Phase1/ZakumDeath.bmp");

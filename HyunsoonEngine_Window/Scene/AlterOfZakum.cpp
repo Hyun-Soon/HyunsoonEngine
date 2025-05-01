@@ -54,15 +54,12 @@ namespace hs
 		portal->SetDestPortalIdx(1);
 
 		// test
-		//GameObject* obj = object::Instantiate<GameObject>(enums::eLayerType::Monster, { 600, 500 });
-		// SpriteRenderer*	   spr = obj->AddComponent<SpriteRenderer>();
-		// graphics::Texture* testtex = ResourceManager::Find<graphics::Texture>(L"test");
-		// spr->SetTexture(testtex);
+		//GameObject* obj = object::Instantiate<GameObject>(enums::eLayerType::Monster, { 300, 300 });
 
-		/*Animator*		   anim = obj->AddComponent<Animator>();
-		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(L"SkillLock");
-		anim->CreateAnimation(L"SkillLock", tex, Vector2::Zero, { 73, 47 }, Vector2::Zero, 10, 0.2f);
-		anim->PlayAnimation(L"SkillLock");*/
+		//Animator*		   anim = obj->AddComponent<Animator>();
+		//graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(L"ZakumArm7Death");
+		//anim->CreateAnimation(L"ZakumArm0Death", tex, Vector2::Zero, { 350, 260 }, Vector2::Zero, 10, 0.2f);
+		//anim->PlayAnimation(L"ZakumArm0Death");
 
 		/*Animator* anim = obj->AddComponent<Animator>();
 		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(L"AccuracyDrop");

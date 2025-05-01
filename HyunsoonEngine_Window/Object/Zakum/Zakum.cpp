@@ -28,13 +28,8 @@ namespace hs
 			ZakumArm* arm = new ZakumArm();
 			arm->SetParent(this);
 			arm->SetIndex(idx);
-			//arm->Initialize();
+			arm->Initialize();
 			AddChild(arm);
-
-			//mArms[idx] = new ZakumArm();
-			//mArms[idx]->SetParent(this);
-			//mArms[idx]->SetIndex(idx);
-			//mArms[idx]->Initialize();
 		}
 
 		Animator* anim = AddComponent<Animator>();

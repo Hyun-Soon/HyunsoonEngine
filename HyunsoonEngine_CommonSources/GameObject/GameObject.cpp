@@ -83,7 +83,6 @@ namespace hs
 
 	void GameObject::AddChild(GameObject* child)
 	{
-		child->Initialize();
 		mChilds.push_back(child);
 	}
 
