@@ -26,6 +26,15 @@ namespace hs
 
 	GameObject::~GameObject()
 	{
+		if (mChilds.size())
+		{
+			for (GameObject*& child : mChilds)
+			{
+				delete child;
+				child = nullptr;
+			}
+		}
+
 		for (Component*& component : mComponents)
 		{
 			delete component;
