@@ -156,6 +156,9 @@
     <ClCompile Include="Component\ZakumScript.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
+    <ClCompile Include="Object\Effect.cpp">
+      <Filter>Source Files\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Object\Monster.h">
@@ -286,6 +289,9 @@
     </ClInclude>
     <ClInclude Include="Component\ZakumScript.h">
       <Filter>Source Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Effect.h">
+      <Filter>Source Files\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

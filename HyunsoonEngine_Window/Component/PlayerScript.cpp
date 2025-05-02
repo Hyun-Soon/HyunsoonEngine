@@ -5,10 +5,12 @@
 #include "TimeUtils.h"
 #include "PlayerScript.h"
 #include "Application.h"
+#include "Resource/ResourceManager.h"
 #include "../Object/ObjectUtilsCustom.h"
 #include "../Object/Projectile.h"
 #include "../DirectionMap.h"
 #include "../Object/Portal.h"
+#include "../Object/Effect.h"
 
 extern hs::Application app;
 
@@ -201,6 +203,19 @@ namespace hs
 		mBuff |= buff;
 
 		mRemainingBuffTime[buff] = 3.0f; // temp
+		
+		Effect* effect = new Effect();
+		effect->SetLifetime(3.0f);
+		effect->SetOffset(Vector2(-30, -100));
+		effect->Initialize();
+		Animator* anim = effect->GetComponent<Animator>();
+		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(L"AccuracyDrop");
+		anim->CreateAnimation(L"AccuracyDrop", tex, Vector2::Zero, { 48, 52 }, Vector2::Zero, 7, 0.1f);
+		anim->PlayAnimation(L"AccuracyDrop");
+	
+
+
+		GetOwner()->AddChild(effect);
 	}
 
 	void PlayerScript::BuffOff(unsigned short buff)

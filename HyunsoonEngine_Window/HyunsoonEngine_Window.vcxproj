@@ -34,6 +34,7 @@
     <ClCompile Include="Item\Shuriken.cpp" />
     <ClCompile Include="Object\Background.cpp" />
     <ClCompile Include="Object\BlueSnail.cpp" />
+    <ClCompile Include="Object\Effect.cpp" />
     <ClCompile Include="Object\GreenSnail.cpp" />
     <ClCompile Include="Object\JrBalrog.cpp" />
     <ClCompile Include="Object\Monster.cpp" />
@@ -76,6 +77,7 @@
     <ClInclude Include="Item\Shuriken.h" />
     <ClInclude Include="Object\Background.h" />
     <ClInclude Include="Object\BlueSnail.h" />
+    <ClInclude Include="Object\Effect.h" />
     <ClInclude Include="Object\GreenSnail.h" />
     <ClInclude Include="Object\JrBalrog.h" />
     <ClInclude Include="Object\Monster.h" />
