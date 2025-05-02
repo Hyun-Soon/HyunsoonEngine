@@ -293,6 +293,9 @@
     <ClInclude Include="Object\Effect.h">
       <Filter>Source Files\Object</Filter>
     </ClInclude>
+    <ClInclude Include="Resource\BuffInfo.h">
+      <Filter>Source Files\Resource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".clang-format" />

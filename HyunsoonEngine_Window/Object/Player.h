@@ -22,14 +22,6 @@ namespace hs
 			End,
 		};
 
-		enum class ePlayerBuff : unsigned short
-		{
-			CannotJump = 1,
-			AccuracyDrop = 2,
-			SkillLock = 4,
-			End,
-		};
-
 		static Player* GetInstance();
 
 		virtual void Initialize() override;

@@ -11,6 +11,7 @@
 #include "../DirectionMap.h"
 #include "../Object/Portal.h"
 #include "../Object/Effect.h"
+#include "../Resource/BuffInfo.h"
 
 extern hs::Application app;
 
@@ -47,10 +48,10 @@ namespace hs
 	{
 		Player::ePlayerState state = mPlayer->GetState();
 
-		assert(static_cast<unsigned short>(Player::ePlayerBuff::End) < USHRT_MAX);
+		assert(static_cast<unsigned short>(buff::eBuff::End) < USHRT_MAX);
 
 		float dt = TimeUtils::GetDeltaTime();
-		for (unsigned short buff = 1; buff < static_cast<unsigned short>(Player::ePlayerBuff::End); buff <<= 1)
+		for (unsigned short buff = 1; buff < static_cast<unsigned short>(buff::eBuff::End); buff <<= 1)
 		{
 			if (IsBuffOn(buff))
 			{
@@ -152,15 +153,18 @@ namespace hs
 		}*/
 
 		wchar_t				 str[50] = L"";
-		bool		 result = IsBuffOn(static_cast<unsigned short>(Player::ePlayerBuff::SkillLock));
-		bool		 result1 = IsBuffOn(static_cast<unsigned short>(Player::ePlayerBuff::CannotJump));
+		bool		 result = IsBuffOn(static_cast<unsigned short>(buff::eBuff::SkillLock));
+		bool		 result1 = IsBuffOn(static_cast<unsigned short>(buff::eBuff::CannotJump));
+		bool				 result2 = IsBuffOn(static_cast<unsigned short>(buff::eBuff::AccuracyDrop));
 
 		std::wstring		 wstr;
 		if (result)
-			wstr = L"SkillLock";
-		else if (result1)
-			wstr = L"CannotJump";
-		else
+			wstr += L"SkillLock & ";
+		if (result1)
+			wstr += L"CannotJump & ";
+		if (result2)
+			wstr += L"AccuracyDrop";
+		if (wstr.length() == 0)
 			wstr = L"No Buff";
 		swprintf_s(str, 50, L"state : %s", wstr.c_str());
 		int len = wcsnlen_s(str, 50);
@@ -206,15 +210,13 @@ namespace hs
 		
 		Effect* effect = new Effect();
 		effect->SetLifetime(3.0f);
-		effect->SetOffset(Vector2(-30, -100));
+		effect->SetOffset(buff::buffInfoMap[buff].offset);
 		effect->Initialize();
 		Animator* anim = effect->GetComponent<Animator>();
-		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(L"AccuracyDrop");
-		anim->CreateAnimation(L"AccuracyDrop", tex, Vector2::Zero, { 48, 52 }, Vector2::Zero, 7, 0.1f);
-		anim->PlayAnimation(L"AccuracyDrop");
+		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(buff::buffInfoMap[buff].buffName);
+		anim->CreateAnimation(buff::buffInfoMap[buff].buffName, tex, Vector2::Zero, buff::buffInfoMap[buff].imgSize, Vector2::Zero, buff::buffInfoMap[buff].spriteLength, 0.1f);
+		anim->PlayAnimation(buff::buffInfoMap[buff].buffName);
 	
-
-
 		GetOwner()->AddChild(effect);
 	}
 
@@ -251,7 +253,7 @@ namespace hs
 
 	void PlayerScript::translateToJump()
 	{
-		if (IsBuffOn(static_cast<unsigned short>(Player::ePlayerBuff::CannotJump)))
+		if (IsBuffOn(static_cast<unsigned short>(buff::eBuff::CannotJump)))
 			return;
 
 		resetDuration();
@@ -263,7 +265,7 @@ namespace hs
 
 	void PlayerScript::translateToDoubleJump()
 	{
-		if (IsBuffOn(static_cast<unsigned short>(Player::ePlayerBuff::CannotJump)))
+		if (IsBuffOn(static_cast<unsigned short>(buff::eBuff::CannotJump)))
 			return;
 
 		resetDuration();
@@ -274,7 +276,7 @@ namespace hs
 
 	void PlayerScript::translateToAttack()
 	{
-		if (IsBuffOn(static_cast<unsigned short>(Player::ePlayerBuff::SkillLock)))
+		if (IsBuffOn(static_cast<unsigned short>(buff::eBuff::SkillLock)))
 			return;
 
 		resetDuration();

@@ -66,5 +66,4 @@ namespace hs
 		unsigned short							  mBuff;
 		std::unordered_map<unsigned short, float> mRemainingBuffTime;
 	};
-
 } // namespace hs

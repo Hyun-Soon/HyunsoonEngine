@@ -10,7 +10,6 @@ namespace hs
 {
 	Zakum::Zakum()
 		: mArmNum(8)
-		//, mArms(8)
 	{
 	}
 

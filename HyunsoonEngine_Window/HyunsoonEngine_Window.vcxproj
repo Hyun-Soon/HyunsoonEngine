@@ -91,6 +91,7 @@
     <ClInclude Include="Object\Zakum\Zakum.h" />
     <ClInclude Include="Object\Zakum\ZakumArm.h" />
     <ClInclude Include="Object\Zombie.h" />
+    <ClInclude Include="Resource\BuffInfo.h" />
     <ClInclude Include="Resource\LoadResources.h" />
     <ClInclude Include="Scene\AlterOfZakum.h" />
     <ClInclude Include="Scene\AlterOfZakumEnt.h" />

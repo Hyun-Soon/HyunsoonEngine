@@ -9,6 +9,7 @@
 #include "ZakumArmScript.h"
 #include "ProjectileScript.h"
 #include "Application.h"
+#include "../Resource/BuffInfo.h"
 
 extern hs::Application app;
 
@@ -31,7 +32,7 @@ namespace hs
 	void ZakumArmScript::Initialize()
 	{
 		mHp = 1; //debug
-		mCooltime = RandomUtils::GetRandomValueInt(10, 15);
+		mCooltime = RandomUtils::GetRandomValueInt(7, 15); //debug
 		mDeathAnimDuration = 1.5f;
 
 		uint8_t idx = static_cast<ZakumArm*>(GetOwner())->GetIndex();
@@ -139,17 +140,17 @@ namespace hs
 
 	void ZakumArmScript::cannotJump()
 	{
-		Player::GetInstance()->GetComponent<PlayerScript>()->BuffOn(static_cast<unsigned short>(Player::ePlayerBuff::CannotJump));
+		Player::GetInstance()->GetComponent<PlayerScript>()->BuffOn(static_cast<unsigned short>(buff::eBuff::CannotJump));
 	}
 
 	void ZakumArmScript::skillLock()
 	{
-		Player::GetInstance()->GetComponent<PlayerScript>()->BuffOn(static_cast<unsigned short>(Player::ePlayerBuff::SkillLock));
+		Player::GetInstance()->GetComponent<PlayerScript>()->BuffOn(static_cast<unsigned short>(buff::eBuff::SkillLock));
 	}
 
 	void ZakumArmScript::accuracyDrop()
 	{
-		Player::GetInstance()->GetComponent<PlayerScript>()->BuffOn(static_cast<unsigned short>(Player::ePlayerBuff::AccuracyDrop));
+		Player::GetInstance()->GetComponent<PlayerScript>()->BuffOn(static_cast<unsigned short>(buff::eBuff::AccuracyDrop));
 	}
 
 } // namespace hs

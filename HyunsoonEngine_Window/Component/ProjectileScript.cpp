@@ -7,6 +7,7 @@
 #include "../Component/PlayerScript.h"
 #include "../Component/LandMonsterScript.h"
 #include "RandomUtils.h"
+#include "../Resource/BuffInfo.h"
 
 namespace hs
 {
@@ -98,6 +99,8 @@ namespace hs
 
 	UINT ProjectileScript::GetRandomDamage()
 	{
+		if (Player::GetInstance()->GetComponent<PlayerScript>()->IsBuffOn(static_cast<unsigned short>(buff::eBuff::AccuracyDrop)))
+			return 0;
 		float half = mDamage / 2.0f;
 		return RandomUtils::GetRandomValueInt(half, mDamage + half);
 	}
