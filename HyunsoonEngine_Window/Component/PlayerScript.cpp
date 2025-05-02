@@ -17,6 +17,15 @@ extern hs::Application app;
 
 namespace hs
 {
+	namespace buff
+	{
+		static std::unordered_map<unsigned short, BuffInfo> buffInfoMap = {
+			{ 1, { L"CannotJump", { 43, 41 }, 6, { 0, -60 } } },
+			{ 2, { L"AccuracyDrop", { 48, 52 }, 7, { 10, -80 } } },
+			{ 4, { L"SkillLock", { 73, 47 }, 10, { -20, -80 } } }
+		};
+	}
+
 	PlayerScript::PlayerScript()
 		: mPlayer(nullptr)
 		, mTransform(nullptr)
