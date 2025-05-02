@@ -10,7 +10,6 @@ namespace hs
 {
 	ZakumArm::ZakumArm()
 		: mIdx(-1)
-		, mParent(nullptr)
 	{
 	}
 
@@ -40,7 +39,7 @@ namespace hs
 	void ZakumArm::Update()
 	{
 		Transform* tr = GetComponent<Transform>();
-		Transform* parentTr = mParent->GetComponent<Transform>();
+		Transform* parentTr = GetParent()->GetComponent<Transform>();
 		tr->SetPosition(parentTr->GetPosition() + zakumArms::offsets[mIdx]);
 
 		GameObject::Update();

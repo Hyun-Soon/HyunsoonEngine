@@ -18,6 +18,7 @@ namespace hs
 		: mState(GameObject::eGameObjectState::Active)
 		, mComponents((UINT)enums::eComponentType::End, nullptr)
 		, mLayerType(enums::eLayerType::None)
+		, mParent(nullptr)
 		, mChilds(0)
 	{
 		initializeTransform();
@@ -83,6 +84,7 @@ namespace hs
 
 	void GameObject::AddChild(GameObject* child)
 	{
+		child->SetParent(this);
 		mChilds.push_back(child);
 	}
 
