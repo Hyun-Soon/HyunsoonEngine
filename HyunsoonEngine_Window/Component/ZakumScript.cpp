@@ -4,6 +4,7 @@
 #include "RandomUtils.h"
 
 #include "../Object/JrBalrog.h"
+#include "../Object/Zombie.h"
 #include "../Object/Zakum/Zakum.h"
 #include "../Resource/BuffInfo.h"
 #include "../Object/Zakum/ZakumAttackEffect.h"
@@ -213,8 +214,9 @@ namespace hs
 
 	void ZakumScript::genMonster()
 	{
-		//temp
-		object::Instantiate<JrBalrog>(eLayerType::Monster, {400, 600});
+		int rangeX = SceneManager::GetActiveScene()->GetCamLimit().x;
+		object::Instantiate<JrBalrog>(eLayerType::Monster, { (float)RandomUtils::GetRandomValueInt(100, rangeX), 800 });
+		object::Instantiate<Zombie>(eLayerType::Monster, { (float)RandomUtils::GetRandomValueInt(100, rangeX), 800 });
 	}
 
 	void ZakumScript::cannotJump()
