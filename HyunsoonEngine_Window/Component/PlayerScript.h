@@ -59,6 +59,7 @@ namespace hs
 		Vector2	   mDirection;
 		float	   mDuration;
 		float	   mSpeed;
+		float	   mTimeAfterAttacked;
 
 		Vector2 mJumpVel;
 		Vector2 mDoubleJumpSpeed;

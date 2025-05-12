@@ -34,6 +34,7 @@ namespace hs
 		, mDirection(-1.0f, 0.0f)
 		, mDuration(0.0f)
 		, mSpeed(0.0f)
+		, mTimeAfterAttacked(0.0f)
 		, mJumpVel(0.0f, -400.0f)
 		, mDoubleJumpSpeed(500.0f, -30.0f)
 		, mBuff(0)
@@ -69,6 +70,8 @@ namespace hs
 					BuffOff(buff);
 			}
 		}
+
+		mTimeAfterAttacked += dt;
 
 		switch (state)
 		{
@@ -114,6 +117,7 @@ namespace hs
 		{
 			Vector2 revDir = mRigidbody->GetVelocity().Normalize() * -1;
 			adjustedPos = CollisionManager::GetPossiblePos(adjustedPos, revDir, animSize);
+			adjustedPos.x = std::clamp<float>(adjustedPos.x, 100, SceneManager::GetActiveScene()->GetCamLimit().x - 50);
 		}
 
 		if (CollisionManager::CheckCollisionMap(adjustedPos + Vector2(0, 1), animSize))
@@ -187,8 +191,11 @@ namespace hs
 
 		if (type == enums::eLayerType::Monster)
 		{
+			if (mTimeAfterAttacked < 5.0f)
+				return;
 			mRigidbody->AddVelocity(mDirection * Vector2(500.0f, 0.0f) * -1.0f + Vector2(0.0f, -600.0f));
 			mRigidbody->SetGrounded(false);
+			mTimeAfterAttacked = 0.0f;
 		}
 	}
 
