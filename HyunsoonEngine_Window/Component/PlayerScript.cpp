@@ -161,7 +161,7 @@ namespace hs
 			TextOut(hdc, 0, 20, str, len);
 		}*/
 
-		wchar_t				 str[50] = L"";
+		/*wchar_t				 str[50] = L"";
 		bool		 result = IsBuffOn(static_cast<unsigned short>(buff::eBuff::SkillLock));
 		bool		 result1 = IsBuffOn(static_cast<unsigned short>(buff::eBuff::CannotJump));
 		bool				 result2 = IsBuffOn(static_cast<unsigned short>(buff::eBuff::AccuracyDrop));
@@ -178,7 +178,7 @@ namespace hs
 		swprintf_s(str, 50, L"state : %s", wstr.c_str());
 		int len = wcsnlen_s(str, 50);
 
-		TextOut(hdc, 0, 20, str, len);
+		TextOut(hdc, 0, 20, str, len);*/
 	}
 
 	void PlayerScript::OnCollisionEnter(Collider* other)

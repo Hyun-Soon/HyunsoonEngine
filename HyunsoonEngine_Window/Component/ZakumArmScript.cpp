@@ -130,6 +130,11 @@ namespace hs
 		if (mDuration < mDeathAnimDuration)
 			return;
 
+		if (GetOwner()->GetParent()->GetChilds().size() == 1)
+		{
+			GetOwner()->GetParent()->AddComponent<BoxCollider2D>();
+		}
+
 		object::Destroy(GetOwner());
 	}
 
