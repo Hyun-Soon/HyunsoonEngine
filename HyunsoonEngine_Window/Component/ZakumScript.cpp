@@ -157,6 +157,11 @@ namespace hs
 
 	void ZakumScript::translateToDead()
 	{
+		if (mPhase == eZakumPhase::Phase3)
+		{
+			Transform* tr = GetOwner()->GetComponent<Transform>();
+			tr->SetPosition(tr->GetPosition() + Vector2(10, 0));
+		}
 		mState = eZakumState::Dead;
 		Animator* anim = GetOwner()->GetComponent<Animator>();
 		anim->PlayAnimation(static_cast<Zakum*>(GetOwner())->GetName() + mPhaseToString[mPhase] + L"Death");
