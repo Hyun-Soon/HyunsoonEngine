@@ -22,17 +22,7 @@ namespace hs
 		SetName(L"Zakum");
 		SetLayerType(enums::eLayerType::BossMonster);
 
-		/*for (uint8_t idx = 0; idx < mArmNum; ++idx)
-		{
-			ZakumArm* arm = new ZakumArm();
-			arm->SetParent(this);
-			arm->SetIndex(idx);
-			arm->Initialize();
-			AddChild(arm);
-		}*/
-
-		//debug
-		for (uint8_t idx = 0; idx < 1; ++idx)
+		for (uint8_t idx = 0; idx < mArmNum; ++idx)
 		{
 			ZakumArm* arm = new ZakumArm();
 			arm->SetParent(this);
@@ -40,6 +30,16 @@ namespace hs
 			arm->Initialize();
 			AddChild(arm);
 		}
+
+		//debug
+		//for (uint8_t idx = 0; idx < 1; ++idx)
+		//{
+		//	ZakumArm* arm = new ZakumArm();
+		//	arm->SetParent(this);
+		//	arm->SetIndex(idx);
+		//	arm->Initialize();
+		//	AddChild(arm);
+		//}
 
 		Animator* anim = AddComponent<Animator>();
 		graphics::Texture* tex = ResourceManager::Find<graphics::Texture>(L"ZakumPhase1Idle");

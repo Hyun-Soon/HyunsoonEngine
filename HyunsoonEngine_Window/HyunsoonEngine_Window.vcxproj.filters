@@ -159,6 +159,9 @@
     <ClCompile Include="Object\Effect.cpp">
       <Filter>Source Files\Object</Filter>
     </ClCompile>
+    <ClCompile Include="Object\Zakum\ZakumAttackEffect.cpp">
+      <Filter>Source Files\Object\Zakum</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Object\Monster.h">
@@ -295,6 +298,9 @@
     </ClInclude>
     <ClInclude Include="Resource\BuffInfo.h">
       <Filter>Source Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Zakum\ZakumAttackEffect.h">
+      <Filter>Source Files\Object\Zakum</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

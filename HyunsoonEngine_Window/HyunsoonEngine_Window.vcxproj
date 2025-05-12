@@ -44,6 +44,7 @@
     <ClCompile Include="Object\Portal.cpp" />
     <ClCompile Include="Object\Projectile.cpp" />
     <ClCompile Include="Object\Spore.cpp" />
+    <ClCompile Include="Object\Zakum\ZakumAttackEffect.cpp" />
     <ClCompile Include="Object\Zakum\Zakum.cpp" />
     <ClCompile Include="Object\Zakum\ZakumArm.cpp" />
     <ClCompile Include="Object\Zombie.cpp" />
@@ -88,6 +89,7 @@
     <ClInclude Include="Object\Portal.h" />
     <ClInclude Include="Object\Projectile.h" />
     <ClInclude Include="Object\Spore.h" />
+    <ClInclude Include="Object\Zakum\ZakumAttackEffect.h" />
     <ClInclude Include="Object\Zakum\Zakum.h" />
     <ClInclude Include="Object\Zakum\ZakumArm.h" />
     <ClInclude Include="Object\Zombie.h" />

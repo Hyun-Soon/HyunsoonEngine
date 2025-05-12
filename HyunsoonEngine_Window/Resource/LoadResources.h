@@ -155,7 +155,7 @@ namespace hs
 
 				ResourceManager::Load<graphics::Texture>(L"ZakumSpawn", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Spawn/ZakumSpawn.png");
 
-				ResourceManager::Load<graphics::Texture>(L"ZakumAttack", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Attack/ZakumAttack.png");
+				ResourceManager::Load<graphics::Texture>(L"ZakumAttackEffect", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zakum/Attack/ZakumAttack.png");
 			}
 		}
 

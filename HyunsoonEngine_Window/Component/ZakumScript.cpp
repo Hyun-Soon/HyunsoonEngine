@@ -6,6 +6,7 @@
 #include "../Object/JrBalrog.h"
 #include "../Object/Zakum/Zakum.h"
 #include "../Resource/BuffInfo.h"
+#include "../Object/Zakum/ZakumAttackEffect.h"
 #include "PlayerScript.h"
 #include "ZakumScript.h"
 #include "ProjectileScript.h"
@@ -50,7 +51,7 @@ namespace hs
 		mDebuffList[2] = std::bind(&ZakumScript::skillLock, this);
 
 		SetHp(15); // debug
-		mCooltime = RandomUtils::GetRandomValueInt(10, 15);
+		mCooltime = RandomUtils::GetRandomValueInt(5, 7);
 		mDeathAnimDuration = 2.0f;
 
 		
@@ -199,8 +200,8 @@ namespace hs
 
 	void ZakumScript::attackPlayer()
 	{
-		//Player::GetInstance()->TakeDamage();
-		//assert(1);
+		ZakumAttackEffect* effect = object::Instantiate<ZakumAttackEffect>(eLayerType::Particle, GetOwner()->GetComponent<Transform>()->GetPosition());
+		effect->SetParent(GetOwner());
 	}
 
 	void ZakumScript::castDebuff()
