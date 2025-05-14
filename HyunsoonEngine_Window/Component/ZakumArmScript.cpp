@@ -32,7 +32,7 @@ namespace hs
 	void ZakumArmScript::Initialize()
 	{
 		mHp = 1; //debug
-		mCooltime = RandomUtils::GetRandomValueInt(7, 15); //debug
+		mCooltime = RandomUtils::GetRandomValueInt(6, 13); //debug
 		mDeathAnimDuration = 1.5f;
 
 		uint8_t idx = static_cast<ZakumArm*>(GetOwner())->GetIndex();

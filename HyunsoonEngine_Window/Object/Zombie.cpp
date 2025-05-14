@@ -45,6 +45,6 @@ namespace hs
 		LandMonsterScript* lms_Zombie = AddComponent<LandMonsterScript>();
 		lms_Zombie->SetDeathAnimDuration(1.0f);
 		lms_Zombie->SetMinTimeToTrans(2.5f);
-		lms_Zombie->SetHp(20);
+		lms_Zombie->SetHp(10);
 	}
 } // namespace hs

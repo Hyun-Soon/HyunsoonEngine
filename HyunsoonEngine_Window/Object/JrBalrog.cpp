@@ -53,6 +53,6 @@ namespace hs
 		JrBalrogScript* lms_jrBalrog = AddComponent<JrBalrogScript>();
 		lms_jrBalrog->SetDeathAnimDuration(0.9f);
 		lms_jrBalrog->SetMinTimeToTrans(2.0f);
-		lms_jrBalrog->SetHp(10);
+		lms_jrBalrog->SetHp(13);
 	}
 } // namespace hs

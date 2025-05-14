@@ -176,9 +176,18 @@ namespace hs
 		if (mDuration < mCooltime)
 			return;
 
-		int randIdx = RandomUtils::GetRandomValueInt(0, static_cast<int>(mPhase) - 1);
+		//int randIdx = RandomUtils::GetRandomValueInt(0, static_cast<int>(mPhase) - 1);
+		static int idx = 0; // for youtube
+		int		   phase;
+		if (mPhase == ZakumScript::eZakumPhase::Phase1)
+			phase = 1;
+		else if (mPhase == ZakumScript::eZakumPhase::Phase2)
+			phase = 2;
+		else
+			phase = 3;
 
-		mSkillList[randIdx]();
+		mSkillList[idx++ % phase](); // for youtube
+		//mSkillList[randIdx]();
 		resetDuration();
 	}
 
@@ -208,8 +217,17 @@ namespace hs
 	void ZakumScript::castDebuff()
 	{
 		int randIdx = RandomUtils::GetRandomValueInt(0, mDebuffList.size() - 1);
+		static int idx = 0; // for youtube
+		int		   phase;
+		if (mPhase == ZakumScript::eZakumPhase::Phase1)
+			phase = 1;
+		else if (mPhase == ZakumScript::eZakumPhase::Phase2)
+			phase = 2;
+		else
+			phase = 3;
 
-		mDebuffList[randIdx]();
+		mDebuffList[idx++ % phase](); // for youtube
+		//mDebuffList[randIdx]();
 	}
 
 	void ZakumScript::genMonster()

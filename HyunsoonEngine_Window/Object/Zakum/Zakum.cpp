@@ -6,6 +6,8 @@
 #include "Resource/ResourceManager.h"
 #include "../../Component/ZakumScript.h"
 
+#include "../../Component/ZakumArmScript.h"
+
 namespace hs
 {
 	Zakum::Zakum()
@@ -22,12 +24,15 @@ namespace hs
 		SetName(L"Zakum");
 		SetLayerType(enums::eLayerType::BossMonster);
 
+		int forShow[8] = { 0, 13, 0, 6, 0, 0, 10, 0 }; // for youtube
+
 		for (uint8_t idx = 0; idx < mArmNum; ++idx)
 		{
 			ZakumArm* arm = new ZakumArm();
 			arm->SetParent(this);
 			arm->SetIndex(idx);
 			arm->Initialize();
+			arm->GetComponent<ZakumArmScript>()->SetCooltime(forShow[idx]); // for youtube
 			AddChild(arm);
 		}
 

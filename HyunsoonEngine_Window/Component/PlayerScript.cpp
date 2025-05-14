@@ -194,7 +194,8 @@ namespace hs
 				return;
 
 			mRigidbody->SetVelocity(mDirection * Vector2(200.0f, 0.0f) * -1.0f + Vector2(0.0f, -300.0f));
-			mPlayer->SetState(Player::ePlayerState::Jump);
+			if (mPlayer->GetState() != Player::ePlayerState::DoubleJump && mPlayer->GetState() != Player::ePlayerState::Jump)
+				mPlayer->SetState(Player::ePlayerState::Jump);
 			mAnimator->PlayAnimation(L"PlayerJump" + dirStrMap[mDirection]);
 			mRigidbody->SetGrounded(false);
 			mTimeAfterAttacked = 0.0f;

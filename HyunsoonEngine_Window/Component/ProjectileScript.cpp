@@ -114,8 +114,12 @@ namespace hs
 			if (obj == nullptr)
 				continue;
 
-			Vector2 objPos = obj->GetComponent<Transform>()->GetPosition();
+			Vector2 objPos = obj->GetComponent<Transform>()->GetCenterPosition();
 
+			if (Player::GetInstance()->GetComponent<PlayerScript>()->GetDirection() == Vector2::Left && objPos.x > Player::GetInstance()->GetComponent<Transform>()->GetPosition().x)
+				continue;
+			if (Player::GetInstance()->GetComponent<PlayerScript>()->GetDirection() == Vector2::Right && objPos.x < Player::GetInstance()->GetComponent<Transform>()->GetPosition().x)
+				continue;
 			if (Vector2::Length(casterPos, objPos) > mRange)
 				continue;
 
