@@ -40,28 +40,28 @@ namespace hs
 		terrain->SetTexture(L"bg_SouthFerry");
 
 		// Player
-		//  It will be executed in Scene::Enter() func later
 		Player*	   player = Player::GetInstance();
-		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(800.0f, 300.0f);
-		tr->SetPosition(pos);
 		AddGameObject(player, enums::eLayerType::Player);
 
 		// Npc
 		Npc* shanks = object::Instantiate<Npc>(enums::eLayerType::Npc, { 3932, 1379 });
 		shanks->SetTexture(L"Shanks");
-		shanks->SetRenderName(L"¼§Å©½º");
+		shanks->SetRenderName(L"Shanks");
 
 		// Portal
 		Portal* portal = object::Instantiate<Portal>({ 160, 1688 });
 		portal->SetName(L"CrossRoad");
 		portal->SetDestPortalIdx(1);
+
+		Portal* portal2 = object::Instantiate<Portal>({ 4650, 1386 });
+		portal2->SetName(L"KerningCity");
+		portal2->SetDestPortalIdx(0);
 	}
 	void SouthFerry::OnEnter()
 	{
 		Player*	   player = Player::GetInstance();
 		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(800.0f, 300.0f);
+		Vector2	   pos = Vector2(4000.0f, 300.0f);
 		tr->SetPosition(pos);
 	}
 

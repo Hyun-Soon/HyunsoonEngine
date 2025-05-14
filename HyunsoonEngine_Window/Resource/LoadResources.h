@@ -104,8 +104,8 @@ namespace hs
 			ResourceManager::Load<graphics::Texture>(L"ZombieMove_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieMove_R.bmp");
 			ResourceManager::Load<graphics::Texture>(L"ZombieAttacked_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieAttacked_L.bmp");
 			ResourceManager::Load<graphics::Texture>(L"ZombieAttacked_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieAttacked_R.bmp");
-			ResourceManager::Load<graphics::Texture>(L"ZombieDeath_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieDeath_L.bmp");
-			ResourceManager::Load<graphics::Texture>(L"ZombieDeath_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieDeath_R.bmp");
+			ResourceManager::Load<graphics::Texture>(L"ZombieDeath_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieDeath_L.png");
+			ResourceManager::Load<graphics::Texture>(L"ZombieDeath_R", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/Zombie/ZombieDeath_R.png");
 
 			// JrBalrog
 			ResourceManager::Load<graphics::Texture>(L"JrBalrogIdle_L", L"../HyunsoonEngine_Window/MaplestoryResources/Monster/JrBalrog/JrBalrogIdle_L.bmp");

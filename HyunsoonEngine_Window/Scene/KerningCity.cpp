@@ -47,9 +47,13 @@ namespace hs
 		AddGameObject(player, enums::eLayerType::Player);
 
 		// Portal
-		Portal* portal = object::Instantiate<Portal>({ 1708, 1828 });
-		portal->SetName(L"ZakumRoad");
-		portal->SetDestPortalIdx(0);
+		Portal* portal = object::Instantiate<Portal>({ 250, 1490 });
+		portal->SetName(L"SouthFerry");
+		portal->SetDestPortalIdx(1);
+
+		Portal* portal1 = object::Instantiate<Portal>({ 1708, 1828 });
+		portal1->SetName(L"ZakumRoad");
+		portal1->SetDestPortalIdx(0);
 	}
 	void KerningCity::OnEnter()
 	{

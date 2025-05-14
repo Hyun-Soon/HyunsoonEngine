@@ -23,6 +23,6 @@ namespace hs
 		SceneManager::CreateScene<AlterOfZakumEnt>(L"AlterOfZakumEnt");
 		SceneManager::CreateScene<AlterOfZakum>(L"AlterOfZakum");
 
-		SceneManager::LoadScene(L"AlterOfZakum");
+		SceneManager::LoadScene(L"BeginnersTown1");
 	}
 } // namespace hs

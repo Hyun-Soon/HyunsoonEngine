@@ -46,14 +46,14 @@ namespace hs
 		AddGameObject(player, enums::eLayerType::Player);
 
 		// Monster
-		Zombie* zombie0 = object::Instantiate<Zombie>({ 350, 300 });
+		Zombie* zombie0 = object::Instantiate<Zombie>({ 350, 713 });
 		Zombie* zombie1 = object::Instantiate<Zombie>({ 1300, 700 });
 		Zombie* zombie2 = object::Instantiate<Zombie>({ 800, 1450 });
 
 		// Portal
 		Portal* portal0 = object::Instantiate<Portal>({ 200, 738 });
 		portal0->SetName(L"KerningCity");
-		portal0->SetDestPortalIdx(0);
+		portal0->SetDestPortalIdx(1);
 
 		Portal* portal1 = object::Instantiate<Portal>({ 1700, 2115 });
 		portal1->SetName(L"AlterOfZakumEnt");
