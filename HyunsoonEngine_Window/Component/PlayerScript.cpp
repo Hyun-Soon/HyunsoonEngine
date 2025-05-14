@@ -35,8 +35,8 @@ namespace hs
 		, mDuration(0.0f)
 		, mSpeed(0.0f)
 		, mTimeAfterAttacked(0.0f)
-		, mJumpVel(0.0f, -400.0f)
-		, mDoubleJumpSpeed(500.0f, -30.0f)
+		, mJumpVel(0.0f, -450.0f)
+		, mDoubleJumpSpeed(550.0f, -30.0f)
 		, mBuff(0)
 	{
 	}
@@ -109,7 +109,7 @@ namespace hs
 	{
 		Vector2 curMapSize = CollisionManager::GetActiveCollisionMap()->GetResolution();
 		Vector2 pos = mTransform->GetPosition();
-		Vector2 adjustedPos = { std::clamp<float>(pos.x, 0, curMapSize.x - 1), std::clamp<float>(pos.y, 0, curMapSize.y - 1) };
+		Vector2 adjustedPos = { std::clamp<float>(pos.x, 70, curMapSize.x - 70), std::clamp<float>(pos.y, 70, curMapSize.y - 70) };
 
 		Vector2 animSize = mAnimator->GetAnimationSize();
 
@@ -117,7 +117,6 @@ namespace hs
 		{
 			Vector2 revDir = mRigidbody->GetVelocity().Normalize() * -1;
 			adjustedPos = CollisionManager::GetPossiblePos(adjustedPos, revDir, animSize);
-			adjustedPos.x = std::clamp<float>(adjustedPos.x, 100, SceneManager::GetActiveScene()->GetCamLimit().x - 50);
 		}
 
 		if (CollisionManager::CheckCollisionMap(adjustedPos + Vector2(0, 1), animSize))
@@ -191,9 +190,12 @@ namespace hs
 
 		if (type == enums::eLayerType::Monster)
 		{
-			if (mTimeAfterAttacked < 5.0f)
+			if (mTimeAfterAttacked < 2.0f)
 				return;
-			mRigidbody->AddVelocity(mDirection * Vector2(500.0f, 0.0f) * -1.0f + Vector2(0.0f, -600.0f));
+
+			mRigidbody->SetVelocity(mDirection * Vector2(200.0f, 0.0f) * -1.0f + Vector2(0.0f, -300.0f));
+			mPlayer->SetState(Player::ePlayerState::Jump);
+			mAnimator->PlayAnimation(L"PlayerJump" + dirStrMap[mDirection]);
 			mRigidbody->SetGrounded(false);
 			mTimeAfterAttacked = 0.0f;
 		}

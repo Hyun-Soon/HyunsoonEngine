@@ -51,7 +51,7 @@ namespace hs
 		mDebuffList[1] = std::bind(&ZakumScript::accuracyDrop, this);
 		mDebuffList[2] = std::bind(&ZakumScript::skillLock, this);
 
-		SetHp(15); // debug
+		SetHp(30); // debug
 		mCooltime = RandomUtils::GetRandomValueInt(5, 7);
 		mDeathAnimDuration = 2.0f;
 
@@ -81,21 +81,21 @@ namespace hs
 
 	void ZakumScript::Render(HDC& hdc)
 	{
-		wchar_t str[50] = L"";
+		//wchar_t str[50] = L"";
 
-		std::wstring wstr;
-		if (mPhase == eZakumPhase::Phase1)
-			wstr = L"Phase1";
-		else if (mPhase == eZakumPhase::Phase2)
-			wstr = L"Phase2";
-		else
-			wstr = L"Phase3";
+		//std::wstring wstr;
+		//if (mPhase == eZakumPhase::Phase1)
+		//	wstr = L"Phase1";
+		//else if (mPhase == eZakumPhase::Phase2)
+		//	wstr = L"Phase2";
+		//else
+		//	wstr = L"Phase3";
 
-		wstr += L", Hp : " + std::to_wstring(mHp);
-		swprintf_s(str, 50, L"state : %s", wstr.c_str());
-		int len = wcsnlen_s(str, 50);
+		//wstr += L", Hp : " + std::to_wstring(mHp);
+		//swprintf_s(str, 50, L"state : %s", wstr.c_str());
+		//int len = wcsnlen_s(str, 50);
 
-		TextOut(hdc, 0, 20, str, len);
+		//TextOut(hdc, 0, 20, str, len);
 	}
 
 	// void ZakumScript::LateUpdate()
