@@ -109,7 +109,7 @@ namespace hs
 	{
 		Vector2 curMapSize = CollisionManager::GetActiveCollisionMap()->GetResolution();
 		Vector2 pos = mTransform->GetPosition();
-		Vector2 adjustedPos = { std::clamp<float>(pos.x, 70, curMapSize.x - 70), std::clamp<float>(pos.y, 70, curMapSize.y - 70) };
+		Vector2 adjustedPos = { std::clamp<float>(pos.x, 100, curMapSize.x - 70), std::clamp<float>(pos.y, 70, curMapSize.y - 70) };
 
 		Vector2 animSize = mAnimator->GetAnimationSize();
 
