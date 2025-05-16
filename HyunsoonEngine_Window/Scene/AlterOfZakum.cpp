@@ -77,9 +77,12 @@ namespace hs
 		Transform* tr = player->GetComponent<Transform>();
 		Vector2	   pos = Vector2(200.0f, 300.0f);
 		tr->SetPosition(pos);
+		AddGameObject(player, enums::eLayerType::Player);
 	}
 
 	void AlterOfZakum::OnExit()
 	{
+		std::vector<GameObject*>& objs = GetLayer(enums::eLayerType::Player)->GetGameObjects();
+		objs.erase(std::find(objs.begin(), objs.end(), Player::GetInstance()));
 	}
 } // namespace hs

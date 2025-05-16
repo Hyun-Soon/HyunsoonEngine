@@ -40,11 +40,11 @@ namespace hs
 
 		// Player
 		//  It will be executed in Scene::Enter() func later
-		Player*	   player = Player::GetInstance();
+		/*Player*	   player = Player::GetInstance();
 		Transform* tr = player->GetComponent<Transform>();
 		Vector2	   pos = Vector2(800.0f, 300.0f);
 		tr->SetPosition(pos);
-		AddGameObject(player, enums::eLayerType::Player);
+		AddGameObject(player, enums::eLayerType::Player);*/
 
 		// Portal
 		Portal* portal = object::Instantiate<Portal>({ 250, 1490 });
@@ -61,9 +61,12 @@ namespace hs
 		Transform* tr = player->GetComponent<Transform>();
 		Vector2	   pos = Vector2(200.0f, 1400.0f);
 		tr->SetPosition(pos);
+		AddGameObject(player, enums::eLayerType::Player);
 	}
 
 	void KerningCity::OnExit()
 	{
+		std::vector<GameObject*>& objs = GetLayer(enums::eLayerType::Player)->GetGameObjects();
+		objs.erase(std::find(objs.begin(), objs.end(), Player::GetInstance()));
 	}
 } // namespace hs

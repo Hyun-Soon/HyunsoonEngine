@@ -37,14 +37,6 @@ namespace hs
 		Background* bg1 = object::Instantiate<Background>();
 		bg1->SetTexture(L"bg_ZakumRoad");
 
-		// Player
-		//  It will be executed in Scene::Enter() func later
-		Player*	   player = Player::GetInstance();
-		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(800.0f, 300.0f);
-		tr->SetPosition(pos);
-		AddGameObject(player, enums::eLayerType::Player);
-
 		// Monster
 		Zombie* zombie0 = object::Instantiate<Zombie>({ 350, 713 });
 		Zombie* zombie1 = object::Instantiate<Zombie>({ 1300, 700 });
@@ -65,9 +57,12 @@ namespace hs
 		Transform* tr = player->GetComponent<Transform>();
 		Vector2	   pos = Vector2(200.0f, 100.0f);
 		tr->SetPosition(pos);
+		AddGameObject(player, enums::eLayerType::Player);
 	}
 
 	void ZakumRoad::OnExit()
 	{
+		std::vector<GameObject*>& objs = GetLayer(enums::eLayerType::Player)->GetGameObjects();
+		objs.erase(std::find(objs.begin(), objs.end(), Player::GetInstance()));
 	}
 } // namespace hs

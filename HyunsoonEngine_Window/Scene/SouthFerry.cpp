@@ -39,10 +39,6 @@ namespace hs
 		Background* terrain = object::Instantiate<Background>();
 		terrain->SetTexture(L"bg_SouthFerry");
 
-		// Player
-		Player*	   player = Player::GetInstance();
-		AddGameObject(player, enums::eLayerType::Player);
-
 		// Npc
 		Npc* shanks = object::Instantiate<Npc>(enums::eLayerType::Npc, { 3932, 1379 });
 		shanks->SetTexture(L"Shanks");
@@ -63,9 +59,12 @@ namespace hs
 		Transform* tr = player->GetComponent<Transform>();
 		Vector2	   pos = Vector2(4000.0f, 300.0f);
 		tr->SetPosition(pos);
+		AddGameObject(player, enums::eLayerType::Player);
 	}
 
 	void SouthFerry::OnExit()
 	{
+		std::vector<GameObject*>& objs = GetLayer(enums::eLayerType::Player)->GetGameObjects();
+		objs.erase(std::find(objs.begin(), objs.end(), Player::GetInstance()));
 	}
 } // namespace hs

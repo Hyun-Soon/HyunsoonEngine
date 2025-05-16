@@ -39,14 +39,6 @@ namespace hs
 		Background* terrain = object::Instantiate<Background>();
 		terrain->SetTexture(L"bg_AlterOfZakumEnt");
 
-		// Player
-		//  It will be executed in Scene::Enter() func later
-		Player*	   player = Player::GetInstance();
-		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(800.0f, 300.0f);
-		tr->SetPosition(pos);
-		AddGameObject(player, enums::eLayerType::Player);
-
 		GameObject*		   layer = object::Instantiate<GameObject>(eLayerType::Npc);
 		graphics::Texture* layerTex = ResourceManager::Find<graphics::Texture>(L"bg_AlterOfZakumEntLayer");
 		layer->GetComponent<Transform>()->SetPosition(layerTex->GetResolution());
@@ -72,9 +64,12 @@ namespace hs
 		Transform* tr = player->GetComponent<Transform>();
 		Vector2	   pos = Vector2(800.0f, 300.0f);
 		tr->SetPosition(pos);
+		AddGameObject(player, enums::eLayerType::Player);
 	}
 
 	void AlterOfZakumEnt::OnExit()
 	{
+		std::vector<GameObject*>& objs = GetLayer(enums::eLayerType::Player)->GetGameObjects();
+		objs.erase(std::find(objs.begin(), objs.end(), Player::GetInstance()));
 	}
 } // namespace hs

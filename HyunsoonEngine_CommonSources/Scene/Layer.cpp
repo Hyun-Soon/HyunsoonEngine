@@ -90,7 +90,7 @@ namespace hs
 			if (obj->HasChild())
 				destroyObjects(obj->GetChilds());
 		}
-
+			
 		std::erase_if(objs,
 			[](GameObject* gameObj) {
 				return gameObj && gameObj->IsDead();

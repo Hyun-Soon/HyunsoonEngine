@@ -39,14 +39,6 @@ namespace hs
 		Background* terrain = object::Instantiate<Background>();
 		terrain->SetTexture(L"bg_CrossRoad");
 
-		// Player
-		//  It will be executed in Scene::Enter() func later
-		Player*	   player = Player::GetInstance();
-		Transform* tr = player->GetComponent<Transform>();
-		Vector2	   pos = Vector2(200.0f, 300.0f);
-		tr->SetPosition(pos);
-		AddGameObject(player, enums::eLayerType::Player);
-
 		// Monster
 		GreenSnail* greenSnail0 = object::Instantiate<GreenSnail>({ 2300, 900 });
 
@@ -74,9 +66,12 @@ namespace hs
 		Transform* tr = player->GetComponent<Transform>();
 		Vector2	   pos = Vector2(200.0f, 300.0f);
 		tr->SetPosition(pos);
+		AddGameObject(player, enums::eLayerType::Player);
 	}
 
 	void CrossRoad::OnExit()
 	{
+		std::vector<GameObject*>& objs = GetLayer(enums::eLayerType::Player)->GetGameObjects();
+		objs.erase(std::find(objs.begin(), objs.end(), Player::GetInstance()));
 	}
 } // namespace hs

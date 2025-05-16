@@ -29,21 +29,6 @@ namespace hs
 
 	void SceneManager::Update()
 	{
-		if (Input::GetKeyDown(eKeyCode::Tab))
-		{
-			//LoadScene(L"KerningCity");
-			mActiveScene->OnExit();
-			std::unordered_map<std::wstring, Scene*>::iterator it = mScenes.find(mActiveScene->GetName());
-			if (it != mScenes.end())
-			{
-				++it;
-				if (it == mScenes.end())
-					mActiveScene = (mScenes.begin())->second;
-				else
-					mActiveScene = it->second;
-			}
-			mActiveScene->OnEnter();
-		}
 		mActiveScene->Update();
 	}
 

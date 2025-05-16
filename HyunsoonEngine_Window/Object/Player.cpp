@@ -93,8 +93,6 @@ namespace hs
 
 		Rigidbody* rigidbody = AddComponent<Rigidbody>();
 		rigidbody->SetGravity(true);
-		// Vector2 temp = { 100.0f, -10.0f };
-		// rigidbody->AddVelocity(temp);
 
 		PlayerScript* ps = AddComponent<PlayerScript>();
 

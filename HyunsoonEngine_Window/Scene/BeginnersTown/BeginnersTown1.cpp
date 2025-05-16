@@ -42,14 +42,14 @@ namespace hs
 		}
 
 		// Player
-		{
-			//  It will be executed in Scene::Enter() func later
-			Player*	   player = Player::GetInstance();
-			//Transform* tr = player->GetComponent<Transform>();
-			//Vector2	   pos = Vector2(300.0f, 800.0f);
-			//tr->SetPosition(pos);
-			AddGameObject(player, enums::eLayerType::Player);
-		}
+		//{
+		//	//  It will be executed in Scene::Enter() func later
+		//	Player*	   player = Player::GetInstance();
+		//	//Transform* tr = player->GetComponent<Transform>();
+		//	//Vector2	   pos = Vector2(300.0f, 800.0f);
+		//	//tr->SetPosition(pos);
+		//	AddGameObject(player, enums::eLayerType::Player);
+		//}
 
 		// Monster
 		{
@@ -70,8 +70,11 @@ namespace hs
 		Transform* tr = player->GetComponent<Transform>();
 		Vector2	   pos = Vector2(400.0f, 300.0f);
 		tr->SetPosition(pos);
+		AddGameObject(player, enums::eLayerType::Player);
 	}
 	void BeginnersTown1::OnExit()
 	{
+		std::vector<GameObject*>& objs = GetLayer(enums::eLayerType::Player)->GetGameObjects();
+		objs.erase(std::find(objs.begin(), objs.end(), Player::GetInstance()));
 	}
 } // namespace hs
